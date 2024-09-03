@@ -1,12 +1,12 @@
 'use client'
-import {ActionIcon, useComputedColorScheme, useMantineColorScheme} from "@mantine/core";
-import {IconMoon, IconSun} from "@tabler/icons-react";
+import { ActionIcon, useComputedColorScheme, useMantineColorScheme } from '@mantine/core'
+import { IconMoon, IconSun } from '@tabler/icons-react'
 
 export const ThemeToggleButton = () => {
   const { setColorScheme, clearColorScheme } = useMantineColorScheme({
     keepTransitions: true,
-  });
-  const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
+  })
+  const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true })
   const isLight = computedColorScheme === 'light'
 
   return (
@@ -14,8 +14,8 @@ export const ThemeToggleButton = () => {
       style={{
         position: 'fixed',
         top: '10px',
-        right : '10px',
-        zIndex: 9999
+        right: '10px',
+        zIndex: 9999,
       }}
     >
       <ActionIcon
@@ -24,8 +24,8 @@ export const ThemeToggleButton = () => {
         aria-label="Toggle color scheme"
         onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
       >
-        <IconSun  stroke={1.5} />
-        <IconMoon  stroke={1.5} />
+        <IconSun stroke={1.5} />
+        <IconMoon stroke={1.5} />
       </ActionIcon>
     </div>
   )

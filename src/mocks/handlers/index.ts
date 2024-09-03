@@ -1,5 +1,3 @@
-import { postsHandler } from "./home";
+import { postsHandler } from './home'
 
-export const handlers = [
-  ...postsHandler,
-]
+export const handlers = [...postsHandler]

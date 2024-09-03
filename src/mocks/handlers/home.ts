@@ -1,5 +1,5 @@
-import { http, HttpResponse, } from 'msw'
-import { postsMockData } from "../model";
+import { http, HttpResponse } from 'msw'
+import { postsMockData } from '../model'
 
 export const postsHandler = [
   http.get('/posts', () => {

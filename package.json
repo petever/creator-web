@@ -8,7 +8,9 @@
     "test:coverage": "vitest run --coverage",
     "lint": "next lint",
     "mock": "npx tsx watch ./src/mocks/http.ts",
-    "dev:mock": "yarn run dev & yarn run mock"
+    "dev:mock": "yarn run dev & yarn run mock",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
     "@mantine/core": "^7.12.2",
@@ -37,10 +39,12 @@
     "express": "^4.19.2",
     "jsdom": "^23.0.1",
     "msw": "^2.4.1",
+    "prettier": "^3.3.3",
     "typescript": "5.3.3",
     "vitest": "^2.0.5"
   },
   "msw": {
     "workerDirectory": "public"
-  }
+  },
+  "packageManager": "yarn@4.4.1"
 }

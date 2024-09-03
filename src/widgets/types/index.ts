@@ -1,13 +1,12 @@
 export interface Label {
-  label : string
-  href : string
-  icon ?: string
-  disabled ?: boolean
+  label: string
+  href: string
+  icon?: string
+  disabled?: boolean
 }
 
-
 export interface Avatars {
-  src? : string
+  src?: string
   alt?: string
-  name ?: string
+  name?: string
 }
