@@ -1,6 +1,7 @@
 import {Button, Flex, MantineProvider, useMantineColorScheme} from "@mantine/core";
 import '@mantine/core/styles.css';
 import {Sidebar} from "../widgets/ui/Sidebar";
+import { ThemeToggleButton} from "../widgets/ui/ThemeToggleButton";
 
 export default function RootLayout({
   children,
@@ -12,10 +13,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <MantineProvider defaultColorScheme="dark">
+          <Sidebar isLogin={false}/>
           <Flex
             gap='xl'
           >
-            <Sidebar isLogin={false}/>
+            <ThemeToggleButton/>
             <Flex
               flex='3'
             >
