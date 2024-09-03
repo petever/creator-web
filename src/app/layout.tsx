@@ -9,7 +9,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <MantineProvider defaultColorScheme="dark">
           {children}
-          <MSWComponent />
+          {/*<MSWComponent />*/}
         </MantineProvider>
       </body>
     </html>
