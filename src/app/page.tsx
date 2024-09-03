@@ -1,7 +1,14 @@
+import {Button, Container, Grid, Input} from "@mantine/core";
+
 export const metadata = {
-  title: "App Router",
+  title: "크리에이터 구독",
 };
 
 export default function Page() {
-  return <h1>App Router</h1>;
+  return (
+    <Container>
+      <Input size="md" radius="md" placeholder="Login" />
+      <Button variant="filled" color="lime" size='md' fullWidth>LOGIN</Button>
+    </Container>
+  );
 }
