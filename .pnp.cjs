@@ -29,12 +29,14 @@ const RAW_RUNTIME_STATE =
           ["@mantine/core", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.12.2"],\
           ["@mantine/hooks", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.12.2"],\
           ["@mswjs/http-middleware", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:0.10.1"],\
+          ["@tabler/icons-react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:3.14.0"],\
           ["@testing-library/react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:14.1.2"],\
           ["@types/cors", "npm:2.8.17"],\
           ["@types/eslint", "npm:9.6.1"],\
           ["@types/express", "npm:4.17.21"],\
           ["@types/node", "npm:20.10.4"],\
           ["@types/react", "npm:18.3.5"],\
+          ["@types/react-dom", "npm:18.3.0"],\
           ["@vitejs/plugin-react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:4.3.1"],\
           ["@vitest/coverage-v8", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.0.5"],\
           ["cors", "npm:2.8.5"],\
@@ -725,7 +727,7 @@ const RAW_RUNTIME_STATE =
           ["@floating-ui/react-dom", "virtual:c02c4ff05dd777b99da19bf2c881de33c531cdc80cbced72cfd3f27f65955250f49de0f152e54a18fc45c5c10586e7912263b684888eaf853c64a5396f581597#npm:2.1.1"],\
           ["@floating-ui/utils", "npm:0.2.7"],\
           ["@types/react", "npm:18.3.5"],\
-          ["@types/react-dom", null],\
+          ["@types/react-dom", "npm:18.3.0"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:18.3.1"],\
           ["tabbable", "npm:6.2.0"]\
@@ -753,7 +755,7 @@ const RAW_RUNTIME_STATE =
           ["@floating-ui/react-dom", "virtual:c02c4ff05dd777b99da19bf2c881de33c531cdc80cbced72cfd3f27f65955250f49de0f152e54a18fc45c5c10586e7912263b684888eaf853c64a5396f581597#npm:2.1.1"],\
           ["@floating-ui/dom", "npm:1.6.10"],\
           ["@types/react", "npm:18.3.5"],\
-          ["@types/react-dom", null],\
+          ["@types/react-dom", "npm:18.3.0"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:18.3.1"]\
         ],\
@@ -998,7 +1000,7 @@ const RAW_RUNTIME_STATE =
           ["@mantine/hooks", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.12.2"],\
           ["@types/mantine__hooks", null],\
           ["@types/react", "npm:18.3.5"],\
-          ["@types/react-dom", null],\
+          ["@types/react-dom", "npm:18.3.0"],\
           ["clsx", "npm:2.1.1"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:18.3.1"],\
@@ -1426,6 +1428,38 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@tabler/icons", [\
+      ["npm:3.14.0", {\
+        "packageLocation": "../../../../Users/sinqh/AppData/Local/Yarn/Berry/cache/@tabler-icons-npm-3.14.0-2fb24daef6-10c0.zip/node_modules/@tabler/icons/",\
+        "packageDependencies": [\
+          ["@tabler/icons", "npm:3.14.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tabler/icons-react", [\
+      ["npm:3.14.0", {\
+        "packageLocation": "../../../../Users/sinqh/AppData/Local/Yarn/Berry/cache/@tabler-icons-react-npm-3.14.0-9b49e7a533-10c0.zip/node_modules/@tabler/icons-react/",\
+        "packageDependencies": [\
+          ["@tabler/icons-react", "npm:3.14.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:3.14.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tabler-icons-react-virtual-6579cca5db/5/Users/sinqh/AppData/Local/Yarn/Berry/cache/@tabler-icons-react-npm-3.14.0-9b49e7a533-10c0.zip/node_modules/@tabler/icons-react/",\
+        "packageDependencies": [\
+          ["@tabler/icons-react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:3.14.0"],\
+          ["@tabler/icons", "npm:3.14.0"],\
+          ["@types/react", "npm:18.3.5"],\
+          ["react", "npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@testing-library/dom", [\
       ["npm:9.3.4", {\
         "packageLocation": "../../.yarn/berry/cache/@testing-library-dom-npm-9.3.4-cfb609c4fc-10c0.zip/node_modules/@testing-library/dom/",\
@@ -1463,6 +1497,7 @@ const RAW_RUNTIME_STATE =
           ["react-dom", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:18.3.1"]\
         ],\
         "packagePeers": [\
+          "@types/react-dom",\
           "@types/react",\
           "react-dom",\
           "react"\
@@ -4593,7 +4628,7 @@ const RAW_RUNTIME_STATE =
           ["@types/opentelemetry__api", null],\
           ["@types/playwright__test", null],\
           ["@types/react", "npm:18.3.5"],\
-          ["@types/react-dom", null],\
+          ["@types/react-dom", "npm:18.3.0"],\
           ["@types/sass", null],\
           ["busboy", "npm:1.6.0"],\
           ["caniuse-lite", "npm:1.0.30001655"],\
@@ -5145,7 +5180,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["react-number-format", "virtual:9010cf0105cf5153cdf8b8ead4d0979ba154bcd57f96fde05eb4345d044901003239c91f2f68da4902b1d6b408999dd361ec14096cf2f3cfd545b35f28cbf1c5#npm:5.4.1"],\
           ["@types/react", "npm:18.3.5"],\
-          ["@types/react-dom", null],\
+          ["@types/react-dom", "npm:18.3.0"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:18.3.1"]\
         ],\
@@ -5379,12 +5414,14 @@ const RAW_RUNTIME_STATE =
           ["@mantine/core", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.12.2"],\
           ["@mantine/hooks", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.12.2"],\
           ["@mswjs/http-middleware", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:0.10.1"],\
+          ["@tabler/icons-react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:3.14.0"],\
           ["@testing-library/react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:14.1.2"],\
           ["@types/cors", "npm:2.8.17"],\
           ["@types/eslint", "npm:9.6.1"],\
           ["@types/express", "npm:4.17.21"],\
           ["@types/node", "npm:20.10.4"],\
           ["@types/react", "npm:18.3.5"],\
+          ["@types/react-dom", "npm:18.3.0"],\
           ["@vitejs/plugin-react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:4.3.1"],\
           ["@vitest/coverage-v8", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.0.5"],\
           ["cors", "npm:2.8.5"],\
