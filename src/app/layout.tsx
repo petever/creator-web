@@ -1,19 +1,12 @@
-import {Button, Flex, MantineProvider, useMantineColorScheme} from "@mantine/core";
+import {, Flex, MantineProvider} from "@mantine/core";
 import '@mantine/core/styles.css';
 import {Sidebar} from "../widgets/ui/Sidebar";
 import { ThemeToggleButton} from "../widgets/ui/ThemeToggleButton";
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-import { MantineProvider } from '@mantine/core'
 import '@mantine/core/styles.css'
 import { MSWComponent } from '../mocks/MSWComponent'
 import { ReactNode } from 'react'
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
