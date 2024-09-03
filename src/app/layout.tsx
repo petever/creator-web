@@ -1,5 +1,6 @@
-import {Button, MantineProvider, useMantineColorScheme} from "@mantine/core";
+import {Button, Flex, MantineProvider, useMantineColorScheme} from "@mantine/core";
 import '@mantine/core/styles.css';
+import {Sidebar} from "../widgets/ui/Sidebar";
 
 export default function RootLayout({
   children,
@@ -11,7 +12,16 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <MantineProvider defaultColorScheme="dark">
-          {children}
+          <Flex
+            gap='xl'
+          >
+            <Sidebar isLogin={false}/>
+            <Flex
+              flex='3'
+            >
+              {children}
+            </Flex>
+          </Flex>
         </MantineProvider>
       </body>
     </html>
