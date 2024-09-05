@@ -1,7 +1,6 @@
 import { NavLink } from '@mantine/core'
 import { IconHome2 } from '@tabler/icons-react'
-import { SIDEBARS } from '../../constants'
-import { useColorScheme } from '@mantine/hooks'
+import { SIDEBARS } from '../constants'
 
 interface SidebarProps {
   isLogin?: boolean

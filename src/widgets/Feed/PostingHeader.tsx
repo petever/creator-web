@@ -1,11 +1,12 @@
 import { AvatarList } from '../AvartarList'
-import { Avatars } from '../../types'
+import { Avatars } from '../types'
 import { ActionIcon, Flex } from '@mantine/core'
 import { IconDots } from '@tabler/icons-react'
 
 interface PostingHeaderProps {
   profile: Avatars
 }
+
 export const PostingHeader = ({ profile }: PostingHeaderProps) => {
   return (
     <Flex

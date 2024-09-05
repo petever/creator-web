@@ -1,5 +1,5 @@
 import { Button, Container, Flex, Input } from '@mantine/core'
-import { Feed } from '../widgets/ui/Feed'
+import { Feed } from '../widgets/Feed'
 import { AvatarList } from '../widgets'
 import { DummyAvatar } from '../widgets/constants/dummy'
 

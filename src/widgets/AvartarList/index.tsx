@@ -1,11 +1,12 @@
-import { Avatars } from '../../types'
+import { Avatars } from '../types'
 import { Group } from '@mantine/core'
-import { Profile } from '../../../features/ui/Profile'
+import { Profile } from 'features/Profile'
 
 interface AvatarListProps {
   avatars: Avatars[]
   maxLength?: number
 }
+
 export const AvatarList = ({ avatars, maxLength }: AvatarListProps) => {
   if (!avatars) return null
 

@@ -1,10 +1,11 @@
-import { Avatar, AvatarGroup, Button, Group } from '@mantine/core'
-import { Avatars } from '../../../widgets/types'
+import { Avatar, Button, Group } from '@mantine/core'
+import { Avatars } from '@/widgets/types'
 
 interface ProfileProps {
   profile: Avatars
   onClick?: () => void
 }
+
 export const Profile = ({ profile, onClick }: ProfileProps) => {
   if (!profile) return null
 

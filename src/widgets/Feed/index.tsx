@@ -1,13 +1,14 @@
-import { Avatar, Flex, Image } from '@mantine/core'
-import { FeedButtons, Profile } from '../../../features'
-import { DummyAvatar } from '../../constants/dummy'
+import { Flex, Image } from '@mantine/core'
+import { FeedButtons } from '@/features/index'
+import { DummyAvatar } from '../constants/dummy'
 import { AvatarList } from '../AvartarList'
 import { PostingHeader } from './PostingHeader'
-import { Avatars } from '../../types'
+import { Avatars } from '../types'
 
 interface FeedProps {
   profile: Avatars
 }
+
 export const Feed = ({ profile }: FeedProps) => {
   return (
     <Flex align="flex-start" direction="column" gap="sm" flex="1 1 100%" justify="center">

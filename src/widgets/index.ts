@@ -1,4 +1,4 @@
-export { Sidebar } from './ui/Sidebar'
-export { Feed } from './ui/Feed'
-export { AvatarList } from './ui/AvartarList'
-export { ThemeToggleButton } from './ui/ThemeToggleButton'
+export { Sidebar } from './Sidebar'
+export { Feed } from './Feed'
+export { AvatarList } from './AvartarList'
+export { ThemeToggleButton } from './ThemeToggleButton'
