@@ -1,0 +1,13 @@
+.wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  border-right: 1px solid #bebebe
+}
+
+.menu {
+  flex : 1 1 100%;
+  padding: 10px;
+}

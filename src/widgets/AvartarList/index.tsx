@@ -1,6 +1,6 @@
 import { Avatars } from '../types'
 import { Group } from '@mantine/core'
-import { Profile } from 'features/Profile'
+import {Profile} from "@/features";
 
 interface AvatarListProps {
   avatars: Avatars[]
@@ -13,9 +13,6 @@ export const AvatarList = ({ avatars, maxLength }: AvatarListProps) => {
   return (
     <Group
       wrap={'nowrap'}
-      style={{
-        overflowX: !maxLength && 'auto',
-      }}
     >
       {avatars?.map((avatar: Avatars, avatarIndex) => {
         return <Profile profile={avatar} />

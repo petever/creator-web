@@ -8,13 +8,10 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
     <html lang="ko">
       <body>
         <MantineProvider defaultColorScheme="dark">
+          <ThemeToggleButton />
           <Sidebar isLogin={false} />
-          <Flex gap="xl">
-            <ThemeToggleButton />
-            <Flex flex="3">{children}</Flex>
-          </Flex>
-          {children}
           {/*<MSWComponent />*/}
+          {children}
         </MantineProvider>
       </body>
     </html>
