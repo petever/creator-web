@@ -6,7 +6,7 @@ import { PostingHeader } from './PostingHeader'
 import { Avatars } from '../types'
 
 interface FeedProps {
-  profile: Avatars
+  profile?: Avatars
 }
 
 export const Feed = ({ profile }: FeedProps) => {

@@ -1,11 +1,11 @@
 import { Flex, MantineProvider } from '@mantine/core'
 import '@mantine/core/styles.css'
-import { Sidebar } from '../widgets/Sidebar'
-import { ThemeToggleButton } from '../widgets/ThemeToggleButton'
+import { Sidebar } from '@/widgets/Sidebar'
+import { ThemeToggleButton } from '@/widgets/ThemeToggleButton'
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body>
         <MantineProvider defaultColorScheme="dark">
           <Sidebar isLogin={false} />

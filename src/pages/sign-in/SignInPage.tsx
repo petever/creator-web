@@ -1,6 +1,6 @@
 import { Button, Center, Container, Input } from '@mantine/core'
 
-export default function signInPage() {
+const SignInPage = () => {
   return (
     <>
       SignIn
@@ -15,3 +15,5 @@ export default function signInPage() {
     </>
   )
 }
+
+export default SignInPage
