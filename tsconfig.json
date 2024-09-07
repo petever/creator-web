@@ -34,7 +34,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
+  "types": ["vitest/globals"],
   "exclude": [
     "node_modules"
   ]
 }
+

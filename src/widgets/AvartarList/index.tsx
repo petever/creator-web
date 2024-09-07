@@ -15,7 +15,7 @@ export const AvatarList = ({ avatars, maxLength }: AvatarListProps) => {
       wrap={'nowrap'}
     >
       {avatars?.map((avatar: Avatars, avatarIndex) => {
-        return <Profile profile={avatar} />
+        return <Profile profile={avatar} key={`avatar_${avatarIndex}`}/>
       })}
     </Group>
   )
