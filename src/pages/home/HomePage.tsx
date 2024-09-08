@@ -7,6 +7,7 @@ import SignInPage from "@/pages/sign-in/SignInPage";
 const HomePage = () => {
     return (
         <Container size="xs">
+            Feed
             <AvatarList avatars={DummyAvatar} />
             <Flex wrap={'wrap'} gap={'50px'}>
                 <Feed />
