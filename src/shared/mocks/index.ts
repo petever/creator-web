@@ -1,5 +1,4 @@
-import todoMock from "@/shared/mocks/loginMock";
+import loginMock from '@/shared/mocks/loginMock'
+import feedMock from '@/shared/mocks/feedMock'
 
-export const mocks = [
-  todoMock
-]
+export const mocks = [loginMock, feedMock]

@@ -1,5 +1,5 @@
 import { Button, Center, Container, Input } from '@mantine/core'
-import {alova} from "@/shared/model/alova";
+import { alova } from '@/shared/model/alova'
 
 const SignInPage = () => {
   const initialData = alova.Post('/login')

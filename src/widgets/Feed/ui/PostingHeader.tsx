@@ -1,5 +1,5 @@
-import { AvatarList } from '../AvartarList'
-import { Avatars } from '../types'
+import { AvatarList } from '../../AvartarList/ui'
+import { Avatars } from '../../types'
 import { ActionIcon, Flex } from '@mantine/core'
 import { IconDots } from '@tabler/icons-react'
 
@@ -15,7 +15,7 @@ export const PostingHeader = ({ profile }: PostingHeaderProps) => {
         width: '100%',
       }}
     >
-      <AvatarList avatars={[profile]} />
+      {/*<AvatarList avatars={[profile]} />*/}
       <ActionIcon variant="subtle" color="gray" size="xl" aria-label="Toggle color scheme">
         <IconDots />
       </ActionIcon>

@@ -1,19 +1,23 @@
 'use client'
-import {AvatarList, Feed} from "@/widgets";
-import {DummyAvatar} from "@/widgets/constants/dummy";
-import {Container, Flex} from "@mantine/core";
-import SignInPage from "@/pages/sign-in/SignInPage";
+import { AvatarList, Feed } from '@/widgets'
+import { Container, Flex } from '@mantine/core'
+import { DummyAvatar } from '@/widgets/AvartarList/constants/dummy'
 
 const HomePage = () => {
-    return (
-        <Container size="xs">
-            Feed
-            <AvatarList avatars={DummyAvatar} />
-            <Flex wrap={'wrap'} gap={'50px'}>
-                <Feed />
-            </Flex>
-        </Container>
-    )
+  return (
+    <div>
+      <Container size="xs">
+        Feed
+        <AvatarList avatars={DummyAvatar} maxLength={3} />
+        <Flex wrap={'wrap'}>
+          <Feed />
+					<Feed />
+					<Feed />
+					<Feed />
+        </Flex>
+      </Container>
+    </div>
+  )
 }
 
 export default HomePage

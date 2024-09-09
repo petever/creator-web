@@ -1,24 +1,26 @@
-import { Label } from '../types'
+import { Label } from '../../types'
 
 export const SIDEBARS: Label[] = [
   {
     icon: '',
-    href: '',
+    href: '/',
     label: '홈',
     disabled: false,
   },
   {
     icon: '',
-    href: '',
+    href: '/explore',
     label: '탐색',
     disabled: false,
   },
+	// 검색 : 버튼
   {
     icon: '',
     href: '',
     label: '검색',
     disabled: false,
   },
+	// 알림 : 버튼
   {
     icon: '',
     href: '',
@@ -27,7 +29,7 @@ export const SIDEBARS: Label[] = [
   },
   {
     icon: '',
-    href: '',
+    href: '/message',
     label: '메세지',
     disabled: false,
   },
