@@ -1,21 +1,16 @@
 'use client'
-import { AvatarList, Feed } from '@/widgets'
-import { Container, Flex } from '@mantine/core'
-import { DummyAvatar } from '@/widgets/AvartarList/constants/dummy'
+import {Grid} from '@mantine/core'
+import classes from './styles.module.css'
+import {Contents} from "@/pages/home/Contents";
+import {RecommendList} from "@/shared/RecommentList/ui/RecommendList";
 
 const HomePage = () => {
   return (
-    <div>
-      <Container size="xs">
-        Feed
-        <AvatarList avatars={DummyAvatar} maxLength={3} />
-        <Flex wrap={'wrap'}>
-          <Feed />
-					<Feed />
-					<Feed />
-					<Feed />
-        </Flex>
-      </Container>
+    <div className={classes.wrapper}>
+      <Grid>
+        <Contents/>
+        <RecommendList span={3}/>
+      </Grid>
     </div>
   )
 }

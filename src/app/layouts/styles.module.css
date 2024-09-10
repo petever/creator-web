@@ -1,0 +1,12 @@
+.wrap {
+  display:flex;
+}
+
+@media screen and (min-width: 1260px) {
+  .wrap{
+    width:1400px;
+    margin:0 auto;
+  }
+}
+
+

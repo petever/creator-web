@@ -1,0 +1,14 @@
+.wrapper {
+  margin-top:50px;
+  padding:12px;
+  border-radius: 6px;
+  background: var(--mantine-color-text);
+}
+
+.title{
+  color:var(--mantine-color-body)
+}
+
+.recommend {
+  color:var(--mantine-color-body)
+}

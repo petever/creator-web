@@ -6,7 +6,7 @@ import { Sidebar } from '@/widgets/Sidebar/ui'
 import { ThemeToggleButton } from '@/widgets/ThemeToggleButton/ui'
 import Head from 'next/head'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import classes from './layout.module.css'
+import classes from './styles.module.css'
 
 export function RootLayout({ children }: { children: React.ReactNode }) {
   const queryClient = new QueryClient()
@@ -20,10 +20,10 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
         <MantineProvider defaultColorScheme="dark">
           <QueryClientProvider client={queryClient}>
             <ThemeToggleButton />
-            <Sidebar />
-            {/*<MSWComponent />*/}
-						<div className={classes.wrap}>
-							{children}
+            <div className={classes.wrap}>
+              <Sidebar />
+              {/*<MSWComponent />*/}
+                {children}
 						</div>
           </QueryClientProvider>
         </MantineProvider>

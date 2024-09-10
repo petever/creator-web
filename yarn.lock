@@ -4744,6 +4744,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-loading-skeleton@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "react-loading-skeleton@npm:3.4.0"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 10c0/dca2c60d38abd57e658ff5abb02cf62c08b51e09e4c83e107a1fec3ad58d6f0068846b4149ee452d472e35c831b31a00e8cdbdb066dd35c8b47b803fbad1f834
+  languageName: node
+  linkType: hard
+
 "react-number-format@npm:^5.3.1":
   version: 5.4.1
   resolution: "react-number-format@npm:5.4.1"
@@ -5031,6 +5040,7 @@ __metadata:
     prettier: "npm:^3.3.3"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
+    react-loading-skeleton: "npm:^3.4.0"
     server-only: "npm:^0.0.1"
     swiper: "npm:^11.1.12"
     typescript: "npm:5.3.3"

@@ -20,7 +20,7 @@ export const Feed = ({ profile }: FeedProps) => {
   }
 
   return (
-    <Container fluid>
+    <Container size="xl">
       <PostingHeader profile={DummyAvatar[0]} />
       <Image
         radius="md"
@@ -30,7 +30,6 @@ export const Feed = ({ profile }: FeedProps) => {
       <FeedButtons id={'feedId_01'} onDetailModal={handleDetailOpen} />
       <CommentSummary/>
 			<Button>댓글 0개 보기</Button>
-			<CommentInput/>
       <FeedDetail opened={opened} onClose={close} />
 			<Divider my="md"/>
     </Container>

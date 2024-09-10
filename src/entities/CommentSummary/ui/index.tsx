@@ -1,4 +1,5 @@
 import {Avatar, Flex} from '@mantine/core'
+import {Profile} from "@/features";
 
 export const CommentSummary = () => {
   return (
@@ -6,7 +7,9 @@ export const CommentSummary = () => {
 			align='center'
 			gap='sm'
 		>
-      <Avatar />
+      <Profile profile={{
+        name : 'shinbom'
+      }}/>
 			<span>좋아요 100개</span>
     </Flex>
   )
