@@ -692,6 +692,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mantine/form@npm:^7.12.2":
+  version: 7.12.2
+  resolution: "@mantine/form@npm:7.12.2"
+  dependencies:
+    fast-deep-equal: "npm:^3.1.3"
+    klona: "npm:^2.0.6"
+  peerDependencies:
+    react: ^18.2.0
+  checksum: 10c0/6c742b2d498fb94bb81085a53c8304eb2d6cc59b3f89be0f73857c0cb13eeb38eb4f385b549b14573ef80cf905c8174f2f98603470c11a60dfcfb8d15a44b08c
+  languageName: node
+  linkType: hard
+
 "@mantine/hooks@npm:^7.12.2":
   version: 7.12.2
   resolution: "@mantine/hooks@npm:7.12.2"
@@ -978,6 +990,24 @@ __metadata:
   version: 3.14.0
   resolution: "@tabler/icons@npm:3.14.0"
   checksum: 10c0/58aabf1b6843c2983ec7028d6f19e1e70e3ea786a5a966851c83567f0263c2fec39068e91383880dddb7e60844bb0a039556c9c8ac6c91f537ac238035dbfd3b
+  languageName: node
+  linkType: hard
+
+"@tanstack/query-core@npm:5.55.2":
+  version: 5.55.2
+  resolution: "@tanstack/query-core@npm:5.55.2"
+  checksum: 10c0/158e8a2daec231fb83220cbfbed73c82ea35952eeae2191fa880fd50b3a85212cc94b38d6da61eee9fcb66cb294745ea4446e5613c4280d64c4eab97bfefd4eb
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.55.2":
+  version: 5.55.2
+  resolution: "@tanstack/react-query@npm:5.55.2"
+  dependencies:
+    "@tanstack/query-core": "npm:5.55.2"
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 10c0/0ff8de2b62f49a1734e6aa968c255aaf6c2951cb9db78718560603887db7a3b0a39670001fcbfcff7422e5d1f8ae16302521c630aef5f2ea8cb9a8e0a4dffa23
   languageName: node
   linkType: hard
 
@@ -3829,6 +3859,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"klona@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "klona@npm:2.0.6"
+  checksum: 10c0/94eed2c6c2ce99f409df9186a96340558897b3e62a85afdc1ee39103954d2ebe1c1c4e9fe2b0952771771fa96d70055ede8b27962a7021406374fdb695fd4d01
+  languageName: node
+  linkType: hard
+
 "levn@npm:^0.4.1":
   version: 0.4.1
   resolution: "levn@npm:0.4.1"
@@ -4820,6 +4857,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-loading-skeleton@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "react-loading-skeleton@npm:3.4.0"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 10c0/dca2c60d38abd57e658ff5abb02cf62c08b51e09e4c83e107a1fec3ad58d6f0068846b4149ee452d472e35c831b31a00e8cdbdb066dd35c8b47b803fbad1f834
+  languageName: node
+  linkType: hard
+
 "react-number-format@npm:^5.3.1":
   version: 5.4.1
   resolution: "react-number-format@npm:5.4.1"
@@ -5079,8 +5125,10 @@ __metadata:
     "@alova/mock": "npm:^2.0.6"
     "@eslint/js": "npm:^9.9.1"
     "@mantine/core": "npm:^7.12.2"
+    "@mantine/form": "npm:^7.12.2"
     "@mantine/hooks": "npm:^7.12.2"
     "@tabler/icons-react": "npm:^3.14.0"
+    "@tanstack/react-query": "npm:^5.55.2"
     "@testing-library/dom": "npm:^10.4.0"
     "@testing-library/jest-dom": "npm:^6.5.0"
     "@testing-library/react": "npm:^16.0.1"
@@ -5106,7 +5154,9 @@ __metadata:
     prettier: "npm:^3.3.3"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
+    react-loading-skeleton: "npm:^3.4.0"
     server-only: "npm:^0.0.1"
+    swiper: "npm:^11.1.12"
     typescript: "npm:5.3.3"
     typescript-eslint: "npm:^8.4.0"
     vite: "npm:^5.4.2"
@@ -5569,6 +5619,13 @@ __metadata:
   version: 1.0.0
   resolution: "supports-preserve-symlinks-flag@npm:1.0.0"
   checksum: 10c0/6c4032340701a9950865f7ae8ef38578d8d7053f5e10518076e6554a9381fa91bd9c6850193695c141f32b21f979c985db07265a758867bac95de05f7d8aeb39
+  languageName: node
+  linkType: hard
+
+"swiper@npm:^11.1.12":
+  version: 11.1.12
+  resolution: "swiper@npm:11.1.12"
+  checksum: 10c0/0d8047dbbf79c35f3515d12c77dc5f82d911add0b7e4ca74a8d351cb572c3a327adc3b10ac10f11571205b8071037537edcb81763808a60e4b6d0a81efebc851
   languageName: node
   linkType: hard
 
