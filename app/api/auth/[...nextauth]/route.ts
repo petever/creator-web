@@ -20,7 +20,6 @@ const handler = NextAuth({
         socialType: 'GOOGLE',
       }
       const data = await login(payload)
-      console.log(data.accessToken)
       return !!data.accessToken
     },
   },
