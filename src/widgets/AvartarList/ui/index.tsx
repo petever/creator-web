@@ -16,7 +16,7 @@ export const AvatarList = ({ avatars, maxLength }: AvatarListProps) => {
       {avatars?.map((avatar: Avatars, avatarIndex) => {
         return (
           <SwiperSlide key={`recommend_${avatarIndex}`}>
-            <Profile profile={avatar} key={`avatar_${avatarIndex}`} />
+            <Profile profile={avatar} size="sm" key={`avatar_${avatarIndex}`} />
           </SwiperSlide>
         )
       })}

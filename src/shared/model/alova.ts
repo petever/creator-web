@@ -7,10 +7,10 @@ export const alova = createAlova({
   baseURL: 'http://rumor-lab.com',
   statesHook: ReactHook,
   requestAdapter: process.env.NODE_ENV === 'production' ? fetchAdapter() : mockAdapter,
-  responded: (response) => {
+  responded: async (response) => {
     if (response.status !== 200) {
       throw new Error(`[${response.status}]${response.statusText}`)
     }
-    return response.json()
+    return await response.json()
   },
 })
