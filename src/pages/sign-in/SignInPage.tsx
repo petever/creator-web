@@ -1,5 +1,7 @@
+'use client'
 import { Button, Center, Container, Input } from '@mantine/core'
-import {alova} from "@/shared/model/alova";
+import { alova } from '@/shared/model/alova'
+import { signIn } from 'next-auth/react'
 
 const SignInPage = () => {
   const initialData = alova.Post('/login')
@@ -10,10 +12,9 @@ const SignInPage = () => {
       SignIn
       <Container>
         <Center>
-          <Input size="md" radius="md" placeholder="Login" />
-          <Button variant="filled" color="lime" size="md" fullWidth>
-            LOGIN
-          </Button>
+          <button type="button" onClick={() => signIn('google')}>
+            SignIn
+          </button>
         </Center>
       </Container>
     </>
