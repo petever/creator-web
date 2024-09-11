@@ -1,4 +1,4 @@
-import { Label } from '../../types'
+import { Label } from '../../../widgets/types'
 import {IconBell, IconCompass, IconHome2, IconSearch, IconSend} from '@tabler/icons-react'
 
 export const SIDEBARS: Label[] = [

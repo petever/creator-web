@@ -2,7 +2,7 @@
 
 import { MantineProvider } from '@mantine/core'
 import '@mantine/core/styles.css'
-import { Sidebar } from '@/widgets/Sidebar/ui'
+import { Sidebar } from '@/shared/Sidebar/ui'
 import { ThemeToggleButton } from '@/widgets/ThemeToggleButton/ui'
 import Head from 'next/head'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'

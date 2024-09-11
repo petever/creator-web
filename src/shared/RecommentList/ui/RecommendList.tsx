@@ -5,20 +5,24 @@ import { useRequest } from 'alova/client'
 import { Loading } from '@/shared/RecommentList/ui/Loading'
 import { Profile } from '@/features'
 import { Recommend } from '@/shared/RecommentList/types'
+import {useMediaQuery} from "@mantine/hooks";
 
 interface RecommendListProps {
   span?: number
 }
 
 export const RecommendList = ({ span = 1 }: RecommendListProps) => {
+  const isMobile = useMediaQuery('(max-width: 760px)')
   const { loading, data } = useRequest(getRecommend())
+
+  if(isMobile) return null
 
   if (loading) {
     return <Loading />
   }
 
   return (
-    <Grid.Col span={span}>
+    <div>
       <div className={classes.wrapper}>
         <Title order={4} className={classes.title}>
           회원님을 위한 추천
@@ -36,6 +40,6 @@ export const RecommendList = ({ span = 1 }: RecommendListProps) => {
           )
         })}
       </div>
-    </Grid.Col>
+    </div>
   )
 }

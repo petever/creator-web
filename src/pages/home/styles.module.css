@@ -1,9 +1,18 @@
 .wrapper{
-  width : 1100px
+  width :100%;
 }
 .contents {
 }
 
 .recommend {
-  width:300px
 }
+
+@media screen and (min-width: 1260px) {
+  .wrapper{
+    width : 1100px
+  }
+  .recommend{
+    width:300px
+  }
+}
+

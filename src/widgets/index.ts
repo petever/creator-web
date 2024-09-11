@@ -1,4 +1,4 @@
-export { Sidebar } from './Sidebar/ui'
+export { Sidebar } from '@/shared/Sidebar/ui'
 export { Feed } from './Feed/ui'
 export { AvatarList } from './AvartarList/ui'
 export { ThemeToggleButton } from './ThemeToggleButton/ui'

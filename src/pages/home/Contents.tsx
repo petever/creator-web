@@ -4,7 +4,7 @@ import {DummyAvatar} from "@/widgets/AvartarList/constants/dummy";
 
 export const Contents = () => {
   return (
-    <Grid.Col span={9}>
+    <div>
       <AvatarList avatars={DummyAvatar} maxLength={3} />
       <Flex wrap={'wrap'}>
         <Feed />
@@ -12,6 +12,6 @@ export const Contents = () => {
         <Feed />
         <Feed />
       </Flex>
-    </Grid.Col>
+    </div>
   )
 }

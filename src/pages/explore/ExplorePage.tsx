@@ -1,15 +1,10 @@
 'use client'
 
-import {Container, Grid} from "@mantine/core";
 import {CardList} from "@/widgets/CardList/ui";
+import styles from '../../widgets/CardList/ui/styles.module.css'
 
 const ExplorePage = () => {
-	return (
-		<div>
-				Explore
-				<CardList/>
-		</div>
-	)
+	return <CardList/>
 }
 
 export default ExplorePage

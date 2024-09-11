@@ -1,5 +1,4 @@
 import { Avatar, Button } from '@mantine/core'
-import { router } from 'next/client'
 
 export const Comment = () => {
   return (

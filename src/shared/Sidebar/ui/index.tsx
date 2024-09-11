@@ -1,6 +1,7 @@
-import {Button, Container, Flex, NavLink, useMantineTheme} from '@mantine/core'
+import {Button, Drawer, NavLink} from '@mantine/core'
 import { SIDEBARS } from '../constants'
 import classes from './styles.module.css'
+import { useDisclosure } from '@mantine/hooks'
 
 interface SidebarProps {
   isLogin?: boolean
@@ -9,7 +10,7 @@ interface SidebarProps {
 export const Sidebar = ({ isLogin }: SidebarProps) => {
 
   return (
-    <Container className={classes.wrap}>
+    <div className={classes.wrap}>
       {SIDEBARS.map((sidebar, sidebarIndex) => {
         return (
           <div className={classes.menu} key={`sidebar_${sidebarIndex}`}>
@@ -45,6 +46,6 @@ export const Sidebar = ({ isLogin }: SidebarProps) => {
           </div>
         )
       })}
-    </Container>
+    </div>
   )
 }
