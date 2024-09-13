@@ -1,7 +1,6 @@
 import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import { login } from '@/features/users/api/login'
-import { alova } from '@/shared/model/alova'
 
 const handler = NextAuth({
   providers: [
@@ -21,6 +20,22 @@ const handler = NextAuth({
       }
       const data = await login(payload)
       return !!data.accessToken
+    },
+
+    async jwt({ token, account, user }) {
+      if (account && user) {
+        token.accessToken = account?.id_token
+      }
+      return token
+    },
+    async session({ session, token }: { session: any; token: any }) {
+      if (token) {
+        session.user.accessToken = token.accessToken
+      }
+      return session
+    },
+    async redirect({ baseUrl }) {
+      return `${baseUrl}/home`
     },
   },
 })

@@ -1,7 +1,5 @@
 import { ActionIcon, ActionIconGroup, Flex, Group } from '@mantine/core'
 import { IconBookmark, IconHeart, IconMessageCircle, IconShare } from '@tabler/icons-react'
-import { alova } from '@/shared/model/alova'
-import { useUpdateFavoritePosting } from '@/features/FeedButtons/hooks/useUpdateFavoritePosting'
 
 interface FeedButtonsProps {
   id: string
@@ -9,11 +7,11 @@ interface FeedButtonsProps {
 }
 
 export const FeedButtons = ({ id, onDetailModal }: FeedButtonsProps) => {
-  const { updateFavoritePostingMutate, data } = useUpdateFavoritePosting(id)
+  // const { updateFavoritePostingMutate, data } = useUpdateFavoritePosting(id)
 
   const handleFavoritePosting = async () => {
-    updateFavoritePostingMutate()
-    console.log(data)
+    // updateFavoritePostingMutate()
+    // console.log(data)
   }
 
   return (

@@ -1,13 +1,16 @@
-'use client'
-
-import { MantineProvider } from '@mantine/core'
 import '@mantine/core/styles.css'
 import Head from 'next/head'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import AuthProvider from '@/app/providers/AuthProvider'
+import { getServerSession } from 'next-auth'
+import CustomMantineProvider from '@/app/providers/CustomMantineProvider'
 
-export function RootLayout({ children }: { children: React.ReactNode }) {
-  const queryClient = new QueryClient()
+interface RootLayoutProps {
+  children: React.ReactNode
+  params: any
+}
+
+export async function RootLayout({ children }: RootLayoutProps) {
+  const session = await getServerSession()
 
   return (
     <html lang="ko">
@@ -15,10 +18,8 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-width=1.0" />
       </Head>
       <body>
-        <AuthProvider>
-          <MantineProvider defaultColorScheme="dark">
-            <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-          </MantineProvider>
+        <AuthProvider session={session}>
+          <CustomMantineProvider>{children}</CustomMantineProvider>
         </AuthProvider>
       </body>
     </html>
