@@ -1,12 +1,15 @@
 .wrap {
   display:flex;
 }
-
-@media screen and (min-width: 1260px) {
-  .wrap{
-    width:1400px;
-    margin:0 auto;
-  }
+.container {
+  max-width: 600px;
+  width: 100%;
+  border-left: 1px solid #8a96a340;
+  border-right: 1px solid #8a96a340;
+  height: 100vh;
+}
+@media screen and (min-width: 1000px) {
+  justify-content: center;
 }
 
 
