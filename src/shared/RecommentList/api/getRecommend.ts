@@ -1,5 +1,5 @@
-import {alova} from "@/shared/model/alova";
+import { alova } from '@/shared/model/alova'
 
-export const getRecommend = () : any => {
-  return alova.Get(`/recommend`, {});
+export const getRecommend = (): any => {
+  return alova.Get(`/recommend`)
 }

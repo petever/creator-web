@@ -23,20 +23,18 @@ const handler = NextAuth({
     },
 
     async jwt({ token, account, user }) {
-      if (account && user) {
+      if (account?.id_token) {
         token.accessToken = account?.id_token
       }
       return token
     },
     async session({ session, token }: { session: any; token: any }) {
-      if (token) {
-        session.user.accessToken = token.accessToken
-      }
+      session.user.accessToken = token.accessToken
       return session
     },
-    async redirect({ baseUrl }) {
-      return `${baseUrl}/home`
-    },
+    // async redirect({ baseUrl }) {
+    //   return `${baseUrl}/home`
+    // },
   },
 })
 

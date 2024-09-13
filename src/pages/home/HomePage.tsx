@@ -4,8 +4,10 @@ import { Grid } from '@mantine/core'
 import classes from './styles.module.css'
 import { Contents } from '@/pages/home/Contents'
 import { RecommendList } from '@/shared/RecommentList/ui/RecommendList'
+import { useSession } from 'next-auth/react'
 
 const HomePage = () => {
+  console.log(useSession())
   return (
     <div className={classes.wrapper}>
       <Grid>

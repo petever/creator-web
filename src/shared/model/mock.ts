@@ -1,6 +1,4 @@
 import { createAlovaMockAdapter } from '@alova/mock'
-import fetchAdapter from 'alova/fetch'
-import todoMock from '@/shared/mocks/loginMock'
 import { mocks } from '@/shared/mocks'
 
 export const mockAdapter = createAlovaMockAdapter([...mocks], {
