@@ -1,1 +1,1 @@
-export { default } from '@/pages/explore/ExplorePage'
+export { default } from '@/pageModules/explore/ExplorePage'

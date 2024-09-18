@@ -2,7 +2,7 @@
 
 import { Grid } from '@mantine/core'
 import classes from './styles.module.css'
-import { Contents } from '@/pages/home/Contents'
+import { Contents } from '@/pageModules/home/Contents'
 import { RecommendList } from '@/shared/RecommentList/ui/RecommendList'
 import { useSession } from 'next-auth/react'
 
