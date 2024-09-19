@@ -13,9 +13,6 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
       <ThemeToggleButton />
       <Sidebar />
       <div className={classes.container}>{children}</div>
-      <Grid>
-        <RecommendList span={3} />
-      </Grid>
     </div>
   )
 }

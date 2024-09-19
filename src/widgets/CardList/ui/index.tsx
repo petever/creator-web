@@ -1,17 +1,15 @@
 import {Card} from "@/features/Card/ui";
-import {Grid} from "@mantine/core";
+import classes from './styles.module.css'
 
 export const CardList = () => {
 	return (
-		<Grid
-			align='flex-start'
-		>
+		<div className={classes.wrapper}>
 			<Card/>
 			<Card/>
-			<Card span={12}/>
-			<Card span={12}/>
 			<Card/>
 			<Card/>
-		</Grid>
+			<Card/>
+			<Card/>
+    </div>
 	)
 }
