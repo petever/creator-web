@@ -7,8 +7,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import {CommentInput} from "@/features";
-import {CommentArea} from "@/widgets";
+import { CommentInput } from '@/features'
+import { CommentArea } from '@/widgets'
 
 interface FeedDetailProps {
   title?: string | React.ReactNode
@@ -31,7 +31,7 @@ export const FeedDetail = ({ opened, onClose }: FeedDetailProps) => {
           />
         </SwiperSlide>
       </Swiper>
-			<CommentArea/>
+      <CommentArea />
     </Modal>
   )
 }

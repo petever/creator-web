@@ -1,13 +1,13 @@
-import {Button, Input, Modal, Textarea} from "@mantine/core";
-import {useForm} from "@mantine/form";
+import { Button, Input, Modal, Textarea } from '@mantine/core'
+import { useForm } from '@mantine/form'
 
-interface AddConte1ntModalProps{
-  opened : boolean
-  onClose : () => void
+interface AddConte1ntModalProps {
+  opened: boolean
+  onClose: () => void
 }
-export const AddContentModal = ({opened, onClose} : AddConte1ntModalProps) => {
+export const AddContentModal = ({ opened, onClose }: AddConte1ntModalProps) => {
   const form = useForm({
-    mode : 'uncontrolled',
+    mode: 'uncontrolled',
     initialValues: {
       title: '',
       contents: '',
@@ -17,17 +17,13 @@ export const AddContentModal = ({opened, onClose} : AddConte1ntModalProps) => {
   return (
     <Modal opened={opened} onClose={onClose}>
       <form onSubmit={form.onSubmit((values) => console.log(values))}>
-        <Input
-          placeholder={'제목'}
-          key={form.key('title')}
-          {...form.getInputProps('title')}
-        />
+        <Input placeholder={'제목'} key={form.key('title')} {...form.getInputProps('title')} />
         <Textarea
           placeholder={'내용'}
           key={form.key('description')}
           {...form.getInputProps('description')}
         />
-        <Button type='submit'>전송</Button>
+        <Button type="submit">전송</Button>
       </form>
     </Modal>
   )

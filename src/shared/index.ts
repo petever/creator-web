@@ -1,1 +1,1 @@
-export { FeedDetail }from './FeedDetail/ui'
+export { FeedDetail } from './FeedDetail/ui'

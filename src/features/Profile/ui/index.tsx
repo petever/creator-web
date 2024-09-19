@@ -1,11 +1,11 @@
-import {Avatar, Button, Group, MantineSize, UnstyledButton} from '@mantine/core'
+import { Avatar, Button, Group, MantineSize, UnstyledButton } from '@mantine/core'
 import { Avatars } from '@/widgets/types'
 import classes from './styles.module.css'
 
 interface ProfileProps {
   profile: Avatars
-  size : MantineSize
-  isSubscribed ?: boolean
+  size: MantineSize
+  isSubscribed?: boolean
   onClick?: () => void
 }
 

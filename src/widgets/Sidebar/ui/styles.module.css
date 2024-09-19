@@ -1,59 +1,55 @@
 .wrap {
-  display:flex;
-  flex-wrap:nowrap;
-  width:100%;
-  position:fixed;
-  bottom:0;
-  left:0;
-  background:var(--mantine-color-body);
-  z-index:9999;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: var(--mantine-color-body);
+  z-index: 9999;
   align-content: start;
 }
 
 .menu {
-  display:flex;
+  display: flex;
   flex: 1 1 100%;
   align-items: center;
   justify-content: center;
   padding: 10px;
 }
 
-.menu > a, .menu > button{
-  display:block;
+.menu > a,
+.menu > button {
+  display: block;
 }
 
-.labelWrapper{
-  display:none;
+.labelWrapper {
+  display: none;
 }
 
-
-.iconWrapper{
-
+.iconWrapper {
 }
-
 
 @media screen and (min-width: 1260px) {
-  .wrap{
-    flex :0 0 100px;
+  .wrap {
+    flex: 0 0 100px;
   }
-  .labelWrapper{
-    display:block;
+  .labelWrapper {
+    display: block;
   }
-
 }
 
-
-@media screen and (min-width: 760px)  {
-  .wrap{
-    position:static;
+@media screen and (min-width: 760px) {
+  .wrap {
+    position: static;
     flex: 0 0 50px;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
   }
 
-  .labelWrapper{
-    display:none;
+  .labelWrapper {
+    display: none;
   }
-  .drawerWrapper{
-    margin-left :100px
+  .drawerWrapper {
+    margin-left: 100px;
   }
 }

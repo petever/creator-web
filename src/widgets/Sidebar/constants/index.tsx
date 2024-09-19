@@ -1,19 +1,26 @@
 import { Label } from '../../types'
-import {IconBell, IconCirclePlus, IconCompass, IconHome2, IconSearch, IconSend} from '@tabler/icons-react'
+import {
+  IconBell,
+  IconCirclePlus,
+  IconCompass,
+  IconHome2,
+  IconSearch,
+  IconSend,
+} from '@tabler/icons-react'
 
 export const SIDEBARS: Label[] = [
   {
     icon: <IconHome2 size="1rem" stroke={1.5} />,
     href: '/',
     label: '홈',
-    key : 'home',
+    key: 'home',
     disabled: false,
   },
   {
     icon: <IconCompass size="1rem" stroke={1.5} />,
     href: '/explore',
     label: '탐색',
-    key : 'explore',
+    key: 'explore',
     disabled: false,
   },
   // 콘텐츠 추가 버튼
@@ -21,22 +28,22 @@ export const SIDEBARS: Label[] = [
     icon: <IconCirclePlus size="1rem" stroke={1.5} />,
     href: '',
     label: '추가',
-    key : 'add_content',
+    key: 'add_content',
     disabled: false,
   },
   {
-    icon: <IconSearch size="1rem" stroke={1.5}/> ,
+    icon: <IconSearch size="1rem" stroke={1.5} />,
     href: '',
     label: '검색',
-    key : 'search',
+    key: 'search',
     disabled: false,
   },
 
   {
-    icon: <IconSend size='1rem' stroke={1.5}/>,
+    icon: <IconSend size="1rem" stroke={1.5} />,
     href: '/message',
     label: '메세지',
-    key : 'message',
+    key: 'message',
     disabled: false,
   },
 ]

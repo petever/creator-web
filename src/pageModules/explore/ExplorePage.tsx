@@ -1,9 +1,9 @@
 'use client'
 
-import {CardList} from "@/widgets/CardList/ui";
+import { CardList } from '@/widgets/CardList/ui'
 
 const ExplorePage = () => {
-	return (<CardList/>)
+  return <CardList />
 }
 
 export default ExplorePage

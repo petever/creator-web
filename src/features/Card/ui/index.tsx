@@ -1,9 +1,8 @@
-import {Box, Grid, Image, UnstyledButton} from '@mantine/core'
+import { Box, Grid, Image, UnstyledButton } from '@mantine/core'
 import classes from './styles.module.css'
 
 export const Card = () => {
-
-	return (
+  return (
     <UnstyledButton className={classes.imageWrapper}>
       <Image
         radius="xs"
@@ -11,5 +10,5 @@ export const Card = () => {
         src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-9.png"
       />
     </UnstyledButton>
-	)
+  )
 }

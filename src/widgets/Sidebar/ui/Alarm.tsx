@@ -1,11 +1,11 @@
-import {Button, Container, Flex, Input} from "@mantine/core";
-import {Profile} from "@/features";
+import { Button, Container, Flex, Input } from '@mantine/core'
+import { Profile } from '@/features'
 
 interface AlarmProps {
-  drawerKey : string
+  drawerKey: string
 }
-export const Alarm = ({drawerKey} : AlarmProps) => {
-  if(!drawerKey || drawerKey === 'search') return null
+export const Alarm = ({ drawerKey }: AlarmProps) => {
+  if (!drawerKey || drawerKey === 'search') return null
 
   return (
     <Container>
@@ -13,6 +13,5 @@ export const Alarm = ({drawerKey} : AlarmProps) => {
         알람스
       </Button>
     </Container>
-
   )
 }

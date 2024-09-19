@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export interface Label {
   label: string
@@ -12,6 +12,6 @@ export interface Avatars {
   src?: string
   alt?: string
   name?: string
-  tag?:string
+  tag?: string
   description?: string
 }
