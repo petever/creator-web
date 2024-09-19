@@ -1,24 +1,26 @@
-import {Button, Container, Flex, Input} from "@mantine/core";
+import {Button, Container, Drawer, Flex, Input} from "@mantine/core";
 import {Profile} from "@/features";
-interface SearchMemberProps {
-  drawerKey : string
+import classes from "@/widgets/Sidebar/ui/styles.module.css";
+
+interface SearchMemberProps{
+  opened : boolean
+  onClose : () => void
 }
-export const SearchMember = ({drawerKey} : SearchMemberProps) => {
-  if(!drawerKey || drawerKey === 'alarm') return null
-
+export const SearchMember = ({opened, onClose} : SearchMemberProps) => {
   return (
-    <Container>
-      <Input/>
-      <Profile
-        profile={{
-          name: 'shinbom',
-        }}
-        size="sm"
-      />
-      <Button fullWidth radius={20}>
-        구독하기
-      </Button>
-    </Container>
-
+    <Drawer opened={opened} onClose={onClose} className={classes.drawerWrapper}>
+      <Container>
+        <Input/>
+        <Profile
+          profile={{
+            name: 'shinbom',
+          }}
+          size="sm"
+        />
+        <Button fullWidth radius={20}>
+          구독하기
+        </Button>
+      </Container>
+    </Drawer>
   )
 }

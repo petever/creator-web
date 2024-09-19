@@ -1,35 +1,29 @@
-import {Button, Container, Drawer, Flex, NavLink, useMantineTheme} from '@mantine/core'
+import {Button, Container, NavLink, } from '@mantine/core'
 import { SIDEBARS } from '../constants'
 import classes from './styles.module.css'
-import {useEffect, useState} from "react";
 import {SearchMember} from "@/widgets/Sidebar/ui/SearchMember";
 import {useDisclosure} from "@mantine/hooks";
-import {Alarm} from "@/widgets/Sidebar/ui/Alarm";
-
+import {AddContentModal} from "@/widgets/Sidebar/ui/AddContentModal";
 interface SidebarProps {
   isLogin?: boolean
 }
 
 export const Sidebar = ({ isLogin }: SidebarProps) => {
-  const [opened, { open, close }] = useDisclosure(false);
-  const [drawerKey, setDrawerKey] = useState('')
+  const [isDrawerOpened, { open : drawerOpen, close : drawerClose }] = useDisclosure(false);
+  const [isModalOpened, { open : modalOpen, close : modalClose}] = useDisclosure(false)
 
 
   const handleDrawerOpen = (key : string) => {
-    open()
-    setDrawerKey(key)
+    if (key === 'add_content') {
+      return modalOpen()
+    }
+    drawerOpen()
   }
-
-  useEffect(() => {
-    if(!opened) setDrawerKey('')
-  }, [opened]);
 
   return (
     <Container className={classes.wrap}>
-      <Drawer opened={opened} onClose={close} className={classes.drawerWrapper}>
-        <SearchMember drawerKey={drawerKey}/>
-        <Alarm drawerKey={drawerKey}/>
-      </Drawer>
+      <SearchMember opened={isDrawerOpened} onClose={drawerClose}/>
+      <AddContentModal opened={isModalOpened} onClose={modalClose}/>
       {SIDEBARS.map((sidebar, sidebarIndex) => {
         return (
           <div className={classes.menu} key={`sidebar_${sidebarIndex}`}>
