@@ -1,9 +1,5 @@
 import { Grid, Title } from '@mantine/core'
 import classes from './styles.module.css'
-import { useRequest } from 'alova/client'
-import { Loading } from '@/shared/RecommentList/ui/Loading'
-import { Profile } from '@/features'
-import { Recommend } from '@/shared/RecommentList/types'
 
 interface RecommendListProps {
   span?: number

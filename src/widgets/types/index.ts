@@ -3,6 +3,7 @@ import React from "react";
 export interface Label {
   label: string
   href: string
+  key: string
   icon?: React.ReactNode
   disabled?: boolean
 }
