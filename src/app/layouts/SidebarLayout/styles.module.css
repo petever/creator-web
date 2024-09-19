@@ -1,0 +1,21 @@
+.wrap {
+  display:flex;
+  max-width: 100%
+}
+.container {
+  width: 100%;
+  border-left: 1px solid #8a96a340;
+  border-right: 1px solid #8a96a340;
+  height: 100vh;
+}
+@media screen and (min-width: 1000px) {
+  .wrap{
+    justify-content: center;
+  }
+
+  .container {
+    max-width: 600px;
+  }
+}
+
+
