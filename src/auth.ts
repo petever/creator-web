@@ -19,8 +19,18 @@ export const {
         token: account?.access_token,
         socialType: 'GOOGLE',
       }
-      const data = await login(payload)
-      return !!data.accessToken
+      console.log(payload, 'payload')
+      // console.log(11111121321313221321)
+      // const data = await login(payload)
+      const data = await fetch('http://localhost:3000/api/sign-in', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+      console.log(await data.json(), 'data')
+      return true
     },
 
     async jwt({ token, account, user }) {
