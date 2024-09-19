@@ -1,5 +1,5 @@
-import { alova } from '@/shared/model/alova'
+import { apiService } from '@/shared/core/apiService'
 
 export const updateFavoritePosting = (id: string): any => {
-  return alova.Post(`/feed/favorite/${id}`)
+  return apiService.post(`/feed/favorite/${id}`)
 }

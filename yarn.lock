@@ -12,24 +12,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alova/mock@npm:^2.0.6":
-  version: 2.0.6
-  resolution: "@alova/mock@npm:2.0.6"
-  dependencies:
-    "@alova/shared": "npm:^1.0.5"
-  peerDependencies:
-    alova: ^3.0.16
-  checksum: 10c0/2d2b03ff3bac900896ed9bbe3c71bcb9fbc5d06bd5927e76101657dea563f027e6c37b6d3ed781d6ee1db045a069cface24a9e8a17addae543b1d246139a2abc
-  languageName: node
-  linkType: hard
-
-"@alova/shared@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "@alova/shared@npm:1.0.5"
-  checksum: 10c0/58d99d8b6b026e60c7184c55bdccd43d3b39bec598722135b272fd3c355942facc40f9433dceb6fcabb6631b87766c7227432c2a2bf3ae281d9a26b2eba2a69d
-  languageName: node
-  linkType: hard
-
 "@ampproject/remapping@npm:^2.2.0, @ampproject/remapping@npm:^2.3.0":
   version: 2.3.0
   resolution: "@ampproject/remapping@npm:2.3.0"
@@ -1071,6 +1053,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@toss/ky@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@toss/ky@npm:1.2.0"
+  checksum: 10c0/668c8d72e6f3ef7f1a6ac10cd7ad6963eef9de7a7f864d33e30509e437ac80f14b883b2be581fb2a87ed271b813ab0e18b4fa442cf50fb68af7b86790f7b7342
+  languageName: node
+  linkType: hard
+
 "@types/aria-query@npm:^5.0.1":
   version: 5.0.4
   resolution: "@types/aria-query@npm:5.0.4"
@@ -1567,16 +1556,6 @@ __metadata:
     json-schema-traverse: "npm:^0.4.1"
     uri-js: "npm:^4.2.2"
   checksum: 10c0/41e23642cbe545889245b9d2a45854ebba51cda6c778ebced9649420d9205f2efb39cb43dbc41e358409223b1ea43303ae4839db682c848b891e4811da1a5a71
-  languageName: node
-  linkType: hard
-
-"alova@npm:^3.0.16":
-  version: 3.0.16
-  resolution: "alova@npm:3.0.16"
-  dependencies:
-    "@alova/shared": "npm:^1.0.5"
-    rate-limiter-flexible: "npm:^5.0.3"
-  checksum: 10c0/66cb597f4f00feda04b7619dd852fde92bc920cc97b018be70791240c8e8c64677a998a02a684f3aace5997322236a677264f25afe6bcaf4ec856ae42be859a8
   languageName: node
   linkType: hard
 
@@ -4812,13 +4791,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rate-limiter-flexible@npm:^5.0.3":
-  version: 5.0.3
-  resolution: "rate-limiter-flexible@npm:5.0.3"
-  checksum: 10c0/4ae8290cf57cbd9bc8dfd9829ed821ffad2bc6d4699170608b4b85b010059981e591803a4b1974f25755f1cbf25ff8208795cc325d5bed9d2315717865e25697
-  languageName: node
-  linkType: hard
-
 "raw-body@npm:2.5.2":
   version: 2.5.2
   resolution: "raw-body@npm:2.5.2"
@@ -5122,7 +5094,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@alova/mock": "npm:^2.0.6"
     "@eslint/js": "npm:^9.9.1"
     "@mantine/core": "npm:^7.12.2"
     "@mantine/form": "npm:^7.12.2"
@@ -5133,6 +5104,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:^6.5.0"
     "@testing-library/react": "npm:^16.0.1"
     "@testing-library/user-event": "npm:^14.5.2"
+    "@toss/ky": "npm:^1.2.0"
     "@types/cors": "npm:^2"
     "@types/eslint": "npm:^9"
     "@types/express": "npm:^4"
@@ -5141,7 +5113,6 @@ __metadata:
     "@types/react-dom": "npm:^18.3.0"
     "@vitejs/plugin-react": "npm:^4.3.1"
     "@vitest/coverage-v8": "npm:^2.0.5"
-    alova: "npm:^3.0.16"
     cors: "npm:^2.8.5"
     eslint: "npm:^9.9.1"
     eslint-plugin-react: "npm:^7.35.2"

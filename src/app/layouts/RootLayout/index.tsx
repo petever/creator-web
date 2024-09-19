@@ -3,6 +3,7 @@ import Head from 'next/head'
 import AuthProvider from '@/app/providers/AuthProvider'
 import { getServerSession } from 'next-auth'
 import CustomMantineProvider from '@/app/providers/CustomMantineProvider'
+import QueryProvider from '@/app/providers/QueryProvider'
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -19,7 +20,9 @@ export async function RootLayout({ children }: RootLayoutProps) {
       </Head>
       <body>
         <AuthProvider session={session}>
-          <CustomMantineProvider>{children}</CustomMantineProvider>
+          <QueryProvider>
+            <CustomMantineProvider>{children}</CustomMantineProvider>
+          </QueryProvider>
         </AuthProvider>
       </body>
     </html>

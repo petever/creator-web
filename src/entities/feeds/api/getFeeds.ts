@@ -1,6 +1,6 @@
-import { alova } from '@/shared/model/alova'
 import { API_URL } from '@/shared/constants/apiURL'
+import { apiService } from '@/shared/core/apiService'
 
 export const getFeeds = async () => {
-  return alova.Get(API_URL.FEEDS)
+  return apiService.get(API_URL.FEEDS).json()
 }
