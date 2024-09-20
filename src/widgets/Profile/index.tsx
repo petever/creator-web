@@ -1,8 +1,8 @@
 import React from 'react'
 import SubscribeButton from '@/features/users/ui/SubscribeButton'
 import { Divider } from '@mantine/core'
-import UserInfo from '@/entities/creator/ui/UserInfo'
-import BackgroundImage from '@/entities/creator/ui/BackgroundImage'
+import UserInfo from '@/entities/user/ui/UserInfo'
+import BackgroundImage from '@/entities/user/ui/BackgroundImage'
 
 const Profile = () => {
   return (

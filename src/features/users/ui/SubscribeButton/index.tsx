@@ -4,7 +4,7 @@ import { Box, Button } from '@mantine/core'
 const SubscribeButton = () => {
   return (
     <Box p={20}>
-      <Button fullWidth radius={20}>
+      <Button fullWidth radius={40} h={44}>
         구독하기
       </Button>
     </Box>

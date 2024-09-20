@@ -1,1 +1,1 @@
-export { default } from '@/pageModules/creatorDetail/CreatorDetailPage'
+export { default } from '@/pageModules/userDetail/UserDetailPage'

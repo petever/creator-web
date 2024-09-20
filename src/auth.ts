@@ -9,6 +9,9 @@ export const {
   signOut,
 } = NextAuth({
   ...authConfig,
+  session: {
+    strategy: 'jwt',
+  },
   callbacks: {
     async signIn({ user, account, profile }) {
       const payload = {
@@ -20,13 +23,13 @@ export const {
       }
 
       const data = await login(payload)
-
-      return !!data.accessToken
+      user.accessToken = data.accessToken
+      return !!data
     },
 
-    async jwt({ token, account }) {
-      if (account?.id_token) {
-        token.accessToken = account?.id_token
+    async jwt({ token, account, profile, user }) {
+      if (user) {
+        token.accessToken = user.accessToken
       }
       return token
     },

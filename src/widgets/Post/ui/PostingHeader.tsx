@@ -15,7 +15,7 @@ export const PostingHeader = ({ profile }: PostingHeaderProps) => {
         width: '100%',
       }}
     >
-      <Profile profile={profile} size="sm" />
+      <Profile profile={profile} size="md" />
       <ActionIcon variant="subtle" color="gray" size="xl" aria-label="Toggle color scheme">
         <IconDots />
       </ActionIcon>

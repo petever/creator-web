@@ -40,9 +40,6 @@ export const FeedButtons = ({ id, onDetailModal }: FeedButtonsProps) => {
         >
           <IconMessageCircle />
         </ActionIcon>
-        <ActionIcon data-testId="share_btn" variant="subtle" size="xl" color="gray">
-          <IconShare />
-        </ActionIcon>
       </ActionIconGroup>
       <Group>
         <ActionIcon variant="subtle" size="xl" color="gray">

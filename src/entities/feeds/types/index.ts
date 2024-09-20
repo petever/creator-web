@@ -1,4 +1,4 @@
-import { Creator } from '@/entities/creator/types'
+import { Creator } from '@/entities/user/types'
 import { PostItem } from '@/entities/posts/types'
 
 export interface Feeds {

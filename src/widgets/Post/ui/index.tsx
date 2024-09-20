@@ -1,12 +1,11 @@
 'use client'
-import { Button, Container, Divider, Image } from '@mantine/core'
-import { CommentInput, FeedButtons } from '@/features'
+import { Box, Button, Container, Divider, Image } from '@mantine/core'
+import { FeedButtons } from '@/features'
 import { PostingHeader } from './PostingHeader'
 import { Avatars } from '../../types'
 import { FeedDetail } from '@/shared/FeedDetail/ui'
 import { useDisclosure } from '@mantine/hooks'
 import { DummyAvatar } from '@/widgets/AvartarList/constants/dummy'
-import { CommentSummary } from '@/entities'
 
 interface PostProps {
   profile?: Avatars
@@ -20,17 +19,20 @@ export const Post = ({ profile }: PostProps) => {
   }
 
   return (
-    <Container fluid>
-      <PostingHeader profile={DummyAvatar[0]} />
+    <Container fluid p={0}>
+      <Box p={10}>
+        <PostingHeader profile={DummyAvatar[0]} />
+      </Box>
       <Image
-        radius="md"
+        radius={0}
         fit="contain"
         src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-9.png"
       />
       <FeedButtons id={'feedId_01'} onDetailModal={handleDetailOpen} />
-      <CommentSummary />
-      <Button>댓글 0개 보기</Button>
-      <FeedDetail opened={opened} onClose={close} />
+      <Box>
+        <Button variant="transparent">댓글 0개 보기</Button>
+        <FeedDetail opened={opened} onClose={close} />
+      </Box>
       <Divider my="md" />
     </Container>
   )
