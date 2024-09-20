@@ -1,17 +1,12 @@
-import { withAuth } from 'next-auth/middleware'
+import authConfig from './auth.config'
+import NextAuth from 'next-auth'
+import { NextRequest } from 'next/server'
 
-export default withAuth(
-  // `withAuth` augments your `Request` with the user's token.
-  function middleware(req) {},
-  {
-    pages: {
-      signIn: '/login',
-    },
-    callbacks: {
-      authorized: ({ token }) => !!token,
-    },
-  },
-)
+const { auth } = NextAuth(authConfig)
+export default auth(async function middleware(req: NextRequest) {
+  // Your custom middleware logic goes here
+})
+
 export const config = {
   matcher: ['/login', '/home'],
 }
