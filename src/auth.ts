@@ -1,7 +1,6 @@
 import NextAuth from 'next-auth'
-import GoogleProvider from 'next-auth/providers/google'
-import { login } from '@/features/users/api/login'
 import authConfig from '@/auth.config'
+import { login } from '@/features/users/api/login'
 
 export const {
   handlers: { GET, POST },
@@ -11,26 +10,18 @@ export const {
 } = NextAuth({
   ...authConfig,
   callbacks: {
-    async signIn({ user, account }) {
+    async signIn({ user, account, profile }) {
       const payload = {
-        socialId: user.id as string,
+        socialId: profile?.sub as string,
         username: user.name,
         picture: user.image,
         token: account?.access_token,
         socialType: 'GOOGLE',
       }
-      console.log(payload, 'payload')
-      // console.log(11111121321313221321)
-      // const data = await login(payload)
-      const data = await fetch('http://localhost:3000/api/sign-in', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      })
-      console.log(await data.json(), 'data')
-      return true
+
+      const data = await login(payload)
+
+      return !!data.accessToken
     },
 
     async jwt({ token, account, user }) {
