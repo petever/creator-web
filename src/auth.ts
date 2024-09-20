@@ -24,18 +24,18 @@ export const {
       return !!data.accessToken
     },
 
-    async jwt({ token, account, user }) {
+    async jwt({ token, account }) {
       if (account?.id_token) {
         token.accessToken = account?.id_token
       }
       return token
     },
-    async session({ session, token }: { session: any; token: any }) {
-      session.user.accessToken = token.accessToken
+    async session({ session, token }) {
+      session.accessToken = token.accessToken as string
       return session
     },
-    // async redirect({ baseUrl }) {
-    //   return `${baseUrl}/home`
-    // },
+    async redirect({ baseUrl }) {
+      return `${baseUrl}/home`
+    },
   },
 })

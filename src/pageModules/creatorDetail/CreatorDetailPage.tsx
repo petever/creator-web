@@ -1,4 +1,3 @@
-import BackgroundImage from '@/entities/users/ui/BackgroundImage'
 import Profile from '@/widgets/Profile'
 
 const CreatorDetailPage = () => {

@@ -1,11 +1,17 @@
 'use client'
 
-import { useSession } from 'next-auth/react'
 import React from 'react'
 import FeedList from '@/pageModules/home/ui/FeedList'
+import { Feeds } from '@/entities/feeds/types'
+import { useFeeds } from '@/entities/feeds/hooks/useFeeds'
 
-const HomePage = () => {
-  console.log(useSession())
+interface HomePageProps {
+  initialFeeds: Feeds
+}
+
+const HomePage = ({ initialFeeds }: HomePageProps) => {
+  const { data } = useFeeds({ initialData: initialFeeds })
+  console.log(data, 'data')
   return <FeedList />
 }
 
