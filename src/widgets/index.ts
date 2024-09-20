@@ -1,6 +1,6 @@
 export { Sidebar } from './Sidebar/ui'
-export { Feed } from '@/widgets/Post/ui'
 export { AvatarList } from './AvartarList/ui'
 export { ThemeToggleButton } from './ThemeToggleButton/ui'
 export { CommentArea } from './CommentArea/ui'
 export { FeedDetail } from '@/shared/FeedDetail/ui'
+export { Post } from './Post/ui'
