@@ -3,6 +3,7 @@ import Head from 'next/head'
 import AuthProvider from '@/app/providers/AuthProvider'
 import CustomMantineProvider from '@/app/providers/CustomMantineProvider'
 import QueryProvider from '@/app/providers/QueryProvider'
+import LocaleProvider from "@/app/providers/LocaleProvider";
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -18,7 +19,11 @@ export async function RootLayout({ children }: RootLayoutProps) {
       <body>
         <AuthProvider>
           <QueryProvider>
-            <CustomMantineProvider>{children}</CustomMantineProvider>
+            <CustomMantineProvider>
+              <LocaleProvider>
+                {children}
+              </LocaleProvider>
+            </CustomMantineProvider>
           </QueryProvider>
         </AuthProvider>
       </body>

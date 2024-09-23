@@ -54,6 +54,7 @@ const RAW_RUNTIME_STATE =
           ["jsdom", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:25.0.0"],\
           ["next", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:14.2.8"],\
           ["next-auth", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.0.0-beta.21"],\
+          ["next-international", "npm:1.2.4"],\
           ["next-intl", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:3.19.1"],\
           ["prettier", "npm:3.3.3"],\
           ["react", "npm:18.3.1"],\
@@ -4175,6 +4176,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["international-types", [\
+      ["npm:0.8.1", {\
+        "packageLocation": "../../../../Users/sinqh/AppData/Local/Yarn/Berry/cache/international-types-npm-0.8.1-1eb4456fd4-10c0.zip/node_modules/international-types/",\
+        "packageDependencies": [\
+          ["international-types", "npm:0.8.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["intl-messageformat", [\
       ["npm:10.5.14", {\
         "packageLocation": "../../../../Users/sinqh/AppData/Local/Yarn/Berry/cache/intl-messageformat-npm-10.5.14-0494957584-10c0.zip/node_modules/intl-messageformat/",\
@@ -5252,6 +5262,18 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["next-international", [\
+      ["npm:1.2.4", {\
+        "packageLocation": "../../../../Users/sinqh/AppData/Local/Yarn/Berry/cache/next-international-npm-1.2.4-f3318c5e8f-10c0.zip/node_modules/next-international/",\
+        "packageDependencies": [\
+          ["next-international", "npm:1.2.4"],\
+          ["client-only", "npm:0.0.1"],\
+          ["international-types", "npm:0.8.1"],\
+          ["server-only", "npm:0.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["next-intl", [\
       ["npm:3.19.1", {\
         "packageLocation": "../../../../Users/sinqh/AppData/Local/Yarn/Berry/cache/next-intl-npm-3.19.1-269db072db-10c0.zip/node_modules/next-intl/",\
@@ -6192,6 +6214,7 @@ const RAW_RUNTIME_STATE =
           ["jsdom", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:25.0.0"],\
           ["next", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:14.2.8"],\
           ["next-auth", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.0.0-beta.21"],\
+          ["next-international", "npm:1.2.4"],\
           ["next-intl", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:3.19.1"],\
           ["prettier", "npm:3.3.3"],\
           ["react", "npm:18.3.1"],\

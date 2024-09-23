@@ -1979,7 +1979,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"client-only@npm:0.0.1":
+"client-only@npm:0.0.1, client-only@npm:^0.0.1":
   version: 0.0.1
   resolution: "client-only@npm:0.0.1"
   checksum: 10c0/9d6cfd0c19e1c96a434605added99dff48482152af791ec4172fb912a71cff9027ff174efd8cdb2160cc7f377543e0537ffc462d4f279bc4701de3f2a3c4b358
@@ -3364,6 +3364,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"international-types@npm:^0.8.1":
+  version: 0.8.1
+  resolution: "international-types@npm:0.8.1"
+  checksum: 10c0/a568f64a398f74affd73336e8eda488075ec328fc20e87721555e0b45e791f72132df19cadeca01d62100b77825b8da0efcfb82cdcdba021f7cc3ffe6542e537
+  languageName: node
+  linkType: hard
+
 "intl-messageformat@npm:^10.5.14":
   version: 10.5.14
   resolution: "intl-messageformat@npm:10.5.14"
@@ -4252,6 +4259,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-international@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "next-international@npm:1.2.4"
+  dependencies:
+    client-only: "npm:^0.0.1"
+    international-types: "npm:^0.8.1"
+    server-only: "npm:^0.0.1"
+  checksum: 10c0/7564bfd46bb6a6d6e16a4070ee2be6888426a72e178430d9696d88bc3a721e7375bba3d1df806fd56187ed12aca9f69d32ecb788928a06963f30faf0d4734322
+  languageName: node
+  linkType: hard
+
 "next-intl@npm:^3.19.0":
   version: 3.19.1
   resolution: "next-intl@npm:3.19.1"
@@ -5109,6 +5127,7 @@ __metadata:
     jsdom: "npm:^25.0.0"
     next: "npm:latest"
     next-auth: "npm:^5.0.0-beta.21"
+    next-international: "npm:^1.2.4"
     next-intl: "npm:^3.19.0"
     prettier: "npm:^3.3.3"
     react: "npm:^18.3.1"

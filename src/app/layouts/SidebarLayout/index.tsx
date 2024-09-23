@@ -4,6 +4,7 @@ import '@mantine/core/styles.css'
 import { Sidebar } from '@/widgets/Sidebar/ui'
 import classes from './styles.module.css'
 import { ThemeToggleButton } from '@/widgets'
+import {useLocale} from "next-intl";
 
 export function SidebarLayout({ children }: { children: React.ReactNode }) {
   return (
