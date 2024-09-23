@@ -24,8 +24,8 @@ export const ThemeToggleButton = () => {
         aria-label="Toggle color scheme"
         onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
       >
-        <IconSun stroke={1.5} />
-        <IconMoon stroke={1.5} />
+        {isLight && <IconMoon stroke={1.5} />}
+        {!isLight && <IconSun stroke={1.5} />}
       </ActionIcon>
     </div>
   )

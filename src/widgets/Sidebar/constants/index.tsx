@@ -11,7 +11,7 @@ import {
 export const SIDEBARS: Label[] = [
   {
     icon: <IconHome2 size="1rem" stroke={1.5} />,
-    href: '/',
+    href: '/main',
     label: '홈',
     key: 'home',
     disabled: false,

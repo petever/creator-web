@@ -16,7 +16,7 @@ export const PostingHeader = ({ profile }: PostingHeaderProps) => {
       }}
     >
       <Profile profile={profile} size="md" />
-      <ActionIcon variant="subtle" color="gray" size="xl" aria-label="Toggle color scheme">
+      <ActionIcon variant="subtle" color="gray" size="xl">
         <IconDots />
       </ActionIcon>
     </Flex>
