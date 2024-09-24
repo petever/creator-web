@@ -1,6 +1,6 @@
 export const QUERY_KEY = {
   // user
-  MY: 'my',
+  MY_PROFILE: 'myProfile',
   // feeds
   FEEDS: 'feeds',
 }

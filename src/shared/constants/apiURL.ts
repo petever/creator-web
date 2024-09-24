@@ -1,5 +1,5 @@
 export const API_URL = {
   USERS_LOGIN: 'users/login',
-  USERS_MY: 'users/my',
+  USERS_PROFILE: 'users/profile',
   FEEDS: 'feeds',
 }

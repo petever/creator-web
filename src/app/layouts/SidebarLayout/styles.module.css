@@ -16,6 +16,7 @@
 }
 
 
+
 @media screen and (min-width: 1200px) {
   .container {
     width :1200px;
@@ -26,6 +27,9 @@
   }
   .contentWrapper{
     flex: 0 0 800px
+  }
+  .recommend{
+    flex:1 1 100%;
   }
 }
 

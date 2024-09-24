@@ -1,15 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
 import { QUERY_KEY } from '@/shared/constants/queryKey'
-import { getFeeds } from '@/entities/feeds/api/getFeeds'
-import { Feeds } from '@/entities/feeds/types'
-import { getMy } from '@/entities/user/api/getMy'
+import { getProfile } from '@/entities/user/api/getProfile'
 
-interface UseMyProps {}
-
-export const useMy = () => {
+export const useMyProfile = () => {
   const { data } = useQuery({
-    queryKey: [QUERY_KEY.MY],
-    queryFn: getMy,
+    queryKey: [QUERY_KEY.MY_PROFILE],
+    queryFn: () => getProfile(),
   })
+
+  console.log(data, 'data')
   return { data }
 }

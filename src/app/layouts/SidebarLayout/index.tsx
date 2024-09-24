@@ -5,11 +5,11 @@ import { Sidebar } from '@/widgets/Sidebar/ui'
 import classes from './styles.module.css'
 import { ThemeToggleButton } from '@/widgets'
 import Header from '@/features/Header'
-import {RecommendList} from "@/shared/RecommentList/ui/RecommendList";
+import { RecommendList } from '@/shared/RecommentList/ui/RecommendList'
 
 interface SidebarLayoutProps {
-  title ?: string
-  children : React.ReactNode
+  title?: string
+  children: React.ReactNode
 }
 
 export function SidebarLayout({ title, children }: SidebarLayoutProps) {
@@ -22,7 +22,9 @@ export function SidebarLayout({ title, children }: SidebarLayoutProps) {
           {title && <Header text={title} />}
           {children}
         </div>
-        <RecommendList/>
+        <div className={classes.recommend}>
+          <RecommendList />
+        </div>
       </div>
     </div>
   )
