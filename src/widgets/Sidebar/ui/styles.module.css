@@ -48,6 +48,12 @@
     flex-wrap: wrap;
     margin:0;
     border-right:1px solid #bebebe;
+    align-content: space-between;
+  }
+
+  .wrap > a {
+    display:block;
+    margin:0 auto;
   }
 
   .labelWrapper {

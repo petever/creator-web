@@ -1,5 +1,12 @@
 import { ActionIcon, ActionIconGroup, Flex, Group } from '@mantine/core'
-import { IconBookmark, IconHeart, IconMessageCircle, IconShare } from '@tabler/icons-react'
+import {
+  IconBookmark,
+  IconBookmarkFilled,
+  IconHeart,
+  IconHeartFilled,
+  IconMessageCircle,
+  IconShare
+} from '@tabler/icons-react'
 
 interface FeedButtonsProps {
   id: string
@@ -29,7 +36,8 @@ export const FeedButtons = ({ id, onDetailModal }: FeedButtonsProps) => {
           color="gray"
           onClick={handleFavoritePosting}
         >
-          <IconHeart />
+          {/*<IconHeart />*/}
+          <IconHeartFilled />
         </ActionIcon>
         <ActionIcon
           data-testId="detail_btn"
@@ -43,7 +51,8 @@ export const FeedButtons = ({ id, onDetailModal }: FeedButtonsProps) => {
       </ActionIconGroup>
       <Group>
         <ActionIcon variant="subtle" size="xl" color="gray">
-          <IconBookmark />
+          {/*<IconBookmark />*/}
+          <IconBookmarkFilled/>
         </ActionIcon>
       </Group>
     </Flex>

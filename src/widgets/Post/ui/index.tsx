@@ -30,7 +30,7 @@ export const Post = ({ profile }: PostProps) => {
       />
       <FeedButtons id={'feedId_01'} onDetailModal={handleDetailOpen} />
       <Box>
-        <Button variant="transparent">댓글 0개 보기</Button>
+        <Button variant="transparent" onClick={handleDetailOpen}>댓글 0개 보기</Button>
         <FeedDetail opened={opened} onClose={close} />
       </Box>
       <Divider my="md" />

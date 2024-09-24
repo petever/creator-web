@@ -7,8 +7,6 @@ import { PAGE } from '@/shared/constants/page'
 import { useMantineTheme } from '@mantine/core';
 
 const MyProfile = () => {
-  const theme = useMantineTheme()
-  console.log(theme)
   return (
     <Box>
       <BackgroundImage />

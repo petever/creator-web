@@ -1,15 +1,15 @@
 import React from 'react'
 import { SidebarLayout } from '@/app/layouts/SidebarLayout'
 
-interface MyLayoutProps {
+interface MessageLayoutProps {
   children: React.ReactNode
 }
-const MyLayout = ({ children }: MyLayoutProps) => {
+const MessageLayout = ({ children }: MessageLayoutProps) => {
   return (
-    <SidebarLayout>
+    <SidebarLayout title={'설정'}>
       {children}
     </SidebarLayout>
   )
 }
 
-export default MyLayout
+export default MessageLayout

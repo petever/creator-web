@@ -12,7 +12,7 @@ export const AvatarList = ({ avatars, maxLength }: AvatarListProps) => {
   if (!avatars) return null
 
   return (
-    <Carousel withIndicators>
+    <Carousel>
       {avatars?.map((avatar: Avatars, avatarIndex) => {
         return (
           <Carousel.Slide key={`recommend_${avatarIndex}`}>

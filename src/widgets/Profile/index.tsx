@@ -11,7 +11,6 @@ const Profile = () => {
       <Avatar bg="themeColors" w={80} h={80} mt={-30} ml={16} />
       <UserInfo />
       <SubscribeButton />
-      <Button color={'themeColors[5]'}>test</Button>
       <Divider size={10} color={'themeColors'}/>
     </div>
   )

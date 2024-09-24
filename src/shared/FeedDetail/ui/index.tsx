@@ -11,8 +11,8 @@ interface FeedDetailProps {
 }
 export const FeedDetail = ({ opened, onClose }: FeedDetailProps) => {
   return (
-    <Modal title={<>test</>} size="lg" opened={opened} onClose={onClose} centered>
-      <Carousel withIndicators>
+    <Modal size="lg" opened={opened} onClose={onClose} centered>
+      <Carousel>
         <Carousel.Slide>
           <Image
             radius="md"
