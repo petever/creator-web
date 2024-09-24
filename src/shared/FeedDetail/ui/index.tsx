@@ -1,13 +1,7 @@
 'use client'
-import { Modal, Image } from '@mantine/core'
-
-import { Navigation, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import { CommentInput } from '@/features'
+import { Modal, Image} from '@mantine/core'
+import { Carousel } from '@mantine/carousel'
+import '@mantine/carousel/styles.css';
 import { CommentArea } from '@/widgets'
 
 interface FeedDetailProps {
@@ -18,19 +12,15 @@ interface FeedDetailProps {
 export const FeedDetail = ({ opened, onClose }: FeedDetailProps) => {
   return (
     <Modal title={<>test</>} size="lg" opened={opened} onClose={onClose} centered>
-      <Swiper
-        modules={[Navigation, Pagination]}
-        pagination={{ clickable: true }}
-        navigation={false}
-      >
-        <SwiperSlide>
+      <Carousel withIndicators>
+        <Carousel.Slide>
           <Image
             radius="md"
             fit="contain"
             src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-9.png"
           />
-        </SwiperSlide>
-      </Swiper>
+        </Carousel.Slide>
+      </Carousel>
       <CommentArea />
     </Modal>
   )

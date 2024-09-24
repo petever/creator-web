@@ -1,7 +1,7 @@
 import { Avatars } from '../../types'
 import { Profile } from '@/features'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
+import { Carousel } from '@mantine/carousel'
+import '@mantine/carousel/styles.css';
 
 interface AvatarListProps {
   avatars: Avatars[]
@@ -12,14 +12,14 @@ export const AvatarList = ({ avatars, maxLength }: AvatarListProps) => {
   if (!avatars) return null
 
   return (
-    <Swiper spaceBetween={5} slidesPerView={maxLength || 3}>
+    <Carousel withIndicators>
       {avatars?.map((avatar: Avatars, avatarIndex) => {
         return (
-          <SwiperSlide key={`recommend_${avatarIndex}`}>
-            <Profile profile={avatar} size="sm" key={`avatar_${avatarIndex}`} />
-          </SwiperSlide>
+          <Carousel.Slide key={`recommend_${avatarIndex}`}>
+            <Profile profile={avatar} size="sm" />
+          </Carousel.Slide>
         )
       })}
-    </Swiper>
+    </Carousel>
   )
 }

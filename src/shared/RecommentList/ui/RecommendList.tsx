@@ -1,11 +1,17 @@
-import { Grid, Title } from '@mantine/core'
+'use client'
+import { Title } from '@mantine/core'
 import classes from './styles.module.css'
+import {useMediaQuery} from "@mantine/hooks";
 
 interface RecommendListProps {
   span?: number
 }
 
 export const RecommendList = ({ span = 1 }: RecommendListProps) => {
+  const isPcWidth = useMediaQuery('(min-width: 1200px)');
+
+  if(!isPcWidth) return null
+
   return (
     <div className={classes.wrapper}>
       <Title order={4} className={classes.title}>

@@ -8,11 +8,7 @@ interface HomePageProps {
 }
 
 const HomePage = ({ initialFeeds }: HomePageProps) => {
-  return (
-    <div className={classes.wrapper}>
-      <FeedList />
-    </div>
-  )
+  return <FeedList />
 }
 
 export default HomePage

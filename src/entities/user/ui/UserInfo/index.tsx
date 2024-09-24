@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Flex, Text } from '@mantine/core'
+import { Flex, Text } from '@mantine/core'
 import classes from './styles.module.css'
 const UserInfo = () => {
   return (

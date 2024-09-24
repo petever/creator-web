@@ -3,16 +3,36 @@
   max-width: 100%
 }
 .container {
+  display:flex;
+  padding: 0 20px;
   width: 100%;
-  border-left: 1px solid #8a96a340;
-  border-right: 1px solid #8a96a340;
   height: 100vh;
+  flex: 0 0 100%;
 }
 
-@media screen and (min-width: 760px) {
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
+}
+
+
+@media screen and (min-width: 1200px) {
   .container {
-    padding-left:100px;
+    width :1200px;
+    flex: 0 0 1200px;
+    margin:0 auto;
+    padding-left: 100px;
+    gap : 30px;
+  }
+  .contentWrapper{
+    flex: 0 0 800px
   }
 }
 
+@media screen and (min-width: 640px) {
+  .contentWrapper{
+    flex: 1 1 100%;
+  }
+}
 

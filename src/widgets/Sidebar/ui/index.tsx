@@ -32,12 +32,12 @@ export const Sidebar = ({ isLogin }: SidebarProps) => {
                 leftSection={<span className={classes.iconWrapper}>{sidebar.icon}</span>}
                 onClick={() => handleDrawerOpen(sidebar.key)}
               >
-                <span className={classes.labelWrapper}>{sidebar.label}</span>
+                {/*<span className={classes.labelWrapper}>{sidebar.label}</span>*/}
               </Button>
             ) : (
               <NavLink
                 href={sidebar.href}
-                label={<span className={classes.labelWrapper}>{sidebar.label}</span>}
+                // label={<span className={classes.labelWrapper}>{sidebar.label}</span>}
                 leftSection={<span className={classes.iconWrapper}>{sidebar.icon}</span>}
                 key={`sidebar_${sidebarIndex}`}
               />

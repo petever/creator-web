@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button } from '@mantine/core'
+import {Box, Button, getThemeColor} from '@mantine/core'
 
 const SubscribeButton = () => {
   return (

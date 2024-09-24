@@ -3,8 +3,3 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
-
-@media screen and (min-width: 1260px) {
-  .wrap {
-  }
-}
