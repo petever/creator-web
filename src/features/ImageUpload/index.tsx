@@ -36,6 +36,7 @@ export const ImageUpload = (props: Partial<DropzoneProps>) => {
           maxSize={5 * 1024 ** 2}
           accept={IMAGE_MIME_TYPE}
           {...props}
+          openRef={openRef}
         >
           <Group justify="center" gap="xl" mih={220} style={{ pointerEvents: 'none' }}>
             <Dropzone.Accept>
@@ -68,9 +69,9 @@ export const ImageUpload = (props: Partial<DropzoneProps>) => {
       {image &&
         <div className={classes.imageWrapper}>
           <Image src={image} alt={''} fill/>
-          <div className={classes.imageListsWrapper}>
+          <div className={classes.imageUploadArea}>
             <Button onClick={() => openRef.current?.()}>Select files</Button>
-            <ul>
+            <ul className={classes.imageListsWrapper}>
               {previews}
             </ul>
           </div>

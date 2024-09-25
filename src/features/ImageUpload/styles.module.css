@@ -12,9 +12,15 @@
   overflow: hidden;
 }
 
+.imageUploadArea{
+  position:absolute;
+  bottom:0;
+  right:0;
+  z-index: 10;
+}
+
 .imageListsWrapper {
   position:absolute;
   right:0;
   bottom:0;
-
 }
