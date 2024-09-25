@@ -1,5 +1,4 @@
 import { Button, Container, NavLink } from '@mantine/core'
-import { SIDEBARS } from '../constants'
 import classes from './styles.module.css'
 import { SearchMember } from '@/widgets/Sidebar/ui/SearchMember'
 import { useDisclosure } from '@mantine/hooks'
@@ -25,7 +24,7 @@ export const Sidebar = ({ isLogin }: SidebarProps) => {
 
   return (
     <Container className={classes.wrap}>
-      <div>
+      <div className={classes.topArea}>
         <SearchMember opened={isDrawerOpened} onClose={drawerClose} />
         <AddContentModal opened={isModalOpened} onClose={modalClose} />
         <SidebarMenuList
@@ -33,9 +32,12 @@ export const Sidebar = ({ isLogin }: SidebarProps) => {
           onDrawerOpen={drawerOpen}
         />
       </div>
-      <Link href={PAGE.SETTINGS}>
-        <IconSettings/>
-      </Link>
+      <div className={classes.setting}>
+        <Link href={PAGE.SETTINGS}>
+          <IconSettings/>
+          <span className={classes.labelWrapper}>설정</span>
+        </Link>
+      </div>
     </Container>
   )
 }

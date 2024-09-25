@@ -1,4 +1,5 @@
 import '@mantine/core/styles.css'
+import './normalize.css'
 import Head from 'next/head'
 import AuthProvider from '@/app/providers/AuthProvider'
 import CustomMantineProvider from '@/app/providers/CustomMantineProvider'

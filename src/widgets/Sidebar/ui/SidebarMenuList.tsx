@@ -23,16 +23,16 @@ export const SidebarMenuList = ({onModalOpen, onDrawerOpen} : SidebarMenuListPro
               {!sidebar.href ? (
                 <Button
                   variant="transparent"
-                  leftSection={<span className={classes.iconWrapper}>{sidebar.icon}</span>}
+                  leftSection={<span >{sidebar.icon}</span>}
                   onClick={() => handleDrawerOpen(sidebar.key)}
                 >
-                  {/*<span className={classes.labelWrapper}>{sidebar.label}</span>*/}
+                  <span className={classes.labelWrapper}>{sidebar.label}</span>
                 </Button>
               ) : (
                 <NavLink
                   href={sidebar.href}
-                  // label={<span className={classes.labelWrapper}>{sidebar.label}</span>}
-                  leftSection={<span className={classes.iconWrapper}>{sidebar.icon}</span>}
+                  label={<span className={classes.labelWrapper}>{sidebar.label}</span>}
+                  leftSection={<span >{sidebar.icon}</span>}
                   key={`sidebar_${sidebarIndex}`}
                 />
               )}

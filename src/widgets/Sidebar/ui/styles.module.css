@@ -5,9 +5,18 @@
   position: fixed;
   bottom: 0;
   left: 0;
+  flex-direction: row;
   background: var(--mantine-color-body);
   z-index: 50;
-  align-content: start;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.topArea{
+  display:flex;
+  width :100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .menu {
@@ -16,50 +25,109 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px;
 }
 
-.menu > a span,
-.menu > button span {
-  margin:0
+.menu > a > span,
+.menu > button > span {
+  display:flex;
+  width :100%;
+  justify-content: center;
+  align-items: center;
+  margin:0 auto;
+}
+
+.menu > a > span > span {
+  display:flex;
 }
 
 .labelWrapper {
   display: none;
 }
 
-.iconWrapper {
+.setting{
+  display:none;
 }
 
-@media screen and (min-width: 1260px) {
-  .wrap {
-    flex: 0 0 100px;
-  }
-  .labelWrapper {
-    display: block;
-  }
-}
 
 @media screen and (min-width: 640px) {
   .wrap {
-    width: 100px;
+    width: 200px;
+    padding: 50px 0;
     top:0;
     left:0;
     flex-wrap: wrap;
     margin:0;
     border-right:1px solid #bebebe;
     align-content: space-between;
+    justify-content: space-between;
   }
 
-  .wrap > a {
-    display:block;
+  .topArea{
+    display:flex;
+    width : 100%;
+    padding: 0 20px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap:20px;
+  }
+
+  .menu {
+    width : 100%;
+    align-items: start;
+  }
+
+  .menu > a > span,
+  .menu > button > span {
+    display:flex;
+    width : auto;
     margin:0 auto;
   }
 
-  .labelWrapper {
-    display: none;
+  .menu > a, .menu button{
+    height: 36px;
+    padding: 0;
   }
+
+  .menu > a, .menu > button > span{
+    display:flex;
+    width :100%;
+    gap:10px;
+  }
+
   .drawerWrapper {
     margin-left: 100px;
   }
+
+  .labelWrapper {
+    display: block;
+  }
+
+  .setting{
+    align-items: start;
+    padding: 0 20px;
+  }
+
+  .setting{
+    display:flex;
+    width :100%;
+  }
+
+  .setting a{
+    display:flex;
+    gap:10px;
+    width :100%;
+    height: 36px;
+    align-items: center;
+  }
 }
+
+@media screen and (min-width: 640px) {
+  .drawerWrapper {
+    margin-left: 200px;
+  }
+ .menu > button > span > span{
+   margin:0;
+  }
+}
+
