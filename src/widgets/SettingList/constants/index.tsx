@@ -3,7 +3,7 @@ import {IconActivity, IconChevronRight, IconFingerprint, IconGauge} from "@table
 import React from "react";
 import {PAGE} from "@/shared/constants/page";
 
-export const SETTING_LISTS: Label[] = [
+export const SETTING_LISTS = [
   { icon: IconGauge, label: '내 정보', description: 'Item with description', href : PAGE.SETTINGS_PROFILE},
   {
     icon: IconFingerprint,

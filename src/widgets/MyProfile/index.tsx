@@ -17,6 +17,7 @@ interface MyProfileProps {
 const MyProfile = async ({ userProfile }: MyProfileProps) => {
   const { data } = useMyProfile(userProfile)
 
+  if(!data) return null
   return (
     <Box>
       <BackgroundImage />

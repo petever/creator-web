@@ -4,7 +4,7 @@ export interface Label {
   label: string
   href: string
   key: string
-  icon?: React.ReactNode
+  icon?: any
   disabled?: boolean
 }
 

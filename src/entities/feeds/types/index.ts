@@ -1,4 +1,3 @@
-import { Creator } from '@/entities/user/types'
 import { PostItem } from '@/entities/posts/types'
 
 export interface Feeds {
@@ -6,7 +5,8 @@ export interface Feeds {
 }
 
 export interface FeedContents extends PostItem {
-  creator: Creator
+  creator: any
+  // TODO : Creator Type Change
   isLiked: boolean
   isSubscribed: boolean
   commentCount: number
