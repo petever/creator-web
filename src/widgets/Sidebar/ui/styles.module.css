@@ -17,27 +17,7 @@
   width :100%;
   align-items: center;
   justify-content: space-between;
-}
-
-.menu {
-  display: flex;
-  flex: 1 1 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu > a > span,
-.menu > button > span {
-  display:flex;
-  width :100%;
-  justify-content: center;
-  align-items: center;
-  margin:0 auto;
-}
-
-.menu > a > span > span {
-  display:flex;
+  padding: 20px;
 }
 
 .labelWrapper {
@@ -47,17 +27,9 @@
 .setting{
   display:none;
 }
-@media screen and (min-width: 1200px) {
- .wrap{
-   position: sticky;
-   max-width: 340px;
-   min-width: 340px;
- }
-}
 
 @media screen and (min-width: 640px) {
   .wrap {
-    position: sticky;
     width: 60px;
     padding: 50px 0;
     top:0;
@@ -76,7 +48,7 @@
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    gap:20px;
+    gap:40px;
   }
 
   .menu {
@@ -84,31 +56,12 @@
     align-items: start;
   }
 
-  .menu > a > span,
-  .menu > button > span {
-    display:flex;
-    width : auto;
-    margin:0 auto;
-  }
-
-  .menu > a, .menu button{
-    height: 36px;
-    padding: 0;
-  }
-
-  .menu > a, .menu > button > span{
-    display:flex;
-    width :100%;
-    gap:10px;
-  }
 
   .drawerWrapper {
     margin-left: 100px;
   }
 
-  .labelWrapper {
-    display: block;
-  }
+
 
   .setting{
     align-items: start;
@@ -135,6 +88,16 @@
   }
  .menu > button > span > span{
    margin:0;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .wrap{
+    max-width: 340px;
+    min-width: 340px;
+  }
+  .labelWrapper {
+    display: block;
   }
 }
 

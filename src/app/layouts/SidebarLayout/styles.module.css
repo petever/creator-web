@@ -1,6 +1,5 @@
 .wrap {
   display:flex;
-  max-width: 100%
 }
 .container {
   display:flex;
@@ -13,11 +12,26 @@
   display: flex;
   flex-direction: column;
   flex: 0 0 100%;
-  border-left: 1px solid #e5e5e5;
-  border-right: 1px solid #e5e5e5;
 }
 
-@media screen and (min-width: 1200px) {
+
+@media screen and (min-width: 640px) {
+  .wrap {
+    padding-left: 60px;
+
+  }
+  .contentWrapper{
+    flex: 1 1 100%;
+  }
+  .container {
+    padding: 0 50px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .wrap {
+    padding-left: 340px;
+  }
   .container {
     width :1200px;
     flex: 0 0 1200px;
@@ -30,15 +44,6 @@
   }
   .recommend{
     flex:1 1 50%;
-  }
-}
-
-@media screen and (min-width: 640px) {
-  .contentWrapper{
-    flex: 1 1 100%;
-  }
-  .container {
-    padding: 0 50px;
   }
 }
 

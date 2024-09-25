@@ -9,7 +9,7 @@ interface RecommendListProps {
 }
 
 export const RecommendList = ({ span = 1, isRecommend }: RecommendListProps) => {
-  const isPcWidth = useMediaQuery('(min-width: 1200px)')
+  const isPcWidth = useMediaQuery('(min-width: 1000px)')
   if (!isRecommend) return null
   if (!isPcWidth) return null
 

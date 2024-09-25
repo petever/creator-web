@@ -1,44 +1,25 @@
-import { Button, NavLink } from '@mantine/core'
-import classes from "@/widgets/Sidebar/ui/styles.module.css";
-import {SIDEBARS} from "@/widgets/Sidebar/constants";
+import { Anchor, Button, Flex, NavLink } from '@mantine/core'
+import classes from '@/widgets/Sidebar/ui/styles.module.css'
+import { SIDEBARS } from '@/widgets/Sidebar/constants'
+import Link from 'next/link'
 
-interface SidebarMenuListProps{
-  onModalOpen : () => void
-  onDrawerOpen : () => void
-}
+interface SidebarMenuListProps {}
 
-export const SidebarMenuList = ({onModalOpen, onDrawerOpen} : SidebarMenuListProps) => {
-  const handleDrawerOpen = (key: string) => {
-    if (key === 'add_content') {
-      return onModalOpen()
-    }
-    onDrawerOpen()
-  }
-
+export const SidebarMenuList = ({}: SidebarMenuListProps) => {
   return (
     <>
       {SIDEBARS.map((sidebar, sidebarIndex) => {
-          return (
-            <div className={classes.menu} key={`sidebar_${sidebarIndex}`}>
-              {!sidebar.href ? (
-                <Button
-                  variant="transparent"
-                  leftSection={<span >{sidebar.icon}</span>}
-                  onClick={() => handleDrawerOpen(sidebar.key)}
-                >
-                  <span className={classes.labelWrapper}>{sidebar.label}</span>
-                </Button>
-              ) : (
-                <NavLink
-                  href={sidebar.href}
-                  label={<span className={classes.labelWrapper}>{sidebar.label}</span>}
-                  leftSection={<span >{sidebar.icon}</span>}
-                  key={`sidebar_${sidebarIndex}`}
-                />
-              )}
-            </div>
-          )
-        })}
+        return (
+          <>
+            <Anchor c="dark" fw={500} fz="lg" href={sidebar.href}>
+              <Flex align="center" gap={20}>
+                {sidebar.icon}
+                <span className={classes.labelWrapper}>{sidebar.label}</span>
+              </Flex>
+            </Anchor>
+          </>
+        )
+      })}
     </>
   )
 }

@@ -1,5 +1,5 @@
 'use client'
-import { Box, Button, Container, Divider, Image } from '@mantine/core'
+import { Box, Button, Card, Divider, Image } from '@mantine/core'
 import { FeedButtons } from '@/features'
 import { PostingHeader } from './PostingHeader'
 import { Avatars } from '../../types'
@@ -19,21 +19,22 @@ export const Post = ({ profile }: PostProps) => {
   }
 
   return (
-    <Container fluid p={0}>
+    <Card p={0} shadow="lg" padding="lg" radius="lg">
       <Box p={10}>
         <PostingHeader profile={DummyAvatar[0]} />
       </Box>
       <Image
         radius={0}
-        fit="contain"
-        src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-9.png"
+        src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-1.png"
       />
       <FeedButtons id={'feedId_01'} onDetailModal={handleDetailOpen} />
       <Box>
-        <Button variant="transparent" onClick={handleDetailOpen}>댓글 0개 보기</Button>
+        <Button variant="transparent" onClick={handleDetailOpen}>
+          댓글 0개 보기
+        </Button>
         <FeedDetail opened={opened} onClose={close} />
       </Box>
       <Divider my="md" />
-    </Container>
+    </Card>
   )
 }

@@ -14,7 +14,7 @@ interface SidebarLayoutProps {
 export function SidebarLayout({ title, children, isRecommend }: SidebarLayoutProps) {
   return (
     <div className={classes.wrap}>
-      <ThemeToggleButton />
+      {/*<ThemeToggleButton />*/}
       <Sidebar />
       <div className={classes.container}>
         <div className={classes.contentWrapper}>
