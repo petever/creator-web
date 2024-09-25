@@ -17,7 +17,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
         src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-7.png"
         height={180}
       />
-      <Box pr={16} pl={16}>
+      <Box>
         <Avatar bg="themeColors" w={80} h={80} mt={-30} ml={16}>
           <Image src={data?.picture || ''} alt={data?.username || ''} width={80} height={80} />
         </Avatar>
