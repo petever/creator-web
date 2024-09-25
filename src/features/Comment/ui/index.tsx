@@ -1,6 +1,7 @@
-import {Avatar, Button, UnstyledButton} from '@mantine/core'
-import classes  from './styles.module.css'
-import {useRouter} from "next/navigation";
+'use client'
+import { Avatar, Button, UnstyledButton } from '@mantine/core'
+import classes from './styles.module.css'
+import { useRouter } from 'next/navigation'
 
 export const Comment = () => {
   const router = useRouter()
@@ -10,8 +11,13 @@ export const Comment = () => {
   }
 
   return (
-    <UnstyledButton variant="transparent" color="gray" className={classes.wrapper} onClick={handleMemberPageMove}>
-      <Avatar size='sm' radius="xl" color="gray" />
+    <UnstyledButton
+      variant="transparent"
+      color="gray"
+      className={classes.wrapper}
+      onClick={handleMemberPageMove}
+    >
+      <Avatar size="sm" radius="xl" color="gray" />
       유저명
     </UnstyledButton>
   )

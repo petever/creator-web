@@ -1,5 +1,3 @@
-'use client'
-
 import '@mantine/core/styles.css'
 import { Sidebar } from '@/widgets/Sidebar/ui'
 import classes from './styles.module.css'
