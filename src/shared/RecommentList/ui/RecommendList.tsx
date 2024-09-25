@@ -1,16 +1,17 @@
 'use client'
 import { Title } from '@mantine/core'
 import classes from './styles.module.css'
-import {useMediaQuery} from "@mantine/hooks";
+import { useMediaQuery } from '@mantine/hooks'
 
 interface RecommendListProps {
   span?: number
+  isRecommend?: boolean
 }
 
-export const RecommendList = ({ span = 1 }: RecommendListProps) => {
-  const isPcWidth = useMediaQuery('(min-width: 1200px)');
-
-  if(!isPcWidth) return null
+export const RecommendList = ({ span = 1, isRecommend }: RecommendListProps) => {
+  const isPcWidth = useMediaQuery('(min-width: 1200px)')
+  if (!isRecommend) return null
+  if (!isPcWidth) return null
 
   return (
     <div className={classes.wrapper}>

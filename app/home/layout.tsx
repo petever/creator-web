@@ -5,11 +5,7 @@ interface HomeLayoutProps {
   children: React.ReactNode
 }
 const HomeLayout = ({ children }: HomeLayoutProps) => {
-  return (
-    <SidebarLayout>
-      {children}
-    </SidebarLayout>
-  )
+  return <SidebarLayout isRecommend>{children}</SidebarLayout>
 }
 
 export default HomeLayout

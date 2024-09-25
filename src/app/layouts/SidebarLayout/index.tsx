@@ -10,9 +10,10 @@ import { RecommendList } from '@/shared/RecommentList/ui/RecommendList'
 interface SidebarLayoutProps {
   title?: string
   children: React.ReactNode
+  isRecommend?: boolean
 }
 
-export function SidebarLayout({ title, children }: SidebarLayoutProps) {
+export function SidebarLayout({ title, children, isRecommend }: SidebarLayoutProps) {
   return (
     <div className={classes.wrap}>
       <ThemeToggleButton />
@@ -23,7 +24,7 @@ export function SidebarLayout({ title, children }: SidebarLayoutProps) {
           {children}
         </div>
         <div className={classes.recommend}>
-          <RecommendList />
+          <RecommendList isRecommend={isRecommend} />
         </div>
       </div>
     </div>
