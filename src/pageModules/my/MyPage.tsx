@@ -1,18 +1,13 @@
 import MyProfile from '@/widgets/MyProfile'
 import ContentTabs from '@/pageModules/userDetail/ui/ContentTabs'
-import { getProfile } from '@/entities/user/api/getProfile'
+import { getServerProfile } from '@/entities/user/api/getServerProfile'
 
 const MyPage = async () => {
-  // const result = await getProfile()
-  // console.log(result, 'result')
+  const initialData = await getServerProfile()
 
   return (
     <>
-      <MyProfile
-        picture={'result.picture'}
-        username={'result.username'}
-        displayName={'result.displayName'}
-      />
+      <MyProfile userProfile={initialData} />
       <ContentTabs />
     </>
   )

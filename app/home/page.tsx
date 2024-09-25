@@ -1,9 +1,7 @@
 import HomePage from '@/pageModules/home/HomePage'
-import { getFeeds } from '@/entities/feeds/api/getFeeds'
+import { getServerFeeds } from '@/entities/feeds/api/getServerFeeds'
 
 export default async function Home() {
-  const initialFeeds = await getFeeds()
-  return (
-      <HomePage initialFeeds={initialFeeds} />
-  )
+  const initialFeeds = await getServerFeeds()
+  return <HomePage initialFeeds={initialFeeds} />
 }
