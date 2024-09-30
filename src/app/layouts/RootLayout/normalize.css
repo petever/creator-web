@@ -1,3 +1,11 @@
+ul, li{
+  margin:0; padding:0;
+}
+
+li{
+  list-style: none;
+}
+
 a {
   font-style: normal;
   text-decoration: none;

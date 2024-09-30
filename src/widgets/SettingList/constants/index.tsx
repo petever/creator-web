@@ -4,11 +4,10 @@ import React from "react";
 import {PAGE} from "@/shared/constants/page";
 
 export const SETTING_LISTS = [
-  { icon: IconGauge, label: '내 정보', description: 'Item with description', href : PAGE.SETTINGS_PROFILE},
+  { icon: IconGauge, label: '내 정보', href : PAGE.SETTINGS_PROFILE},
   {
     icon: IconFingerprint,
-    label: '보안',
-    rightSection: <IconChevronRight size="1rem" stroke={1.5} />,
+    label: '알림',
     href : PAGE.SETTINGS_PROFILE
   },
   { icon: IconActivity, label: '결제', href : PAGE.SETTINGS_PROFILE },
