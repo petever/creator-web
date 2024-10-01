@@ -1,5 +1,4 @@
-import { Button, Container, Flex, Input } from '@mantine/core'
-import { Profile } from '@/features'
+import { Button, Container } from '@mantine/core'
 
 interface AlarmProps {
   drawerKey: string

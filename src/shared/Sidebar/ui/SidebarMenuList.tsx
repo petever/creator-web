@@ -1,7 +1,8 @@
 import {  Flex, Text, UnstyledButton } from '@mantine/core'
-import classes from '@/widgets/Sidebar/ui/styles.module.css'
-import { SIDEBARS } from '@/widgets/Sidebar/constants'
 import Link from 'next/link'
+import {useMediaQuery} from "@mantine/hooks";
+import {SIDEBARS} from "@/shared/Sidebar/constants";
+import classes from '@/shared/Sidebar/ui/styles.module.css'
 
 interface SidebarMenuListProps {
   onModalOpen: () => void
@@ -9,8 +10,16 @@ interface SidebarMenuListProps {
 }
 
 export const SidebarMenuList = ({ onModalOpen, onDrawerOpen }: SidebarMenuListProps) => {
+  const isMobile = useMediaQuery('(max-width: 640px)')
+  const flexDirection = isMobile ? 'row' : 'column'
+
   return (
-    <Flex gap={40} direction="column">
+    <Flex
+      gap={40}
+      direction={flexDirection}
+      justify={'space-between'}
+      className={classes.menuWrapper}
+    >
       {SIDEBARS.map((sidebar, sidebarIndex) => {
         if (sidebar.label === '추가') {
           return (

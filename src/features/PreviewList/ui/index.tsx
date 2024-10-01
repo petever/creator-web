@@ -10,12 +10,13 @@ import {Preview} from "@/features/PreviewList/ui/Preview";
 interface PreviewListProps {
 	image ?: string
 	currentIndex : number
-	previews : FileWithPath[]
+	previews : File[]
 	onShowImageChange : (url : string, index : number) => void
+  onRemoveImage : (index : number) => void
 	onImageUpload: (() => void) | null;
 }
 
-const PreviewList = ({image, currentIndex, previews, onShowImageChange, onImageUpload} : PreviewListProps) => {
+const PreviewList = ({image, currentIndex, previews, onShowImageChange, onRemoveImage, onImageUpload} : PreviewListProps) => {
 	const handleImageUpload = () => {
 		onImageUpload?.()
 	}
@@ -33,6 +34,7 @@ const PreviewList = ({image, currentIndex, previews, onShowImageChange, onImageU
 				<Preview
 					currentIndex={currentIndex}
 					previews={previews}
+          onRemoveImage={onRemoveImage}
 					onShowImageChange={onShowImageChange}
 				/>
 			</div>

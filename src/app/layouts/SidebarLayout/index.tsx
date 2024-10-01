@@ -1,9 +1,9 @@
 import '@mantine/core/styles.css'
-import { Sidebar } from '@/widgets/Sidebar/ui'
 import classes from './styles.module.css'
 import { ThemeToggleButton } from '@/widgets'
 import Header from '@/features/Header'
 import { RecommendList } from '@/shared/RecommentList/ui/RecommendList'
+import {Sidebar} from "@/shared";
 
 interface SidebarLayoutProps {
   title?: string

@@ -30,7 +30,6 @@ export const FeedButtons = ({ id, onDetailModal }: FeedButtonsProps) => {
     >
       <ActionIconGroup>
         <ActionIcon
-          data-testId="favorite_btn"
           variant="subtle"
           size="xl"
           color="gray"
@@ -40,7 +39,6 @@ export const FeedButtons = ({ id, onDetailModal }: FeedButtonsProps) => {
           <IconHeartFilled />
         </ActionIcon>
         <ActionIcon
-          data-testId="detail_btn"
           variant="subtle"
           size="xl"
           color="gray"

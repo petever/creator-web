@@ -1,4 +1,3 @@
-export { Sidebar } from './Sidebar/ui'
 export { AvatarList } from './AvartarList/ui'
 export { ThemeToggleButton } from './ThemeToggleButton/ui'
 export { CommentArea } from './CommentArea/ui'

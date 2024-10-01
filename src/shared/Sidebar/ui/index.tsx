@@ -1,13 +1,13 @@
 'use client'
-import { Anchor, Button, Container, Flex, NavLink } from '@mantine/core'
+import { Anchor, Container, Flex  } from '@mantine/core'
 import classes from './styles.module.css'
-import { SearchMember } from '@/widgets/Sidebar/ui/SearchMember'
 import { useDisclosure } from '@mantine/hooks'
-import { AddContentModal } from '@/widgets/Sidebar/ui/AddContentModal'
 import { IconSettings } from '@tabler/icons-react'
 import Link from 'next/link'
 import { PAGE } from '@/shared/constants/page'
-import { SidebarMenuList } from '@/widgets/Sidebar/ui/SidebarMenuList'
+import AddContentModal from "@/widgets/AddContentModal/ui";
+import {SearchMember} from "@/shared/Sidebar/ui/SearchMember";
+import {SidebarMenuList} from "@/shared/Sidebar/ui/SidebarMenuList";
 interface SidebarProps {
   isLogin?: boolean
 }

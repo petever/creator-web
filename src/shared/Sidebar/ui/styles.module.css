@@ -28,6 +28,10 @@
   display:none;
 }
 
+.menuWrapper{
+  width: 100%
+}
+
 @media screen and (min-width: 640px) {
   .wrap {
     width: 60px;
@@ -64,13 +68,10 @@
 
 
   .setting{
-    align-items: start;
-    padding: 0 20px;
-  }
-
-  .setting{
     display:flex;
     width :100%;
+    align-items: start;
+    padding: 0 20px;
   }
 
   .setting a{
@@ -80,14 +81,11 @@
     height: 36px;
     align-items: center;
   }
-}
-
-@media screen and (min-width: 640px) {
   .drawerWrapper {
     margin-left: 200px;
   }
- .menu > button > span > span{
-   margin:0;
+  .menu > button > span > span{
+    margin:0;
   }
 }
 

@@ -1,6 +1,6 @@
 import { Button, Container, Drawer, Flex, Input } from '@mantine/core'
 import { Profile } from '@/features'
-import classes from '@/widgets/Sidebar/ui/styles.module.css'
+import classes from '@/shared/Sidebar/ui/styles.module.css'
 
 interface SearchMemberProps {
   opened: boolean
