@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {Button, UnstyledButton} from '@mantine/core';
+import { UnstyledButton} from '@mantine/core';
 import classes from "@/features/PreviewList/ui/styles.module.css";
 import { IconSquareXFilled } from '@tabler/icons-react';
 

@@ -12,7 +12,7 @@ const ImageUpload = (props: Partial<DropzoneProps>) => {
   const form = useContentFormContext()
   const {values, setFieldValue, insertListItem, removeListItem, reorderListItem} = form
 
-  const { currentImage, files, currentIndex } = values
+  const { step, currentImage, files, currentIndex } = values
 	const openRef = useRef<() => void>(null);
 
 	const handleDropImages = (uploadFiles : File[]) => {
@@ -42,6 +42,8 @@ const ImageUpload = (props: Partial<DropzoneProps>) => {
     setFieldValue('currentImage', url)
     setFieldValue('currentIndex', index)
 	}
+
+  if(step > 0) return null
 
 	return (
 		<div>

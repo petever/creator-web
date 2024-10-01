@@ -1,4 +1,3 @@
-import { Label } from '../../types'
 import {
   IconBell,
   IconCirclePlus,
@@ -7,6 +6,7 @@ import {
   IconSearch,
   IconSend,
 } from '@tabler/icons-react'
+import {Label} from "@/widgets/types";
 
 export const SIDEBARS: Label[] = [
   {
