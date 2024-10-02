@@ -23,17 +23,20 @@ export const {
       }
 
       const data = await login(payload)
+      user.id = data.id
       user.accessToken = data.accessToken
       return !!data
     },
 
     async jwt({ token, account, profile, user }) {
       if (user) {
+        token.id = user.id
         token.accessToken = user.accessToken
       }
       return token
     },
     async session({ session, token }) {
+      session.user.id = token.id as string
       session.accessToken = token.accessToken as string
       return session
     },
