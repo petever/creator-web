@@ -35,11 +35,9 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
     const { displayName, username, status, picture, cover } = values
 
     const formData = new FormData()
-    formData.append('displayName', displayName)
-    formData.append('username', username)
-    formData.append('status', status)
+    formData.append('editUserRequest', JSON.stringify({ displayName, username, status }))
     formData.append('picture', picture)
-    formData.append('cover', cover)
+    // formData.append('cover', cover)
     updateProfileMutate(formData)
 
     form.resetDirty()
