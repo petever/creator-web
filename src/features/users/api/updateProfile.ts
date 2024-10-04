@@ -6,7 +6,11 @@ import { UpdateProfile } from '@/features/users/type/profile'
 export const updateProfile = async (profile: UpdateProfile): Promise<UserProfile> => {
   return await clientKy
     .patch(API_URL.USERS_PROFILE, {
-      json: profile,
+      body: profile,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
     })
+
     .json()
 }

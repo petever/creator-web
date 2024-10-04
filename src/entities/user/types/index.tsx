@@ -3,6 +3,7 @@ export interface UserProfile {
   displayName: string
   username: string
   status: string
-  picture: string
+  picture: string | File
   role: string
+  cover: string | File
 }

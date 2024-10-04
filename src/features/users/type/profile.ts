@@ -1,3 +1,9 @@
-import { UserProfile } from '@/entities/user/types'
-
-export type UpdateProfile = Pick<UserProfile, 'displayName' | 'username' | 'status'>
+export type UpdateProfile = {
+  editUserRequest: {
+    displayName: string
+    username: string
+    status: string
+  }
+  picture?: FormData | string
+  cover?: FormData | string
+}
