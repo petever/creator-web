@@ -21,8 +21,17 @@ const ProfilePicture = ({ imageSrc = '', alt = '' }: ProfilePictureProps) => {
   }
 
   return (
-    <Dropzone accept={IMAGE_MIME_TYPE} openRef={openRef} onDrop={handlePictureUpdate}>
-      <Avatar bg="themeColors" w={80} h={80} mt={-30} ml={16} mb={20}>
+    <Dropzone
+      w={80}
+      h={80}
+      mt={-30}
+      ml={16}
+      mb={20}
+      accept={IMAGE_MIME_TYPE}
+      openRef={openRef}
+      onDrop={handlePictureUpdate}
+    >
+      <Avatar bg="themeColors" w={80} h={80}>
         <Image src={src as string} alt={alt} width={80} height={80} />
       </Avatar>
     </Dropzone>

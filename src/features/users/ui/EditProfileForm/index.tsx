@@ -1,12 +1,13 @@
 'use client'
 
-import { Box, Button, Flex, Image as MatineImage, Textarea, TextInput } from '@mantine/core'
+import { Box, Button, Flex, Textarea, TextInput } from '@mantine/core'
 import { UserProfile } from '@/entities/user/types'
 import { useMyProfile } from '@/entities/user/hooks/useMyProfile'
 import { useUpdateMyProfile } from '@/features/users/hooks/useUpdateMyProfile'
 import { validateDisplayName, validateUsername } from '@/features/users/util/profileValidate'
 import ProfilePicture from '@/features/users/ui/ProfilePicture'
 import { UserProfileFormProvider, useUserProfileForm } from '@/features/users/lib/profile-context'
+import ProfileCover from '@/features/users/ui/ProfileCover'
 
 interface EditProfileFormProps {
   userProfile: UserProfile
@@ -35,9 +36,21 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
     const { displayName, username, status, picture, cover } = values
 
     const formData = new FormData()
-    formData.append('editUserRequest', JSON.stringify({ displayName, username, status }))
+    formData.append(
+      'editUserRequest',
+      new Blob(
+        [
+          JSON.stringify({
+            displayName,
+            username,
+            status,
+          }),
+        ],
+        { type: 'application/json' },
+      ),
+    )
     formData.append('picture', picture)
-    // formData.append('cover', cover)
+    formData.append('cover', cover)
     updateProfileMutate(formData)
 
     form.resetDirty()
@@ -46,7 +59,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
   return (
     <UserProfileFormProvider form={form}>
       <form onSubmit={form.onSubmit((values: any) => handleSubmit(values))}>
-        <MatineImage src={data?.cover} height={180} />
+        <ProfileCover imageSrc={form.getValues().cover} />
         <Box>
           <ProfilePicture imageSrc={form.getValues().picture} alt={data?.username} />
           <Flex direction="column" gap={20}>
