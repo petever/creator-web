@@ -7,10 +7,9 @@ export const updateProfile = async (profile: UpdateProfile): Promise<UserProfile
   return await clientKy
     .patch(API_URL.USERS_PROFILE, {
       body: profile,
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
+      // headers: {
+      //   'Content-Type': 'multipart/form-data',
+      // },
     })
-
     .json()
 }
