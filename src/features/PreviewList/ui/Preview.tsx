@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { UnstyledButton} from '@mantine/core';
+import {ActionIcon, UnstyledButton} from '@mantine/core';
 import classes from "@/features/PreviewList/ui/styles.module.css";
-import { IconSquareXFilled } from '@tabler/icons-react';
+import {IconAdjustments, IconSquareXFilled} from '@tabler/icons-react';
+import {useContentFormContext} from "@/widgets/AddContentModal/lib/form-context";
 
 interface PreviewProps {
 	currentIndex : number
@@ -11,28 +12,26 @@ interface PreviewProps {
 }
 
 export const Preview = ({ currentIndex, previews, onRemoveImage, onShowImageChange} : PreviewProps) => {
-	if(previews.length < 1) return null
-
 	return (
-		<ul className={classes.previewListWrapper}>
-			{
-				previews.map((file, index) => {
-					const imageUrl = URL.createObjectURL(file);
-					return (
-						<li className={classes.previewWrapper} key={`preview_${index}`}>
-							<UnstyledButton onClick={() => onShowImageChange(imageUrl, index)}>
-								{currentIndex === index &&
-									<div className={classes.currentImageWrapper}/>
-								}
-								<Image src={imageUrl} alt='' fill/>
-							</UnstyledButton>
+    <ul className={classes.previewListWrapper}>
+      {
+        previews.map((file, index) => {
+          const imageUrl = URL.createObjectURL(file);
+          return (
+            <li className={classes.previewWrapper} key={`preview_${index}`}>
+              <UnstyledButton onClick={() => onShowImageChange(imageUrl, index)}>
+                {currentIndex === index &&
+                  <div className={classes.currentImageWrapper}/>
+                }
+                <Image src={imageUrl} alt='' fill/>
+              </UnstyledButton>
               <UnstyledButton className={classes.deleteButton} onClick={() => onRemoveImage(index)}>
                 <IconSquareXFilled/>
               </UnstyledButton>
-						</li>
-					)
-				})
-			}
-		</ul>
+            </li>
+          )
+        })
+      }
+    </ul>
 	)
 }

@@ -10,7 +10,7 @@ import { useContentFormContext  } from '@/widgets/AddContentModal/lib/form-conte
 
 const ImageUpload = (props: Partial<DropzoneProps>) => {
   const form = useContentFormContext()
-  const {values, setFieldValue, insertListItem, removeListItem, reorderListItem} = form
+  const {values, setFieldValue, insertListItem, removeListItem, reorderListItem, watch} = form
 
   const { step, currentImage, files, currentIndex } = values
 	const openRef = useRef<() => void>(null);
@@ -28,7 +28,9 @@ const ImageUpload = (props: Partial<DropzoneProps>) => {
   const handleRemoveImage = (index : number) => {
     removeListItem('files', index)
 
-    if(!files) {
+    const uploadFiles = form.getValues().files
+
+    if(uploadFiles.length === 0) {
       setFieldValue('currentIndex', 0)
       setFieldValue('currentImage', '')
       return
@@ -63,7 +65,7 @@ const ImageUpload = (props: Partial<DropzoneProps>) => {
         </Dropzone>
 			}
 			<PreviewList
-				image={currentImage}
+        currentImage={currentImage}
 				currentIndex={currentIndex}
 				previews={files}
         onRemoveImage={handleRemoveImage}

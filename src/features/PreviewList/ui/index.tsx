@@ -1,14 +1,12 @@
 'use client'
 
-import { UnstyledButton } from '@mantine/core';
-import { IconCirclePlus } from '@tabler/icons-react';
-import { FileWithPath } from '@mantine/dropzone';
 import Image from "next/image";
 import classes from './styles.module.css'
-import {Preview} from "@/features/PreviewList/ui/Preview";
+import {useContentFormContext} from "@/widgets/AddContentModal/lib/form-context";
+import {MoreImageUpload} from "@/features/PreviewList/ui/MoreImageUpload";
 
 interface PreviewListProps {
-	image ?: string
+  currentImage ?: string
 	currentIndex : number
 	previews : File[]
 	onShowImageChange : (url : string, index : number) => void
@@ -16,28 +14,21 @@ interface PreviewListProps {
 	onImageUpload: (() => void) | null;
 }
 
-const PreviewList = ({image, currentIndex, previews, onShowImageChange, onRemoveImage, onImageUpload} : PreviewListProps) => {
-	const handleImageUpload = () => {
-		onImageUpload?.()
-	}
-
-	if(!image) return null
+const PreviewList = ({currentImage, currentIndex, previews, onShowImageChange, onRemoveImage, onImageUpload} : PreviewListProps) => {
+	if(!currentImage) return null
   return (
-		<div>
+		<div className={classes.wrapper}>
 			<div className={classes.imageWrapper}>
-				<Image src={image} fill alt=''/>
+				<Image src={currentImage} fill alt=''/>
 			</div>
-			<div className={classes.imageUploadArea}>
-				<UnstyledButton className={classes.imageUploadButton} onClick={handleImageUpload}>
-					<IconCirclePlus/>
-				</UnstyledButton>
-				<Preview
-					currentIndex={currentIndex}
-					previews={previews}
-          onRemoveImage={onRemoveImage}
-					onShowImageChange={onShowImageChange}
-				/>
-			</div>
+      <MoreImageUpload
+        currentIndex={currentIndex}
+        currentImage={currentImage}
+        previews={previews}
+        onShowImageChange={onShowImageChange}
+        onRemoveImage={onRemoveImage}
+        onImageUpload={onImageUpload}
+      />
 		</div>
 	)
 }
