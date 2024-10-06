@@ -1,5 +1,5 @@
 import { API_URL } from '@/shared/constants/apiURL'
-import { LoginRequest, LoginResponse } from '@/features/users/type'
+import { LoginRequest, LoginResponse } from '@/features/users/type/login'
 import { serverKy } from '@/shared/core/serverKy'
 
 export const login = async (data: LoginRequest): Promise<LoginResponse> => {
