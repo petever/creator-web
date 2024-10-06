@@ -14,23 +14,31 @@ export const ContentForm = () => {
   return (
     <Group>
       <Flex
+        flex={1}
         gap={30}
       >
-        <Carousel withIndicators height={200}>
-          {
-            files.map((file, index) => {
-              const imageUrl = URL.createObjectURL(file);
-              return (
-                <Carousel.Slide key={`image_${index}`}>
-                  <Image src={imageUrl} alt='' width={200} height={200}/>
-                </Carousel.Slide>
-              )
-            })
-          }
-        </Carousel>
         <Flex
           direction='column'
           gap={30}
+          flex={1}
+        >
+          <Carousel withIndicators height={200}>
+            {
+              files.map((file, index) => {
+                const imageUrl = URL.createObjectURL(file);
+                return (
+                  <Carousel.Slide key={`image_${index}`}>
+                    <Image src={imageUrl} alt='' fill/>
+                  </Carousel.Slide>
+                )
+              })
+            }
+          </Carousel>
+        </Flex>
+        <Flex
+          direction='column'
+          gap={30}
+          flex={1}
         >
           <Input.Wrapper>
             <TextInput

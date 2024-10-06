@@ -6,7 +6,6 @@ import classes from "@/features/PreviewList/ui/styles.module.css";
 import {useContentFormContext} from "@/widgets/AddContentModal/lib/form-context";
 
 interface MoreImageUploadProps {
-  currentImage ?: string
   currentIndex : number
   previews : File[]
   onShowImageChange : (url : string, index : number) => void

@@ -16,6 +16,7 @@ export const Preview = ({ currentIndex, previews, onRemoveImage, onShowImageChan
     <ul className={classes.previewListWrapper}>
       {
         previews.map((file, index) => {
+          const isVideo = file.type === 'video/mp4'
           const imageUrl = URL.createObjectURL(file);
           return (
             <li className={classes.previewWrapper} key={`preview_${index}`}>
@@ -23,7 +24,11 @@ export const Preview = ({ currentIndex, previews, onRemoveImage, onShowImageChan
                 {currentIndex === index &&
                   <div className={classes.currentImageWrapper}/>
                 }
-                <Image src={imageUrl} alt='' fill/>
+                {!isVideo ? <Image src={imageUrl} alt='' fill/> : (
+                  <div className={classes.videoWrapper}>
+                    <video src={imageUrl}/>
+                  </div>
+                )}
               </UnstyledButton>
               <UnstyledButton className={classes.deleteButton} onClick={() => onRemoveImage(index)}>
                 <IconSquareXFilled/>

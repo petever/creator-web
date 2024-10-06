@@ -1,5 +1,6 @@
 export interface AddContentData {
-  currentImage : string
+  currentFile : string
+  currentFileType : 'video' | 'image'
   step : number
   currentIndex : number
   title : string

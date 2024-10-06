@@ -1,6 +1,6 @@
 import { Modal} from '@mantine/core'
 import { ContentFormProvider, useContentForm } from '@/widgets/AddContentModal/lib/form-context'
-import ImageUpload from "@/widgets/AddContentModal/ui/ImageUpload";
+import ContentUpload from "@/widgets/AddContentModal/ui/ContentUpload";
 import {ContentForm} from "@/widgets/AddContentModal/ui/ContentForm";
 import {AddContentFooter} from "@/widgets/AddContentModal/ui/AddContentFooter";
 import {Simulate} from "react-dom/test-utils";
@@ -15,7 +15,8 @@ const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
   const form = useContentForm({
     mode: 'controlled',
     initialValues: {
-      currentImage : '',
+      currentFile : '',
+      currentFileType : 'image',
       currentIndex : 0,
 			step : 0,
       title: '',
@@ -49,7 +50,7 @@ const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
     <Modal size='xl' centered opened={opened} onClose={handleModalClose} title="새 게시물 만들기">
       <ContentFormProvider form={form}>
         <form onSubmit={onSubmit(handleSubmit)}>
-          <ImageUpload />
+          <ContentUpload />
           <ContentForm/>
           <AddContentFooter/>
         </form>
