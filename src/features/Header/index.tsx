@@ -18,7 +18,7 @@ const Header = ({ isBack, text }: HeaderProps) => {
 
   return (
     <>
-      <Flex align="center" pl={16} pr={16} pt={14} pb={14} gap={10}>
+      <Flex align="center" pt={14} pb={14} gap={10}>
         <IconChevronLeft onClick={handleClick} />
         <Text size="lg" fw={500}>
           {text}
