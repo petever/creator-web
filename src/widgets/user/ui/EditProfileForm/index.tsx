@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Button, Flex, Textarea, TextInput } from '@mantine/core'
+import { Box, Button, Flex, Text, Textarea, TextInput } from '@mantine/core'
 import { UserProfile } from '@/entities/user/types'
 import { useMyProfile } from '@/entities/user/hooks/useMyProfile'
 import { useUpdateMyProfile } from '@/features/users/hooks/useUpdateMyProfile'
@@ -63,6 +63,20 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
         <Box>
           <ProfilePicture imageSrc={form.getValues().picture} alt={data?.username} />
           <Flex direction="column" gap={20}>
+            <Box>
+              <TextInput
+                withAsterisk
+                label="사용자 ID"
+                key={form.key('username')}
+                {...form.getInputProps('username')}
+                size="lg"
+              />
+              <Text
+                c="dark"
+                size="14px"
+                mt={10}
+              >{`${origin}.com/${form.getValues().username}`}</Text>
+            </Box>
             <TextInput
               withAsterisk
               label="닉네임"
@@ -70,14 +84,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
               {...form.getInputProps('displayName')}
               size="lg"
             />
-            <TextInput
-              withAsterisk
-              label="사용자 이름"
-              key={form.key('username')}
-              {...form.getInputProps('username')}
-              mt={10}
-              size="lg"
-            />
+
             <Textarea
               mt={10}
               label="소개"

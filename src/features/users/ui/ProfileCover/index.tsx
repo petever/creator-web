@@ -22,7 +22,7 @@ const ProfileCover = ({ imageSrc = '', alt = '' }: ProfileCoverProps) => {
 
   return (
     <Dropzone accept={IMAGE_MIME_TYPE} openRef={openRef} onDrop={handleCoverUpdate}>
-      <MatineImage src={src} height={180} style={{ cursor: 'pointer' }} />
+      <MatineImage radius={6} src={src} height={180} style={{ cursor: 'pointer' }} />
     </Dropzone>
   )
 }

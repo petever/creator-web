@@ -1,4 +1,4 @@
-import Profile from '@/widgets/Profile'
+import Profile from '../../widgets/user/ui/Profile'
 import FeedList from '@/pageModules/userDetail/ui/FeedList'
 import { Tabs } from '@mantine/core'
 import ContentTabs from '@/pageModules/userDetail/ui/ContentTabs'

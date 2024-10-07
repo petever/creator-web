@@ -3,7 +3,7 @@ import classes from './styles.module.css'
 import { ThemeToggleButton } from '@/widgets'
 import Header from '@/features/Header'
 import { RecommendList } from '@/shared/RecommentList/ui/RecommendList'
-import {Sidebar} from "@/shared";
+import { Sidebar } from '@/shared'
 
 interface SidebarLayoutProps {
   title?: string
@@ -14,7 +14,7 @@ interface SidebarLayoutProps {
 export function SidebarLayout({ title, children, isRecommend }: SidebarLayoutProps) {
   return (
     <div className={classes.wrap}>
-      <ThemeToggleButton />
+      {/*<ThemeToggleButton />*/}
       <Sidebar />
       <div className={classes.container}>
         <div className={classes.contentWrapper}>

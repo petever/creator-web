@@ -1,4 +1,4 @@
-import { MantineProvider,createTheme, MantineColorsTuple } from '@mantine/core'
+import { MantineProvider, createTheme, MantineColorsTuple } from '@mantine/core'
 
 interface CustomMantineProviderProps {
   children: React.ReactNode
@@ -14,19 +14,21 @@ const themeColors: MantineColorsTuple = [
   '#e3b325',
   '#c99d17',
   '#b48b0d',
-  '#9b7800'
-];
+  '#9b7800',
+]
 
 const theme = createTheme({
   primaryColor: 'themeColors',
   primaryShade: 5,
   colors: {
     themeColors,
-  }
-});
+  },
+})
 
 export default async function CustomMantineProvider({ children }: CustomMantineProviderProps) {
-  return <MantineProvider defaultColorScheme="dark" theme={theme}>{children}</MantineProvider>
+  return (
+    <MantineProvider defaultColorScheme="light" theme={theme}>
+      {children}
+    </MantineProvider>
+  )
 }
-
-
