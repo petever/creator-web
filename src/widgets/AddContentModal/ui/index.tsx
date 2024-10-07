@@ -61,12 +61,6 @@ const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
     onClose()
   }
 
-  useEffect(() => {
-    notifications.show({
-      message: '피드가 등록되었습니다.',
-      position:'bottom-center'
-    })
-  }, []);
   return (
     <Modal size="xl" centered opened={opened} onClose={handleModalClose} title="새 게시물 만들기">
       <ContentFormProvider form={form}>
