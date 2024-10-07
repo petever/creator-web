@@ -1,3 +1,4 @@
 export const MUTATION_KEY = {
-  UPDATE_PROFILE: 'updateProfile',
+  CREATE_POSTING : 'createPosting',
+  UPDATE_PROFILE: 'updateProfile'
 }

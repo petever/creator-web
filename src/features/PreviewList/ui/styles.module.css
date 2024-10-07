@@ -1,8 +1,8 @@
 .wrapper {
-
+  position:relative;
 }
 
-.imageWrapper {
+.currentFilePreview {
   position:relative;
   top:0;
   left:0;
@@ -12,18 +12,33 @@
   overflow: hidden;
 }
 
-.imageUploadArea{
-  display:flex;
-  padding:12px;
-  border-radius: 6px;
-  gap:10px;
-  align-items: center;
-  justify-content: space-between;
+.currentFilePreview video{
+  position: absolute;
+  top:0;
+  left:50%;
+  height:100%;
+  transform:translate(-50%, 0);
+  background:#000;
+}
+
+.moreImageUploadWrapper{
   position:absolute;
   bottom:10px;
   right:10px;
   z-index: 10;
-  background-color: var(--mantine-color-body)
+}
+
+.moreImageUploadUtils{
+  display:flex;
+  max-width :60vw;
+  align-items: center;
+  gap : 10px;
+  padding:10px;
+  position:absolute;
+  top:-130px;
+  right:0;
+  border-radius: 8px;
+  background: var(--mantine-color-body);
 }
 
 .imageUploadButton{
@@ -68,4 +83,18 @@
   border-radius: 6px;
   overflow:hidden;
   background:#fff;
+}
+
+.videoWrapper{
+  position:relative;
+  width:100%;
+  height:100%;
+  background:#000;
+}
+.videoWrapper video{
+  height:100%;
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translate(-50%, 0);
 }

@@ -23,9 +23,6 @@
   .contentWrapper{
     flex: 1 1 100%;
   }
-  .container {
-    padding: 0 50px;
-  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -37,7 +34,6 @@
     flex: 0 0 1200px;
     margin:0 auto;
     gap : 30px;
-    padding: 0 50px;
   }
   .contentWrapper{
     flex: 1 1 800px;
