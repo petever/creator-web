@@ -8,6 +8,7 @@ import CustomMantineProvider from '@/app/providers/CustomMantineProvider'
 import QueryProvider from '@/app/providers/QueryProvider'
 import LocaleProvider from '@/app/providers/LocaleProvider'
 import { ColorSchemeScript } from '@mantine/core'
+import {Notifications} from "@mantine/notifications";
 
 
 interface RootLayoutProps {
@@ -32,6 +33,7 @@ export async function RootLayout({ children }: RootLayoutProps) {
           <QueryProvider>
             <CustomMantineProvider>
               <LocaleProvider>{children}</LocaleProvider>
+              <Notifications />
             </CustomMantineProvider>
           </QueryProvider>
         </AuthProvider>

@@ -5,6 +5,8 @@ import { ContentForm } from '@/widgets/AddContentModal/ui/ContentForm'
 import { AddContentFooter } from '@/widgets/AddContentModal/ui/AddContentFooter'
 import { Simulate } from 'react-dom/test-utils'
 import { useCreatePosts } from '@/widgets/AddContentModal/hooks/useCreatePosts'
+import {useEffect} from "react";
+import {notifications} from "@mantine/notifications";
 
 interface AddContentModalProps {
   opened: boolean
@@ -12,7 +14,7 @@ interface AddContentModalProps {
 }
 
 const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
-  const { createPostMutation } = useCreatePosts()
+  const { createPostMutation } = useCreatePosts(onClose)
 
   const form = useContentForm({
     mode: 'controlled',
@@ -49,7 +51,7 @@ const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
       ),
     )
 
-    // formData.append(`files`, new Blob(files))
+    formData.append(`files`, new Blob(files))
 
     createPostMutation(formData)
   }
@@ -59,6 +61,12 @@ const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
     onClose()
   }
 
+  useEffect(() => {
+    notifications.show({
+      message: '피드가 등록되었습니다.',
+      position:'bottom-center'
+    })
+  }, []);
   return (
     <Modal size="xl" centered opened={opened} onClose={handleModalClose} title="새 게시물 만들기">
       <ContentFormProvider form={form}>
