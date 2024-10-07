@@ -4,6 +4,7 @@ import ContentUpload from "@/widgets/AddContentModal/ui/ContentUpload";
 import {ContentForm} from "@/widgets/AddContentModal/ui/ContentForm";
 import {AddContentFooter} from "@/widgets/AddContentModal/ui/AddContentFooter";
 import {Simulate} from "react-dom/test-utils";
+import {useCreatePosts} from "@/widgets/AddContentModal/hooks/useCreatePosts";
 
 
 interface AddContentModalProps {
@@ -12,6 +13,8 @@ interface AddContentModalProps {
 }
 
 const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
+  const { createPostMutation } = useCreatePosts()
+
   const form = useContentForm({
     mode: 'controlled',
     initialValues: {
@@ -32,13 +35,30 @@ const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
   const handleSubmit = (values: typeof form.values) => {
     const { title, contents, isSubscribed, files} = values
     const payload = {
-      title,
-      contents,
-      isSubscribed : values.isSubscribed !== 'false',
-      // files
+      postRequest : {
+        title,
+        contents,
+        isSubscribed : values.isSubscribed !== 'false',
+      },
+      files
     }
 
-    console.log('payload', payload)
+    const formData = new FormData()
+    formData.append(
+      'postRequest',
+      new Blob(
+        [
+          JSON.stringify(payload.postRequest),
+        ],
+        { type: 'application/json' },
+      ),
+    )
+
+    files.forEach((file, index) => {
+      formData.append(`files`, file);
+    });
+
+    createPostMutation(formData)
   };
 
   const handleModalClose = () => {

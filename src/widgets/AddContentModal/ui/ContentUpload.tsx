@@ -64,7 +64,7 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
             MIME_TYPES.jpeg,
             MIME_TYPES.png,
             MIME_TYPES.svg,
-            MIME_TYPES.mp4
+            // MIME_TYPES.mp4
           ]}
           {...props}
           openRef={openRef}
@@ -72,7 +72,7 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
           <Group justify="center" gap="xl" mih={220} style={{ pointerEvents: 'none' }}>
             <DropzoneAccept/>
             <DropzoneReject/>
-            <DropzoneIdle text={'사진과 동영상(mp4)을 이곳에 드래그 앤 드롭 해주세요.'} isPhoto/>
+            <DropzoneIdle text={'사진을 이곳에 드래그 앤 드롭 해주세요.'} isPhoto/>
           </Group>
         </Dropzone>
 			}
