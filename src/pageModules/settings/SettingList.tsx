@@ -1,8 +1,12 @@
-import {SettingList} from "@/widgets/SettingList/ui";
-
+import { SettingList } from '@/widgets/SettingList/ui'
+import { SidebarLayout } from '@/app/layouts/SidebarLayout'
 
 const SettingListPage = () => {
-  return <SettingList/>
+  return (
+    <SidebarLayout title={'설정'}>
+      <SettingList />
+    </SidebarLayout>
+  )
 }
 
 export default SettingListPage

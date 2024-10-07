@@ -1,4 +1,5 @@
 export const PAGE = {
-  SETTINGS : '/my/settings',
-  SETTINGS_PROFILE: '/my/settings/profile',
+  SETTINGS: '/settings',
+  SETTINGS_PROFILE: '/settings/profile',
+  SETTINGS_CREATOR: '/settings/creator',
 }

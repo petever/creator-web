@@ -1,21 +1,18 @@
-import {NavLink} from "@mantine/core";
-import {SETTING_LISTS} from "@/widgets/SettingList/constants";
+import { NavLink } from '@mantine/core'
+import { SETTING_LISTS } from '@/widgets/SettingList/constants'
+import { IconChevronRight } from '@tabler/icons-react'
 
 export const SettingList = () => {
   return (
     <>
-      {
-        SETTING_LISTS.map((item, index) => (
-          <NavLink
-            href={item.href}
-            key={item.label}
-            // active={index === active}
-            label={item.label}
-            leftSection={<item.icon size="1rem" stroke={1.5} />}
-            // onClick={() => setActive(index)}
-          />
-        ))
-      }
+      {SETTING_LISTS.map((item) => (
+        <NavLink
+          key={item.label}
+          href={item.href}
+          label={item.label}
+          rightSection={<IconChevronRight stroke={1} size="1.5rem" />}
+        />
+      ))}
     </>
   )
 }

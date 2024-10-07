@@ -1,5 +1,5 @@
-import { EditProfileForm } from '@/features/users/ui/EditProfileForm'
 import { getServerProfile } from '@/entities/user/api/getServerProfile'
+import { EditProfileForm } from '@/widgets/user/ui/EditProfileForm'
 
 const EditProfilePage = async () => {
   const userProfile = await getServerProfile()
