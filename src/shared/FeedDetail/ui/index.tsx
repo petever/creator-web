@@ -1,7 +1,6 @@
 'use client'
 import { Modal, Image} from '@mantine/core'
 import { Carousel } from '@mantine/carousel'
-import '@mantine/carousel/styles.css';
 import { CommentArea } from '@/widgets'
 
 interface FeedDetailProps {

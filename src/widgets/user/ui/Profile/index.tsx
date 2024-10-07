@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import SubscribeButton from '@/features/users/ui/SubscribeButton'
 import { Avatar, Button, Divider, useMantineTheme } from '@mantine/core'

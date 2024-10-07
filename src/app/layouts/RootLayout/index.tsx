@@ -1,4 +1,6 @@
 import '@mantine/core/styles.css'
+import '@mantine/notifications/styles.css';
+import '@mantine/carousel/styles.css';
 import './normalize.css'
 import Head from 'next/head'
 import AuthProvider from '@/app/providers/AuthProvider'
@@ -6,6 +8,7 @@ import CustomMantineProvider from '@/app/providers/CustomMantineProvider'
 import QueryProvider from '@/app/providers/QueryProvider'
 import LocaleProvider from '@/app/providers/LocaleProvider'
 import { ColorSchemeScript } from '@mantine/core'
+
 
 interface RootLayoutProps {
   children: React.ReactNode

@@ -1,7 +1,6 @@
 import { Avatars } from '../../types'
 import { Profile } from '@/features'
 import { Carousel } from '@mantine/carousel'
-import '@mantine/carousel/styles.css';
 
 interface AvatarListProps {
   avatars: Avatars[]

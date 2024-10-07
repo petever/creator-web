@@ -1,4 +1,3 @@
-import '@mantine/core/styles.css'
 import classes from './styles.module.css'
 import { ThemeToggleButton } from '@/widgets'
 import Header from '@/features/Header'

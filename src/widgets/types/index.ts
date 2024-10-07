@@ -1,5 +1,3 @@
-import React from 'react'
-
 export interface Label {
   label: string
   href: string
