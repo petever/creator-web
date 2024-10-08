@@ -62,10 +62,8 @@
 
 
   .drawerWrapper {
-    margin-left: 100px;
+    margin-left: 60px;
   }
-
-
 
   .setting{
     display:flex;
@@ -81,9 +79,7 @@
     height: 36px;
     align-items: center;
   }
-  .drawerWrapper {
-    margin-left: 200px;
-  }
+
   .menu > button > span > span{
     margin:0;
   }
@@ -94,8 +90,12 @@
     max-width: 340px;
     min-width: 340px;
   }
+
+  .drawerWrapper {
+    margin-left: 340px;
+  }
+
   .labelWrapper {
     display: block;
   }
 }
-

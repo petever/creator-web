@@ -21,9 +21,9 @@ export const SidebarMenuList = ({ onModalOpen, onDrawerOpen }: SidebarMenuListPr
       className={classes.menuWrapper}
     >
       {SIDEBARS.map((sidebar, sidebarIndex) => {
-        if (sidebar.label === '추가') {
+        if (sidebar.label === '추가' || '검색') {
           return (
-						<UnstyledButton onClick={onModalOpen} key={sidebarIndex}>
+						<UnstyledButton onClick={sidebar.label === '추가' ? onModalOpen : onDrawerOpen} key={sidebarIndex}>
 							<Flex align="center" gap={20} >
 								{sidebar.icon}
 								<Text className={classes.labelWrapper}>{sidebar.label}</Text>

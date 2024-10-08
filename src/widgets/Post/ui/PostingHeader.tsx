@@ -5,6 +5,7 @@ import {ActionIcon, Flex, Menu} from '@mantine/core'
 import {IconDots, IconTrash} from '@tabler/icons-react'
 import { Profile } from '@/features'
 import { useDisclosure } from '@mantine/hooks'
+import {DUMMY_PROFILE} from "@/shared/model";
 
 interface PostingHeaderProps {
   profile: Avatars
@@ -12,7 +13,6 @@ interface PostingHeaderProps {
 
 export const PostingHeader = ({ profile }: PostingHeaderProps) => {
   const [opened, { open, close }] = useDisclosure(false)
-
 
   const handleDetailOpen = () => {
     open()
@@ -26,7 +26,7 @@ export const PostingHeader = ({ profile }: PostingHeaderProps) => {
         width: '100%',
       }}
     >
-      <Profile profile={profile} size="md" />
+      <Profile profile={DUMMY_PROFILE} size="md" />
       <Menu shadow="md" width={200}>
         <Menu.Target>
           <ActionIcon variant="subtle" color="gray" size="xl">

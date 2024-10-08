@@ -21,13 +21,13 @@ export const ProfileTopSection = ({ userProfile, children } : ProfileTopSectionP
     <div className={classes.topAreaWrapper}>
       <BackgroundImage cover={data.cover}/>
       <div className={classes.information}>
-        <Group justify="space-between">
-          <Group>
-            <Avatar src={data.picture as string} w={80} h={80}/>
-            <UserInfo displayName={data.displayName} username={data.username} status={data.status}/>
+          <Group justify="space-between">
+            <Group>
+              <Avatar src={data.picture as string} w={80} h={80}/>
+              <UserInfo displayName={data.displayName} username={data.username} status={data.status}/>
+            </Group>
+            {children}
           </Group>
-          {children}
-        </Group>
         <UserStatus status={data.status}/>
       </div>
       <Divider size={10} color={'themeColors'} />
