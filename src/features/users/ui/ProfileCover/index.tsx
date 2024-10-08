@@ -1,14 +1,15 @@
 import React, { useRef, useState } from 'react'
-import { Image as MatineImage } from '@mantine/core'
+import { Badge, Box, Image as MatineImage } from '@mantine/core'
 
 import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone'
 import { useUserProfileFormContext } from '@/features/users/lib/profile-context'
+import { IconCamera } from '@tabler/icons-react'
 
 interface ProfileCoverProps {
   imageSrc: string | File
 }
 
-const ProfileCover = ({ imageSrc = ''}: ProfileCoverProps) => {
+const ProfileCover = ({ imageSrc = '' }: ProfileCoverProps) => {
   const form = useUserProfileFormContext()
   const [src, setSrc] = useState<string | File>(imageSrc)
   const openRef = useRef<() => void>(null)
@@ -20,7 +21,7 @@ const ProfileCover = ({ imageSrc = ''}: ProfileCoverProps) => {
   }
 
   return (
-    <Dropzone accept={IMAGE_MIME_TYPE} openRef={openRef} onDrop={handleCoverUpdate}>
+    <Dropzone accept={IMAGE_MIME_TYPE} openRef={openRef} onDrop={handleCoverUpdate} pos="relative">
       <MatineImage radius={6} src={src} height={180} style={{ cursor: 'pointer' }} />
     </Dropzone>
   )

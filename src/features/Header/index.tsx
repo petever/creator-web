@@ -20,7 +20,7 @@ const Header = ({ isBack, text }: HeaderProps) => {
     <>
       <Flex align="center" pt={14} pb={14} gap={10}>
         <IconChevronLeft onClick={handleClick} />
-        <Text size="lg" fw={500}>
+        <Text size="lg" fw={700}>
           {text}
         </Text>
       </Flex>

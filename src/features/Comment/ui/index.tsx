@@ -1,5 +1,5 @@
 'use client'
-import { Avatar, Button, UnstyledButton } from '@mantine/core'
+import { Avatar, UnstyledButton } from '@mantine/core'
 import classes from './styles.module.css'
 import { useRouter } from 'next/navigation'
 

@@ -16,6 +16,7 @@ interface EditProfileFormProps {
 export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
   const { data } = useMyProfile(userProfile)
   const { updateProfileMutate } = useUpdateMyProfile()
+
   const form = useUserProfileForm({
     mode: 'controlled',
     initialValues: {
@@ -75,7 +76,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
                 c="dark"
                 size="14px"
                 mt={10}
-              >{`${form.getValues().username}`}</Text>
+              >{`${process.env.NEXT_PUBLIC_ORIGIN}/${form.getValues().username}`}</Text>
             </Box>
             <TextInput
               withAsterisk
@@ -84,7 +85,6 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
               {...form.getInputProps('displayName')}
               size="lg"
             />
-
             <Textarea
               mt={10}
               label="소개"

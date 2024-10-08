@@ -1,7 +1,8 @@
 import React from 'react'
+import CreatorApplyForm from '@/widgets/creator/ui/CreatorApplyForm'
 
 const CreatorPage = () => {
-  return <div></div>
+  return <CreatorApplyForm />
 }
 
 export default CreatorPage
