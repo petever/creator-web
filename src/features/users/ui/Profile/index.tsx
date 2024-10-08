@@ -1,9 +1,9 @@
-import { Avatar, Button, Group, MantineSize, UnstyledButton } from '@mantine/core'
-import { Avatars } from '@/widgets/types'
+import { Avatar, Button, Group, Box,  UnstyledButton, MantineSize } from '@mantine/core'
 import classes from './styles.module.css'
+import {UserProfile} from "@/entities/user/types";
 
 interface ProfileProps {
-  profile: Avatars
+  profile: UserProfile
   size: MantineSize
   isSubscribed?: boolean
   onClick?: () => void
@@ -17,13 +17,14 @@ export const Profile = ({ profile, size = 'sm', isSubscribed, onClick }: Profile
       <Group align="center">
         <div>
           <UnstyledButton className={classes.button} onClick={onClick}>
-            <Avatar radius="xl" size={size} color="gray" />
-            <p>{profile.name}</p>
-            <p>{profile.tag}</p>
+            <Avatar size={size} src={profile.picture as string} />
+            <Box>
+              <p>{profile.username}</p>
+              <p>#{profile.displayName}</p>
+            </Box>
           </UnstyledButton>
           {isSubscribed && <Button>구독</Button>}
         </div>
-        {profile.description && <p>{profile.description}</p>}
       </Group>
     </div>
   )
