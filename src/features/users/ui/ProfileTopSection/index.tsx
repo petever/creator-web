@@ -6,6 +6,7 @@ import BackgroundImage from "@/entities/user/ui/BackgroundImage";
 import UserInfo from "@/entities/user/ui/UserInfo";
 import {UserProfile} from "@/entities/user/types";
 import classes from './styles.module.css'
+import {UserStatus} from "@/entities/user/ui/UserStatus";
 
 interface ProfileTopSectionProps {
   userProfile?: UserProfile
@@ -19,11 +20,16 @@ export const ProfileTopSection = ({ userProfile, children } : ProfileTopSectionP
   return (
     <div className={classes.topAreaWrapper}>
       <BackgroundImage cover={data.cover}/>
-      <Group justify="space-between">
-        <Avatar src={data.picture as string} w={80} h={80} ml={16}/>
-        {children}
-      </Group>
-      <UserInfo displayName={data.displayName} username={data.username} status={data.status}/>
+      <div className={classes.information}>
+        <Group justify="space-between">
+          <Group>
+            <Avatar src={data.picture as string} w={80} h={80}/>
+            <UserInfo displayName={data.displayName} username={data.username} status={data.status}/>
+          </Group>
+          {children}
+        </Group>
+        <UserStatus status={data.status}/>
+      </div>
       <Divider size={10} color={'themeColors'} />
     </div>
   )

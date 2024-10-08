@@ -18,7 +18,6 @@ const UserInfo = ({ displayName, username, status }: UserInfoProps) => {
           @{username}
         </Text>
       </Flex>
-      <p className={classes.status}>{status}</p>
     </div>
   )
 }
