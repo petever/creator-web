@@ -8,7 +8,7 @@ export const useUpdateMyProfile = () => {
   const queryClient = useQueryClient()
   const { mutate: updateProfileMutate } = useMutation({
     mutationKey: [MUTATION_KEY.UPDATE_PROFILE],
-    mutationFn: (profile: UpdateProfile) => updateProfile(profile),
+    mutationFn: (profile: FormData) => updateProfile(profile),
     onSuccess: (data) => {
       queryClient.setQueryData([QUERY_KEY.MY_PROFILE], data)
     },

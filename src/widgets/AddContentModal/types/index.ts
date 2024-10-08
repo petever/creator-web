@@ -10,11 +10,3 @@ export interface AddContentData {
   isSubscribed : 'false' | 'true'
 }
 
-export interface AddContentPayloadData {
-  postRequest : {
-    title : string
-    contents : string
-    isSubscribed : boolean
-  },
-  files : FormData
-}

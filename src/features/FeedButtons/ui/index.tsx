@@ -33,6 +33,7 @@ export const FeedButtons = ({ id, onDetailModal }: FeedButtonsProps) => {
           variant="subtle"
           size="xl"
           color="gray"
+          data-testId='favorite_btn'
           onClick={handleFavoritePosting}
         >
           {/*<IconHeart />*/}

@@ -1,5 +1,3 @@
-import {AddContentPayloadData} from "@/widgets/AddContentModal/types";
-import {updateFavoritePosting} from "@/features/FeedButtons/api/updateFavoritePosting";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {createPosts} from "@/widgets/AddContentModal/api/createPosts";
 import {MUTATION_KEY} from "@/shared/constants/mutaionKey";
@@ -9,7 +7,7 @@ import { notifications } from '@mantine/notifications';
 export const useCreatePosts = (onClose : () => void) => {
   const queryClient = useQueryClient()
   const { mutate: createPostMutation, data } = useMutation({
-    mutationFn: (payload : AddContentPayloadData) => createPosts(payload),
+    mutationFn: (payload : FormData) => createPosts(payload),
     mutationKey : [MUTATION_KEY.CREATE_POSTING],
     onSuccess: () => {
       queryClient.invalidateQueries({
