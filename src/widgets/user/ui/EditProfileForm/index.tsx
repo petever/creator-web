@@ -75,7 +75,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
                 c="dark"
                 size="14px"
                 mt={10}
-              >{`${origin}.com/${form.getValues().username}`}</Text>
+              >{`${form.getValues().username}`}</Text>
             </Box>
             <TextInput
               withAsterisk

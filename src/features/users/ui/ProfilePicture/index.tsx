@@ -5,13 +5,13 @@ import Image from 'next/image'
 import { useUserProfileFormContext } from '@/features/users/lib/profile-context'
 
 interface ProfilePictureProps {
-  imageSrc?: string | FormData
+  imageSrc?: string | File
   alt?: string
 }
 
 const ProfilePicture = ({ imageSrc = '', alt = '' }: ProfilePictureProps) => {
   const form = useUserProfileFormContext()
-  const [src, setSrc] = useState<string | FormData>(imageSrc)
+  const [src, setSrc] = useState<string | File>(imageSrc)
   const openRef = useRef<() => void>(null)
 
   const handlePictureUpdate = (files: File[]) => {
