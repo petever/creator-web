@@ -5,8 +5,9 @@ import classes from './styles.module.css'
 interface UserInfoProps {
   displayName: string
   username: string
+  status : string
 }
-const UserInfo = ({ displayName, username }: UserInfoProps) => {
+const UserInfo = ({ displayName, username, status }: UserInfoProps) => {
   return (
     <div className={classes.wrap}>
       <Text fw={600} size="lg" mt={10}>
@@ -17,10 +18,7 @@ const UserInfo = ({ displayName, username }: UserInfoProps) => {
           @{username}
         </Text>
       </Flex>
-      <Text mt={10}>
-        유저가 적은 글유저가 적은 글유저가 적은 글유저가 적은 글유저가 적은 글유저가 적은 글유저가
-        적은 글유저가 적은 글유저가 적은 글유저가 적은 글유저가 적은 글유저가 적은 글
-      </Text>
+      <p className={classes.status}>{status}</p>
     </div>
   )
 }

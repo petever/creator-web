@@ -1,12 +1,18 @@
-import Profile from '../../widgets/user/ui/Profile'
-import FeedList from '@/pageModules/userDetail/ui/FeedList'
-import { Tabs } from '@mantine/core'
 import ContentTabs from '@/pageModules/userDetail/ui/ContentTabs'
+import {ProfileTopSection} from "@/features/users/ui/ProfileTopSection";
+import SubscribeButton from "@/features/users/ui/SubscribeButton";
+import {getServerProfile} from "@/entities/user/api/getServerProfile";
 
-const UserDetailPage = () => {
+const UserDetailPage = async () => {
+  const userProfile = await getServerProfile()
   return (
     <div>
-      <Profile />
+      <ProfileTopSection
+        userProfile={userProfile}
+        children={
+          <SubscribeButton />
+        }/
+      >
       <ContentTabs />
     </div>
   )

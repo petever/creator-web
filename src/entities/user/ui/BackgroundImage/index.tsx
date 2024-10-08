@@ -1,10 +1,17 @@
 import React from 'react'
-import { Card } from '@mantine/core'
+import { Image } from '@mantine/core'
 
-const BackgroundImage = () => {
+interface BackgroundImageProps {
+  cover : string | File
+}
+
+const BackgroundImage = ({cover} : BackgroundImageProps) => {
   return (
     <div>
-      <Card bg="themeColors" radius={0} h={180} />
+      <Image
+        src={cover}
+        height={300}
+      />
     </div>
   )
 }
