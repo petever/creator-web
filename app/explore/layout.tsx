@@ -5,11 +5,7 @@ interface ExploreLayoutProps {
   children: React.ReactNode
 }
 const ExploreLayout = ({ children }: ExploreLayoutProps) => {
-  return (
-    <SidebarLayout>
-      {children}
-    </SidebarLayout>
-  )
+  return <SidebarLayout>{children}</SidebarLayout>
 }
 
 export default ExploreLayout

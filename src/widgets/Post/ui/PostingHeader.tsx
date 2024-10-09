@@ -1,11 +1,11 @@
 'use client'
 
 import { Avatars } from '../../types'
-import {ActionIcon, Flex, Menu} from '@mantine/core'
-import {IconDots, IconTrash} from '@tabler/icons-react'
+import { ActionIcon, Flex, Menu } from '@mantine/core'
+import { IconDots, IconTrash } from '@tabler/icons-react'
 import { Profile } from '@/features'
 import { useDisclosure } from '@mantine/hooks'
-import {DUMMY_PROFILE} from "@/shared/model";
+import { DUMMY_PROFILE } from '@/shared/model'
 
 interface PostingHeaderProps {
   profile: Avatars
@@ -35,9 +35,7 @@ export const PostingHeader = ({ profile }: PostingHeaderProps) => {
         </Menu.Target>
 
         <Menu.Dropdown>
-          <Menu.Item leftSection={<IconTrash/>}>
-            삭제
-          </Menu.Item>
+          <Menu.Item leftSection={<IconTrash />}>삭제</Menu.Item>
         </Menu.Dropdown>
       </Menu>
     </Flex>

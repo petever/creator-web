@@ -1,29 +1,47 @@
-import {  Flex, Text, UnstyledButton } from '@mantine/core'
+import { Flex, Text, UnstyledButton } from '@mantine/core'
 import Link from 'next/link'
-import {useMediaQuery} from "@mantine/hooks";
-import {SIDEBARS} from "@/shared/Sidebar/constants";
+import { useMediaQuery } from '@mantine/hooks'
+import { SIDEBARS } from '@/shared/Sidebar/constants'
 import classes from '@/shared/Sidebar/ui/styles.module.css'
 
 interface SidebarMenuListProps {
-	isDrawerOpened : boolean
+  isSearchMemberDrawerOpened: boolean
+  isNotificationDrawerOpened: boolean
   onModalOpen: () => void
-  onDrawerOpen: () => void
+  onSearchDrawerOpen: () => void
+  onNotificationDrawerOpen: () => void
 }
 
-export const SidebarMenuList = ({ isDrawerOpened, onModalOpen, onDrawerOpen }: SidebarMenuListProps) => {
+export const SidebarMenuList = ({
+  isSearchMemberDrawerOpened,
+  isNotificationDrawerOpened,
+  onModalOpen,
+  onSearchDrawerOpen,
+  onNotificationDrawerOpen,
+}: SidebarMenuListProps) => {
   const isMobile = useMediaQuery('(max-width: 640px)')
   const flexDirection = isMobile ? 'row' : 'column'
+  const isDimmed = isSearchMemberDrawerOpened || isNotificationDrawerOpened
 
-	const handleSidebarEvent = (label : string) => {
-		const isAddContent = label === '추가'
-		const isSearch = label === '검색'
-		if(isAddContent) {
-			onModalOpen()
-		}
-		if(isSearch){
-			onDrawerOpen()
-		}
-	}
+  const handleSidebarEvent = (label: string) => {
+    const isAddContent = label === '추가'
+    const isSearch = label === '검색'
+    const isNotification = label === '알림'
+
+    if (isAddContent) {
+      onModalOpen()
+    }
+    if (isSearch) {
+      onSearchDrawerOpen()
+    }
+    if (isNotification) {
+      onNotificationDrawerOpen()
+    }
+  }
+
+  const getIsMenuDrawer = (label: string) => {
+    return label === '추가' || label === '검색' || label === '알림'
+  }
 
   return (
     <Flex
@@ -33,14 +51,14 @@ export const SidebarMenuList = ({ isDrawerOpened, onModalOpen, onDrawerOpen }: S
       className={classes.menuWrapper}
     >
       {SIDEBARS.map((sidebar, sidebarIndex) => {
-        if (sidebar.label === '추가' || sidebar.label === '검색') {
+        if (getIsMenuDrawer(sidebar.label)) {
           return (
-						<UnstyledButton onClick={() => handleSidebarEvent(sidebar.label)} key={sidebarIndex}>
-							<Flex align="center" gap={20} >
-								{sidebar.icon}
-								<Text className={classes.labelWrapper}>{sidebar.label}</Text>
-							</Flex>
-						</UnstyledButton>
+            <UnstyledButton onClick={() => handleSidebarEvent(sidebar.label)} key={sidebarIndex}>
+              <Flex align="center" gap={20}>
+                {sidebar.icon}
+                <Text className={classes.labelWrapper}>{sidebar.label}</Text>
+              </Flex>
+            </UnstyledButton>
           )
         }
         return (
@@ -52,7 +70,7 @@ export const SidebarMenuList = ({ isDrawerOpened, onModalOpen, onDrawerOpen }: S
           </Link>
         )
       })}
-			{isDrawerOpened && <div className={classes.dim}></div>}
+      {isDimmed && <div className={classes.dim}></div>}
     </Flex>
   )
 }

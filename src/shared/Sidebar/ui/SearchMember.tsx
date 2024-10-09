@@ -2,9 +2,9 @@
 import { Button, Container, Drawer, Flex, Input } from '@mantine/core'
 import { Profile } from '@/features'
 import classes from '@/shared/Sidebar/ui/styles.module.css'
-import {DUMMY_PROFILE} from "@/shared/model";
-import {UserProfile} from "@/entities/user/types";
-import {useRouter} from "next/navigation";
+import { DUMMY_PROFILE } from '@/shared/model'
+import { UserProfile } from '@/entities/user/types'
+import { useRouter } from 'next/navigation'
 
 interface SearchMemberProps {
   opened: boolean
@@ -12,19 +12,19 @@ interface SearchMemberProps {
 }
 
 export const SearchMember = ({ opened, onClose }: SearchMemberProps) => {
-	const router = useRouter()
-	const handleRouteMemberPage = (profile : UserProfile) => {
-		router.push(`/${profile.displayName}`)
-	}
+  const router = useRouter()
+  const handleRouteMemberPage = (profile: UserProfile) => {
+    router.push(`/${profile.displayName}`)
+  }
 
   return (
-    <Drawer opened={opened} onClose={onClose} className={classes.drawerWrapper} withOverlay={false} >
+    <Drawer opened={opened} onClose={onClose} className={classes.drawerWrapper} withOverlay={false}>
       <Container>
         <Input />
         <Profile
           profile={DUMMY_PROFILE}
           size="sm"
-					onClick={() => handleRouteMemberPage(DUMMY_PROFILE)}
+          onClick={() => handleRouteMemberPage(DUMMY_PROFILE)}
         />
       </Container>
     </Drawer>

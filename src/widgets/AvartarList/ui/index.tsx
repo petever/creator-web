@@ -1,7 +1,7 @@
 import { Avatars } from '../../types'
 import { Profile } from '@/features'
 import { Carousel } from '@mantine/carousel'
-import {DUMMY_PROFILE} from "@/shared/model";
+import { DUMMY_PROFILE } from '@/shared/model'
 
 interface AvatarListProps {
   avatars: Avatars[]

@@ -12,9 +12,9 @@
   align-items: center;
 }
 
-.topArea{
-  display:flex;
-  width :100%;
+.topArea {
+  display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
@@ -24,82 +24,81 @@
   display: none;
 }
 
-.setting{
-  display:none;
+.setting {
+  display: none;
 }
 
-.menuWrapper{
-  width: 100%
+.menuWrapper {
+  width: 100%;
 }
 
-.dim{
-  width:100%;
-  height:100vh;
-  position:fixed;
-  top:0;
-  right:0;
-  background:rgba(0, 0, 0, 0.8)
+.dim {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 @media screen and (min-width: 640px) {
   .wrap {
     width: 60px;
     padding: 50px 0;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     flex-wrap: wrap;
-    margin:0;
-    border-right:1px solid #bebebe;
+    margin: 0;
+    border-right: 1px solid #bebebe;
     align-content: space-between;
     justify-content: space-between;
   }
 
-  .topArea{
-    display:flex;
-    width : 100%;
+  .topArea {
+    display: flex;
+    width: 100%;
     padding: 0 20px;
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    gap:40px;
+    gap: 40px;
   }
 
   .menu {
-    width : 100%;
+    width: 100%;
     align-items: start;
   }
-
 
   .drawerWrapper {
     margin-left: 60px;
   }
 
-  .setting{
-    display:flex;
-    width :100%;
+  .setting {
+    display: flex;
+    width: 100%;
     align-items: start;
     padding: 0 20px;
   }
 
-  .setting a{
-    display:flex;
-    gap:10px;
-    width :100%;
+  .setting a {
+    display: flex;
+    gap: 10px;
+    width: 100%;
     height: 36px;
     align-items: center;
   }
 
-  .menu > button > span > span{
-    margin:0;
+  .menu > button > span > span {
+    margin: 0;
   }
 
-  .dim{
-    width:calc(100vw - 60px);
+  .dim {
+    width: calc(100vw - 60px);
   }
 }
 
 @media screen and (min-width: 1000px) {
-  .wrap{
+  .wrap {
     max-width: 340px;
     min-width: 340px;
   }
@@ -112,7 +111,7 @@
     display: block;
   }
 
-  .dim{
-    width:calc(100vw - 340px);
+  .dim {
+    width: calc(100vw - 340px);
   }
 }

@@ -5,11 +5,7 @@ interface MessageLayoutProps {
   children: React.ReactNode
 }
 const MessageLayout = ({ children }: MessageLayoutProps) => {
-  return (
-    <SidebarLayout>
-      {children}
-    </SidebarLayout>
-  )
+  return <SidebarLayout>{children}</SidebarLayout>
 }
 
 export default MessageLayout

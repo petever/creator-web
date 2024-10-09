@@ -5,8 +5,8 @@ import { ContentForm } from '@/widgets/AddContentModal/ui/ContentForm'
 import { AddContentFooter } from '@/widgets/AddContentModal/ui/AddContentFooter'
 import { Simulate } from 'react-dom/test-utils'
 import { useCreatePosts } from '@/widgets/AddContentModal/hooks/useCreatePosts'
-import {useEffect} from "react";
-import {notifications} from "@mantine/notifications";
+import { useEffect } from 'react'
+import { notifications } from '@mantine/notifications'
 
 interface AddContentModalProps {
   opened: boolean

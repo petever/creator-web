@@ -1,13 +1,18 @@
-html, body, ul, li, p{
-  margin:0; padding:0;
+html,
+body,
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
 }
 
-li{
+li {
   list-style: none;
 }
 
 a {
   font-style: normal;
   text-decoration: none;
-  color: var(--mantine-color-text)!important;
+  color: var(--mantine-color-text) !important;
 }

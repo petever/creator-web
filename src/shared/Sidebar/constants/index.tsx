@@ -6,7 +6,8 @@ import {
   IconSearch,
   IconSend,
 } from '@tabler/icons-react'
-import {Label} from "@/widgets/types";
+import { Label } from '@/widgets/types'
+import { Indicator } from '@mantine/core'
 
 export const SIDEBARS: Label[] = [
   {
@@ -45,11 +46,18 @@ export const SIDEBARS: Label[] = [
     key: 'message',
     disabled: false,
   },
-	{
-		icon: <IconSearch size="22px" stroke={2} />,
-		href: '',
-		label: '알림',
-		key: 'search',
-		disabled: false,
-	},
+  {
+    icon: (
+      /**
+       * 알림이 없을 때 : disabled
+       */
+      <Indicator disabled>
+        <IconBell size="22px" stroke={2} />
+      </Indicator>
+    ),
+    href: '',
+    label: '알림',
+    key: 'notification',
+    disabled: false,
+  },
 ]

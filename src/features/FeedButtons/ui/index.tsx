@@ -5,7 +5,7 @@ import {
   IconHeart,
   IconHeartFilled,
   IconMessageCircle,
-  IconShare
+  IconShare,
 } from '@tabler/icons-react'
 
 interface FeedButtonsProps {
@@ -33,25 +33,20 @@ export const FeedButtons = ({ id, onDetailModal }: FeedButtonsProps) => {
           variant="subtle"
           size="xl"
           color="gray"
-          data-testId='favorite_btn'
+          data-testId="favorite_btn"
           onClick={handleFavoritePosting}
         >
           {/*<IconHeart />*/}
           <IconHeartFilled />
         </ActionIcon>
-        <ActionIcon
-          variant="subtle"
-          size="xl"
-          color="gray"
-          onClick={onDetailModal}
-        >
+        <ActionIcon variant="subtle" size="xl" color="gray" onClick={onDetailModal}>
           <IconMessageCircle />
         </ActionIcon>
       </ActionIconGroup>
       <Group>
         <ActionIcon variant="subtle" size="xl" color="gray">
           {/*<IconBookmark />*/}
-          <IconBookmarkFilled/>
+          <IconBookmarkFilled />
         </ActionIcon>
       </Group>
     </Flex>

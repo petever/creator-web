@@ -1,10 +1,10 @@
 'use client'
 
-import {Avatar, Button, Flex, Group, Box, Modal, Radio, Stack, Text} from "@mantine/core";
+import { Avatar, Button, Flex, Group, Box, Modal, Radio, Stack, Text } from '@mantine/core'
 import classes from './styles.module.css'
-import {IconStar} from "@tabler/icons-react";
-import {UserProfile} from "@/entities/user/types";
-import {Profile} from "@/features";
+import { IconStar } from '@tabler/icons-react'
+import { UserProfile } from '@/entities/user/types'
+import { Profile } from '@/features'
 
 interface SubscribeModalProps {
   userProfile?: UserProfile
@@ -13,7 +13,7 @@ interface SubscribeModalProps {
 }
 
 export const SubscribeModal = ({ userProfile, opened, onClose }: SubscribeModalProps) => {
-  if(!userProfile) return  null
+  if (!userProfile) return null
 
   const handleModalClose = () => {
     onClose()
@@ -25,7 +25,7 @@ export const SubscribeModal = ({ userProfile, opened, onClose }: SubscribeModalP
     },
     { name: '월 / 10만원', description: '비공개 콘텐츠 제공' },
     { name: '월 / 100만원', description: '비공개 콘텐츠 제공/ 1:1 대화 가능' },
-  ];
+  ]
 
   const cards = data.map((item) => (
     <Radio.Card className={classes.root} radius="md" value={item.name} key={item.name}>
@@ -33,13 +33,11 @@ export const SubscribeModal = ({ userProfile, opened, onClose }: SubscribeModalP
         <Radio.Indicator />
         <div>
           <Text className={classes.label}>{item.name}</Text>
-          {item.description &&
-            <Text className={classes.description}>{item.description}</Text>
-          }
+          {item.description && <Text className={classes.description}>{item.description}</Text>}
         </div>
       </Group>
     </Radio.Card>
-  ));
+  ))
 
   return (
     <Modal size="xl" centered opened={opened} onClose={handleModalClose} title="구독하기">
@@ -47,11 +45,8 @@ export const SubscribeModal = ({ userProfile, opened, onClose }: SubscribeModalP
         // value={value}
         // onChange={setValue}
         label={
-          <Flex align='center' gap={10}>
-            <Profile
-              profile={userProfile}
-              size={'lg'}
-            />
+          <Flex align="center" gap={10}>
+            <Profile profile={userProfile} size={'lg'} />
           </Flex>
         }
         description={
@@ -78,4 +73,3 @@ export const SubscribeModal = ({ userProfile, opened, onClose }: SubscribeModalP
     </Modal>
   )
 }
-

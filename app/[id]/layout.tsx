@@ -5,11 +5,7 @@ interface FeedsLayoutProps {
   children: React.ReactNode
 }
 const FeedsLayout = ({ children }: FeedsLayoutProps) => {
-  return (
-    <SidebarLayout>
-      {children}
-    </SidebarLayout>
-  )
+  return <SidebarLayout>{children}</SidebarLayout>
 }
 
 export default FeedsLayout

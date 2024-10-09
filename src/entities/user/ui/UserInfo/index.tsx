@@ -5,7 +5,7 @@ import classes from './styles.module.css'
 interface UserInfoProps {
   displayName: string
   username: string
-  status : string
+  status: string
 }
 const UserInfo = ({ displayName, username, status }: UserInfoProps) => {
   return (

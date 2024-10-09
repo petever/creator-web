@@ -1,5 +1,5 @@
 'use client'
-import { Modal, Image} from '@mantine/core'
+import { Modal, Image } from '@mantine/core'
 import { Carousel } from '@mantine/carousel'
 import { CommentArea } from '@/widgets'
 

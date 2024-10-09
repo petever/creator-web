@@ -1,51 +1,34 @@
-import {Flex, Group, Input, Select, TextInput} from "@mantine/core";
-import {useContentFormContext} from "@/widgets/AddContentModal/lib/form-context";
-import {Carousel} from "@mantine/carousel";
-import Image from "next/image";
+import { Flex, Group, Input, Select, TextInput } from '@mantine/core'
+import { useContentFormContext } from '@/widgets/AddContentModal/lib/form-context'
+import { Carousel } from '@mantine/carousel'
+import Image from 'next/image'
 
 export const ContentForm = () => {
   const form = useContentFormContext()
-  const {values, setFieldValue} = form
+  const { values, setFieldValue } = form
 
-  const {files, step, title, contents} = values
+  const { files, step, title, contents } = values
 
-  if(step === 0) return null
+  if (step === 0) return null
 
   return (
     <Group>
-      <Flex
-        flex={1}
-        gap={30}
-      >
-        <Flex
-          direction='column'
-          gap={30}
-          flex={1}
-        >
+      <Flex flex={1} gap={30}>
+        <Flex direction="column" gap={30} flex={1}>
           <Carousel withIndicators height={200}>
-            {
-              files.map((file, index) => {
-                const imageUrl = URL.createObjectURL(file);
-                return (
-                  <Carousel.Slide key={`image_${index}`}>
-                    <Image src={imageUrl} alt='' fill/>
-                  </Carousel.Slide>
-                )
-              })
-            }
+            {files.map((file, index) => {
+              const imageUrl = URL.createObjectURL(file)
+              return (
+                <Carousel.Slide key={`image_${index}`}>
+                  <Image src={imageUrl} alt="" fill />
+                </Carousel.Slide>
+              )
+            })}
           </Carousel>
         </Flex>
-        <Flex
-          direction='column'
-          gap={30}
-          flex={1}
-        >
+        <Flex direction="column" gap={30} flex={1}>
           <Input.Wrapper>
-            <TextInput
-              label="제목"
-              key={form.key('title')}
-              {...form.getInputProps('title')}
-            />
+            <TextInput label="제목" key={form.key('title')} {...form.getInputProps('title')} />
           </Input.Wrapper>
           <Input.Wrapper>
             <TextInput
@@ -58,18 +41,16 @@ export const ContentForm = () => {
             {/* 구독 권한 조회 후, option에 들어갈 수 있도록 해야 함.*/}
             <Select
               label="공개 범위"
-              data={
-                [
-                  {
-                    label : '구독자 전용',
-                    value : 'true'
-                  },
-                  {
-                    label : '전체 공개',
-                    value : 'false'
-                  }
-                ]
-              }
+              data={[
+                {
+                  label: '구독자 전용',
+                  value: 'true',
+                },
+                {
+                  label: '전체 공개',
+                  value: 'false',
+                },
+              ]}
               key={form.key('isSubscribed')}
               {...form.getInputProps('isSubscribed')}
               defaultValue="false"

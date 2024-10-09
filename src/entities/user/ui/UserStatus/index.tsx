@@ -1,12 +1,12 @@
 import classes from './stlyes.module.css'
-import {ActionIcon, Flex} from "@mantine/core";
-import {IconCircleArrowDownFilled, IconCircleArrowUpFilled} from "@tabler/icons-react";
-import {useState} from "react";
+import { ActionIcon, Flex } from '@mantine/core'
+import { IconCircleArrowDownFilled, IconCircleArrowUpFilled } from '@tabler/icons-react'
+import { useState } from 'react'
 
-interface UserStatusProps{
+interface UserStatusProps {
   status: string
 }
-export const UserStatus = ({status} : UserStatusProps) => {
+export const UserStatus = ({ status }: UserStatusProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const handleExpandedChange = () => {
     setIsExpanded(!isExpanded)
@@ -15,14 +15,13 @@ export const UserStatus = ({status} : UserStatusProps) => {
   return (
     <>
       <p className={`${classes.status} ${!isExpanded && classes.isExpanded}`}>{status}</p>
-      <Flex
-        justify={'end'}
-      >
+      <Flex justify={'end'}>
         <ActionIcon onClick={handleExpandedChange}>
-          {isExpanded ?
-            <IconCircleArrowUpFilled style={{ width: '70%', height: '70%' }} stroke={1.5} /> :
+          {isExpanded ? (
+            <IconCircleArrowUpFilled style={{ width: '70%', height: '70%' }} stroke={1.5} />
+          ) : (
             <IconCircleArrowDownFilled style={{ width: '70%', height: '70%' }} stroke={1.5} />
-          }
+          )}
         </ActionIcon>
       </Flex>
     </>
