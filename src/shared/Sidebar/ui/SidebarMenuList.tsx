@@ -13,6 +13,17 @@ export const SidebarMenuList = ({ onModalOpen, onDrawerOpen }: SidebarMenuListPr
   const isMobile = useMediaQuery('(max-width: 640px)')
   const flexDirection = isMobile ? 'row' : 'column'
 
+	const handleSidebarEvent = (label : string) => {
+		const isAddContent = label === '추가'
+		const isSearch = label === '검색'
+		if(isAddContent) {
+			onModalOpen()
+		}
+		if(isSearch){
+			onDrawerOpen()
+		}
+	}
+
   return (
     <Flex
       gap={40}
@@ -21,9 +32,9 @@ export const SidebarMenuList = ({ onModalOpen, onDrawerOpen }: SidebarMenuListPr
       className={classes.menuWrapper}
     >
       {SIDEBARS.map((sidebar, sidebarIndex) => {
-        if (sidebar.label === '추가' || '검색') {
+        if (sidebar.label === '추가' || sidebar.label === '검색') {
           return (
-						<UnstyledButton onClick={sidebar.label === '추가' ? onModalOpen : onDrawerOpen} key={sidebarIndex}>
+						<UnstyledButton onClick={() => handleSidebarEvent(sidebar.label)} key={sidebarIndex}>
 							<Flex align="center" gap={20} >
 								{sidebar.icon}
 								<Text className={classes.labelWrapper}>{sidebar.label}</Text>
