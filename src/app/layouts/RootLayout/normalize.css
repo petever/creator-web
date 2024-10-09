@@ -9,5 +9,5 @@ li{
 a {
   font-style: normal;
   text-decoration: none;
-  color:inherit;
+  color: var(--mantine-color-text)!important;
 }

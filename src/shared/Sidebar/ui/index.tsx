@@ -21,7 +21,11 @@ export const Sidebar = ({ isLogin }: SidebarProps) => {
       <div className={classes.topArea}>
         <SearchMember opened={isDrawerOpened} onClose={drawerClose} />
         <AddContentModal opened={isModalOpened} onClose={modalClose} />
-        <SidebarMenuList onModalOpen={modalOpen} onDrawerOpen={drawerOpen} />
+        <SidebarMenuList
+					isDrawerOpened={isDrawerOpened}
+					onModalOpen={modalOpen}
+					onDrawerOpen={drawerOpen}
+				/>
       </div>
       <div className={classes.setting}>
         <Anchor c="dark" fw={500} fz="lg" href={PAGE.SETTINGS}>

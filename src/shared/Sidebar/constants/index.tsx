@@ -38,7 +38,6 @@ export const SIDEBARS: Label[] = [
     key: 'search',
     disabled: false,
   },
-
   {
     icon: <IconSend size="22px" stroke={2} />,
     href: '/message',
@@ -46,4 +45,11 @@ export const SIDEBARS: Label[] = [
     key: 'message',
     disabled: false,
   },
+	{
+		icon: <IconSearch size="22px" stroke={2} />,
+		href: '',
+		label: '알림',
+		key: 'search',
+		disabled: false,
+	},
 ]

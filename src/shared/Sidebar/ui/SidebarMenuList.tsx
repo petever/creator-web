@@ -5,11 +5,12 @@ import {SIDEBARS} from "@/shared/Sidebar/constants";
 import classes from '@/shared/Sidebar/ui/styles.module.css'
 
 interface SidebarMenuListProps {
+	isDrawerOpened : boolean
   onModalOpen: () => void
   onDrawerOpen: () => void
 }
 
-export const SidebarMenuList = ({ onModalOpen, onDrawerOpen }: SidebarMenuListProps) => {
+export const SidebarMenuList = ({ isDrawerOpened, onModalOpen, onDrawerOpen }: SidebarMenuListProps) => {
   const isMobile = useMediaQuery('(max-width: 640px)')
   const flexDirection = isMobile ? 'row' : 'column'
 
@@ -51,6 +52,7 @@ export const SidebarMenuList = ({ onModalOpen, onDrawerOpen }: SidebarMenuListPr
           </Link>
         )
       })}
+			{isDrawerOpened && <div className={classes.dim}></div>}
     </Flex>
   )
 }
