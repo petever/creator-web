@@ -1,8 +1,7 @@
 import ContentTabs from '@/pageModules/userDetail/ui/ContentTabs'
-import {ProfileTopSection} from "@/features/users/ui/ProfileTopSection";
-import SubscribeButton from "@/features/users/ui/SubscribeButton";
-import {getServerProfile} from "@/entities/user/api/getServerProfile";
-import {UserProfile} from "@/entities/user/types";
+import { ProfileTopSection } from '@/features/users/ui/ProfileTopSection'
+import SubscribeButton from '@/features/users/ui/SubscribeButton'
+import { getServerProfile } from '@/entities/user/api/getServerProfile'
 
 const UserDetailPage = async () => {
   const userProfile = await getServerProfile()
@@ -11,9 +10,7 @@ const UserDetailPage = async () => {
     <div>
       <ProfileTopSection
         userProfile={userProfile}
-        children={
-          <SubscribeButton userProfile={userProfile}/>
-        }
+        children={<SubscribeButton userProfile={userProfile} />}
       />
       <ContentTabs />
     </div>
