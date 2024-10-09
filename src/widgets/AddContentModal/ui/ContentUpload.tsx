@@ -12,6 +12,7 @@ import { useRef, useState } from 'react'
 import PreviewList from '@/features/PreviewList/ui'
 import { DropzoneAccept, DropzoneIdle, DropzoneReject } from '@/entities/ImageUpload/ui'
 import { useContentFormContext } from '@/widgets/AddContentModal/lib/form-context'
+import {clientKy} from "@/shared/core/clientKy";
 
 const ContentUpload = (props: Partial<DropzoneProps>) => {
   const form = useContentFormContext()
@@ -22,6 +23,18 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
 
   const handleDropImages = (uploadFiles: File[]) => {
     uploadFiles.forEach((file) => {
+      // TODO : 이미지 업로드시 API Route에 접속하여, Sharp처리
+      /*
+        const formData = new FormData()
+        formData.append('image', file)
+
+        clientKy.post('localhost:3000/api/imageOptimize', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data', // FormData 사용 시 반드시 설정
+          }
+        })
+       */
+
       insertListItem('files', file)
     })
 
