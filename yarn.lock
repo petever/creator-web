@@ -1405,7 +1405,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/formidable@npm:^3":
+"@types/formidable@npm:^3.4.5":
   version: 3.4.5
   resolution: "@types/formidable@npm:3.4.5"
   dependencies:
@@ -5427,7 +5427,7 @@ __metadata:
     "@types/cors": "npm:^2"
     "@types/eslint": "npm:^9"
     "@types/express": "npm:^4"
-    "@types/formidable": "npm:^3"
+    "@types/formidable": "npm:^3.4.5"
     "@types/node": "npm:20.10.4"
     "@types/react": "npm:^18.3.5"
     "@types/react-dom": "npm:^18.3.0"
