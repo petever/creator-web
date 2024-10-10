@@ -3,6 +3,7 @@ import { Avatar } from '@mantine/core'
 import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone'
 import Image from 'next/image'
 import { useUserProfileFormContext } from '@/features/users/lib/profile-context'
+import { IconCamera } from '@tabler/icons-react'
 
 interface ProfilePictureProps {
   imageSrc?: string | File
@@ -31,7 +32,10 @@ const ProfilePicture = ({ imageSrc = '', alt = '' }: ProfilePictureProps) => {
       openRef={openRef}
       onDrop={handlePictureUpdate}
     >
-      <Avatar bg="themeColors" w={80} h={80}>
+      <Avatar w={80} h={80} pos="relative">
+        <Avatar pos="absolute" size="sm">
+          <IconCamera size="1.5rem" />
+        </Avatar>
         <Image src={src as string} alt={alt} width={80} height={80} />
       </Avatar>
     </Dropzone>

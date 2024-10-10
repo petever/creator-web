@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { Badge, Box, Image as MatineImage } from '@mantine/core'
+import { Avatar, Image as MatineImage } from '@mantine/core'
 
 import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone'
 import { useUserProfileFormContext } from '@/features/users/lib/profile-context'
@@ -22,6 +22,9 @@ const ProfileCover = ({ imageSrc = '' }: ProfileCoverProps) => {
 
   return (
     <Dropzone accept={IMAGE_MIME_TYPE} openRef={openRef} onDrop={handleCoverUpdate} pos="relative">
+      <Avatar pos="absolute" style={{ top: '50%', left: '50%', translate: '-50% -50%' }}>
+        <IconCamera size="1.5rem" />
+      </Avatar>
       <MatineImage radius={6} src={src} height={180} style={{ cursor: 'pointer' }} />
     </Dropzone>
   )
