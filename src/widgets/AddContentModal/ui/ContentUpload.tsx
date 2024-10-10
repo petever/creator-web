@@ -28,7 +28,7 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
         const formData = new FormData()
         formData.append('image', file)
 
-        clientKy.post('localhost:3000/api/imageOptimize', formData, {
+        clientKy.post('localhost:3000/api/image-optimize', formData, {
           headers: {
             'Content-Type': 'multipart/form-data', // FormData 사용 시 반드시 설정
           }
