@@ -12,9 +12,9 @@ export const clientKy = ky.create({
     ],
     afterResponse: [
       async (request: Request, options: any, response: Response) => {
-        console.log('request', request)
-        console.log('options', options)
-        console.log('response', response)
+        // console.log('request', request)
+        // console.log('options', options)
+        // console.log('response', response)
       },
     ],
   },

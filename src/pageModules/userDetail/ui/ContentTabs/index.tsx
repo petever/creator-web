@@ -2,9 +2,16 @@
 import React from 'react'
 import { Post } from '@/widgets/Post/ui'
 import { Tabs } from '@mantine/core'
-import FeedList from '@/pageModules/userDetail/ui/FeedList'
+import {useFeeds} from "@/entities/feeds/hooks/useFeeds";
+import {Feeds} from "@/entities/feeds/types";
+import FeedList from "@/pageModules/home/ui/FeedList";
 
-const ContentTabs = () => {
+interface ContentTabsProps {
+  initialFeeds: Feeds
+  userName ?: string
+}
+
+const ContentTabs = ({initialFeeds, userName }: ContentTabsProps) => {
   return (
     <>
       <Tabs defaultValue="posts" h={50}>
@@ -17,7 +24,10 @@ const ContentTabs = () => {
           </Tabs.Tab>
         </Tabs.List>
         <Tabs.Panel value="posts">
-          <FeedList />
+          <FeedList
+            initialFeeds={initialFeeds}
+            userName={userName}
+          />
         </Tabs.Panel>
         <Tabs.Panel value="all">모두</Tabs.Panel>
       </Tabs>

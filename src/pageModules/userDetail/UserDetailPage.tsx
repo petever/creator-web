@@ -5,9 +5,17 @@ import { getServerProfile } from '@/entities/user/api/getServerProfile'
 import { UserProfile } from '@/entities/user/types'
 import {getServerFeeds} from "@/entities/feeds/api/getServerFeeds";
 
-const UserDetailPage = async () => {
-  const userProfile = await getServerProfile()
+interface UserDetailPageProps {
+  params : {
+    userName ?: string
+  }
+}
 
+const UserDetailPage = async ({params} : UserDetailPageProps) => {
+  const {userName} = params
+
+  const userProfile = await getServerProfile()
+  const initialFeeds = await getServerFeeds(userName)
 
   return (
     <div>
@@ -15,7 +23,10 @@ const UserDetailPage = async () => {
         userProfile={userProfile}
         children={<SubscribeButton userProfile={userProfile} />}
       />
-      <ContentTabs />
+      <ContentTabs
+        initialFeeds={initialFeeds}
+        userName={userName}
+      />
     </div>
   )
 }

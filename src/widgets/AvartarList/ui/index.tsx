@@ -1,10 +1,10 @@
-import { Avatars } from '../../types'
 import { Profile } from '@/features'
 import { Carousel } from '@mantine/carousel'
 import { DUMMY_PROFILE } from '@/shared/model'
+import {UserProfile} from "@/entities/user/types";
 
 interface AvatarListProps {
-  avatars: Avatars[]
+  avatars: UserProfile[]
   maxLength?: number
 }
 
@@ -13,7 +13,7 @@ export const AvatarList = ({ avatars, maxLength }: AvatarListProps) => {
 
   return (
     <Carousel>
-      {avatars?.map((avatar: Avatars, avatarIndex) => {
+      {avatars?.map((avatar: UserProfile, avatarIndex) => {
         return (
           <Carousel.Slide key={`recommend_${avatarIndex}`}>
             <Profile profile={DUMMY_PROFILE} size="sm" />

@@ -1,7 +1,7 @@
 import { PostItem } from '@/entities/posts/types'
 
 export interface Feeds {
-  contents: FeedContents[]
+  content: FeedContents[]
 }
 
 export interface FeedContents extends PostItem {
@@ -18,7 +18,7 @@ export interface FeedContents extends PostItem {
   resources: Resource[]
 }
 
-interface Resource {
+export interface Resource {
   id: string
   filePath: string
   type: string

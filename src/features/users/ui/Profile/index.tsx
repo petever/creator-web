@@ -19,8 +19,8 @@ export const Profile = ({ profile, size = 'sm', isSubscribed, onClick }: Profile
           <UnstyledButton className={classes.button} onClick={onClick}>
             <Avatar size={size} src={profile.picture as string} />
             <Box>
-              <p>{profile.username}</p>
-              <p>#{profile.displayName}</p>
+              <p>{profile.displayName}</p>
+              <p>@{profile.username}</p>
             </Box>
           </UnstyledButton>
           {isSubscribed && <Button>구독</Button>}

@@ -5,11 +5,3 @@ export interface Label {
   icon?: any
   disabled?: boolean
 }
-
-export interface Avatars {
-  src?: string
-  alt?: string
-  name?: string
-  tag?: string
-  description?: string
-}
