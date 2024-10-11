@@ -12,29 +12,55 @@ import { useRef, useState } from 'react'
 import PreviewList from '@/features/PreviewList/ui'
 import { DropzoneAccept, DropzoneIdle, DropzoneReject } from '@/entities/ImageUpload/ui'
 import { useContentFormContext } from '@/widgets/AddContentModal/lib/form-context'
+import {clientKy} from "@/shared/core/clientKy";
+import ky from "@toss/ky";
+import {ImageOptimizeData} from "@/entities/ImageUpload/types";
+import * as buffer from "node:buffer";
 
 const ContentUpload = (props: Partial<DropzoneProps>) => {
   const form = useContentFormContext()
-  const { values, setFieldValue, insertListItem, removeListItem, reorderListItem, watch } = form
+  const {values, setFieldValue, insertListItem, removeListItem, reorderListItem, watch} = form
 
-  const { step, currentFile, currentFileType, files, currentIndex } = values
+  const {step, currentFile, currentFileType, files, currentIndex} = values
   const openRef = useRef<() => void>(null)
 
-  const handleDropImages = (uploadFiles: File[]) => {
+  const handleDropImages = async (uploadFiles: File[]) => {
+    const formData = new FormData()
+
     uploadFiles.forEach((file) => {
+      formData.append('file', file)
+    })
+
+    const files = await processFiles(formData)
+    const settingFile = files[0]
+    const url = URL.createObjectURL(settingFile)
+    setFieldValue('currentFile', url)
+
+    files.forEach(file => {
       insertListItem('files', file)
     })
 
-    const file = uploadFiles[0]
-
-    const url = URL.createObjectURL(file)
-    setFieldValue('currentFile', url)
-
-    if (file.type === 'video/mp4') {
+    if (settingFile.type === 'video/mp4') {
       return setFieldValue('currentFileType', 'video')
     }
-
     setFieldValue('currentFileType', 'image')
+  }
+
+
+  const processFiles = async (formData: FormData): Promise<File[]> => {
+    const imageOptimizeData = await ky.post('/api/image-optimize', {
+      body : formData
+    }).json()
+
+    const result = await imageOptimizeData
+    return await Promise.all(
+      result.data.files.map(async (bufferFile: ImageOptimizeData) => {
+        const bufferArray = bufferFile.buffer.data
+        const blob = new Blob([new Uint8Array(bufferArray)])
+
+        return new File([blob], `${bufferFile.name}.jpeg`, { type: 'image/jpeg' })
+      })
+    )
   }
 
   const handleRemoveImage = (index: number) => {
