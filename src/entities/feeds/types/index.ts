@@ -5,9 +5,12 @@ export interface Feeds {
 }
 
 export interface FeedContents extends PostItem {
-  creator: any
-  // TODO : Creator Type Change
+  creator: Creator
+  id : string
+  title : string
+  contents : string
   isLiked: boolean
+  isLikeCount : number
   isSubscribed: boolean
   commentCount: number
   createdAt: Date
@@ -22,4 +25,14 @@ interface Resource {
   mimeType: string
   createdAt: Date
   updatedAt: Date
+}
+
+export interface Creator {
+  id : string
+  username : string
+  displayName : string
+  status : string
+  picture : string
+  cover : string
+  role : string
 }

@@ -3,9 +3,11 @@ import { ProfileTopSection } from '@/features/users/ui/ProfileTopSection'
 import SubscribeButton from '@/features/users/ui/SubscribeButton'
 import { getServerProfile } from '@/entities/user/api/getServerProfile'
 import { UserProfile } from '@/entities/user/types'
+import {getServerFeeds} from "@/entities/feeds/api/getServerFeeds";
 
 const UserDetailPage = async () => {
   const userProfile = await getServerProfile()
+
 
   return (
     <div>
