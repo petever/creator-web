@@ -5,27 +5,28 @@ export async function POST(request : NextRequest, response : NextResponse) {
   const formData = await request.formData()
 
   const files = formData.getAll('file') as File[]
+
   if (files.length < 1) {
     return NextResponse.json({ error: 'No files received.' }, { status: 400 })
   }
 
   const processedFiles = await Promise.all(
-    files.map(async (file) => {
+    files.map(async (file, index) => {
       const buffer = await file.arrayBuffer()
       const processedBuffer = await sharp(Buffer.from(buffer))
-        .resize(800, 800,  { fit: 'contain' })
-        .toFormat('jpeg', {
-          quality : 80
-        })
+        .resize({ fit: 'contain' })
         .toBuffer()
 
-      return { name: file.name, status: 'processed', buffer: processedBuffer }
+      return { name: `upload_file_${index}`, status: 'processed', buffer: processedBuffer }
     }),
   )
 
   return NextResponse.json({
     status: 'success',
-    message: '파일 업로드 성공',
+    data : {
+      files: processedFiles
+    },
+    message: '파일 변환 성공',
   })
 }
 
