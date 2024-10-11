@@ -1,12 +1,12 @@
 import React from 'react'
 import { Flex, Switch, Text } from '@mantine/core'
 
-interface NotificationItemProps {
+interface NotificationSettingItemProps {
   label: string
   checked: boolean
 }
 
-const NotificationItem = ({ label, checked }: NotificationItemProps) => {
+const NotificationSettingItem = ({ label, checked }: NotificationSettingItemProps) => {
   return (
     <Flex justify="space-between" align="center">
       <Text size="lg">{label}</Text>
@@ -15,4 +15,4 @@ const NotificationItem = ({ label, checked }: NotificationItemProps) => {
   )
 }
 
-export default NotificationItem
+export default NotificationSettingItem

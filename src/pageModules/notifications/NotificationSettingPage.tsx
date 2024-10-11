@@ -1,6 +1,7 @@
 'use client'
 
 import NotificationGroup from '@/features/notifications/ui/NotificationGroup'
+import { NotificationContents } from '@/entities/notifications/types'
 
 const NotificationSettingPage = () => {
   const notificationNameItems = [
@@ -13,7 +14,7 @@ const NotificationSettingPage = () => {
       value: 'creator',
     },
   ]
-  const notificationContents = {
+  const notificationContents: NotificationContents = {
     message: [
       {
         label: '채팅 메세지',
@@ -31,12 +32,7 @@ const NotificationSettingPage = () => {
   return (
     <>
       {notificationNameItems.map((item) => {
-        console.log(notificationContents[item.value])
-        return (
-          <div>
-            <NotificationGroup legend={item.label} items={[]} />
-          </div>
-        )
+        return <NotificationGroup legend={item.label} items={notificationContents[item.value]} />
       })}
     </>
   )
