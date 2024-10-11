@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+  height:80vh;
 }
 
 .currentFilePreview {
@@ -7,9 +8,13 @@
   top: 0;
   left: 0;
   height: 0;
-  padding-top: 100%;
+  padding-top: 80%;
   border-radius: 6px;
   overflow: hidden;
+}
+
+.currentFilePreview img{
+  object-fit: contain;
 }
 
 .currentFilePreview video {

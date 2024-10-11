@@ -34,7 +34,6 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
     const files = await processFiles(formData)
     const settingFile = files[0]
     const url = URL.createObjectURL(settingFile)
-    console.log('url', url)
     setFieldValue('currentFile', url)
 
     files.forEach(file => {
@@ -56,7 +55,9 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
     const result = await imageOptimizeData
     return await Promise.all(
       result.data.files.map(async (bufferFile: ImageOptimizeData) => {
-        const blob = new Blob([bufferFile.buffer], { type: 'image/jpeg' })
+        const bufferArray = bufferFile.buffer.data
+        const blob = new Blob([new Uint8Array(bufferArray)])
+
         return new File([blob], `${bufferFile.name}.jpeg`, { type: 'image/jpeg' })
       })
     )

@@ -14,7 +14,11 @@ export async function POST(request : NextRequest, response : NextResponse) {
     files.map(async (file, index) => {
       const buffer = await file.arrayBuffer()
       const processedBuffer = await sharp(Buffer.from(buffer))
-        .resize({ fit: 'contain' })
+        .resize(
+          600,
+          600,
+          { fit: 'contain' }
+        )
         .toBuffer()
 
       return { name: `upload_file_${index}`, status: 'processed', buffer: processedBuffer }
