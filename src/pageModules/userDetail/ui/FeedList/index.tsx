@@ -7,12 +7,7 @@ const FeedList = () => {
   return (
     <div className={classes.wrapper}>
       <Flex direction="column" gap={30} pt={20} pb={20}>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+       
       </Flex>
     </div>
   )

@@ -1,14 +1,14 @@
 'use client'
 
-import { Avatars } from '../../types'
 import { ActionIcon, Flex, Menu } from '@mantine/core'
 import { IconDots, IconTrash } from '@tabler/icons-react'
 import { Profile } from '@/features'
 import { useDisclosure } from '@mantine/hooks'
 import { DUMMY_PROFILE } from '@/shared/model'
+import {UserProfile} from "@/entities/user/types";
 
 interface PostingHeaderProps {
-  profile: Avatars
+  profile: UserProfile
 }
 
 export const PostingHeader = ({ profile }: PostingHeaderProps) => {
@@ -26,7 +26,7 @@ export const PostingHeader = ({ profile }: PostingHeaderProps) => {
         width: '100%',
       }}
     >
-      <Profile profile={DUMMY_PROFILE} size="md" />
+      <Profile profile={profile} size="md" />
       <Menu shadow="md" width={200}>
         <Menu.Target>
           <ActionIcon variant="subtle" color="gray" size="xl">

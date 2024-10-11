@@ -2,5 +2,5 @@ export const API_URL = {
   USERS_LOGIN: 'users/login',
   USERS_PROFILE: 'users/profile',
   POSTS: 'posts',
-  FEEDS: 'feeds',
+  FEEDS:(userName ?: string) =>  `feeds${!userName ? '' : `?userName=${userName}`}`,
 }
