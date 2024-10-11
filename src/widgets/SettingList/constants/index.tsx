@@ -4,7 +4,7 @@ export const SETTING_LISTS = [
   { label: '프로필 설정', href: PAGE.SETTINGS_PROFILE },
   {
     label: '알림',
-    href: PAGE.SETTINGS_PROFILE,
+    href: PAGE.SETTINGS_NOTIFICATIONS,
   },
   { label: '크리에이터 신청', href: PAGE.SETTINGS_CREATOR },
 
