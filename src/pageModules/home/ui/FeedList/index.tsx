@@ -1,18 +1,30 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Post } from '@/widgets/Post/ui'
 import { Flex } from '@mantine/core'
-import {FeedContents, Feeds} from "@/entities/feeds/types";
-import {useFeeds} from "@/entities/feeds/hooks/useFeeds";
+import {FeedContents, FeedResponse, Feeds} from "@/entities/feeds/types";
+import { useInView } from 'react-intersection-observer'
+import useFeeds from "@/entities/feeds/hooks/useFeeds";
 
 interface FeedListProps {
-  initialFeeds: Feeds
+  initialFeeds: FeedResponse
   userName ?: string
 }
 
 const FeedList = ({ initialFeeds, userName } : FeedListProps) => {
-  const { data } = useFeeds(initialFeeds, userName)
+  const { ref, inView } = useInView()
 
-  const list = data?.content
+  const { data, hasNextPage, fetchNextPage, refetch } = useFeeds(initialFeeds, userName)
+
+  const fetchMore = () => {
+    if (!inView) {
+      return
+    }
+    void fetchNextPage()
+  }
+
+  useEffect(() => {
+    fetchMore()
+  }, [inView, hasNextPage])
 
   if(!data) return null
 

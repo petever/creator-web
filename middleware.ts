@@ -7,7 +7,7 @@ import { PAGE } from '@/shared/constants/page'
 const { auth } = NextAuth(authConfig)
 export default auth(async function middleware(req: NextRequest) {
   const session = await userSession()
-  if (!session?.accessToken) return NextResponse.redirect(new URL(PAGE.LOGIN, req.url))
+  if (!session?.accessToken) NextResponse.redirect(new URL(PAGE.LOGIN, req.url))
 })
 
 export const config = {

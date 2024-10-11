@@ -1,14 +1,23 @@
-import { useQuery } from '@tanstack/react-query'
+import {useInfiniteQuery} from '@tanstack/react-query'
 import { QUERY_KEY } from '@/shared/constants/queryKey'
 import { getFeeds } from '@/entities/feeds/api/getFeeds'
-import { Feeds } from '@/entities/feeds/types'
+import {FeedResponse, Feeds} from '@/entities/feeds/types'
 
 
-export const useFeeds = ( initialData : Feeds, userName ?: string) => {
-  const { data } = useQuery({
+const useFeeds = ( initialData : FeedResponse, userName ?: string) => {
+  return useInfiniteQuery({
     queryKey: [QUERY_KEY.FEEDS],
-    queryFn: () => getFeeds(userName),
-    initialData,
+    queryFn: ({ pageParam }) => getFeeds(userName),
+    initialData: {
+      pages: [initialData],
+      pageParams: [],
+    },
+    initialPageParam: 1,
+    getNextPageParam: ({last } : FeedResponse) => {
+      console.log('last', last)
+      return 1
+    },
   })
-  return { data }
 }
+
+export default useFeeds

@@ -1,5 +1,31 @@
 import { PostItem } from '@/entities/posts/types'
 
+interface Pagination {
+  paged : boolean,
+  pageNumber : number
+  pageSize : number
+  offSet : number
+  sort : Sort
+  unpaged : boolean
+}
+
+interface Sort {
+  sorted : boolean
+  empty : boolean
+  unsorted : boolean
+}
+
+export interface FeedResponse extends Feeds{
+  pageable : Pagination
+  first : boolean
+  last :boolean
+  size : number
+  number : number
+  sort : Sort
+  numberOfElements: number,
+  empty: boolean
+}
+
 export interface Feeds {
   content: FeedContents[]
 }
