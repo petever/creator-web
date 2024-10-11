@@ -6,22 +6,18 @@ import classes from '@/shared/Sidebar/ui/styles.module.css'
 
 interface SidebarMenuListProps {
   isSearchMemberDrawerOpened: boolean
-  isNotificationDrawerOpened: boolean
   onModalOpen: () => void
   onSearchDrawerOpen: () => void
-  onNotificationDrawerOpen: () => void
 }
 
 export const SidebarMenuList = ({
   isSearchMemberDrawerOpened,
-  isNotificationDrawerOpened,
   onModalOpen,
   onSearchDrawerOpen,
-  onNotificationDrawerOpen,
 }: SidebarMenuListProps) => {
   const isMobile = useMediaQuery('(max-width: 640px)')
   const flexDirection = isMobile ? 'row' : 'column'
-  const isDimmed = isSearchMemberDrawerOpened || isNotificationDrawerOpened
+  const isDimmed = isSearchMemberDrawerOpened
 
   const handleSidebarEvent = (label: string) => {
     const isAddContent = label === '추가'
@@ -34,13 +30,10 @@ export const SidebarMenuList = ({
     if (isSearch) {
       onSearchDrawerOpen()
     }
-    if (isNotification) {
-      onNotificationDrawerOpen()
-    }
   }
 
   const getIsMenuDrawer = (label: string) => {
-    return label === '추가' || label === '검색' || label === '알림'
+    return label === '추가' || label === '검색'
   }
 
   return (

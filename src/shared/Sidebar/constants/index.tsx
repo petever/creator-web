@@ -12,7 +12,7 @@ import { Indicator } from '@mantine/core'
 export const SIDEBARS: Label[] = [
   {
     icon: <IconHome2 size="22px" stroke={2} />,
-    href: '/main',
+    href: '/home',
     label: '홈',
     key: 'home',
     disabled: false,
@@ -48,16 +48,13 @@ export const SIDEBARS: Label[] = [
   },
   {
     icon: (
-      /**
-       * 알림이 없을 때 : disabled
-       */
       <Indicator disabled>
         <IconBell size="22px" stroke={2} />
       </Indicator>
     ),
-    href: '',
+    href: '/notifications',
     label: '알림',
-    key: 'notification',
+    key: 'notifications',
     disabled: false,
   },
 ]
