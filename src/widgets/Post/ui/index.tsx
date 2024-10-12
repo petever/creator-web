@@ -1,17 +1,16 @@
 'use client'
-import { Box, Button, Card, Divider, Image } from '@mantine/core'
-import {FeedButtons, Profile} from '@/features'
+import { Box, Button, Card, Image } from '@mantine/core'
+import { FeedButtons } from '@/features'
 import { PostingHeader } from './PostingHeader'
 import { FeedDetail } from '@/shared/FeedDetail/ui'
 import { useDisclosure } from '@mantine/hooks'
-import {FeedContents, Resource} from "@/entities/feeds/types";
-import {UserProfile} from "@/entities/user/types";
-import {DUMMY_PROFILE} from "@/shared/model";
-import {Carousel} from "@mantine/carousel";
+import { FeedContents, Resource } from '@/entities/feeds/types'
+import { UserProfile } from '@/entities/user/types'
+import { Carousel } from '@mantine/carousel'
 
 interface PostProps {
   profile?: UserProfile
-  feed : FeedContents
+  feed: FeedContents
 }
 
 export const Post = ({ profile, feed }: PostProps) => {
@@ -21,9 +20,9 @@ export const Post = ({ profile, feed }: PostProps) => {
     open()
   }
 
-  if(!feed) return null
-  
-  const {likeCount, resources} = feed
+  if (!feed) return null
+
+  const { likeCount, resources } = feed
 
   return (
     <Card p={0} shadow="lg" padding="lg" radius="lg">
@@ -44,11 +43,7 @@ export const Post = ({ profile, feed }: PostProps) => {
         <Button variant="transparent" onClick={handleDetailOpen}>
           댓글 {likeCount}개 보기
         </Button>
-        <FeedDetail
-          feed={feed}
-          opened={opened}
-          onClose={close}
-        />
+        <FeedDetail feed={feed} opened={opened} onClose={close} />
       </Box>
     </Card>
   )

@@ -1,14 +1,9 @@
 import HomePage from '@/pageModules/home/HomePage'
 import { getServerFeeds } from '@/entities/feeds/api/getServerFeeds'
 
-interface HomeProps {
-  params : {
-    userName ?: string
-  }
-}
+interface HomeProps {}
 
-export default async function Home({params} : HomeProps) {
-  const {userName} = params
-  const initialFeeds = await getServerFeeds(userName)
-  return <HomePage initialFeeds={initialFeeds.content} userName={userName}/>
+export default async function Home({}: HomeProps) {
+  const initialFeeds = await getServerFeeds()
+  return <HomePage initialFeeds={initialFeeds} />
 }

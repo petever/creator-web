@@ -1,15 +1,15 @@
 'use client'
 import React from 'react'
 import { Tabs } from '@mantine/core'
-import {FeedContents, Feeds} from "@/entities/feeds/types";
-import FeedList from "@/pageModules/home/ui/FeedList";
+import { FeedContents, Feeds } from '@/entities/feeds/types'
+import FeedList from '@/pageModules/home/ui/FeedList'
 
 interface ContentTabsProps {
   initialFeeds: Feeds
-  userName ?: string
+  username?: string
 }
 
-const ContentTabs = ({initialFeeds, userName }: ContentTabsProps) => {
+const ContentTabs = ({ initialFeeds, username }: ContentTabsProps) => {
   return (
     <>
       <Tabs defaultValue="posts" h={50}>
@@ -22,10 +22,7 @@ const ContentTabs = ({initialFeeds, userName }: ContentTabsProps) => {
           </Tabs.Tab>
         </Tabs.List>
         <Tabs.Panel value="posts">
-          <FeedList
-            initialFeeds={initialFeeds}
-            userName={userName}
-          />
+          <FeedList initialFeeds={initialFeeds} username={username} />
         </Tabs.Panel>
         <Tabs.Panel value="all">모두</Tabs.Panel>
       </Tabs>

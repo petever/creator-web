@@ -1,15 +1,12 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { QUERY_KEY } from '@/shared/constants/queryKey'
 import { getFeeds } from '@/entities/feeds/api/getFeeds'
-import { FeedPageable, Feeds} from '@/entities/feeds/types'
+import { Feeds } from '@/entities/feeds/types'
 
-
-const useFeeds = ( initialData : Feeds, userName ?: string) => {
+const useFeeds = (initialData: Feeds, username?: string) => {
   return useInfiniteQuery({
     queryKey: [QUERY_KEY.FEEDS],
-    queryFn : ({ pageParam } : { pageParam : FeedPageable}) : Promise<Feeds> => {
-      getFeeds(pageParam, userName)
-    },
+    queryFn: ({ pageParam = 1 }) => getFeeds({ page: 0, size: 2 }),
     initialData: {
       pages: [initialData],
       pageParams: [1],

@@ -1,41 +1,42 @@
-import React, {useEffect} from 'react'
+import React, { useMemo } from 'react'
 import { Post } from '@/widgets/Post/ui'
 import { Flex } from '@mantine/core'
-import {FeedContents, Feeds} from "@/entities/feeds/types";
+import { Feeds } from '@/entities/feeds/types'
 import { useInView } from 'react-intersection-observer'
-import useFeeds from "@/entities/feeds/hooks/useFeeds";
+import useFeeds from '@/entities/feeds/hooks/useFeeds'
 
 interface FeedListProps {
   initialFeeds: Feeds
-  userName ?: string
+  username?: string
 }
 
-const FeedList = ({ initialFeeds, userName } : FeedListProps) => {
-  // const { ref, inView } = useInView()
+const FeedList = ({ initialFeeds, username }: FeedListProps) => {
+  const { ref, inView } = useInView()
 
-  const { data, hasNextPage, fetchNextPage, refetch } = useFeeds(initialFeeds, userName)
+  const { data, hasNextPage, fetchNextPage, refetch } = useFeeds(initialFeeds, username)
 
-  const fetchMore = () => {
-    if (!inView) {
-      return
-    }
-    void fetchNextPage()
-  }
+  const postings = useMemo(() => (data ? data.pages.flatMap(({ content }) => content) : []), [data])
 
+  // const fetchMore = () => {
+  //   if (!inView) {
+  //     return
+  //   }
+  //   void fetchNextPage()
+  // }
   //
   // useEffect(() => {
-  //   // fetchMore()
+  //   fetchMore()
   // }, [inView, hasNextPage])
-  console.log('data', data)
 
-  if(!data) return null
+  console.log(inView, 'inView')
+  if (!data) return null
 
   return (
     <Flex direction="column" gap={20} pt={20} pb={20}>
-      {data.pages?.map((feed : FeedContents, index) => (
-        <Post key={`feed_${index}`} feed={feed}/>
+      {postings.map((posting) => (
+        <Post key={posting.id} feed={posting} />
       ))}
-      {/*<div ref={ref}></div>*/}
+      <div ref={ref}></div>
     </Flex>
   )
 }
