@@ -1,11 +1,11 @@
 'use client'
 import React, {useEffect} from 'react'
 import FeedList from '@/pageModules/home/ui/FeedList'
-import { Feeds } from '@/entities/feeds/types'
+import {FeedContents, FeedResponse, Feeds} from '@/entities/feeds/types'
 import classes from './styles.module.css'
 
 interface HomePageProps {
-  initialFeeds: Feeds
+  initialFeeds: FeedResponse
   userName ?: string
 }
 

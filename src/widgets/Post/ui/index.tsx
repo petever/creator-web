@@ -21,6 +21,8 @@ export const Post = ({ profile, feed }: PostProps) => {
     open()
   }
 
+  if(!feed) return null
+  
   const {likeCount, resources} = feed
 
   return (

@@ -5,6 +5,7 @@ import { getServerProfile } from '@/entities/user/api/getServerProfile'
 import { UserProfile } from '@/entities/user/types'
 import {getServerFeeds} from "@/entities/feeds/api/getServerFeeds";
 import {headers} from "next/headers";
+import {FeedResponse} from "@/entities/feeds/types";
 
 interface UserDetailPageProps {
   params : {

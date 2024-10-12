@@ -1,11 +1,11 @@
 'use client'
 import React from 'react'
 import { Tabs } from '@mantine/core'
-import {FeedResponse, Feeds} from "@/entities/feeds/types";
+import {FeedContents, Feeds} from "@/entities/feeds/types";
 import FeedList from "@/pageModules/home/ui/FeedList";
 
 interface ContentTabsProps {
-  initialFeeds: FeedResponse
+  initialFeeds: Feeds
   userName ?: string
 }
 

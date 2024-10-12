@@ -1,5 +1,13 @@
 import { PostItem } from '@/entities/posts/types'
 
+export interface FeedPageable {
+  page: number,
+  size: number,
+  sort: [
+    "string"
+  ]
+}
+
 interface Pagination {
   paged : boolean,
   pageNumber : number
@@ -15,7 +23,8 @@ interface Sort {
   unsorted : boolean
 }
 
-export interface FeedResponse extends Feeds{
+export interface Feeds {
+  content: FeedContents[]
   pageable : Pagination
   first : boolean
   last :boolean
@@ -24,10 +33,6 @@ export interface FeedResponse extends Feeds{
   sort : Sort
   numberOfElements: number,
   empty: boolean
-}
-
-export interface Feeds {
-  content: FeedContents[]
 }
 
 export interface FeedContents extends PostItem {

@@ -18,7 +18,7 @@ const MyPage = async () => {
           </div>
         }
       />
-      <ContentTabs />
+      {/*<ContentTabs />*/}
     </>
   )
 }

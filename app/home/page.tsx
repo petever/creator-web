@@ -10,5 +10,5 @@ interface HomeProps {
 export default async function Home({params} : HomeProps) {
   const {userName} = params
   const initialFeeds = await getServerFeeds(userName)
-  return <HomePage initialFeeds={initialFeeds} userName={userName}/>
+  return <HomePage initialFeeds={initialFeeds.content} userName={userName}/>
 }
