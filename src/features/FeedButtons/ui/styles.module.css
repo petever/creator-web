@@ -1,0 +1,8 @@
+.wrapper {
+  padding: 0 10px;
+}
+.likeWrapper {
+  display:flex;
+  align-items: center;
+  font-size:12px;
+}

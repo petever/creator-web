@@ -12,13 +12,13 @@ const MyPage = async () => {
     <>
       <ProfileTopSection
         userProfile={initialData}
-        children={
+        render={
           <div className={classes.linkButton}>
             <Link href={PAGE.SETTINGS_PROFILE}>프로필 편집</Link>
           </div>
         }
       />
-      <ContentTabs />
+      {/*<ContentTabs />*/}
     </>
   )
 }

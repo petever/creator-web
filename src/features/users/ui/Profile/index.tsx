@@ -1,11 +1,11 @@
-import { Avatar, Button, Group, Box, UnstyledButton, MantineSize } from '@mantine/core'
+import {Avatar, Button, Group, Box, UnstyledButton, MantineSize, Flex} from '@mantine/core'
 import classes from './styles.module.css'
 import { UserProfile } from '@/entities/user/types'
 
 interface ProfileProps {
   profile: UserProfile
   size: MantineSize
-  isSubscribed?: boolean
+  isSubscribed ?: boolean
   onClick?: () => void
 }
 

@@ -1,18 +1,20 @@
 'use client'
-import React, {useEffect} from 'react'
+import React from 'react'
 import FeedList from '@/pageModules/home/ui/FeedList'
 import { Feeds } from '@/entities/feeds/types'
+import classes from './styles.module.css'
 
 interface HomePageProps {
   initialFeeds: Feeds
-  userName ?: string
+  userName?: string
 }
 
 const HomePage = ({ initialFeeds, userName }: HomePageProps) => {
-  return <FeedList
-    initialFeeds={initialFeeds}
-    userName={userName}
-  />
+  return (
+    <div className={classes.wrapper}>
+      <FeedList initialFeeds={initialFeeds} />
+    </div>
+  )
 }
 
 export default HomePage

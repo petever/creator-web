@@ -19,7 +19,7 @@ const MyProfile = async ({ userProfile }: MyProfileProps) => {
     <Box>
       <ProfileTopSection
         userProfile={userProfile}
-        children={<Link href={PAGE.SETTINGS_PROFILE}>프로필 편집</Link>}
+        render={<Link href={PAGE.SETTINGS_PROFILE}>프로필 편집</Link>}
       />
     </Box>
   )

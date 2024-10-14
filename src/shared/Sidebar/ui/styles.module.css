@@ -30,6 +30,7 @@
 
 .menuWrapper {
   width: 100%;
+  align-items: center;
 }
 
 .dim {
@@ -39,6 +40,11 @@
   top: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.8);
+}
+
+.linkStyle > div > div{
+  display:flex;
+  align-items: center;
 }
 
 @media screen and (min-width: 640px) {

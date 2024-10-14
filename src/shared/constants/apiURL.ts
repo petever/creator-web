@@ -2,6 +2,7 @@ export const API_URL = {
   USERS_LOGIN: 'users/login',
   USERS_PROFILE: 'users/profile',
   POSTS: 'posts',
-  FEEDS:(userName ?: string) =>  `feeds${!userName ? '' : `?userName=${userName}`}`,
-  FEEDS_RECOMMEND_USERS : 'feeds/recommendUsers'
+  FEEDS: 'feeds',
+  FEEDS_RECOMMEND_USERS : 'feeds/recommendUsers',
+  FEED_LIKE : (id : string) => `posts/${id}/like`
 }
