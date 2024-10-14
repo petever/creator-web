@@ -55,7 +55,7 @@ export const SidebarMenuList = ({
           )
         }
         return (
-          <Link href={sidebar.href} key={sidebarIndex}>
+          <Link href={sidebar.href} key={sidebarIndex} className={classes.linkStyle}>
             <Flex align="center" gap={20}>
               {sidebar.icon}
               <Text className={classes.labelWrapper}>{sidebar.label}</Text>

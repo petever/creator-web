@@ -7,6 +7,7 @@ import { useDisclosure } from '@mantine/hooks'
 import { FeedContents, Resource } from '@/entities/feeds/types'
 import { UserProfile } from '@/entities/user/types'
 import { Carousel } from '@mantine/carousel'
+import {LkeList} from "@/shared/LikeList/ui";
 
 interface PostProps {
   profile?: UserProfile
@@ -14,15 +15,20 @@ interface PostProps {
 }
 
 export const Post = ({ profile, feed }: PostProps) => {
-  const [opened, { open, close }] = useDisclosure(false)
+  const [feedOpened, { open : feedDetailOpen, close : feedDetailClose }] = useDisclosure(false)
+  const [likeListOpened, { open : likeListOpen, close : likeListClose }] = useDisclosure(false)
 
   const handleDetailOpen = () => {
-    open()
+    feedDetailOpen()
+  }
+
+  const handleLikeListOpen = () => {
+    likeListOpen()
   }
 
   if (!feed) return null
 
-  const { likeCount, resources } = feed
+  const { likeCount, commentCount, resources } = feed
 
   return (
     <Card p={0} shadow="lg" padding="lg" radius="lg">
@@ -38,13 +44,19 @@ export const Post = ({ profile, feed }: PostProps) => {
           )
         })}
       </Carousel>
-      <FeedButtons id={'feedId_01'} onDetailModal={handleDetailOpen} />
+      <FeedButtons  feed={feed} onDetailModal={handleDetailOpen} />
+      <Box>
+        <Button variant="transparent" onClick={handleLikeListOpen}>
+          좋아요 {likeCount}개 모두 보기
+        </Button>
+      </Box>
       <Box>
         <Button variant="transparent" onClick={handleDetailOpen}>
-          댓글 {likeCount}개 보기
+          댓글 {commentCount}개 모두 보기
         </Button>
-        <FeedDetail feed={feed} opened={opened} onClose={close} />
       </Box>
+      <LkeList opened={likeListOpened} onClose={likeListClose}/>
+      <FeedDetail feed={feed} opened={feedOpened} onClose={feedDetailClose} />
     </Card>
   )
 }

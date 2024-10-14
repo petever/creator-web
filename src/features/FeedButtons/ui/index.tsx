@@ -7,48 +7,57 @@ import {
   IconMessageCircle,
   IconShare,
 } from '@tabler/icons-react'
+import {useUpdateLikePosting} from "@/features/FeedButtons/hooks/useUpdateFavoritePosting";
+import {UserProfile} from "@/entities/user/types";
+import {FeedContents} from "@/entities/feeds/types";
+import classes from './styles.module.css'
 
 interface FeedButtonsProps {
-  id: string
+  feed: FeedContents
   onDetailModal: () => void
 }
 
-export const FeedButtons = ({ id, onDetailModal }: FeedButtonsProps) => {
-  // const { updateFavoritePostingMutate, data } = useUpdateFavoritePosting(id)
+export const FeedButtons = ({ feed, onDetailModal }: FeedButtonsProps) => {
+  const { updateLikePostingMutate, data } = useUpdateLikePosting(feed.id)
+
+  const { likeCount } = feed
 
   const handleFavoritePosting = async () => {
-    // updateFavoritePostingMutate()
-    // console.log(data)
+    updateLikePostingMutate({...feed})
   }
 
   return (
-    <Flex
-      justify="space-between"
-      style={{
-        width: '100%',
-      }}
-    >
-      <ActionIconGroup>
-        <ActionIcon
-          variant="subtle"
-          size="xl"
-          color="gray"
-          data-testId="favorite_btn"
-          onClick={handleFavoritePosting}
-        >
-          {/*<IconHeart />*/}
-          <IconHeartFilled />
-        </ActionIcon>
-        <ActionIcon variant="subtle" size="xl" color="gray" onClick={onDetailModal}>
-          <IconMessageCircle />
-        </ActionIcon>
-      </ActionIconGroup>
-      <Group>
-        <ActionIcon variant="subtle" size="xl" color="gray">
-          {/*<IconBookmark />*/}
-          <IconBookmarkFilled />
-        </ActionIcon>
-      </Group>
-    </Flex>
+    <div className={classes.wrapper}>
+      <Flex
+        justify="space-between"
+        style={{
+          width: '100%',
+        }}
+      >
+        <ActionIconGroup>
+          <ActionIcon
+            variant="subtle"
+            size="xl"
+            color="gray"
+            data-testId="favorite_btn"
+            onClick={handleFavoritePosting}
+          >
+            <div className={classes.likeWrapper}>
+              {/*<IconHeart />*/}
+              <IconHeartFilled />
+            </div>
+          </ActionIcon>
+          <ActionIcon variant="subtle" size="xl" color="gray" onClick={onDetailModal}>
+            <IconMessageCircle />
+          </ActionIcon>
+        </ActionIconGroup>
+        <Group>
+          <ActionIcon variant="subtle" size="xl" color="gray">
+            {/*<IconBookmark />*/}
+            <IconBookmarkFilled />
+          </ActionIcon>
+        </Group>
+      </Flex>
+    </div>
   )
 }

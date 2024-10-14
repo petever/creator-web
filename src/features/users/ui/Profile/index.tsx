@@ -1,19 +1,21 @@
-import { Avatar, Button, Group, Box, UnstyledButton, MantineSize } from '@mantine/core'
+import {Avatar, Button, Group, Box, UnstyledButton, MantineSize, Flex} from '@mantine/core'
 import classes from './styles.module.css'
 import { UserProfile } from '@/entities/user/types'
 
 interface ProfileProps {
   profile: UserProfile
   size: MantineSize
-  isSubscribed?: boolean
+  children : React.ReactNode
   onClick?: () => void
 }
 
-export const Profile = ({ profile, size = 'sm', isSubscribed, onClick }: ProfileProps) => {
+export const Profile = ({ profile, size = 'sm', children, onClick }: ProfileProps) => {
   if (!profile) return null
 
   return (
-    <div>
+    <Flex
+      justify={'space-between'}
+    >
       <Group align="center">
         <div>
           <UnstyledButton className={classes.button} onClick={onClick}>
@@ -23,9 +25,11 @@ export const Profile = ({ profile, size = 'sm', isSubscribed, onClick }: Profile
               <p>@{profile.username}</p>
             </Box>
           </UnstyledButton>
-          {isSubscribed && <Button>구독</Button>}
         </div>
       </Group>
-    </div>
+      <Group>
+        {children}
+      </Group>
+    </Flex>
   )
 }
