@@ -5,7 +5,7 @@ import { UserProfile } from '@/entities/user/types'
 interface ProfileProps {
   profile: UserProfile
   size: MantineSize
-  children : React.ReactNode
+  children ?: React.ReactNode
   onClick?: () => void
 }
 
@@ -27,9 +27,11 @@ export const Profile = ({ profile, size = 'sm', children, onClick }: ProfileProp
           </UnstyledButton>
         </div>
       </Group>
-      <Group>
-        {children}
-      </Group>
+      {children &&
+        <Group>
+          {children}
+        </Group>
+      }
     </Flex>
   )
 }

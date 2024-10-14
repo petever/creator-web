@@ -13,7 +13,7 @@ interface FeedListProps {
 const FeedList = ({ initialFeeds, username }: FeedListProps) => {
   const { ref, inView } = useInView()
 
-  const { data, hasNextPage, fetchNextPage, refetch } = useFeeds(initialFeeds, username)
+  const { data, hasNextPage, fetchNextPage, isFetchingNextPage } = useFeeds(initialFeeds, username)
 
   const postings = useMemo(() => (data ? data.pages.flatMap(({ content }) => content) : []), [data])
 
@@ -28,8 +28,13 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
     fetchMore()
   }, [inView, hasNextPage])
 
-  console.log(inView, 'inView')
-  if (!data) return null
+  if (!postings) {
+    return (
+      <Flex>
+        없어
+      </Flex>
+    )
+  }
 
   return (
     <Flex direction="column" gap={20} pt={20} pb={20}>

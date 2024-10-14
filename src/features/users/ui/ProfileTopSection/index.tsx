@@ -10,9 +10,9 @@ import { UserStatus } from '@/entities/user/ui/UserStatus'
 
 interface ProfileTopSectionProps {
   userProfile?: UserProfile
-  children: React.ReactNode
+  render: React.ReactNode
 }
-export const ProfileTopSection = ({ userProfile, children }: ProfileTopSectionProps) => {
+export const ProfileTopSection = ({ userProfile, render }: ProfileTopSectionProps) => {
   const { data } = useMyProfile(userProfile)
 
   if (!data) return null
@@ -30,7 +30,7 @@ export const ProfileTopSection = ({ userProfile, children }: ProfileTopSectionPr
               status={data.status}
             />
           </Group>
-          {children}
+          {render}
         </Group>
         <UserStatus status={data.status} />
       </div>

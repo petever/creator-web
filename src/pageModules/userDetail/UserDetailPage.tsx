@@ -19,10 +19,10 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
 
   return (
     <div>
-      {/*<ProfileTopSection*/}
-      {/*  userProfile={userProfile}*/}
-      {/*  children={<SubscribeButton userProfile={userProfile} />}*/}
-      {/*/>*/}
+      <ProfileTopSection
+        userProfile={userProfile}
+        render={<SubscribeButton userProfile={userProfile}/>}
+      />
       <ContentTabs initialFeeds={initialFeeds} username={id} />
     </div>
   )
