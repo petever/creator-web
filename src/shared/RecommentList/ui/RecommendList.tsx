@@ -1,14 +1,18 @@
 'use client'
-import { Title } from '@mantine/core'
+import {Button, Title} from '@mantine/core'
 import classes from './styles.module.css'
 import { useMediaQuery } from '@mantine/hooks'
+import {UserProfile} from "@/entities/user/types";
+import {Profile} from "@/features";
+import SubscribeButton from "@/features/users/ui/SubscribeButton";
 
 interface RecommendListProps {
-  span?: number
+  recommendList: UserProfile[]
   isRecommend?: boolean
 }
 
-export const RecommendList = ({ span = 1, isRecommend }: RecommendListProps) => {
+export const RecommendList = ({ recommendList, isRecommend }: RecommendListProps) => {
+  console.log('recommendList', recommendList)
   const isPcWidth = useMediaQuery('(min-width: 1000px)')
   if (!isRecommend) return null
   if (!isPcWidth) return null
@@ -18,6 +22,15 @@ export const RecommendList = ({ span = 1, isRecommend }: RecommendListProps) => 
       <Title order={4} className={classes.title}>
         회원님을 위한 추천
       </Title>
+      <ul className={classes.recommend}>
+        {recommendList.map((user) => {
+          return (
+            <li key={user.id}>
+              <Profile profile={user} size={'lg'} isSubscribed/>
+            </li>
+          )
+        })}
+      </ul>
     </div>
   )
 }

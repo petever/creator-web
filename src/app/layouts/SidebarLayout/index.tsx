@@ -3,6 +3,7 @@ import { ThemeToggleButton } from '@/widgets'
 import Header from '@/features/Header'
 import { RecommendList } from '@/shared/RecommentList/ui/RecommendList'
 import { Sidebar } from '@/shared'
+import {getServerFeedRecommendUsers} from "@/shared/RecommentList/api/getServerFeedRecommendUsers";
 
 interface SidebarLayoutProps {
   title?: string
@@ -10,7 +11,9 @@ interface SidebarLayoutProps {
   isRecommend?: boolean
 }
 
-export function SidebarLayout({ title, children, isRecommend }: SidebarLayoutProps) {
+export async function SidebarLayout({ title, children, isRecommend }: SidebarLayoutProps) {
+  const recommendList = await getServerFeedRecommendUsers()
+
   return (
     <div className={classes.wrap}>
       {/*<ThemeToggleButton />*/}
@@ -21,7 +24,7 @@ export function SidebarLayout({ title, children, isRecommend }: SidebarLayoutPro
           {children}
         </div>
         <div className={classes.recommend}>
-          <RecommendList isRecommend={isRecommend} />
+          <RecommendList isRecommend={isRecommend} recommendList={recommendList}/>
         </div>
       </div>
     </div>

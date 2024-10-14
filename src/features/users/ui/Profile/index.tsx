@@ -13,19 +13,17 @@ export const Profile = ({ profile, size = 'sm', isSubscribed, onClick }: Profile
   if (!profile) return null
 
   return (
-    <div>
-      <Group align="center">
-        <div>
-          <UnstyledButton className={classes.button} onClick={onClick}>
-            <Avatar size={size} src={profile.picture as string} />
-            <Box>
-              <p>{profile.displayName}</p>
-              <p>@{profile.username}</p>
-            </Box>
-          </UnstyledButton>
-          {isSubscribed && <Button>구독</Button>}
-        </div>
-      </Group>
-    </div>
+    <Group align="center">
+      <div className={!isSubscribed ? '' : classes.subscribedWrapper}>
+        <UnstyledButton className={classes.button} onClick={onClick}>
+          <Avatar size={size} src={profile.picture as string} />
+          <Box>
+            <p>{profile.displayName}</p>
+            <p>@{profile.username}</p>
+          </Box>
+        </UnstyledButton>
+        {isSubscribed && <Button>구독</Button>}
+      </div>
+    </Group>
   )
 }
