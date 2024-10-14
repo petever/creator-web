@@ -1,10 +1,10 @@
 'use client'
-import {Button, Title} from '@mantine/core'
+import { Button, Title } from '@mantine/core'
 import classes from './styles.module.css'
 import { useMediaQuery } from '@mantine/hooks'
-import {UserProfile} from "@/entities/user/types";
-import {Profile} from "@/features";
-import SubscribeButton from "@/features/users/ui/SubscribeButton";
+import { UserProfile } from '@/entities/user/types'
+import { Profile } from '@/features'
+import SubscribeButton from '@/features/users/ui/SubscribeButton'
 
 interface RecommendListProps {
   recommendList: UserProfile[]
@@ -12,7 +12,6 @@ interface RecommendListProps {
 }
 
 export const RecommendList = ({ recommendList, isRecommend }: RecommendListProps) => {
-  console.log('recommendList', recommendList)
   const isPcWidth = useMediaQuery('(min-width: 1000px)')
   if (!isRecommend) return null
   if (!isPcWidth) return null
@@ -26,7 +25,7 @@ export const RecommendList = ({ recommendList, isRecommend }: RecommendListProps
         {recommendList.map((user) => {
           return (
             <li key={user.id}>
-              <Profile profile={user} size={'lg'} isSubscribed/>
+              <Profile profile={user} size={'lg'} isSubscribed />
             </li>
           )
         })}
