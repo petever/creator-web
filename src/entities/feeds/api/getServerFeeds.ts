@@ -4,12 +4,6 @@ import { serverKy } from '@/shared/core/serverKy'
 
 export const getServerFeeds = async (username?: string): Promise<Feeds> => {
   return serverKy
-    .get<Feeds>(API_URL.FEEDS, {
-      searchParams: {
-        // username,
-        page: 0,
-        size: 1,
-      },
-    })
+    .get<Feeds>(API_URL.FEEDS)
     .json()
 }

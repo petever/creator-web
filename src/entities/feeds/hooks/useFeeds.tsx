@@ -6,18 +6,33 @@ import { Feeds } from '@/entities/feeds/types'
 const useFeeds = (initialData: Feeds, username?: string) => {
   return useInfiniteQuery({
     queryKey: [QUERY_KEY.FEEDS],
-    queryFn: ({ pageParam = 1 }) => getFeeds({ page: 0, size: 2 }),
+    queryFn: getFeeds,
     initialData: {
       pages: [initialData],
-      pageParams: [1],
+      pageParams: [{
+        page: 0,
+        size: 10,
+        sort: [
+          "string"
+        ]
+      }],
     },
-    initialPageParam: 1,
+    initialPageParam: {
+      page: 0,
+      size: 10,
+      sort: [
+        "string"
+      ]
+    },
     getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
-      // console.log(lastPage)
-      // if (!lastPage?.last) {
-      //   return allPages.length + 1
-      // }
-      return undefined
+      if(lastPage.last) return
+      return {
+        size : 10,
+        page : lastPageParam.page + 10,
+        sort : [
+          'string'
+        ],
+      }
     },
   })
 }

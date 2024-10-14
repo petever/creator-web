@@ -6,6 +6,7 @@ export interface FeedSearchParams {
   page: number
   size: number
 }
+
 interface Pagination {
   paged: boolean
   pageNumber: number
