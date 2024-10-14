@@ -5,11 +5,11 @@ import { UserProfile } from '@/entities/user/types'
 interface ProfileProps {
   profile: UserProfile
   size: MantineSize
-  children ?: React.ReactNode
+  isSubscribed ?: boolean
   onClick?: () => void
 }
 
-export const Profile = ({ profile, size = 'sm', children, onClick }: ProfileProps) => {
+export const Profile = ({ profile, size = 'sm', isSubscribed, onClick }: ProfileProps) => {
   if (!profile) return null
 
   return (

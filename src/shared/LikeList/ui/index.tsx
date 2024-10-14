@@ -13,9 +13,7 @@ interface LikeListProps {
 export const LkeList = ({title, opened, onClose} : LikeListProps) => {
   return (
     <Modal size="lg" opened={opened} onClose={onClose} centered withCloseButton={false}>
-      <Profile profile={DUMMY_PROFILE} size="sm">
-        <Button>구독하기</Button>
-      </Profile>
+      <Profile profile={DUMMY_PROFILE} size="sm" isSubscribed/>
     </Modal>
   )
 }
