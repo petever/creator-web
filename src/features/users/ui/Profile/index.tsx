@@ -13,25 +13,17 @@ export const Profile = ({ profile, size = 'sm', children, onClick }: ProfileProp
   if (!profile) return null
 
   return (
-    <Flex
-      justify={'space-between'}
-    >
-      <Group align="center">
-        <div>
-          <UnstyledButton className={classes.button} onClick={onClick}>
-            <Avatar size={size} src={profile.picture as string} />
-            <Box>
-              <p>{profile.displayName}</p>
-              <p>@{profile.username}</p>
-            </Box>
-          </UnstyledButton>
-        </div>
-      </Group>
-      {children &&
-        <Group>
-          {children}
-        </Group>
-      }
-    </Flex>
+    <Group align="center">
+      <div className={!isSubscribed ? '' : classes.subscribedWrapper}>
+        <UnstyledButton className={classes.button} onClick={onClick}>
+          <Avatar size={size} src={profile.picture as string} />
+          <Box>
+            <p>{profile.displayName}</p>
+            <p>@{profile.username}</p>
+          </Box>
+        </UnstyledButton>
+        {isSubscribed && <Button>구독</Button>}
+      </div>
+    </Group>
   )
 }

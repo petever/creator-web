@@ -7,7 +7,6 @@
   right: 0;
   border-radius: 6px;
   background: var(--mantine-color-text);
-  height: 500px;
 }
 
 .title {
@@ -15,5 +14,11 @@
 }
 
 .recommend {
+  display:flex;
+  flex-direction: column;
+  gap:30px;
+  margin-top:20px;
   color: var(--mantine-color-body);
+  overflow-y:auto;
+  height: 500px;
 }
