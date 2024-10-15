@@ -7,13 +7,15 @@ import UserInfo from '@/entities/user/ui/UserInfo'
 import { UserProfile } from '@/entities/user/types'
 import classes from './styles.module.css'
 import { UserStatus } from '@/entities/user/ui/UserStatus'
+import { useUser } from '@/entities/user/hooks/useUser'
 
 interface ProfileTopSectionProps {
+  username?: string
   userProfile?: UserProfile
   render: React.ReactNode
 }
-export const ProfileTopSection = ({ userProfile, render }: ProfileTopSectionProps) => {
-  const { data } = useMyProfile(userProfile)
+export const ProfileTopSection = ({ username, userProfile, render }: ProfileTopSectionProps) => {
+  const { data } = useUser(username, userProfile)
 
   if (!data) return null
 
