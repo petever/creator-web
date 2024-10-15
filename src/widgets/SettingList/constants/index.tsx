@@ -7,7 +7,7 @@ export const SETTING_LISTS = [
     href: PAGE.SETTINGS_NOTIFICATIONS,
   },
   { label: '크리에이터 신청', href: PAGE.SETTINGS_CREATOR },
-
   { label: '결제', href: PAGE.SETTINGS_PROFILE },
   { label: '결제 내역', href: PAGE.SETTINGS_PROFILE },
+  { label: '구독 플랜 설정', href: PAGE.SETTINGS_SUBSCRIBE },
 ]
