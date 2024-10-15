@@ -3,4 +3,5 @@ export const QUERY_KEY = {
   MY_PROFILE: 'myProfile',
   // feeds
   FEEDS: 'feeds',
+  COMMENTS : 'comments'
 }

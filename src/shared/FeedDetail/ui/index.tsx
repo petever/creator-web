@@ -24,7 +24,7 @@ export const FeedDetail = ({ title, feed, opened, onClose }: FeedDetailProps) =>
         <FeedContent contents={feed.contents} createdAt={feed.createdAt}/>
         <FeedMedia resources={feed.resources}/>
       </div>
-      <CommentArea />
+      <CommentArea id={feed.id}/>
     </Modal>
   )
 }

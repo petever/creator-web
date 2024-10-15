@@ -1,10 +1,13 @@
 import { Box, Flex, Group } from '@mantine/core'
 import { Comment, CommentInput } from '@/features'
 
-export const CommentArea = () => {
+interface CommentAreaProps {
+  id : string
+}
+export const CommentArea = ({ id }: CommentAreaProps) => {
   return (
-    <Box>
-      <Comment />
+    <Box mt={20}>
+      <Comment id={id}/>
       <CommentInput />
     </Box>
   )
