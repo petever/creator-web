@@ -12,7 +12,7 @@ interface AddContentModalProps {
 }
 
 const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
-  const { createPostMutation } = useCreatePosts(onClose)
+  const { createPostMutation } = useCreatePosts(() => handleModalClose())
 
   const form = useContentForm({
     mode: 'controlled',

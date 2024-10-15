@@ -22,6 +22,7 @@ export const PostingHeader = ({ profile }: PostingHeaderProps) => {
     <Flex
       justify="space-between"
       align="center"
+      p={14}
       style={{
         width: '100%',
       }}

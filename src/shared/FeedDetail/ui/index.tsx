@@ -5,6 +5,8 @@ import { CommentArea } from '@/widgets'
 import {FeedContents, Resource} from "@/entities/feeds/types";
 import {Profile} from "@/features";
 import classes from './styles.module.css'
+import {FeedContent} from "@/entities/feeds/ui";
+import {FeedMedia} from "@/entities/feeds/ui/FeedMedia";
 
 interface FeedDetailProps {
   title?: string | React.ReactNode
@@ -13,23 +15,14 @@ interface FeedDetailProps {
   onClose: () => void
 }
 export const FeedDetail = ({ title, feed, opened, onClose }: FeedDetailProps) => {
-  const {likeCount, resources} = feed
-
   return (
     <Modal size="lg" opened={opened} onClose={onClose} centered withCloseButton={false}>
       <div className={classes.header}>
         <Profile profile={feed.creator} size="md" />
       </div>
       <div>
-        <Carousel>
-          {resources?.map((resource: Resource, resourceIndex) => {
-            return (
-              <Carousel.Slide key={`${resourceIndex}`}>
-                <Image src={resource.filePath} radius={0} />
-              </Carousel.Slide>
-            )
-          })}
-        </Carousel>
+        <FeedContent contents={feed.contents} createdAt={feed.createdAt}/>
+        <FeedMedia resources={feed.resources}/>
       </div>
       <CommentArea />
     </Modal>

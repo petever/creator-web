@@ -6,8 +6,9 @@ import { FeedDetail } from '@/shared/FeedDetail/ui'
 import { useDisclosure } from '@mantine/hooks'
 import { FeedContents, Resource } from '@/entities/feeds/types'
 import { UserProfile } from '@/entities/user/types'
-import { Carousel } from '@mantine/carousel'
 import {LkeList} from "@/shared/LikeList/ui";
+import {FeedContent} from "@/entities/feeds/ui";
+import {FeedMedia} from "@/entities/feeds/ui/FeedMedia";
 
 interface PostProps {
   profile?: UserProfile
@@ -32,18 +33,9 @@ export const Post = ({ profile, feed }: PostProps) => {
 
   return (
     <Card p={0} shadow="lg" padding="lg" radius="lg">
-      <Box p={10}>
-        <PostingHeader profile={feed.creator} />
-      </Box>
-      <Carousel>
-        {resources?.map((resource: Resource, resourceIndex) => {
-          return (
-            <Carousel.Slide key={`${resourceIndex}`}>
-              <Image src={resource.filePath} radius={0} />
-            </Carousel.Slide>
-          )
-        })}
-      </Carousel>
+      <PostingHeader profile={feed.creator} />
+      <FeedContent contents={feed.contents} createdAt={feed.createdAt}/>
+      <FeedMedia resources={feed.resources}/>
       <FeedButtons  feed={feed} onDetailModal={handleDetailOpen} />
       <Box>
         <Button variant="transparent" onClick={handleLikeListOpen}>

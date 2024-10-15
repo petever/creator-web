@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  height:80vh;
+  max-height:80vh;
 }
 
 .currentFilePreview {
