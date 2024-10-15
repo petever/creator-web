@@ -29,7 +29,7 @@
     padding-left: 340px;
   }
   .container {
-    flex:1;
+    flex:0 0 1200px;
     margin: 0 auto;
     gap: 30px;
   }

@@ -23,9 +23,11 @@ export async function SidebarLayout({ title, children, isRecommend }: SidebarLay
           {title && <Header text={title} />}
           {children}
         </div>
-        <div className={classes.recommend}>
+        {isRecommend &&
+          <div className={classes.recommend}>
           <RecommendList isRecommend={isRecommend} recommendList={recommendList}/>
-        </div>
+          </div>
+        }
       </div>
     </div>
   )
