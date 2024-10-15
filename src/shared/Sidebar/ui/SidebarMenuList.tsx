@@ -22,7 +22,6 @@ export const SidebarMenuList = ({
   const handleSidebarEvent = (label: string) => {
     const isAddContent = label === '추가'
     const isSearch = label === '검색'
-    const isNotification = label === '알림'
 
     if (isAddContent) {
       onModalOpen()

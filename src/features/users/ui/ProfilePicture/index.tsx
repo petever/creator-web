@@ -36,7 +36,7 @@ const ProfilePicture = ({ imageSrc = '', alt = '' }: ProfilePictureProps) => {
         <Avatar pos="absolute" size="sm">
           <IconCamera size="1.5rem" />
         </Avatar>
-        <Image src={src as string} alt={alt} width={80} height={80} />
+        <Image src={src as string} alt={alt} layout="fill" objectFit="cover" unoptimized />
       </Avatar>
     </Dropzone>
   )

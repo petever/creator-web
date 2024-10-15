@@ -3,11 +3,7 @@ import { EditProfileForm } from '@/widgets/user/ui/EditProfileForm'
 
 const EditProfilePage = async () => {
   const userProfile = await getServerProfile()
-  return (
-    <div>
-      <EditProfileForm userProfile={userProfile} />
-    </div>
-  )
+  return <EditProfileForm userProfile={userProfile} />
 }
 
 export default EditProfilePage
