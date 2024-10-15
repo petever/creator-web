@@ -1,10 +1,11 @@
-import { useInfiniteQuery } from '@tanstack/react-query'
+import {QueryClient, useInfiniteQuery} from '@tanstack/react-query'
 import { QUERY_KEY } from '@/shared/constants/queryKey'
 import { getFeeds } from '@/entities/feeds/api/getFeeds'
 import { Feeds } from '@/entities/feeds/types'
 import {getFeedSearchParams} from "@/entities/feeds/lib";
 
 const useFeeds = (initialData: Feeds, username?: string) => {
+  const queryClient = new QueryClient()
   return useInfiniteQuery({
     queryKey: [QUERY_KEY.FEEDS],
     queryFn: getFeeds,
@@ -14,6 +15,7 @@ const useFeeds = (initialData: Feeds, username?: string) => {
     },
     initialPageParam: getFeedSearchParams(username),
     getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
+      queryClient.getQueryData([QUERY_KEY.FEEDS])
       if(lastPage.last) return
       return {
         size : 10,

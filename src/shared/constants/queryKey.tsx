@@ -4,4 +4,5 @@ export const QUERY_KEY = {
   USERS_USER: 'usersUser',
   // feeds
   FEEDS: 'feeds',
+  COMMENTS : 'comments'
 }
