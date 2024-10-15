@@ -20,7 +20,7 @@ interface FeedButtonsProps {
 export const FeedButtons = ({ feed, onDetailModal }: FeedButtonsProps) => {
   const { updateLikePostingMutate, data } = useUpdateLikePosting(feed.id)
 
-  const { likeCount } = feed
+  const { isLiked } = feed
 
   const handleFavoritePosting = async () => {
     updateLikePostingMutate({...feed})
@@ -43,20 +43,20 @@ export const FeedButtons = ({ feed, onDetailModal }: FeedButtonsProps) => {
             onClick={handleFavoritePosting}
           >
             <div className={classes.likeWrapper}>
-              {/*<IconHeart />*/}
-              <IconHeartFilled />
+              {!isLiked ? <IconHeart /> : <IconHeartFilled />}
             </div>
           </ActionIcon>
           <ActionIcon variant="subtle" size="xl" color="gray" onClick={onDetailModal}>
             <IconMessageCircle />
           </ActionIcon>
         </ActionIconGroup>
-        <Group>
-          <ActionIcon variant="subtle" size="xl" color="gray">
-            {/*<IconBookmark />*/}
-            <IconBookmarkFilled />
-          </ActionIcon>
-        </Group>
+        {/* TODO : 북마크 불필요해보여 삭제 */}
+        {/*<Group>*/}
+        {/*  <ActionIcon variant="subtle" size="xl" color="gray">*/}
+        {/*    /!*<IconBookmark />*!/*/}
+        {/*    <IconBookmarkFilled />*/}
+        {/*  </ActionIcon>*/}
+        {/*</Group>*/}
       </Flex>
     </div>
   )
