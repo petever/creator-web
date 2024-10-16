@@ -35,7 +35,7 @@ export interface Feeds {
 }
 
 export interface FeedContents extends PostItem {
-  creator: Creator
+  owner: Owner
   id: string
   title: string
   contents: string
@@ -57,7 +57,7 @@ export interface Resource {
   updatedAt: Date
 }
 
-export interface Creator {
+export interface Owner {
   id: string
   username: string
   displayName: string
