@@ -1,16 +1,17 @@
-'use client'
 import React from 'react'
-import { Box, Flex, Input } from '@mantine/core'
-import Editor from '@/widgets/Editor'
+import { Box } from '@mantine/core'
+import AddSubscribePlan from '@/features/subscribe/ui/AddSubscribePlan'
+import SubscribeCardList from '@/entities/subscribe/ui/SubscribeCardList'
+import { getServerSubscribePlans } from '@/entities/subscribe/api/getServerSubscribePlans'
+import { auth } from '@/auth'
 
-const SubscribePlanSetting = () => {
+const SubscribePlanSetting = async () => {
+  const session = await auth()
+  const subscribePlans = await getServerSubscribePlans(session?.user?.id)
   return (
-    <Box bd="1px solid ">
-      <Flex gap={10} direction="column">
-        <Input placeholder="구독 플랜 제목" />
-        <Input placeholder="가격" />
-        <Editor placeholder="플랜 설명" />
-      </Flex>
+    <Box pt={20} pb={20}>
+      <SubscribeCardList userId={session?.user?.id} subscribePlans={subscribePlans} />
+      <AddSubscribePlan />
     </Box>
   )
 }

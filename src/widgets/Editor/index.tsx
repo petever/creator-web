@@ -27,7 +27,7 @@ const Editor = ({ placeholder = '', content, onChange }: EditorProps) => {
   })
   return (
     <RichTextEditor editor={editor} className="editor">
-      <RichTextEditor.Content />
+      <RichTextEditor.Content h={400} style={{ overflow: 'auto', fontSize: '15px' }} />
     </RichTextEditor>
   )
 }
