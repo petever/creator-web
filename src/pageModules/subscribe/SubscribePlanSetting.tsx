@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
-import { Flex, Input, Textarea } from '@mantine/core'
+import { Flex, Input } from '@mantine/core'
+import Editor from '@/widgets/Editor'
 
 const SubscribePlanSetting = () => {
   return (
@@ -8,7 +9,7 @@ const SubscribePlanSetting = () => {
       <Flex gap={10} direction="column">
         <Input />
         <Input />
-        <Textarea />
+        <Editor />
       </Flex>
     </div>
   )

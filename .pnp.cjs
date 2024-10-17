@@ -34,6 +34,7 @@ const RAW_RUNTIME_STATE =
           ["@mantine/form", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.12.2"],\
           ["@mantine/hooks", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.13.2"],\
           ["@mantine/notifications", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.13.2"],\
+          ["@mantine/tiptap", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.13.2"],\
           ["@tabler/icons-react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:3.14.0"],\
           ["@tanstack/react-query", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.55.2"],\
           ["@tanstack/react-query-devtools", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.0.0-alpha.53"],\
@@ -41,6 +42,14 @@ const RAW_RUNTIME_STATE =
           ["@testing-library/jest-dom", "npm:6.5.0"],\
           ["@testing-library/react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:16.0.1"],\
           ["@testing-library/user-event", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:14.5.2"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-bubble-menu", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/extension-link", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/extension-placeholder", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/extension-text-style", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["@tiptap/react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/starter-kit", "npm:2.8.0"],\
           ["@toss/ky", "npm:1.2.0"],\
           ["@types/cors", "npm:2.8.17"],\
           ["@types/eslint", "npm:9.6.1"],\
@@ -1326,6 +1335,48 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@mantine/tiptap", [\
+      ["npm:7.13.2", {\
+        "packageLocation": "../../.yarn/berry/cache/@mantine-tiptap-npm-7.13.2-8f3e169e1e-10c0.zip/node_modules/@mantine/tiptap/",\
+        "packageDependencies": [\
+          ["@mantine/tiptap", "npm:7.13.2"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.13.2", {\
+        "packageLocation": "./.yarn/__virtual__/@mantine-tiptap-virtual-13c751412f/3/.yarn/berry/cache/@mantine-tiptap-npm-7.13.2-8f3e169e1e-10c0.zip/node_modules/@mantine/tiptap/",\
+        "packageDependencies": [\
+          ["@mantine/tiptap", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.13.2"],\
+          ["@mantine/core", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.13.2"],\
+          ["@mantine/hooks", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.13.2"],\
+          ["@tiptap/extension-link", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@types/mantine__core", null],\
+          ["@types/mantine__hooks", null],\
+          ["@types/react", "npm:18.3.5"],\
+          ["@types/react-dom", "npm:18.3.0"],\
+          ["@types/tiptap__extension-link", null],\
+          ["@types/tiptap__react", null],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@mantine/core",\
+          "@mantine/hooks",\
+          "@tiptap/extension-link",\
+          "@tiptap/react",\
+          "@types/mantine__core",\
+          "@types/mantine__hooks",\
+          "@types/react-dom",\
+          "@types/react",\
+          "@types/tiptap__extension-link",\
+          "@types/tiptap__react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@next/env", [\
       ["npm:14.2.8", {\
         "packageLocation": "../../.yarn/berry/cache/@next-env-npm-14.2.8-68d32b7f3a-10c0.zip/node_modules/@next/env/",\
@@ -1485,6 +1536,24 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/@pkgjs-parseargs-npm-0.11.0-cd2a3fe948-10c0.zip/node_modules/@pkgjs/parseargs/",\
         "packageDependencies": [\
           ["@pkgjs/parseargs", "npm:0.11.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@popperjs/core", [\
+      ["npm:2.11.8", {\
+        "packageLocation": "../../.yarn/berry/cache/@popperjs-core-npm-2.11.8-f1692e11a0-10c0.zip/node_modules/@popperjs/core/",\
+        "packageDependencies": [\
+          ["@popperjs/core", "npm:2.11.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@remirror/core-constants", [\
+      ["npm:3.0.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@remirror-core-constants-npm-3.0.0-b28dafa052-10c0.zip/node_modules/@remirror/core-constants/",\
+        "packageDependencies": [\
+          ["@remirror/core-constants", "npm:3.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1843,6 +1912,684 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@tiptap/core", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-core-npm-2.8.0-acfdcd0fae-10c0.zip/node_modules/@tiptap/core/",\
+        "packageDependencies": [\
+          ["@tiptap/core", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-core-virtual-49acb5f945/3/.yarn/berry/cache/@tiptap-core-npm-2.8.0-acfdcd0fae-10c0.zip/node_modules/@tiptap/core/",\
+        "packageDependencies": [\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["@types/tiptap__pm", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/pm",\
+          "@types/tiptap__pm"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-blockquote", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-blockquote-npm-2.8.0-ded88e1b69-10c0.zip/node_modules/@tiptap/extension-blockquote/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-blockquote", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-blockquote-virtual-9af784b3df/3/.yarn/berry/cache/@tiptap-extension-blockquote-npm-2.8.0-ded88e1b69-10c0.zip/node_modules/@tiptap/extension-blockquote/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-blockquote", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@types/tiptap__core", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@types/tiptap__core"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-bold", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-bold-npm-2.8.0-bf731bb282-10c0.zip/node_modules/@tiptap/extension-bold/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-bold", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-bold-virtual-dbc79e5fde/3/.yarn/berry/cache/@tiptap-extension-bold-npm-2.8.0-bf731bb282-10c0.zip/node_modules/@tiptap/extension-bold/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-bold", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@types/tiptap__core", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@types/tiptap__core"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-bubble-menu", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-bubble-menu-npm-2.8.0-030490881c-10c0.zip/node_modules/@tiptap/extension-bubble-menu/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-bubble-menu", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-bubble-menu-virtual-f71d9ffbf9/3/.yarn/berry/cache/@tiptap-extension-bubble-menu-npm-2.8.0-030490881c-10c0.zip/node_modules/@tiptap/extension-bubble-menu/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-bubble-menu", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["@types/tiptap__core", null],\
+          ["@types/tiptap__pm", null],\
+          ["tippy.js", "npm:6.3.7"]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@tiptap/pm",\
+          "@types/tiptap__core",\
+          "@types/tiptap__pm"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-bullet-list", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-bullet-list-npm-2.8.0-2dfb523855-10c0.zip/node_modules/@tiptap/extension-bullet-list/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-bullet-list", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-bullet-list-virtual-b15cde5f2d/3/.yarn/berry/cache/@tiptap-extension-bullet-list-npm-2.8.0-2dfb523855-10c0.zip/node_modules/@tiptap/extension-bullet-list/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-bullet-list", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-list-item", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-text-style", null],\
+          ["@types/tiptap__core", null],\
+          ["@types/tiptap__extension-list-item", null],\
+          ["@types/tiptap__extension-text-style", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@tiptap/extension-list-item",\
+          "@tiptap/extension-text-style",\
+          "@types/tiptap__core",\
+          "@types/tiptap__extension-list-item",\
+          "@types/tiptap__extension-text-style"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-code", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-code-npm-2.8.0-f376296a42-10c0.zip/node_modules/@tiptap/extension-code/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-code", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-code-virtual-8864ca6610/3/.yarn/berry/cache/@tiptap-extension-code-npm-2.8.0-f376296a42-10c0.zip/node_modules/@tiptap/extension-code/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-code", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@types/tiptap__core", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@types/tiptap__core"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-code-block", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-code-block-npm-2.8.0-6e134330b1-10c0.zip/node_modules/@tiptap/extension-code-block/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-code-block", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-code-block-virtual-1fab04998a/3/.yarn/berry/cache/@tiptap-extension-code-block-npm-2.8.0-6e134330b1-10c0.zip/node_modules/@tiptap/extension-code-block/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-code-block", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["@types/tiptap__core", null],\
+          ["@types/tiptap__pm", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@tiptap/pm",\
+          "@types/tiptap__core",\
+          "@types/tiptap__pm"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-document", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-document-npm-2.8.0-30aa848024-10c0.zip/node_modules/@tiptap/extension-document/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-document", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-document-virtual-b760be9167/3/.yarn/berry/cache/@tiptap-extension-document-npm-2.8.0-30aa848024-10c0.zip/node_modules/@tiptap/extension-document/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-document", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@types/tiptap__core", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@types/tiptap__core"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-dropcursor", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-dropcursor-npm-2.8.0-b5cee03453-10c0.zip/node_modules/@tiptap/extension-dropcursor/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-dropcursor", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-dropcursor-virtual-cac1966046/3/.yarn/berry/cache/@tiptap-extension-dropcursor-npm-2.8.0-b5cee03453-10c0.zip/node_modules/@tiptap/extension-dropcursor/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-dropcursor", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["@types/tiptap__core", null],\
+          ["@types/tiptap__pm", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@tiptap/pm",\
+          "@types/tiptap__core",\
+          "@types/tiptap__pm"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-floating-menu", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-floating-menu-npm-2.8.0-e3669c0aed-10c0.zip/node_modules/@tiptap/extension-floating-menu/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-floating-menu", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:ece5b7d3d579854aa385cefbce2606bc35c924f32234afef8be0a59301e535cf94ef0de18ad6447c1090c40987f1f66dcae64b0d10b8fef206a2c360f250f126#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-floating-menu-virtual-0d1ac5998f/3/.yarn/berry/cache/@tiptap-extension-floating-menu-npm-2.8.0-e3669c0aed-10c0.zip/node_modules/@tiptap/extension-floating-menu/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-floating-menu", "virtual:ece5b7d3d579854aa385cefbce2606bc35c924f32234afef8be0a59301e535cf94ef0de18ad6447c1090c40987f1f66dcae64b0d10b8fef206a2c360f250f126#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["@types/tiptap__core", null],\
+          ["@types/tiptap__pm", null],\
+          ["tippy.js", "npm:6.3.7"]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@tiptap/pm",\
+          "@types/tiptap__core",\
+          "@types/tiptap__pm"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-gapcursor", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-gapcursor-npm-2.8.0-b57afad80e-10c0.zip/node_modules/@tiptap/extension-gapcursor/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-gapcursor", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-gapcursor-virtual-41d53906a4/3/.yarn/berry/cache/@tiptap-extension-gapcursor-npm-2.8.0-b57afad80e-10c0.zip/node_modules/@tiptap/extension-gapcursor/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-gapcursor", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["@types/tiptap__core", null],\
+          ["@types/tiptap__pm", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@tiptap/pm",\
+          "@types/tiptap__core",\
+          "@types/tiptap__pm"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-hard-break", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-hard-break-npm-2.8.0-223beb2cce-10c0.zip/node_modules/@tiptap/extension-hard-break/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-hard-break", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-hard-break-virtual-8197855965/3/.yarn/berry/cache/@tiptap-extension-hard-break-npm-2.8.0-223beb2cce-10c0.zip/node_modules/@tiptap/extension-hard-break/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-hard-break", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@types/tiptap__core", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@types/tiptap__core"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-heading", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-heading-npm-2.8.0-eefd7c14d8-10c0.zip/node_modules/@tiptap/extension-heading/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-heading", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-heading-virtual-9f6d42e53d/3/.yarn/berry/cache/@tiptap-extension-heading-npm-2.8.0-eefd7c14d8-10c0.zip/node_modules/@tiptap/extension-heading/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-heading", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@types/tiptap__core", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@types/tiptap__core"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-history", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-history-npm-2.8.0-c368a2f261-10c0.zip/node_modules/@tiptap/extension-history/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-history", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-history-virtual-c340d4e604/3/.yarn/berry/cache/@tiptap-extension-history-npm-2.8.0-c368a2f261-10c0.zip/node_modules/@tiptap/extension-history/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-history", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["@types/tiptap__core", null],\
+          ["@types/tiptap__pm", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@tiptap/pm",\
+          "@types/tiptap__core",\
+          "@types/tiptap__pm"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-horizontal-rule", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-horizontal-rule-npm-2.8.0-b68bc55f21-10c0.zip/node_modules/@tiptap/extension-horizontal-rule/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-horizontal-rule", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-horizontal-rule-virtual-fd53657339/3/.yarn/berry/cache/@tiptap-extension-horizontal-rule-npm-2.8.0-b68bc55f21-10c0.zip/node_modules/@tiptap/extension-horizontal-rule/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-horizontal-rule", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["@types/tiptap__core", null],\
+          ["@types/tiptap__pm", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@tiptap/pm",\
+          "@types/tiptap__core",\
+          "@types/tiptap__pm"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-italic", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-italic-npm-2.8.0-b2d4816a72-10c0.zip/node_modules/@tiptap/extension-italic/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-italic", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-italic-virtual-7bd078ac2f/3/.yarn/berry/cache/@tiptap-extension-italic-npm-2.8.0-b2d4816a72-10c0.zip/node_modules/@tiptap/extension-italic/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-italic", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@types/tiptap__core", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@types/tiptap__core"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-link", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-link-npm-2.8.0-af25d81b52-10c0.zip/node_modules/@tiptap/extension-link/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-link", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-link-virtual-3e5f9efacf/3/.yarn/berry/cache/@tiptap-extension-link-npm-2.8.0-af25d81b52-10c0.zip/node_modules/@tiptap/extension-link/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-link", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["@types/tiptap__core", null],\
+          ["@types/tiptap__pm", null],\
+          ["linkifyjs", "npm:4.1.3"]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@tiptap/pm",\
+          "@types/tiptap__core",\
+          "@types/tiptap__pm"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-list-item", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-list-item-npm-2.8.0-99b6940024-10c0.zip/node_modules/@tiptap/extension-list-item/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-list-item", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-list-item-virtual-4007e8ed2e/3/.yarn/berry/cache/@tiptap-extension-list-item-npm-2.8.0-99b6940024-10c0.zip/node_modules/@tiptap/extension-list-item/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-list-item", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@types/tiptap__core", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@types/tiptap__core"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-ordered-list", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-ordered-list-npm-2.8.0-cd2d9fc976-10c0.zip/node_modules/@tiptap/extension-ordered-list/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-ordered-list", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-ordered-list-virtual-d951e87ce3/3/.yarn/berry/cache/@tiptap-extension-ordered-list-npm-2.8.0-cd2d9fc976-10c0.zip/node_modules/@tiptap/extension-ordered-list/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-ordered-list", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-list-item", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-text-style", null],\
+          ["@types/tiptap__core", null],\
+          ["@types/tiptap__extension-list-item", null],\
+          ["@types/tiptap__extension-text-style", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@tiptap/extension-list-item",\
+          "@tiptap/extension-text-style",\
+          "@types/tiptap__core",\
+          "@types/tiptap__extension-list-item",\
+          "@types/tiptap__extension-text-style"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-paragraph", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-paragraph-npm-2.8.0-2247f37a49-10c0.zip/node_modules/@tiptap/extension-paragraph/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-paragraph", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-paragraph-virtual-3587c026c0/3/.yarn/berry/cache/@tiptap-extension-paragraph-npm-2.8.0-2247f37a49-10c0.zip/node_modules/@tiptap/extension-paragraph/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-paragraph", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@types/tiptap__core", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@types/tiptap__core"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-placeholder", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-placeholder-npm-2.8.0-4931083dff-10c0.zip/node_modules/@tiptap/extension-placeholder/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-placeholder", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-placeholder-virtual-7c814aeaa8/3/.yarn/berry/cache/@tiptap-extension-placeholder-npm-2.8.0-4931083dff-10c0.zip/node_modules/@tiptap/extension-placeholder/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-placeholder", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["@types/tiptap__core", null],\
+          ["@types/tiptap__pm", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@tiptap/pm",\
+          "@types/tiptap__core",\
+          "@types/tiptap__pm"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-strike", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-strike-npm-2.8.0-dd344dbd71-10c0.zip/node_modules/@tiptap/extension-strike/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-strike", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-strike-virtual-1fb69ec816/3/.yarn/berry/cache/@tiptap-extension-strike-npm-2.8.0-dd344dbd71-10c0.zip/node_modules/@tiptap/extension-strike/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-strike", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@types/tiptap__core", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@types/tiptap__core"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-text", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-text-npm-2.8.0-f0d810367c-10c0.zip/node_modules/@tiptap/extension-text/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-text", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-text-virtual-e5c8219441/3/.yarn/berry/cache/@tiptap-extension-text-npm-2.8.0-f0d810367c-10c0.zip/node_modules/@tiptap/extension-text/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-text", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@types/tiptap__core", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@types/tiptap__core"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/extension-text-style", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-extension-text-style-npm-2.8.0-d7bec5bfaf-10c0.zip/node_modules/@tiptap/extension-text-style/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-text-style", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-extension-text-style-virtual-7824f82c73/3/.yarn/berry/cache/@tiptap-extension-text-style-npm-2.8.0-d7bec5bfaf-10c0.zip/node_modules/@tiptap/extension-text-style/",\
+        "packageDependencies": [\
+          ["@tiptap/extension-text-style", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@types/tiptap__core", null]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@types/tiptap__core"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/pm", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-pm-npm-2.8.0-760b013a06-10c0.zip/node_modules/@tiptap/pm/",\
+        "packageDependencies": [\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["prosemirror-changeset", "npm:2.2.1"],\
+          ["prosemirror-collab", "npm:1.3.1"],\
+          ["prosemirror-commands", "npm:1.6.1"],\
+          ["prosemirror-dropcursor", "npm:1.8.1"],\
+          ["prosemirror-gapcursor", "npm:1.3.2"],\
+          ["prosemirror-history", "npm:1.4.1"],\
+          ["prosemirror-inputrules", "npm:1.4.0"],\
+          ["prosemirror-keymap", "npm:1.2.2"],\
+          ["prosemirror-markdown", "npm:1.13.1"],\
+          ["prosemirror-menu", "npm:1.2.4"],\
+          ["prosemirror-model", "npm:1.23.0"],\
+          ["prosemirror-schema-basic", "npm:1.2.3"],\
+          ["prosemirror-schema-list", "npm:1.4.1"],\
+          ["prosemirror-state", "npm:1.4.3"],\
+          ["prosemirror-tables", "npm:1.5.0"],\
+          ["prosemirror-trailing-node", "virtual:760b013a065169515adb1d3601ff368b65160487bf5fcface075e49eacd52a9a22a676e2b74557004faf70df361915995abe353f5d97de414382cd3790c38c48#npm:3.0.0"],\
+          ["prosemirror-transform", "npm:1.10.2"],\
+          ["prosemirror-view", "npm:1.34.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/react", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-react-npm-2.8.0-c77825a0ef-10c0.zip/node_modules/@tiptap/react/",\
+        "packageDependencies": [\
+          ["@tiptap/react", "npm:2.8.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0", {\
+        "packageLocation": "./.yarn/__virtual__/@tiptap-react-virtual-ece5b7d3d5/3/.yarn/berry/cache/@tiptap-react-npm-2.8.0-c77825a0ef-10c0.zip/node_modules/@tiptap/react/",\
+        "packageDependencies": [\
+          ["@tiptap/react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-bubble-menu", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/extension-floating-menu", "virtual:ece5b7d3d579854aa385cefbce2606bc35c924f32234afef8be0a59301e535cf94ef0de18ad6447c1090c40987f1f66dcae64b0d10b8fef206a2c360f250f126#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["@types/react", "npm:18.3.5"],\
+          ["@types/react-dom", "npm:18.3.0"],\
+          ["@types/tiptap__core", null],\
+          ["@types/tiptap__pm", null],\
+          ["@types/use-sync-external-store", "npm:0.0.6"],\
+          ["fast-deep-equal", "npm:3.1.3"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:18.3.1"],\
+          ["use-sync-external-store", "virtual:ece5b7d3d579854aa385cefbce2606bc35c924f32234afef8be0a59301e535cf94ef0de18ad6447c1090c40987f1f66dcae64b0d10b8fef206a2c360f250f126#npm:1.2.2"]\
+        ],\
+        "packagePeers": [\
+          "@tiptap/core",\
+          "@tiptap/pm",\
+          "@types/react-dom",\
+          "@types/react",\
+          "@types/tiptap__core",\
+          "@types/tiptap__pm",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tiptap/starter-kit", [\
+      ["npm:2.8.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@tiptap-starter-kit-npm-2.8.0-c5beb83e72-10c0.zip/node_modules/@tiptap/starter-kit/",\
+        "packageDependencies": [\
+          ["@tiptap/starter-kit", "npm:2.8.0"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-blockquote", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-bold", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-bullet-list", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-code", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-code-block", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-document", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-dropcursor", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-gapcursor", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-hard-break", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-heading", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-history", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-horizontal-rule", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-italic", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-list-item", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-ordered-list", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-paragraph", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-strike", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-text", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@toss/ky", [\
       ["npm:1.2.0", {\
         "packageLocation": "../../.yarn/berry/cache/@toss-ky-npm-1.2.0-0a7b728f56-10c0.zip/node_modules/@toss/ky/",\
@@ -2010,6 +2757,35 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/linkify-it", [\
+      ["npm:5.0.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-linkify-it-npm-5.0.0-576a16b976-10c0.zip/node_modules/@types/linkify-it/",\
+        "packageDependencies": [\
+          ["@types/linkify-it", "npm:5.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/markdown-it", [\
+      ["npm:14.1.2", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-markdown-it-npm-14.1.2-d0c4e12c49-10c0.zip/node_modules/@types/markdown-it/",\
+        "packageDependencies": [\
+          ["@types/markdown-it", "npm:14.1.2"],\
+          ["@types/linkify-it", "npm:5.0.0"],\
+          ["@types/mdurl", "npm:2.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/mdurl", [\
+      ["npm:2.0.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-mdurl-npm-2.0.0-2f4116c0b0-10c0.zip/node_modules/@types/mdurl/",\
+        "packageDependencies": [\
+          ["@types/mdurl", "npm:2.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/mime", [\
       ["npm:1.3.5", {\
         "packageLocation": "../../.yarn/berry/cache/@types-mime-npm-1.3.5-48d28990db-10c0.zip/node_modules/@types/mime/",\
@@ -2104,6 +2880,15 @@ const RAW_RUNTIME_STATE =
           ["@types/http-errors", "npm:2.0.4"],\
           ["@types/node", "npm:22.5.4"],\
           ["@types/send", "npm:0.17.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/use-sync-external-store", [\
+      ["npm:0.0.6", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-use-sync-external-store-npm-0.0.6-9e5c635381-10c0.zip/node_modules/@types/use-sync-external-store/",\
+        "packageDependencies": [\
+          ["@types/use-sync-external-store", "npm:0.0.6"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3099,6 +3884,15 @@ const RAW_RUNTIME_STATE =
           ["cors", "npm:2.8.5"],\
           ["object-assign", "npm:4.1.1"],\
           ["vary", "npm:1.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["crelt", [\
+      ["npm:1.0.6", {\
+        "packageLocation": "../../.yarn/berry/cache/crelt-npm-1.0.6-f8981fe6a1-10c0.zip/node_modules/crelt/",\
+        "packageDependencies": [\
+          ["crelt", "npm:1.0.6"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5182,6 +5976,25 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["linkify-it", [\
+      ["npm:5.0.0", {\
+        "packageLocation": "../../.yarn/berry/cache/linkify-it-npm-5.0.0-adb5f9c96f-10c0.zip/node_modules/linkify-it/",\
+        "packageDependencies": [\
+          ["linkify-it", "npm:5.0.0"],\
+          ["uc.micro", "npm:2.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["linkifyjs", [\
+      ["npm:4.1.3", {\
+        "packageLocation": "../../.yarn/berry/cache/linkifyjs-npm-4.1.3-f9dd269a83-10c0.zip/node_modules/linkifyjs/",\
+        "packageDependencies": [\
+          ["linkifyjs", "npm:4.1.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["locate-path", [\
       ["npm:6.0.0", {\
         "packageLocation": "../../.yarn/berry/cache/locate-path-npm-6.0.0-06a1e4c528-10c0.zip/node_modules/locate-path/",\
@@ -5305,6 +6118,30 @@ const RAW_RUNTIME_STATE =
           ["proc-log", "npm:4.2.0"],\
           ["promise-retry", "npm:2.0.1"],\
           ["ssri", "npm:10.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["markdown-it", [\
+      ["npm:14.1.0", {\
+        "packageLocation": "../../.yarn/berry/cache/markdown-it-npm-14.1.0-e337d75bfe-10c0.zip/node_modules/markdown-it/",\
+        "packageDependencies": [\
+          ["markdown-it", "npm:14.1.0"],\
+          ["argparse", "npm:2.0.1"],\
+          ["entities", "npm:4.5.0"],\
+          ["linkify-it", "npm:5.0.0"],\
+          ["mdurl", "npm:2.0.0"],\
+          ["punycode.js", "npm:2.3.1"],\
+          ["uc.micro", "npm:2.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["mdurl", [\
+      ["npm:2.0.0", {\
+        "packageLocation": "../../.yarn/berry/cache/mdurl-npm-2.0.0-3259713daf-10c0.zip/node_modules/mdurl/",\
+        "packageDependencies": [\
+          ["mdurl", "npm:2.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5852,6 +6689,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["orderedmap", [\
+      ["npm:2.1.1", {\
+        "packageLocation": "../../.yarn/berry/cache/orderedmap-npm-2.1.1-64b8a0684f-10c0.zip/node_modules/orderedmap/",\
+        "packageDependencies": [\
+          ["orderedmap", "npm:2.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["p-limit", [\
       ["npm:3.1.0", {\
         "packageLocation": "../../.yarn/berry/cache/p-limit-npm-3.1.0-05d2ede37f-10c0.zip/node_modules/p-limit/",\
@@ -6142,6 +6988,235 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["prosemirror-changeset", [\
+      ["npm:2.2.1", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-changeset-npm-2.2.1-3461253e35-10c0.zip/node_modules/prosemirror-changeset/",\
+        "packageDependencies": [\
+          ["prosemirror-changeset", "npm:2.2.1"],\
+          ["prosemirror-transform", "npm:1.10.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-collab", [\
+      ["npm:1.3.1", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-collab-npm-1.3.1-7906a9ff89-10c0.zip/node_modules/prosemirror-collab/",\
+        "packageDependencies": [\
+          ["prosemirror-collab", "npm:1.3.1"],\
+          ["prosemirror-state", "npm:1.4.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-commands", [\
+      ["npm:1.6.1", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-commands-npm-1.6.1-2f2a9a87e1-10c0.zip/node_modules/prosemirror-commands/",\
+        "packageDependencies": [\
+          ["prosemirror-commands", "npm:1.6.1"],\
+          ["prosemirror-model", "npm:1.23.0"],\
+          ["prosemirror-state", "npm:1.4.3"],\
+          ["prosemirror-transform", "npm:1.10.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-dropcursor", [\
+      ["npm:1.8.1", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-dropcursor-npm-1.8.1-7290ff92f1-10c0.zip/node_modules/prosemirror-dropcursor/",\
+        "packageDependencies": [\
+          ["prosemirror-dropcursor", "npm:1.8.1"],\
+          ["prosemirror-state", "npm:1.4.3"],\
+          ["prosemirror-transform", "npm:1.10.2"],\
+          ["prosemirror-view", "npm:1.34.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-gapcursor", [\
+      ["npm:1.3.2", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-gapcursor-npm-1.3.2-53d6f3300b-10c0.zip/node_modules/prosemirror-gapcursor/",\
+        "packageDependencies": [\
+          ["prosemirror-gapcursor", "npm:1.3.2"],\
+          ["prosemirror-keymap", "npm:1.2.2"],\
+          ["prosemirror-model", "npm:1.23.0"],\
+          ["prosemirror-state", "npm:1.4.3"],\
+          ["prosemirror-view", "npm:1.34.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-history", [\
+      ["npm:1.4.1", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-history-npm-1.4.1-ad68c86bb7-10c0.zip/node_modules/prosemirror-history/",\
+        "packageDependencies": [\
+          ["prosemirror-history", "npm:1.4.1"],\
+          ["prosemirror-state", "npm:1.4.3"],\
+          ["prosemirror-transform", "npm:1.10.2"],\
+          ["prosemirror-view", "npm:1.34.3"],\
+          ["rope-sequence", "npm:1.3.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-inputrules", [\
+      ["npm:1.4.0", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-inputrules-npm-1.4.0-14c674c300-10c0.zip/node_modules/prosemirror-inputrules/",\
+        "packageDependencies": [\
+          ["prosemirror-inputrules", "npm:1.4.0"],\
+          ["prosemirror-state", "npm:1.4.3"],\
+          ["prosemirror-transform", "npm:1.10.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-keymap", [\
+      ["npm:1.2.2", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-keymap-npm-1.2.2-efb8276b00-10c0.zip/node_modules/prosemirror-keymap/",\
+        "packageDependencies": [\
+          ["prosemirror-keymap", "npm:1.2.2"],\
+          ["prosemirror-state", "npm:1.4.3"],\
+          ["w3c-keyname", "npm:2.2.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-markdown", [\
+      ["npm:1.13.1", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-markdown-npm-1.13.1-4de28fccea-10c0.zip/node_modules/prosemirror-markdown/",\
+        "packageDependencies": [\
+          ["prosemirror-markdown", "npm:1.13.1"],\
+          ["@types/markdown-it", "npm:14.1.2"],\
+          ["markdown-it", "npm:14.1.0"],\
+          ["prosemirror-model", "npm:1.23.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-menu", [\
+      ["npm:1.2.4", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-menu-npm-1.2.4-cb9ea0c821-10c0.zip/node_modules/prosemirror-menu/",\
+        "packageDependencies": [\
+          ["prosemirror-menu", "npm:1.2.4"],\
+          ["crelt", "npm:1.0.6"],\
+          ["prosemirror-commands", "npm:1.6.1"],\
+          ["prosemirror-history", "npm:1.4.1"],\
+          ["prosemirror-state", "npm:1.4.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-model", [\
+      ["npm:1.23.0", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-model-npm-1.23.0-57eb718541-10c0.zip/node_modules/prosemirror-model/",\
+        "packageDependencies": [\
+          ["prosemirror-model", "npm:1.23.0"],\
+          ["orderedmap", "npm:2.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-schema-basic", [\
+      ["npm:1.2.3", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-schema-basic-npm-1.2.3-a144a1b06d-10c0.zip/node_modules/prosemirror-schema-basic/",\
+        "packageDependencies": [\
+          ["prosemirror-schema-basic", "npm:1.2.3"],\
+          ["prosemirror-model", "npm:1.23.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-schema-list", [\
+      ["npm:1.4.1", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-schema-list-npm-1.4.1-a3b29b7170-10c0.zip/node_modules/prosemirror-schema-list/",\
+        "packageDependencies": [\
+          ["prosemirror-schema-list", "npm:1.4.1"],\
+          ["prosemirror-model", "npm:1.23.0"],\
+          ["prosemirror-state", "npm:1.4.3"],\
+          ["prosemirror-transform", "npm:1.10.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-state", [\
+      ["npm:1.4.3", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-state-npm-1.4.3-d6540e44ad-10c0.zip/node_modules/prosemirror-state/",\
+        "packageDependencies": [\
+          ["prosemirror-state", "npm:1.4.3"],\
+          ["prosemirror-model", "npm:1.23.0"],\
+          ["prosemirror-transform", "npm:1.10.2"],\
+          ["prosemirror-view", "npm:1.34.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-tables", [\
+      ["npm:1.5.0", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-tables-npm-1.5.0-063a8603bc-10c0.zip/node_modules/prosemirror-tables/",\
+        "packageDependencies": [\
+          ["prosemirror-tables", "npm:1.5.0"],\
+          ["prosemirror-keymap", "npm:1.2.2"],\
+          ["prosemirror-model", "npm:1.23.0"],\
+          ["prosemirror-state", "npm:1.4.3"],\
+          ["prosemirror-transform", "npm:1.10.2"],\
+          ["prosemirror-view", "npm:1.34.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-trailing-node", [\
+      ["npm:3.0.0", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-trailing-node-npm-3.0.0-909bd6d36d-10c0.zip/node_modules/prosemirror-trailing-node/",\
+        "packageDependencies": [\
+          ["prosemirror-trailing-node", "npm:3.0.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:760b013a065169515adb1d3601ff368b65160487bf5fcface075e49eacd52a9a22a676e2b74557004faf70df361915995abe353f5d97de414382cd3790c38c48#npm:3.0.0", {\
+        "packageLocation": "./.yarn/__virtual__/prosemirror-trailing-node-virtual-291263e22d/3/.yarn/berry/cache/prosemirror-trailing-node-npm-3.0.0-909bd6d36d-10c0.zip/node_modules/prosemirror-trailing-node/",\
+        "packageDependencies": [\
+          ["prosemirror-trailing-node", "virtual:760b013a065169515adb1d3601ff368b65160487bf5fcface075e49eacd52a9a22a676e2b74557004faf70df361915995abe353f5d97de414382cd3790c38c48#npm:3.0.0"],\
+          ["@remirror/core-constants", "npm:3.0.0"],\
+          ["@types/prosemirror-model", null],\
+          ["@types/prosemirror-state", null],\
+          ["@types/prosemirror-view", null],\
+          ["escape-string-regexp", "npm:4.0.0"],\
+          ["prosemirror-model", "npm:1.23.0"],\
+          ["prosemirror-state", "npm:1.4.3"],\
+          ["prosemirror-view", "npm:1.34.3"]\
+        ],\
+        "packagePeers": [\
+          "@types/prosemirror-model",\
+          "@types/prosemirror-state",\
+          "@types/prosemirror-view",\
+          "prosemirror-model",\
+          "prosemirror-state",\
+          "prosemirror-view"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-transform", [\
+      ["npm:1.10.2", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-transform-npm-1.10.2-1c2da9123e-10c0.zip/node_modules/prosemirror-transform/",\
+        "packageDependencies": [\
+          ["prosemirror-transform", "npm:1.10.2"],\
+          ["prosemirror-model", "npm:1.23.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["prosemirror-view", [\
+      ["npm:1.34.3", {\
+        "packageLocation": "../../.yarn/berry/cache/prosemirror-view-npm-1.34.3-c79b7cffaa-10c0.zip/node_modules/prosemirror-view/",\
+        "packageDependencies": [\
+          ["prosemirror-view", "npm:1.34.3"],\
+          ["prosemirror-model", "npm:1.23.0"],\
+          ["prosemirror-state", "npm:1.4.3"],\
+          ["prosemirror-transform", "npm:1.10.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["proxy-addr", [\
       ["npm:2.0.7", {\
         "packageLocation": "../../.yarn/berry/cache/proxy-addr-npm-2.0.7-dae6552872-10c0.zip/node_modules/proxy-addr/",\
@@ -6167,6 +7242,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/punycode-npm-2.3.1-97543c420d-10c0.zip/node_modules/punycode/",\
         "packageDependencies": [\
           ["punycode", "npm:2.3.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["punycode.js", [\
+      ["npm:2.3.1", {\
+        "packageLocation": "../../.yarn/berry/cache/punycode.js-npm-2.3.1-9084ecbbf5-10c0.zip/node_modules/punycode.js/",\
+        "packageDependencies": [\
+          ["punycode.js", "npm:2.3.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6644,6 +7728,7 @@ const RAW_RUNTIME_STATE =
           ["@mantine/form", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.12.2"],\
           ["@mantine/hooks", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.13.2"],\
           ["@mantine/notifications", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.13.2"],\
+          ["@mantine/tiptap", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.13.2"],\
           ["@tabler/icons-react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:3.14.0"],\
           ["@tanstack/react-query", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.55.2"],\
           ["@tanstack/react-query-devtools", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.0.0-alpha.53"],\
@@ -6651,6 +7736,14 @@ const RAW_RUNTIME_STATE =
           ["@testing-library/jest-dom", "npm:6.5.0"],\
           ["@testing-library/react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:16.0.1"],\
           ["@testing-library/user-event", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:14.5.2"],\
+          ["@tiptap/core", "virtual:c5beb83e722c80a19e6967b7e1b046890ce32b24568cea7333c313f0bf930248c1b5c563b95385acd111170476f027b6d14f8675fde4d2479fcb83ac624c6042#npm:2.8.0"],\
+          ["@tiptap/extension-bubble-menu", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/extension-link", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/extension-placeholder", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/extension-text-style", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/pm", "npm:2.8.0"],\
+          ["@tiptap/react", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.8.0"],\
+          ["@tiptap/starter-kit", "npm:2.8.0"],\
           ["@toss/ky", "npm:1.2.0"],\
           ["@types/cors", "npm:2.8.17"],\
           ["@types/eslint", "npm:9.6.1"],\
@@ -6684,6 +7777,15 @@ const RAW_RUNTIME_STATE =
           ["vitest", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.0.5"]\
         ],\
         "linkType": "SOFT"\
+      }]\
+    ]],\
+    ["rope-sequence", [\
+      ["npm:1.3.4", {\
+        "packageLocation": "../../.yarn/berry/cache/rope-sequence-npm-1.3.4-3b09587e5f-10c0.zip/node_modules/rope-sequence/",\
+        "packageDependencies": [\
+          ["rope-sequence", "npm:1.3.4"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["rrweb-cssom", [\
@@ -7344,6 +8446,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["tippy.js", [\
+      ["npm:6.3.7", {\
+        "packageLocation": "../../.yarn/berry/cache/tippy.js-npm-6.3.7-424f946d38-10c0.zip/node_modules/tippy.js/",\
+        "packageDependencies": [\
+          ["tippy.js", "npm:6.3.7"],\
+          ["@popperjs/core", "npm:2.11.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["to-fast-properties", [\
       ["npm:2.0.0", {\
         "packageLocation": "../../.yarn/berry/cache/to-fast-properties-npm-2.0.0-0dc60cc481-10c0.zip/node_modules/to-fast-properties/",\
@@ -7555,6 +8667,15 @@ const RAW_RUNTIME_STATE =
         "packagePeers": [\
           "@types/typescript",\
           "typescript"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["uc.micro", [\
+      ["npm:2.1.0", {\
+        "packageLocation": "../../.yarn/berry/cache/uc.micro-npm-2.1.0-c45282c865-10c0.zip/node_modules/uc.micro/",\
+        "packageDependencies": [\
+          ["uc.micro", "npm:2.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7785,6 +8906,28 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["use-sync-external-store", [\
+      ["npm:1.2.2", {\
+        "packageLocation": "../../.yarn/berry/cache/use-sync-external-store-npm-1.2.2-7923c915e1-10c0.zip/node_modules/use-sync-external-store/",\
+        "packageDependencies": [\
+          ["use-sync-external-store", "npm:1.2.2"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:ece5b7d3d579854aa385cefbce2606bc35c924f32234afef8be0a59301e535cf94ef0de18ad6447c1090c40987f1f66dcae64b0d10b8fef206a2c360f250f126#npm:1.2.2", {\
+        "packageLocation": "./.yarn/__virtual__/use-sync-external-store-virtual-98581c7ce2/3/.yarn/berry/cache/use-sync-external-store-npm-1.2.2-7923c915e1-10c0.zip/node_modules/use-sync-external-store/",\
+        "packageDependencies": [\
+          ["use-sync-external-store", "virtual:ece5b7d3d579854aa385cefbce2606bc35c924f32234afef8be0a59301e535cf94ef0de18ad6447c1090c40987f1f66dcae64b0d10b8fef206a2c360f250f126#npm:1.2.2"],\
+          ["@types/react", "npm:18.3.5"],\
+          ["react", "npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["utils-merge", [\
       ["npm:1.0.1", {\
         "packageLocation": "../../.yarn/berry/cache/utils-merge-npm-1.0.1-363bbdfbca-10c0.zip/node_modules/utils-merge/",\
@@ -7967,6 +9110,15 @@ const RAW_RUNTIME_STATE =
           "@vitest/ui",\
           "happy-dom",\
           "jsdom"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["w3c-keyname", [\
+      ["npm:2.2.8", {\
+        "packageLocation": "../../.yarn/berry/cache/w3c-keyname-npm-2.2.8-66d7d5317a-10c0.zip/node_modules/w3c-keyname/",\
+        "packageDependencies": [\
+          ["w3c-keyname", "npm:2.2.8"]\
         ],\
         "linkType": "HARD"\
       }]\
