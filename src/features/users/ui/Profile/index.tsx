@@ -17,7 +17,7 @@ export const Profile = ({ profile, size = 'sm', isSubscribed, onClick }: Profile
       <div className={!isSubscribed ? '' : classes.subscribedWrapper}>
         <UnstyledButton className={classes.button} onClick={onClick}>
           <Avatar size={size} src={profile.picture as string} />
-          <Box class={classes.infoWrapper}>
+          <Box className={classes.infoWrapper}>
             <p>{profile.displayName}</p>
             <p>@{profile.username}</p>
           </Box>

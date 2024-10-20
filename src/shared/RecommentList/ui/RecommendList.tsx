@@ -1,5 +1,5 @@
 'use client'
-import { Button, Title } from '@mantine/core'
+import {Avatar, Button, Title} from '@mantine/core'
 import classes from './styles.module.css'
 import { useMediaQuery } from '@mantine/hooks'
 import { UserProfile } from '@/entities/user/types'
@@ -32,20 +32,26 @@ export const RecommendList = ({ recommendList, isRecommend }: RecommendListProps
         <Title order={4} className={classes.title}>
           회원님을 위한 추천
         </Title>
-        <Carousel
-          slideSize={{ base: '60px' }}
-          slideGap="20px"
-          align="start"
-          className={classes.recommendSlide}
-        >
-          {recommendList.map((user) => {
-            return (
-              <Carousel.Slide key={user.id}>
-                <Profile profile={user} size={'lg'} onClick={() => goToMemberPage(user.username)}/>
-              </Carousel.Slide>
-            )
-          })}
-        </Carousel>
+        <div className={classes.recommendSlideWrapper}>
+          <Carousel
+            slideSize="40px"
+            slideGap="20px"
+            align="start"
+            withControls={false}
+            className={classes.recommendSlide}
+          >
+            {recommendList.map((user) => {
+              return (
+                <Carousel.Slide key={user.id}>
+                  <div className={classes.slideWrapper}>
+                    <Avatar size='lg' src={user.picture as string} onClick={() => goToMemberPage(user.displayName)}/>
+                    <p>{user.displayName}</p>
+                  </div>
+                </Carousel.Slide>
+              )
+            })}
+          </Carousel>
+        </div>
       </div>
     )
   }
