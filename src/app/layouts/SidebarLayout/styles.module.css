@@ -51,9 +51,7 @@
 
   .notRecommendContainer{
     display:flex;
-    justify-content: center;
     width :800px;
-    margin:0 auto;
   }
 
   .contentWrapper {
