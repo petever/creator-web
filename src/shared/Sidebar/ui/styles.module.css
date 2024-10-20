@@ -103,7 +103,7 @@
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .wrap {
     max-width: 340px;
     min-width: 340px;

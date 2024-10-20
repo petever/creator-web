@@ -6,6 +6,8 @@ import { Profile } from '@/features'
 import { useDisclosure } from '@mantine/hooks'
 import { DUMMY_PROFILE } from '@/shared/model'
 import {UserProfile} from "@/entities/user/types";
+import {PAGE} from "@/shared/constants/page";
+import {useRouter} from "next/navigation";
 
 interface PostingHeaderProps {
   profile: UserProfile
@@ -18,6 +20,12 @@ export const PostingHeader = ({ profile }: PostingHeaderProps) => {
     open()
   }
 
+  const router = useRouter()
+
+  const goToMemberPage = (name : string) => {
+    router.push(PAGE.MEMBER_PAGE(name))
+  }
+
   return (
     <Flex
       justify="space-between"
@@ -27,7 +35,7 @@ export const PostingHeader = ({ profile }: PostingHeaderProps) => {
         width: '100%',
       }}
     >
-      <Profile profile={profile} size="md" />
+      <Profile profile={profile} size="md" onClick={() => goToMemberPage(profile.username)}/>
       <Menu shadow="md" width={200}>
         <Menu.Target>
           <ActionIcon variant="subtle" color="gray" size="xl">

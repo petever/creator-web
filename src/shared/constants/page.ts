@@ -4,4 +4,5 @@ export const PAGE = {
   SETTINGS_NOTIFICATIONS: '/settings/notifications',
   SETTINGS_CREATOR: '/settings/creator',
   LOGIN: '/login',
+  MEMBER_PAGE : (name : string) => `/${name}`
 }

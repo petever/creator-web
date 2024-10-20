@@ -22,3 +22,9 @@
   overflow-y:auto;
   height: 500px;
 }
+
+
+.recommendSlide {
+  flex-direction: row;
+  color: var(--mantine-color-body);
+}

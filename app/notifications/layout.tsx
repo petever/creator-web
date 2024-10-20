@@ -6,7 +6,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  return <SidebarLayout isRecommend>{children}</SidebarLayout>
+  return <SidebarLayout>{children}</SidebarLayout>
 }
 
 export default Layout
