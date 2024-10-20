@@ -34,6 +34,7 @@ const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
   const handleSubmit = (values: typeof form.values) => {
     const { title, contents, isSubscribed, files } = values
 
+
     const formData = new FormData()
     formData.append(
       'postRequest',
@@ -49,7 +50,7 @@ const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
       ),
     )
 
-    formData.append(`files`, new Blob(files))
+    files.forEach((file) => formData.append('files', new Blob([file])))
 
     createPostMutation(formData)
   }
