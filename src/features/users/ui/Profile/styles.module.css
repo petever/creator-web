@@ -6,8 +6,26 @@
   justify-content: space-between;
 }
 
-.button {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.subscribedWrapper p {
+  text-overflow: ellipsis;
+  overflow:hidden;
+  white-space: nowrap;
 }
+
+.button {
+  display:flex;
+  width :60%;
+  gap:20px;
+}
+
+.infoWrapper{
+  flex:0 0 150px;
+  overflow:hidden;
+}
+
+.infoWrapper p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow:hidden;
+}
+

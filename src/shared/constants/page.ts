@@ -5,4 +5,5 @@ export const PAGE = {
   SETTINGS_CREATOR: '/settings/creator',
   SETTINGS_SUBSCRIBE: '/settings/subscribe',
   LOGIN: '/login',
+  MEMBER_PAGE : (name : string) => `/${name}`
 }

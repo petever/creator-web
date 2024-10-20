@@ -22,3 +22,34 @@
   overflow-y:auto;
   height: 500px;
 }
+
+.recommendSlideWrapper{
+  margin:20px 0;
+}
+
+.slideWrapper{
+  display:flex;
+  flex-direction: column;
+  padding:20px;
+  gap:20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background:var(--mantine-color-body);
+}
+
+.slideWrapper p {
+  width:80px;
+  font-size:12px;
+  text-align: center;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  color:var(--mantine-color-text)
+}
+
+.recommendSlide {
+  flex-direction: row;
+  color: var(--mantine-color-body);
+  cursor:pointer
+}

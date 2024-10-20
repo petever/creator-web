@@ -1,5 +1,4 @@
 import classes from './styles.module.css'
-import { ThemeToggleButton } from '@/widgets'
 import Header from '@/features/Header'
 import { RecommendList } from '@/shared/RecommentList/ui/RecommendList'
 import { Sidebar } from '@/shared'
@@ -18,16 +17,16 @@ export async function SidebarLayout({ title, children, isRecommend }: SidebarLay
     <div className={classes.wrap}>
       {/*<ThemeToggleButton />*/}
       <Sidebar />
-      <div className={classes.container}>
-        <div className={classes.contentWrapper}>
+      <div className={isRecommend ? classes.container : classes.notRecommendContainer}>
+        {isRecommend &&
+          <div className={classes.recommend}>
+            <RecommendList isRecommend={isRecommend} recommendList={recommendList}/>
+          </div>
+        }
+        <div className={isRecommend ? classes.contentWrapper : classes.notRecommendContentWrapper}>
           {title && <Header text={title} />}
           {children}
         </div>
-        {isRecommend &&
-          <div className={classes.recommend}>
-          <RecommendList isRecommend={isRecommend} recommendList={recommendList}/>
-          </div>
-        }
       </div>
     </div>
   )

@@ -20,7 +20,7 @@ export const ContentForm = () => {
               const imageUrl = URL.createObjectURL(file)
               return (
                 <Carousel.Slide key={`image_${index}`}>
-                  <Image src={imageUrl} alt="" fill />
+                  <Image src={imageUrl} alt="" fill objectFit={'contain'}/>
                 </Carousel.Slide>
               )
             })}

@@ -24,19 +24,47 @@
   }
 }
 
-@media screen and (min-width: 1000px) {
+
+@media screen and (min-width: 640px) and (max-width : 1199px) {
+  .container {
+    display:block;
+    flex-direction : row;
+  }
+  .recommend {
+    padding: 0 20px;
+  }
+}
+
+
+@media screen and (min-width: 1200px) {
   .wrap {
     padding-left: 340px;
   }
   .container {
-    flex:0 0 1200px;
+    flex:0 0 100%;
+    flex-direction : row-reverse;
     margin: 0 auto;
+    padding:0 30px;
+    justify-content: end;
     gap: 30px;
   }
-  .contentWrapper {
-    flex: 1 1 800px;
+
+  .notRecommendContainer{
+    display:flex;
+    width :800px;
   }
+
+  .contentWrapper {
+    width : 800px;
+    flex: 2
+  }
+
+  .notRecommendContentWrapper{
+    flex: 0 0 800px;
+  }
+
   .recommend {
-    flex: 1 1 50%;
+    width : 370px;
+    flex: 1
   }
 }
