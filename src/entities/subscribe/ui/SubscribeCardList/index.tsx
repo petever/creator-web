@@ -21,6 +21,7 @@ const SubscribeCardList = ({ userId, subscribePlans }: SubscribeCardListProps) =
             price={plan.price}
             name={plan.name}
             description={plan.description}
+            isCreator
           />
         )
       })}

@@ -1,12 +1,14 @@
 import { Badge, Button, Card, Group, NumberFormatter, Popover, Text } from '@mantine/core'
 import { IconDotsVertical } from '@tabler/icons-react'
+import SubscribeCardMenu from '@/entities/subscribe/ui/SubscribeCardMenu'
 
 interface SubscribeCardProps {
   name: string
   price: number
   description: string
+  isCreator?: boolean
 }
-const SubscribeCard = ({ name, price, description }: SubscribeCardProps) => {
+const SubscribeCard = ({ name, price, description, isCreator }: SubscribeCardProps) => {
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
       <Group justify="space-between" mb="xs">
@@ -15,12 +17,7 @@ const SubscribeCard = ({ name, price, description }: SubscribeCardProps) => {
           <Badge color="pink" size="xl">
             <NumberFormatter prefix="₩" value={price} thousandSeparator /> / 월
           </Badge>
-          <Popover position="bottom" withArrow shadow="md">
-            <Popover.Target>
-              <IconDotsVertical color="#bbb" />
-            </Popover.Target>
-            <Popover.Dropdown>삭제</Popover.Dropdown>
-          </Popover>
+          <SubscribeCardMenu isCreator={isCreator} />
         </Group>
       </Group>
       <Text size="sm" dangerouslySetInnerHTML={{ __html: description }} />
