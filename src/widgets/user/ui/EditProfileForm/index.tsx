@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Button, Flex, Text, Textarea, TextInput } from '@mantine/core'
+import { Box, Button, Flex, Text, TextInput } from '@mantine/core'
 import { UserProfile } from '@/entities/user/types'
 import { useMyProfile } from '@/entities/user/hooks/useMyProfile'
 import { useUpdateMyProfile } from '@/features/users/hooks/useUpdateMyProfile'
@@ -8,6 +8,7 @@ import { validateDisplayName, validateUsername } from '@/features/users/util/pro
 import ProfilePicture from '@/features/users/ui/ProfilePicture'
 import { UserProfileFormProvider, useUserProfileForm } from '@/features/users/lib/profile-context'
 import ProfileCover from '@/features/users/ui/ProfileCover'
+import Editor from '@/widgets/Editor'
 
 interface EditProfileFormProps {
   userProfile: UserProfile
@@ -31,8 +32,8 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
       username: (value) => validateUsername(value),
     },
   })
-
   const isFormValid = form.isValid() && form.isDirty()
+
   const handleSubmit = (values: UserProfile) => {
     const { displayName, username, status, picture, cover } = values
 
@@ -55,6 +56,10 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
     updateProfileMutate(formData)
 
     form.resetDirty()
+  }
+
+  const handleStateChange = (content: any) => {
+    form.setValues({ ...form.getValues(), status: content })
   }
 
   return (
@@ -85,13 +90,14 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
               {...form.getInputProps('displayName')}
               size="lg"
             />
-            <Textarea
-              mt={10}
-              label="소개"
-              key={form.key('status')}
-              {...form.getInputProps('status')}
-              size="lg"
-            />
+            <Box>
+              <Text size="lg">소개</Text>
+              <Editor
+                placeholder="소개"
+                content={form.getValues().status}
+                onChange={handleStateChange}
+              />
+            </Box>
           </Flex>
           <Button fullWidth mt={20} radius={10} size="md" type="submit" disabled={!isFormValid}>
             저장

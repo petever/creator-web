@@ -4,5 +4,7 @@ export const QUERY_KEY = {
   USERS_USER: 'usersUser',
   // feeds
   FEEDS: 'feeds',
-  COMMENTS : 'comments'
+  COMMENTS: 'comments',
+  //subscribe
+  SUBSCRIBE_PLANS: 'subscribePlans',
 }

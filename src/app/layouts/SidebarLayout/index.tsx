@@ -2,7 +2,7 @@ import classes from './styles.module.css'
 import Header from '@/features/Header'
 import { RecommendList } from '@/shared/RecommentList/ui/RecommendList'
 import { Sidebar } from '@/shared'
-import {getServerFeedRecommendUsers} from "@/shared/RecommentList/api/getServerFeedRecommendUsers";
+import { getServerFeedRecommendUsers } from '@/shared/RecommentList/api/getServerFeedRecommendUsers'
 
 interface SidebarLayoutProps {
   title?: string
@@ -17,16 +17,16 @@ export async function SidebarLayout({ title, children, isRecommend }: SidebarLay
     <div className={classes.wrap}>
       {/*<ThemeToggleButton />*/}
       <Sidebar />
-      <div className={isRecommend ? classes.container : classes.notRecommendContainer}>
-        {isRecommend &&
-          <div className={classes.recommend}>
-            <RecommendList isRecommend={isRecommend} recommendList={recommendList}/>
-          </div>
-        }
-        <div className={isRecommend ? classes.contentWrapper : classes.notRecommendContentWrapper}>
+      <div className={classes.container}>
+        <div className={classes.contentWrapper}>
           {title && <Header text={title} />}
           {children}
         </div>
+        {isRecommend && (
+          <div className={classes.recommend}>
+            <RecommendList isRecommend={isRecommend} recommendList={recommendList} />
+          </div>
+        )}
       </div>
     </div>
   )
