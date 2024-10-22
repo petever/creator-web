@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Box, Button, Text } from '@mantine/core'
+import { Box, Button } from '@mantine/core'
 import { SubscribeModal } from '@/widgets/SubscribeModal/ui'
 import { useDisclosure } from '@mantine/hooks'
 import { UserProfile } from '@/entities/user/types'
