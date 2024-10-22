@@ -1,8 +1,9 @@
 import { getSession } from 'next-auth/react'
 import ky from '@toss/ky'
+import { BASE_URL } from '@/shared/constants/apiURL'
 
 export const clientKy = ky.create({
-  prefixUrl: 'http://182.227.155.8:9090',
+  prefixUrl: BASE_URL,
   hooks: {
     beforeRequest: [
       async (request: Request) => {

@@ -1,8 +1,9 @@
 import ky from '@toss/ky'
 import { auth } from '@/auth'
+import { BASE_URL } from '@/shared/constants/apiURL'
 
 export const serverKy = ky.create({
-  prefixUrl: 'http://182.227.155.8:9090',
+  prefixUrl: BASE_URL,
   headers: { 'Content-Type': 'application/json' },
   hooks: {
     beforeRequest: [
