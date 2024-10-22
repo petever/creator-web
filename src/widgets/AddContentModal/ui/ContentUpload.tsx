@@ -32,6 +32,7 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
     })
 
     const files = await processFiles(formData)
+    console.log('files', files)
     const settingFile = files[0]
     const url = URL.createObjectURL(settingFile)
     setFieldValue('currentFile', url)
@@ -57,6 +58,10 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
       result.data.files.map(async (bufferFile: ImageOptimizeData) => {
         const bufferArray = bufferFile.buffer.data
         const blob = new Blob([new Uint8Array(bufferArray)])
+
+        if(bufferFile.type === 'video'){
+          return new File([blob], `${bufferFile.name}.mp4`, { type: 'video/mp4' })
+        }
 
         return new File([blob], `${bufferFile.name}.jpeg`, { type: 'image/jpeg' })
       })

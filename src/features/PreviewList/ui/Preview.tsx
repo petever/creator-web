@@ -21,16 +21,18 @@ export const Preview = ({
     <ul className={classes.previewListWrapper}>
       {previews.map((file, index) => {
         const isVideo = file.type === 'video/mp4'
-        const imageUrl = URL.createObjectURL(file)
+        const url = URL.createObjectURL(file)
         return (
           <li className={classes.previewWrapper} key={`preview_${index}`}>
-            <UnstyledButton onClick={() => onShowImageChange(imageUrl, index)}>
+            <UnstyledButton onClick={() => onShowImageChange(url, index)}>
               {currentIndex === index && <div className={classes.currentImageWrapper} />}
               {!isVideo ? (
-                <Image src={imageUrl} alt="" fill />
+                <Image src={url} alt="" fill />
               ) : (
                 <div className={classes.videoWrapper}>
-                  <video src={imageUrl} />
+                  <video>
+                    <source src={url} type="video/mp4" />
+                  </video>
                 </div>
               )}
             </UnstyledButton>

@@ -13,7 +13,7 @@ interface MoreImageUploadProps {
   onImageUpload: (() => void) | null
 }
 
-export const MoreImageUpload = ({
+export const MoreMediaUpload = ({
   currentIndex,
   previews,
   onShowImageChange,
