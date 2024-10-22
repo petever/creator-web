@@ -18,7 +18,7 @@ export const FeedDetail = ({ title, feed, opened, onClose }: FeedDetailProps) =>
   return (
     <Modal size="lg" opened={opened} onClose={onClose} centered withCloseButton={false}>
       <div className={classes.header}>
-        <Profile profile={feed.creator} size="md" />
+        <Profile profile={feed.owner} size="md" />
       </div>
       <div>
         <FeedContent contents={feed.contents} createdAt={feed.createdAt}/>
