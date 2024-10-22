@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   extends: [
     'mantine',
     'plugin:@next/next/recommended',
