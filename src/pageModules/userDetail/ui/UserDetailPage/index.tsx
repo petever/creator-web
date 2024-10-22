@@ -4,17 +4,15 @@ import SubscribeButton from '@/features/users/ui/SubscribeButton'
 import { getServerFeeds } from '@/entities/feeds/api/getServerFeeds'
 import { getServerUser } from '@/entities/user/api/getServerUser'
 import { auth } from '@/auth'
-import { PAGE } from '@/shared/constants/page'
-import Link from 'next/link'
 
 interface UserDetailPageProps {
   params: {
-    username?: string
+    username: string
   }
 }
 
 const UserDetailPage = async ({ params }: UserDetailPageProps) => {
-  const { username } = params
+  const username = params.username
   const session = await auth()
   const userProfile = await getServerUser(username)
   const initialFeeds = await getServerFeeds(username)
