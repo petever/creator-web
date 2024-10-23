@@ -9,19 +9,21 @@ interface SubscribeCardListProps {
   userId?: string
   subscribePlans: SubscribePlan[]
 }
+
 const SubscribeCardList = ({ userId, subscribePlans }: SubscribeCardListProps) => {
   const { data: plans } = useSubscribePlans(userId, subscribePlans)
 
   return (
     <Flex gap={20} direction="column">
-      {plans?.map((plan: SubscribePlan) => {
+      {plans?.map((plan: SubscribePlan, index: number) => {
+        const isNotCreator = index !== 0
         return (
           <SubscribeCard
             key={plan.id}
             price={plan.price}
             name={plan.name}
             description={plan.description}
-            isCreator
+            isCreator={isNotCreator}
           />
         )
       })}
