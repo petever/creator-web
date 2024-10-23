@@ -8,7 +8,7 @@ export const CommentArea = ({ id }: CommentAreaProps) => {
   return (
     <Box mt={20}>
       <Comment id={id}/>
-      <CommentInput />
+      <CommentInput id={id}/>
     </Box>
   )
 }

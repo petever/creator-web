@@ -4,4 +4,6 @@ export const MUTATION_KEY = {
   UPDATE_LIKE_POSTING: 'updateLikePosting',
   //SUBSCRIBE
   ADD_SUBSCRIBE_PLAN: 'addSubscribePlan',
+  //COMMENT
+  ADD_COMMENT : 'addComment'
 }
