@@ -2,6 +2,7 @@ import { Flex, Group, Input, Select, TextInput } from '@mantine/core'
 import { useContentFormContext } from '@/widgets/AddContentModal/lib/form-context'
 import { Carousel } from '@mantine/carousel'
 import Image from 'next/image'
+import classes from "@/features/PreviewList/ui/styles.module.css";
 
 export const ContentForm = () => {
   const form = useContentFormContext()
@@ -17,10 +18,20 @@ export const ContentForm = () => {
         <Flex direction="column" gap={30} flex={1}>
           <Carousel withIndicators height={200}>
             {files.map((file, index) => {
-              const imageUrl = URL.createObjectURL(file)
+              const isVideo = file.type === 'video/mp4'
+              const url = URL.createObjectURL(file)
+
               return (
                 <Carousel.Slide key={`image_${index}`}>
-                  <Image src={imageUrl} alt="" fill objectFit={'contain'}/>
+                  {!isVideo ? (
+                    <Image src={url} alt="" objectFit={'contain'} fill/>
+                  ) : (
+                    <div className={classes.videoWrapper}>
+                      <video>
+                        <source src={url} type="video/mp4" />
+                      </video>
+                    </div>
+                  )}
                 </Carousel.Slide>
               )
             })}
