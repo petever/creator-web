@@ -2,7 +2,6 @@ import '@mantine/core/styles.css'
 import '@mantine/notifications/styles.css'
 import '@mantine/carousel/styles.css'
 import './normalize.css'
-import Head from 'next/head'
 import AuthProvider from '@/app/providers/AuthProvider'
 import CustomMantineProvider from '@/app/providers/CustomMantineProvider'
 import QueryProvider from '@/app/providers/QueryProvider'
@@ -23,10 +22,11 @@ export const metadata = {
 export async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="ko">
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-width=1.0" />
+      <head>
         <ColorSchemeScript />
-      </Head>
+        <meta name="viewport" content="width=device-width, initial-width=1.0" />
+        <title>슈슈슉</title>
+      </head>
       <body>
         <AuthProvider>
           <QueryProvider>

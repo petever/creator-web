@@ -26,9 +26,5 @@ const theme = createTheme({
 })
 
 export default async function CustomMantineProvider({ children }: CustomMantineProviderProps) {
-  return (
-    <MantineProvider defaultColorScheme="light" theme={theme}>
-      {children}
-    </MantineProvider>
-  )
+  return <MantineProvider theme={theme}>{children}</MantineProvider>
 }
