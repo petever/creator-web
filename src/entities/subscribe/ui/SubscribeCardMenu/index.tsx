@@ -1,13 +1,14 @@
-import { Badge, Button, Card, Group, NumberFormatter, Popover, Text } from '@mantine/core'
+import { Popover } from '@mantine/core'
 import { IconDotsVertical } from '@tabler/icons-react'
 
 interface SubscribeCardMenuProps {
   isCreator?: boolean
 }
+
 const SubscribeCardMenu = ({ isCreator }: SubscribeCardMenuProps) => {
   if (!isCreator) return null
   return (
-    <Popover position="bottom" withArrow shadow="md">
+    <Popover position="bottom" shadow="md">
       <Popover.Target>
         <IconDotsVertical color="#bbb" />
       </Popover.Target>

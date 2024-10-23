@@ -1,15 +1,12 @@
 'use client'
-import {Avatar, Button, Title} from '@mantine/core'
+import { Avatar, Title } from '@mantine/core'
 import classes from './styles.module.css'
 import { useMediaQuery } from '@mantine/hooks'
 import { UserProfile } from '@/entities/user/types'
 import { Profile } from '@/features'
-import SubscribeButton from '@/features/users/ui/SubscribeButton'
-import {Caramel} from "next/dist/compiled/@next/font/dist/google";
-import {DUMMY_PROFILE} from "@/shared/model";
-import {Carousel} from "@mantine/carousel";
-import {useRouter} from "next/navigation";
-import {PAGE} from "@/shared/constants/page";
+import { Carousel } from '@mantine/carousel'
+import { useRouter } from 'next/navigation'
+import { PAGE } from '@/shared/constants/page'
 
 interface RecommendListProps {
   recommendList: UserProfile[]
@@ -22,11 +19,12 @@ export const RecommendList = ({ recommendList, isRecommend }: RecommendListProps
 
   const router = useRouter()
 
-  const goToMemberPage = (name : string) => {
+  const goToMemberPage = (name: string) => {
     router.push(PAGE.MEMBER_PAGE(name))
   }
 
-  if(isTabletWidth) {
+  if (!isPcWidth) return null
+  if (isTabletWidth) {
     return (
       <div className={classes.wrapper}>
         <Title order={4} className={classes.title}>
@@ -44,7 +42,11 @@ export const RecommendList = ({ recommendList, isRecommend }: RecommendListProps
               return (
                 <Carousel.Slide key={user.id}>
                   <div className={classes.slideWrapper}>
-                    <Avatar size='lg' src={user.picture as string} onClick={() => goToMemberPage(user.displayName)}/>
+                    <Avatar
+                      size="lg"
+                      src={user.picture as string}
+                      onClick={() => goToMemberPage(user.displayName)}
+                    />
                     <p>{user.displayName}</p>
                   </div>
                 </Carousel.Slide>
@@ -55,8 +57,6 @@ export const RecommendList = ({ recommendList, isRecommend }: RecommendListProps
       </div>
     )
   }
-
-  if (!isPcWidth) return null
 
   return (
     <div className={classes.wrapper}>

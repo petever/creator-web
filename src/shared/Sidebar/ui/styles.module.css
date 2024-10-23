@@ -24,13 +24,9 @@
   display: none;
 }
 
-.setting {
-  display: none;
-}
 
 .menuWrapper {
   width: 100%;
-  align-items: center;
 }
 
 .dim {
@@ -42,8 +38,8 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
-.linkStyle > div > div{
-  display:flex;
+.linkStyle > div > div {
+  display: flex;
   align-items: center;
 }
 

@@ -15,7 +15,6 @@ export async function SidebarLayout({ title, children, isRecommend }: SidebarLay
 
   return (
     <div className={classes.wrap}>
-      {/*<ThemeToggleButton />*/}
       <Sidebar />
       <div className={classes.container}>
         <div className={classes.contentWrapper}>

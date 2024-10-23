@@ -5,9 +5,11 @@ import {
   IconHome2,
   IconSearch,
   IconSend,
+  IconSettings,
 } from '@tabler/icons-react'
 import { Label } from '@/widgets/types'
 import { Indicator } from '@mantine/core'
+import { PAGE } from '@/shared/constants/page'
 
 export const SIDEBARS: Label[] = [
   {
@@ -55,6 +57,13 @@ export const SIDEBARS: Label[] = [
     href: '/notifications',
     label: '알림',
     key: 'notifications',
+    disabled: false,
+  },
+  {
+    icon: <IconSettings size="22px" stroke={2} />,
+    href: PAGE.SETTINGS,
+    label: '설정',
+    key: 'settings',
     disabled: false,
   },
 ]
