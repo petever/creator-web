@@ -50,7 +50,9 @@ const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
       ),
     )
 
-    files.forEach((file) => formData.append('files', new Blob([file])))
+    files.forEach((file) => {
+      return formData.append('files', file)
+    })
 
     createPostMutation(formData)
   }

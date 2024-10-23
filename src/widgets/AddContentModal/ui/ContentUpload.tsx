@@ -31,10 +31,8 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
       formData.append('file', file)
     })
 
-    console.log('test')
     const files = await processFiles(formData)
 
-    console.log('files', files)
     const settingFile = files[0]
     const url = URL.createObjectURL(settingFile)
     setFieldValue('currentFile', url)
