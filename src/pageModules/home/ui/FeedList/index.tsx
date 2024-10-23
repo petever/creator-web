@@ -1,12 +1,12 @@
 import React, {useEffect, useMemo} from 'react'
 import { Post } from '@/widgets/Post/ui'
 import { Flex } from '@mantine/core'
-import { Feeds } from '@/entities/feeds/types'
+import {FeedResponse, Feeds} from '@/entities/feeds/types'
 import { useInView } from 'react-intersection-observer'
 import useFeeds from '@/entities/feeds/hooks/useFeeds'
 
 interface FeedListProps {
-  initialFeeds: Feeds
+  initialFeeds: FeedResponse
   username?: string
 }
 

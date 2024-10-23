@@ -66,3 +66,14 @@ export interface Owner {
   cover: string
   role: string
 }
+
+export interface FeedResponse {
+  content : FeedContents[]
+  last : boolean
+  number : number
+}
+
+export interface FeedPageData {
+  pages: FeedResponse[]
+  pageParam: FeedSearchParams[]
+}
