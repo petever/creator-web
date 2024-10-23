@@ -11,12 +11,15 @@ export const FeedMedia = ({resources} : FeedMediaProps) => {
   if(resources.length === 1){
     const isVideo = resources[0].mimeType === 'VIDEO'
     return (
-      !isVideo
-        ? <Image src={resources[0].filePath} radius={0}/>
-        :
-         <video controls>
-          <source src={resources[0].filePath} type="video/mp4" />
-        </video>
+      <>
+        {!isVideo
+            ? <Image src={resources[0].filePath} radius={0}/>
+            :
+            <video controls>
+              <source src={resources[0].filePath} type="video/mp4"/>
+            </video>
+        }
+      </>
     )
   }
 
@@ -27,12 +30,14 @@ export const FeedMedia = ({resources} : FeedMediaProps) => {
 
         return (
           <Carousel.Slide key={`${resourceIndex}`}>
-            !isVideo
-            ? <Image src={resources[0].filePath} radius={0}/>
-            :
-            <video>
-              <source src={resources[0].filePath} type="video/mp4" />
-            </video>
+            {
+              !isVideo
+              ? <Image src={resource.filePath} radius={0}/>
+              :
+              <video controls>
+                <source src={resource.filePath} type="video/mp4" />
+              </video>
+            }
           </Carousel.Slide>
         )
       })}
