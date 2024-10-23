@@ -13,11 +13,17 @@ export async function POST(request: NextRequest) {
   const processedFiles = await Promise.all(
     files.map(async (file, index) => {
       const buffer = await file.arrayBuffer()
-      const processedBuffer = await sharp(Buffer.from(buffer))
-        .resize(600, 600, { fit: 'contain' })
-        .toBuffer()
+      console.log('file.type', file.type)
+      if(file.type.includes('image')) {
+        const processedBuffer = await sharp(Buffer.from(buffer))
+          .resize(600, 600, { fit: 'contain' })
+          .toBuffer()
 
-      return { name: `upload_file_${index}`, status: 'processed', buffer: processedBuffer }
+        return { name: `upload_image_${index}`, status: 'complete', buffer: processedBuffer, type : 'image' }
+      }
+
+      console.log('video file :::: ', file)
+      return { name: `upload_video_${index}`, status: 'complete', buffer: Buffer.from(buffer), type : 'video' }
     }),
   )
 

@@ -31,7 +31,10 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
       formData.append('file', file)
     })
 
+    console.log('test')
     const files = await processFiles(formData)
+
+    console.log('files', files)
     const settingFile = files[0]
     const url = URL.createObjectURL(settingFile)
     setFieldValue('currentFile', url)
@@ -58,6 +61,10 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
         const bufferArray = bufferFile.buffer.data
         const blob = new Blob([new Uint8Array(bufferArray)])
 
+        if(bufferFile.type === 'video'){
+          return new File([blob], `${bufferFile.name}.mp4`, { type: 'video/mp4' })
+        }
+
         return new File([blob], `${bufferFile.name}.jpeg`, { type: 'image/jpeg' })
       })
     )
@@ -78,9 +85,10 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
     setFieldValue('currentFile', url)
   }
 
-  const handleChangeCurrentImage = (url: string, index: number) => {
+  const handleChangeCurrentImage = (url: string, index: number, type : "video" | "image") => {
     setFieldValue('currentFile', url)
     setFieldValue('currentIndex', index)
+    setFieldValue('currentFileType', type)
   }
 
   if (step > 0) return null
@@ -90,7 +98,7 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
       {!currentFile && (
         <Dropzone
           onDrop={handleDropImages}
-          maxSize={5 * 1024 ** 2}
+          maxSize={2 * 1024 ** 3}
           accept={[
             MIME_TYPES.jpeg,
             MIME_TYPES.png,

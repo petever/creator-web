@@ -3,14 +3,14 @@
 import Image from 'next/image'
 import classes from './styles.module.css'
 import { useContentFormContext } from '@/widgets/AddContentModal/lib/form-context'
-import { MoreImageUpload } from '@/features/PreviewList/ui/MoreImageUpload'
+import { MoreMediaUpload } from '@/features/PreviewList/ui/MoreMediaUpload'
 
 interface PreviewListProps {
   currentFile?: string
   currentFileType: 'image' | 'video'
   currentIndex: number
   previews: File[]
-  onShowImageChange: (url: string, index: number) => void
+  onShowImageChange: (url: string, index: number, type : "video" | "image") => void
   onRemoveImage: (index: number) => void
   onImageUpload: (() => void) | null
 }
@@ -29,9 +29,13 @@ const PreviewList = ({
     <div className={classes.wrapper}>
       <div className={classes.currentFilePreview}>
         {currentFileType === 'image' && <Image src={currentFile} fill alt="" />}
-        {currentFileType === 'video' && <video src={currentFile} />}
+        {currentFileType === 'video' &&
+          <video autoPlay>
+            <source src={currentFile} type="video/mp4" />
+          </video>
+        }
       </div>
-      <MoreImageUpload
+      <MoreMediaUpload
         currentIndex={currentIndex}
         previews={previews}
         onShowImageChange={onShowImageChange}

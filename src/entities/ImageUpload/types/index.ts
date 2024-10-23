@@ -1,7 +1,8 @@
 export type ImageOptimizeData = {
-  buffer: BufferData
+  buffer : BufferData
   name : string
   status : 'processed'
+  type : 'image' | 'video'
 }
 
 type BufferData = {
