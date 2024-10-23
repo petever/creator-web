@@ -8,7 +8,7 @@ interface PreviewProps {
   currentIndex: number
   previews: File[]
   onRemoveImage: (index: number) => void
-  onShowImageChange: (url: string, index: number) => void
+  onShowImageChange: (url: string, index: number, type : "video" | "image") => void
 }
 
 export const Preview = ({
@@ -21,10 +21,11 @@ export const Preview = ({
     <ul className={classes.previewListWrapper}>
       {previews.map((file, index) => {
         const isVideo = file.type === 'video/mp4'
+        const fileType = file.type === 'video/mp4' ? 'video' : 'image'
         const url = URL.createObjectURL(file)
         return (
           <li className={classes.previewWrapper} key={`preview_${index}`}>
-            <UnstyledButton onClick={() => onShowImageChange(url, index)}>
+            <UnstyledButton className={classes.previewWrapperButton} onClick={() => onShowImageChange(url, index, fileType)}>
               {currentIndex === index && <div className={classes.currentImageWrapper} />}
               {!isVideo ? (
                 <Image src={url} alt="" fill />

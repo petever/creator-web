@@ -10,7 +10,7 @@ interface PreviewListProps {
   currentFileType: 'image' | 'video'
   currentIndex: number
   previews: File[]
-  onShowImageChange: (url: string, index: number) => void
+  onShowImageChange: (url: string, index: number, type : "video" | "image") => void
   onRemoveImage: (index: number) => void
   onImageUpload: (() => void) | null
 }
@@ -30,7 +30,7 @@ const PreviewList = ({
       <div className={classes.currentFilePreview}>
         {currentFileType === 'image' && <Image src={currentFile} fill alt="" />}
         {currentFileType === 'video' &&
-          <video>
+          <video autoPlay>
             <source src={currentFile} type="video/mp4" />
           </video>
         }

@@ -8,7 +8,7 @@ import { useContentFormContext } from '@/widgets/AddContentModal/lib/form-contex
 interface MoreImageUploadProps {
   currentIndex: number
   previews: File[]
-  onShowImageChange: (url: string, index: number) => void
+  onShowImageChange: (url: string, index: number, type : "video" | "image") => void
   onRemoveImage: (index: number) => void
   onImageUpload: (() => void) | null
 }
