@@ -1,9 +1,9 @@
 import {QUERY_KEY} from "@/shared/constants/queryKey";
-import {QueryClient, useInfiniteQuery} from "@tanstack/react-query";
+import {QueryClient, useInfiniteQuery, useQueryClient} from "@tanstack/react-query";
 import {getComment} from "@/features/Comment/api/getComment";
 
 export const useComment = (id : string) => {
-  const queryClient = new QueryClient()
+  const queryClient = useQueryClient()
   return useInfiniteQuery({
     queryKey: [QUERY_KEY.COMMENTS],
     queryFn: () => getComment(id),

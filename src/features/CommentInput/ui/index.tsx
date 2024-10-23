@@ -1,18 +1,23 @@
 import { useForm } from '@mantine/form'
 import { ActionIcon, Box, Button, Flex, Input } from '@mantine/core'
 import {IconSend} from "@tabler/icons-react";
+import {useAddComment} from "@/features/CommentInput/hooks/useAddComment";
 
-export const CommentInput = () => {
+interface CommentInputProps {
+  id : string
+}
+
+export const CommentInput = ({id} : CommentInputProps) => {
   const form = useForm({
     mode: 'uncontrolled',
+    initialValues: {
+      content: ''
+    },
   })
-
-  form.watch('comment', ({ previousValue, value, touched, dirty }) => {
-    console.log({ previousValue, value, touched, dirty })
-  })
+  const {addCommentMutate} = useAddComment(id)
 
   const handleSubmit = (values: typeof form.values) => {
-    console.log(values)
+    addCommentMutate(values)
   }
 
   return (

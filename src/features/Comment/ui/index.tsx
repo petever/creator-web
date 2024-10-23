@@ -34,7 +34,6 @@ export const Comment = ({id} : CommentProps) => {
   useEffect(() => {
     fetchMore()
   }, [inView, hasNextPage])
-  console.log('comments', comments)
 
   if(comments.length < 1) return null
 
