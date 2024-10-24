@@ -6,7 +6,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  return <SidebarLayout title="프로필 설정">{children}</SidebarLayout>
+  return <SidebarLayout>{children}</SidebarLayout>
 }
 
 export default Layout
