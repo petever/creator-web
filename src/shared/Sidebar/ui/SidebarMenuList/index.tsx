@@ -63,7 +63,7 @@ const SidebarMenuList = ({
         <Popover width={200} position="top" shadow="md">
           <Popover.Target>
             <Flex align="center" gap={20}>
-              <IconBaselineDensityMedium size={30} stroke={2} />
+              <IconBaselineDensityMedium size={30} stroke={1.5} />
               <Text className={classes.labelWrapper}>더 보기</Text>
             </Flex>
           </Popover.Target>
@@ -71,7 +71,7 @@ const SidebarMenuList = ({
             <ThemeToggleButton />
             <Link href={PAGE.SETTINGS}>
               <Flex align="center" gap={20}>
-                <IconSettings size={30} stroke={2} />
+                <IconSettings size={30} stroke={1.5} />
                 <Text className={classes.labelWrapper}>설정</Text>
               </Flex>
             </Link>

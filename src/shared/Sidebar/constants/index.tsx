@@ -11,14 +11,14 @@ import { Indicator } from '@mantine/core'
 
 export const SIDEBARS: Label[] = [
   {
-    icon: <IconHome size={30} stroke={2} />,
+    icon: <IconHome size={30} stroke={1.5} />,
     href: '/home',
     label: '홈',
     key: 'home',
     disabled: false,
   },
   {
-    icon: <IconCompass size={30} stroke={2} />,
+    icon: <IconCompass size={30} stroke={1.5} />,
     href: '/explore',
     label: '탐색',
     key: 'explore',
@@ -26,21 +26,21 @@ export const SIDEBARS: Label[] = [
   },
   // 콘텐츠 추가 버튼
   {
-    icon: <IconCirclePlus size={30} stroke={2} />,
+    icon: <IconCirclePlus size={30} stroke={1.5} />,
     href: '',
     label: '추가',
     key: 'add_content',
     disabled: false,
   },
   {
-    icon: <IconSearch size={30} stroke={2} />,
+    icon: <IconSearch size={30} stroke={1.5} />,
     href: '',
     label: '검색',
     key: 'search',
     disabled: false,
   },
   {
-    icon: <IconSend size={30} stroke={2} />,
+    icon: <IconSend size={30} stroke={1.5} />,
     href: '/message',
     label: '메세지',
     key: 'message',
@@ -49,7 +49,7 @@ export const SIDEBARS: Label[] = [
   {
     icon: (
       <Indicator disabled>
-        <IconBell size={30} stroke={2} />
+        <IconBell size={30} stroke={1.5} />
       </Indicator>
     ),
     href: '/notifications',

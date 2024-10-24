@@ -5,16 +5,16 @@ interface CustomMantineProviderProps {
 }
 
 const themeColors: MantineColorsTuple = [
-  '#fff8e1',
-  '#ffefcb',
-  '#ffdd9a',
-  '#ffca64',
-  '#ffba38',
-  '#ffb01b',
-  '#ffab09',
-  '#e39500',
-  '#cb8400',
-  '#b07100',
+  '#e0f9ff',
+  '#cbedff',
+  '#9ad7ff',
+  '#64c1fe',
+  '#39aefc',
+  '#1ca2fb',
+  '#009cfc',
+  '#0087e2',
+  '#0078cb',
+  '#0068b4',
 ]
 
 const theme = createTheme({

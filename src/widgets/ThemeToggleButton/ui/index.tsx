@@ -22,8 +22,8 @@ export const ThemeToggleButton = () => {
       gap={20}
       onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
     >
-      {isLight && <IconMoon stroke={2} />}
-      {!isLight && <IconSun stroke={2} />}
+      {isLight && <IconMoon stroke={1.5} />}
+      {!isLight && <IconSun stroke={1.5} />}
       <Text>모드 전환</Text>
     </Flex>
   )
