@@ -2,6 +2,7 @@ import { Flex, Group, Input, Select, TextInput } from '@mantine/core'
 import { useContentFormContext } from '@/widgets/AddContentModal/lib/form-context'
 import { Carousel } from '@mantine/carousel'
 import Image from 'next/image'
+import Video from 'next-video';
 import classes from "@/features/PreviewList/ui/styles.module.css";
 
 export const ContentForm = () => {
@@ -27,9 +28,14 @@ export const ContentForm = () => {
                     <Image src={url} alt="" objectFit={'contain'} fill/>
                   ) : (
                     <div className={classes.videoWrapper}>
-                      <video>
-                        <source src={url} type="video/mp4" />
-                      </video>
+                      <Video
+                        src={url} // 비디오 파일 경로
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        controls={false}
+                      ></Video>
                     </div>
                   )}
                 </Carousel.Slide>

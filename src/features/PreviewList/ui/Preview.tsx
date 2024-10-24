@@ -1,8 +1,9 @@
 import Image from 'next/image'
-import { ActionIcon, UnstyledButton } from '@mantine/core'
+import { UnstyledButton } from '@mantine/core'
 import classes from '@/features/PreviewList/ui/styles.module.css'
-import { IconAdjustments, IconSquareXFilled } from '@tabler/icons-react'
-import { useContentFormContext } from '@/widgets/AddContentModal/lib/form-context'
+import { IconSquareXFilled } from '@tabler/icons-react'
+import Video from 'next-video';
+import {VideoPlayer} from "@/shared";
 
 interface PreviewProps {
   currentIndex: number
@@ -29,13 +30,7 @@ export const Preview = ({
               {currentIndex === index && <div className={classes.currentImageWrapper} />}
               {!isVideo ? (
                 <Image src={url} alt="" fill />
-              ) : (
-                <div className={classes.videoWrapper}>
-                  <video>
-                    <source src={url} type="video/mp4" />
-                  </video>
-                </div>
-              )}
+              ) : <VideoPlayer src={url} isControl/>}
             </UnstyledButton>
             <UnstyledButton className={classes.deleteButton} onClick={() => onRemoveImage(index)}>
               <IconSquareXFilled />

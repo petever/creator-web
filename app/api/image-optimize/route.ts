@@ -15,6 +15,8 @@ export async function POST(request: NextRequest) {
       const buffer = await file.arrayBuffer()
       console.log('file.type', file.type)
       if(file.type.includes('image')) {
+        // 1:1
+        // 16:9
         const processedBuffer = await sharp(Buffer.from(buffer))
           .resize(600, 600, { fit: 'contain' })
           .toBuffer()

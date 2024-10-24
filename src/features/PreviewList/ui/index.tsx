@@ -1,8 +1,8 @@
 'use client'
 
 import Image from 'next/image'
+import Video from 'next-video';
 import classes from './styles.module.css'
-import { useContentFormContext } from '@/widgets/AddContentModal/lib/form-context'
 import { MoreMediaUpload } from '@/features/PreviewList/ui/MoreMediaUpload'
 
 interface PreviewListProps {
@@ -30,9 +30,14 @@ const PreviewList = ({
       <div className={classes.currentFilePreview}>
         {currentFileType === 'image' && <Image src={currentFile} fill alt="" />}
         {currentFileType === 'video' &&
-          <video autoPlay>
-            <source src={currentFile} type="video/mp4" />
-          </video>
+          <Video
+            src={currentFile} // 비디오 파일 경로
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls={false}
+          ></Video>
         }
       </div>
       <MoreMediaUpload
