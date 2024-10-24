@@ -3,15 +3,17 @@
     display: flex;
     justify-content: center;
   }
+  .recommend {
+    display: none;
+
+  }
 }
 
 @media screen and (min-width: 1200px) {
-  .wrapper {
-    justify-content: space-evenly;
-  }
 
   .recommend {
-    max-width: 320px;
+    display: block;
+    padding-left: 64px;
   }
 }
 
