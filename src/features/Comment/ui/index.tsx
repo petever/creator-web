@@ -1,11 +1,12 @@
 'use client'
-import { Avatar, UnstyledButton } from '@mantine/core'
+import {ActionIcon, Avatar } from '@mantine/core'
 import classes from './styles.module.css'
 import { useRouter } from 'next/navigation'
 import {useComment} from "@/features/Comment/hooks/useComment";
 import {useInView} from "react-intersection-observer";
 import {useEffect, useMemo} from "react";
-import {getDateFormat} from "@/shared/lib";
+import {IconHeart, IconHeartFilled} from "@tabler/icons-react";
+import {useUpdateFavoriteComment} from "@/features/Comment/hooks/useUpdateFavoriteComment";
 
 interface CommentProps {
   id : string
@@ -20,6 +21,14 @@ export const Comment = ({id} : CommentProps) => {
 
   const router = useRouter()
 
+  // const { updateLikePostingMutate, data } = useUpdateFavoriteComment(id)
+
+  const isLiked = false
+
+  const handleFavoritePosting = async () => {
+    // updateLikeCommentMutate({...feed})
+  }
+
   const handleMemberPageMove = () => {
     router.push('/3')
   }
@@ -30,6 +39,8 @@ export const Comment = ({id} : CommentProps) => {
     }
     void fetchNextPage()
   }
+
+
 
   useEffect(() => {
     fetchMore()
@@ -47,10 +58,20 @@ export const Comment = ({id} : CommentProps) => {
               <Avatar size='sm' src={comment.owner.picture}/>
               <span>{comment.owner.displayName}</span>
             </div>
-            <div>
+            <div className={classes.contentWrapper}>
               {comment.contents}
             </div>
-            <div className={classes.date}>{getDateFormat(comment.createdAt)}</div>
+            <ActionIcon
+              variant="subtle"
+              size="sm"
+              color="gray"
+              data-testId="favorite_btn"
+              onClick={handleFavoritePosting}
+            >
+              <div>
+                {!isLiked ? <IconHeart size={12}/> : <IconHeartFilled size={12}/>}
+              </div>
+            </ActionIcon>
           </div>
         )
       })}
