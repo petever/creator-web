@@ -1,9 +1,17 @@
-.wrapper {
-  padding:0 20px;
+@media screen and (min-width: 640px) {
+  .wrapper {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .wrapper {
-    padding:0;
+    justify-content: space-evenly;
+  }
+
+  .recommend {
+    max-width: 320px;
   }
 }
+

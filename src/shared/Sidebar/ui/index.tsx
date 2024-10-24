@@ -1,10 +1,10 @@
 'use client'
-import { Container } from '@mantine/core'
+import { Container, Flex, Title } from '@mantine/core'
 import classes from './styles.module.css'
 import { useDisclosure } from '@mantine/hooks'
 import AddContentModal from '@/widgets/AddContentModal/ui'
 import { SearchMember } from '@/shared/Sidebar/ui/SearchMember'
-import { SidebarMenuList } from '@/shared/Sidebar/ui/SidebarMenuList'
+import SidebarMenuList from '@/shared/Sidebar/ui/SidebarMenuList'
 
 interface SidebarProps {
   isLogin?: boolean
@@ -20,15 +20,18 @@ export const Sidebar = ({ isLogin }: SidebarProps) => {
 
   return (
     <Container className={classes.wrap}>
-      <div className={classes.topArea}>
-        <SearchMember opened={isSearchMemberDrawerOpened} onClose={searchMemberDrawerClose} />
-        <AddContentModal opened={isModalOpened} onClose={modalClose} />
+      <SearchMember opened={isSearchMemberDrawerOpened} onClose={searchMemberDrawerClose} />
+      <AddContentModal opened={isModalOpened} onClose={modalClose} />
+      <Flex direction="column" gap={30} h="100%" w="100%">
+        <Title p={4} className={classes.logo}>
+          S
+        </Title>
         <SidebarMenuList
           isSearchMemberDrawerOpened={isSearchMemberDrawerOpened}
           onModalOpen={modalOpen}
           onSearchDrawerOpen={searchMemberDrawerOpen}
         />
-      </div>
+      </Flex>
     </Container>
   )
 }

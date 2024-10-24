@@ -1,7 +1,6 @@
 'use client'
 
 import { Avatar, Divider, Group } from '@mantine/core'
-import { useMyProfile } from '@/entities/user/hooks/useMyProfile'
 import BackgroundImage from '@/entities/user/ui/BackgroundImage'
 import UserInfo from '@/entities/user/ui/UserInfo'
 import { UserProfile } from '@/entities/user/types'
@@ -14,6 +13,7 @@ interface ProfileTopSectionProps {
   userProfile?: UserProfile
   render: React.ReactNode
 }
+
 export const ProfileTopSection = ({ username, userProfile, render }: ProfileTopSectionProps) => {
   const { data } = useUser(username, userProfile)
 
