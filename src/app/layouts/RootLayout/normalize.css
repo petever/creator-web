@@ -26,3 +26,8 @@ a {
   list-style: revert;
 }
 
+/* Mux Player */
+mux-player {
+  height:100%;
+  max-width: 600px;
+}
