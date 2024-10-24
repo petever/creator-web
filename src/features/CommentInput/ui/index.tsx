@@ -11,7 +11,7 @@ export const CommentInput = ({id} : CommentInputProps) => {
   const form = useForm({
     mode: 'uncontrolled',
     initialValues: {
-      content: ''
+      contents: ''
     },
   })
   const {addCommentMutate} = useAddComment(id)
@@ -24,7 +24,7 @@ export const CommentInput = ({id} : CommentInputProps) => {
     <form onSubmit={form.onSubmit((values: any) => handleSubmit(values))}>
       <Flex align="center" gap="sm">
         <Box flex={'1 1 80%'}>
-          <Input key={form.key('comment')} {...form.getInputProps('comment')} />
+          <Input key={form.key('contents')} {...form.getInputProps('contents')} />
         </Box>
         <ActionIcon type="submit" size="lg">
           <IconSend/>

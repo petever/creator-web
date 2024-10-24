@@ -3,9 +3,9 @@ import { Avatar, UnstyledButton } from '@mantine/core'
 import classes from './styles.module.css'
 import { useRouter } from 'next/navigation'
 import {useComment} from "@/features/Comment/hooks/useComment";
-import useFeeds from "@/entities/feeds/hooks/useFeeds";
 import {useInView} from "react-intersection-observer";
 import {useEffect, useMemo} from "react";
+import {getDateFormat} from "@/shared/lib";
 
 interface CommentProps {
   id : string
@@ -16,7 +16,7 @@ export const Comment = ({id} : CommentProps) => {
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } = useComment(id)
 
 
-  const comments = useMemo(() => (data ? data.pages.flatMap(({ content }) => content) : []), [data])
+  const comments : Comment[] = useMemo(() => (data ? data.pages.flatMap(({ content }) => content) : []), [data])
 
   const router = useRouter()
 
@@ -35,17 +35,25 @@ export const Comment = ({id} : CommentProps) => {
     fetchMore()
   }, [inView, hasNextPage])
 
+
   if(comments.length < 1) return null
 
   return (
-    <UnstyledButton
-      variant="transparent"
-      color="gray"
-      className={classes.wrapper}
-      onClick={handleMemberPageMove}
-    >
-      <Avatar size="sm" radius="xl" color="gray" />
-      유저명
-    </UnstyledButton>
+    <div>
+      {comments.map((comment) => {
+        return (
+          <div className={classes.wrapper}>
+            <div className={classes.userInfo}>
+              <Avatar size='sm' src={comment.owner.picture}/>
+              <span>{comment.owner.displayName}</span>
+            </div>
+            <div>
+              {comment.contents}
+            </div>
+            <div className={classes.date}>{getDateFormat(comment.createdAt)}</div>
+          </div>
+        )
+      })}
+    </div>
   )
 }

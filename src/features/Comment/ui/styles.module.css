@@ -2,5 +2,19 @@
   display: flex;
   margin: 20px 0;
   gap: 10px;
+  justify-content: space-between;
   align-items: center;
+}
+
+.userInfo {
+  display: flex;
+  gap : 4px;
+  align-items: center;
+  flex:0 0 100px;
+}
+
+.date{
+  flex:0 0 100px;
+  font-size:12px;
+  text-align:center;
 }
