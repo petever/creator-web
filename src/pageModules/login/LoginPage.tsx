@@ -1,11 +1,10 @@
 import { signIn } from '@/auth'
-import {Button, Container, Flex, Text} from "@mantine/core";
+import { Button, Container, Flex, Text } from '@mantine/core'
 import Image from 'next/image'
 
 const LoginPage = () => {
   return (
     <>
-      {/*<ThemeToggleButton />*/}
       <form
         action={async () => {
           'use server'

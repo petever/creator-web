@@ -4,6 +4,7 @@ import { SIDEBARS } from '@/shared/Sidebar/constants'
 import classes from './styles.module.css'
 import { IconBaselineDensityMedium, IconSettings } from '@tabler/icons-react'
 import { PAGE } from '@/shared/constants/page'
+import { ThemeToggleButton } from '@/widgets'
 
 interface SidebarMenuListProps {
   isSearchMemberDrawerOpened: boolean
@@ -67,6 +68,7 @@ const SidebarMenuList = ({
             </Flex>
           </Popover.Target>
           <Popover.Dropdown>
+            <ThemeToggleButton />
             <Link href={PAGE.SETTINGS}>
               <Flex align="center" gap={20}>
                 <IconSettings size={30} stroke={2} />
