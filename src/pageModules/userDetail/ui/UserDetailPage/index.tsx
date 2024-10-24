@@ -4,6 +4,7 @@ import SubscribeButton from '@/features/users/ui/SubscribeButton'
 import { getServerFeeds } from '@/entities/feeds/api/getServerFeeds'
 import { getServerUser } from '@/entities/user/api/getServerUser'
 import { auth } from '@/auth'
+import { Box, Flex } from '@mantine/core'
 
 interface UserDetailPageProps {
   params: {
@@ -20,14 +21,16 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
   const isSelf = session?.user?.id === userProfile.id
 
   return (
-    <div>
-      <ProfileTopSection
-        username={username}
-        userProfile={userProfile}
-        render={<SubscribeButton isSelf={isSelf} userProfile={userProfile} />}
-      />
-      <ContentTabs initialFeeds={initialFeeds} username={username} />
-    </div>
+    <Flex justify="center" flex={1}>
+      <Box maw={600} w="100%">
+        <ProfileTopSection
+          username={username}
+          userProfile={userProfile}
+          render={<SubscribeButton isSelf={isSelf} userProfile={userProfile} />}
+        />
+        <ContentTabs initialFeeds={initialFeeds} username={username} />
+      </Box>
+    </Flex>
   )
 }
 

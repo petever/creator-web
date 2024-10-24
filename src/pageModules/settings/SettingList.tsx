@@ -3,7 +3,7 @@ import { SidebarLayout } from '@/app/layouts/SidebarLayout'
 
 const SettingListPage = () => {
   return (
-    <SidebarLayout title={'설정'}>
+    <SidebarLayout>
       <SettingList />
     </SidebarLayout>
   )

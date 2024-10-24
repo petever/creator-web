@@ -1,101 +1,34 @@
 .wrap {
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
   position: fixed;
   bottom: 0;
   left: 0;
-  flex-direction: row;
+  width: 100%;
   background: var(--mantine-color-body);
   z-index: 50;
-  justify-content: space-around;
-  align-items: center;
+  padding: 8px 0;
 }
 
-.topArea {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-.labelWrapper {
+.logo {
   display: none;
-}
-
-
-.menuWrapper {
-  width: 100%;
-}
-
-.dim {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.linkStyle > div > div {
-  display: flex;
-  align-items: center;
 }
 
 @media screen and (min-width: 640px) {
   .wrap {
-    width: 60px;
-    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    width: 72px;
     top: 0;
     left: 0;
     flex-wrap: wrap;
     margin: 0;
     border-right: 1px solid #bebebe;
-    align-content: space-between;
-    justify-content: space-between;
+    padding: 20px 0;
+    align-items: flex-start;
   }
 
-  .topArea {
-    display: flex;
-    width: 100%;
-    padding: 0 20px;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    gap: 40px;
-  }
-
-  .menu {
-    width: 100%;
-    align-items: start;
-  }
-
-  .drawerWrapper {
-    margin-left: 60px;
-  }
-
-  .setting {
-    display: flex;
-    width: 100%;
-    align-items: start;
-    padding: 0 20px;
-  }
-
-  .setting a {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    height: 36px;
-    align-items: center;
-  }
-
-  .menu > button > span > span {
-    margin: 0;
-  }
-
-  .dim {
-    width: calc(100vw - 60px);
+  .logo {
+    display: block;
+    text-align: center;
   }
 }
 
@@ -103,17 +36,11 @@
   .wrap {
     max-width: 244px;
     min-width: 244px;
+    padding: 20px 24px;
+    justify-content: flex-start;
   }
 
-  .drawerWrapper {
-    margin-left: 340px;
-  }
-
-  .labelWrapper {
-    display: block;
-  }
-
-  .dim {
-    width: calc(100vw - 340px);
+  .logo {
+    text-align: left;
   }
 }

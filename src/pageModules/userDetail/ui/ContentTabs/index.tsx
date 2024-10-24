@@ -1,8 +1,8 @@
 'use client'
 import React from 'react'
 import { Tabs } from '@mantine/core'
-import { FeedContents, FeedResponse, Feeds } from '@/entities/feeds/types'
-import FeedList from '@/pageModules/home/ui/FeedList'
+import { FeedResponse } from '@/entities/feeds/types'
+import FeedList from '../../../../widgets/Post/ui/FeedList'
 
 interface ContentTabsProps {
   initialFeeds: FeedResponse
