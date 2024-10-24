@@ -1,7 +1,7 @@
-import React, {useEffect, useMemo} from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { Post } from '@/widgets/Post/ui'
 import { Flex } from '@mantine/core'
-import {FeedResponse, Feeds} from '@/entities/feeds/types'
+import { FeedResponse } from '@/entities/feeds/types'
 import { useInView } from 'react-intersection-observer'
 import useFeeds from '@/entities/feeds/hooks/useFeeds'
 
@@ -29,15 +29,11 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
   }, [inView, hasNextPage])
 
   if (!postings) {
-    return (
-      <Flex>
-        없어
-      </Flex>
-    )
+    return <Flex>없어</Flex>
   }
 
   return (
-    <Flex direction="column" gap={20} pt={20} pb={20}>
+    <Flex direction="column" gap={20} pt={20} pb={20} align="center">
       {postings.map((posting) => (
         <Post key={posting.id} feed={posting} />
       ))}
