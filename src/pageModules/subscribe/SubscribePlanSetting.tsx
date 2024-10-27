@@ -9,7 +9,7 @@ const SubscribePlanSetting = async () => {
   const session = await auth()
   const subscribePlans = await getServerSubscribePlans(session?.user?.id)
   return (
-    <Box pt={20} pb={20} w="100%">
+    <Box pt={20} pb={20} w="100%" maw="400px">
       <SubscribeCardList userId={session?.user?.id} subscribePlans={subscribePlans} />
       <AddSubscribePlan />
     </Box>

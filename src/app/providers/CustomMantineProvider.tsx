@@ -1,4 +1,5 @@
 import { createTheme, MantineColorsTuple, MantineProvider } from '@mantine/core'
+import { ModalsProvider } from '@mantine/modals'
 
 interface CustomMantineProviderProps {
   children: React.ReactNode
@@ -26,5 +27,9 @@ const theme = createTheme({
 })
 
 export default async function CustomMantineProvider({ children }: CustomMantineProviderProps) {
-  return <MantineProvider theme={theme}>{children}</MantineProvider>
+  return (
+    <MantineProvider theme={theme}>
+      <ModalsProvider>{children}</ModalsProvider>
+    </MantineProvider>
+  )
 }

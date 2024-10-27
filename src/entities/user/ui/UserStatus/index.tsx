@@ -2,6 +2,7 @@ import classes from './stlyes.module.css'
 import { ActionIcon, Flex } from '@mantine/core'
 import { IconCircleArrowDownFilled, IconCircleArrowUpFilled } from '@tabler/icons-react'
 import { useState } from 'react'
+import parse from 'html-react-parser'
 
 interface UserStatusProps {
   status: string
@@ -14,7 +15,9 @@ export const UserStatus = ({ status }: UserStatusProps) => {
 
   return (
     <>
-      <p className={`${classes.status} ${!isExpanded && classes.isExpanded}`}>{status}</p>
+      <div className={`${classes.status} ${!isExpanded && classes.isExpanded}`}>
+        {parse(status)}
+      </div>
       <Flex justify={'end'}>
         <ActionIcon onClick={handleExpandedChange}>
           {isExpanded ? (

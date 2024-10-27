@@ -1,26 +1,25 @@
-import { Badge, Button, Card, Group, NumberFormatter, Popover, Text } from '@mantine/core'
-import { IconDotsVertical } from '@tabler/icons-react'
+import { Badge, Button, Card, Group, NumberFormatter, Text } from '@mantine/core'
 import SubscribeCardMenu from '@/entities/subscribe/ui/SubscribeCardMenu'
-
+import parse from 'html-react-parser'
+import { SubscribePlan } from '@/entities/subscribe/types'
 interface SubscribeCardProps {
-  name: string
-  price: number
-  description: string
+  plan: SubscribePlan
   isCreator?: boolean
 }
-const SubscribeCard = ({ name, price, description, isCreator }: SubscribeCardProps) => {
+
+const SubscribeCard = ({ plan, isCreator }: SubscribeCardProps) => {
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
       <Group justify="space-between" mb="xs">
-        <Text fw={500}>{name}</Text>
+        <Text fw={500}>{plan.name}</Text>
         <Group gap={4}>
           <Badge color="pink" size="xl">
-            <NumberFormatter prefix="₩" value={price} thousandSeparator /> / 월
+            <NumberFormatter prefix="₩" value={plan.price} thousandSeparator /> / 월
           </Badge>
-          <SubscribeCardMenu isCreator={isCreator} />
+          <SubscribeCardMenu isCreator={isCreator} plan={plan} />
         </Group>
       </Group>
-      <Text size="sm" dangerouslySetInnerHTML={{ __html: description }} />
+      {parse(plan.description)}
       <Button fullWidth mt="md" radius="md">
         구독하기
       </Button>
