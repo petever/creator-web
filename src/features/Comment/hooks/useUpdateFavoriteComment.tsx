@@ -3,15 +3,16 @@ import {updateLikePosting} from "@/features/FeedButtons/api/updateFavoritePostin
 import {MUTATION_KEY} from "@/shared/constants/mutaionKey";
 import {FeedContents, FeedPageData, FeedResponse, Feeds} from "@/entities/feeds/types";
 import {QUERY_KEY} from "@/shared/constants/queryKey";
+import {updateFavoriteComment} from "@/features/Comment/api/updateFavoriteComment";
 
-export const useUpdateFavoriteComment = (id: string) => {
+export const useUpdateFavoriteComment = (id: string, commentId : string) => {
   const queryClient = useQueryClient()
   const { mutate: updateLikePostingMutate, data } = useMutation({
-    mutationFn: () => updateLikePosting(id),
+    mutationFn: () => updateFavoriteComment(id, commentId),
     mutationKey : [MUTATION_KEY.UPDATE_LIKE_POSTING],
     onMutate: async (feed : FeedContents) => {
-      await queryClient.cancelQueries({ queryKey: [QUERY_KEY.FEEDS] })
-      const previousFeed = queryClient.getQueryData([QUERY_KEY.FEEDS]) as FeedPageData
+      await queryClient.cancelQueries({ queryKey: [QUERY_KEY.COMMENTS] })
+      const previousComments = queryClient.getQueryData([QUERY_KEY.COMMENTS]) as FeedPageData
 
       const contents = previousFeed.pages.flatMap((page) => page.content
       )

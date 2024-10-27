@@ -10,6 +10,7 @@ export const API_URL = {
   FEEDS_RECOMMEND_USERS: 'feeds/recommendUsers',
   FEED_LIKE: (id: string) => `posts/${id}/like`,
   POSTS_COMMENTS: (id: string) => `posts/${id}/comments`,
+  COMMENT_LIKE : (id : string, commentId : string) => `posts/${id}/comments/${commentId}/like`,
   //SUBSCRIBE
   SUBSCRIBER_PLANS: 'subscriberPlans',
 }
