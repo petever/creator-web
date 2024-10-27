@@ -30,7 +30,7 @@ export const ContentForm = () => {
                     <div className={classes.videoWrapper}>
                       <Video
                         src={url} // 비디오 파일 경로
-                        autoPlay
+                        autoPlay={false}
                         muted
                         loop
                         playsInline

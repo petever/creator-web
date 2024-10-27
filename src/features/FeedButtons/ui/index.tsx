@@ -1,14 +1,10 @@
 import { ActionIcon, ActionIconGroup, Flex, Group } from '@mantine/core'
 import {
-  IconBookmark,
-  IconBookmarkFilled,
   IconHeart,
   IconHeartFilled,
   IconMessageCircle,
-  IconShare,
 } from '@tabler/icons-react'
 import {useUpdateLikePosting} from "@/features/FeedButtons/hooks/useUpdateFavoritePosting";
-import {UserProfile} from "@/entities/user/types";
 import {FeedContents} from "@/entities/feeds/types";
 import classes from './styles.module.css'
 

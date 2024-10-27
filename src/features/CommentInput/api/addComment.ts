@@ -1,7 +1,9 @@
 import {API_URL} from "@/shared/constants/apiURL";
 import {clientKy} from "@/shared/core/clientKy";
-import {AddComment} from "@/features/CommentInput/types";
 
-export const addComment = async (id : string, payload : AddComment) => {
-  return await clientKy.post(API_URL.COMMENTS(id), payload)
+export const addComment = async (id : string, payload : string) => {
+  console.log('payload', payload)
+  return await clientKy.post(API_URL.POSTS_COMMENTS(id), {
+    json : payload
+  })
 }
