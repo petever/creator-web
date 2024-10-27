@@ -17,15 +17,7 @@ const SubscribeCardList = ({ userId, subscribePlans }: SubscribeCardListProps) =
     <Flex gap={20} direction="column">
       {plans?.map((plan: SubscribePlan, index: number) => {
         const isNotCreator = index !== 0
-        return (
-          <SubscribeCard
-            key={plan.id}
-            price={plan.price}
-            name={plan.name}
-            description={plan.description}
-            isCreator={isNotCreator}
-          />
-        )
+        return <SubscribeCard key={plan.id} plan={plan} isCreator={isNotCreator} />
       })}
     </Flex>
   )
