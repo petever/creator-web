@@ -1,5 +1,7 @@
 .videoWrapper {
-    position: relative;
-    height: 100%;
-    background: #000;
+  display:flex;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  background: #000;
 }

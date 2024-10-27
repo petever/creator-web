@@ -1,13 +1,18 @@
-import { Box, Flex, Group } from '@mantine/core'
+import {Box, Divider} from '@mantine/core'
 import { Comment, CommentInput } from '@/features'
+import classes from './styles.module.css'
 
 interface CommentAreaProps {
   id : string
 }
 export const CommentArea = ({ id }: CommentAreaProps) => {
   return (
-    <Box mt={20}>
-      <Comment id={id}/>
+    <Box>
+      <h3>댓글</h3>
+      <Divider mt={10}/>
+      <div className={classes.wrapper}>
+        <Comment id={id}/>
+      </div>
       <CommentInput id={id}/>
     </Box>
   )

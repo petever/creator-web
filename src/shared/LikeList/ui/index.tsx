@@ -12,8 +12,8 @@ interface LikeListProps {
 }
 export const LkeList = ({title, opened, onClose} : LikeListProps) => {
   return (
-    <Modal size="lg" opened={opened} onClose={onClose} centered withCloseButton={false}>
-      <Profile profile={DUMMY_PROFILE} size="sm" isSubscribed/>
+    <Modal size="md" opened={opened} onClose={onClose} centered withCloseButton={false}>
+      좋아요 리스트 노출
     </Modal>
   )
 }

@@ -1,12 +1,11 @@
 'use client'
-import {ActionIcon, Avatar } from '@mantine/core'
+import {ActionIcon, Avatar, UnstyledButton} from '@mantine/core'
 import classes from './styles.module.css'
 import { useRouter } from 'next/navigation'
 import {useComment} from "@/features/Comment/hooks/useComment";
 import {useInView} from "react-intersection-observer";
 import {useEffect, useMemo} from "react";
 import {IconHeart, IconHeartFilled} from "@tabler/icons-react";
-import {useUpdateFavoriteComment} from "@/features/Comment/hooks/useUpdateFavoriteComment";
 
 interface CommentProps {
   id : string
@@ -29,8 +28,8 @@ export const Comment = ({id} : CommentProps) => {
     // updateLikeCommentMutate({...feed})
   }
 
-  const handleMemberPageMove = () => {
-    router.push('/3')
+  const handleMemberPageMove = (name : string) => {
+    router.push(`/${name}`)
   }
 
   const fetchMore = () => {
@@ -50,14 +49,14 @@ export const Comment = ({id} : CommentProps) => {
   if(comments.length < 1) return null
 
   return (
-    <div>
+    <div className={classes.wrapper}>
       {comments.map((comment) => {
         return (
-          <div className={classes.wrapper}>
-            <div className={classes.userInfo}>
+          <div className={classes.commentWrapper}>
+            <UnstyledButton className={classes.userInfo} onClick={() => handleMemberPageMove(comment.owner.username)}>
               <Avatar size='sm' src={comment.owner.picture}/>
               <span>{comment.owner.displayName}</span>
-            </div>
+            </UnstyledButton>
             <div className={classes.contentWrapper}>
               {comment.contents}
             </div>

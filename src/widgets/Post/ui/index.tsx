@@ -9,6 +9,8 @@ import { LkeList } from '@/shared/LikeList/ui'
 import { FeedContent } from '@/entities/feeds/ui'
 import { FeedMedia } from '@/entities/feeds/ui/FeedMedia'
 import {useEffect, useRef, useState} from "react";
+import {useMediaQuery} from "@mantine/hooks";
+import {CommentListModal} from "@/shared";
 
 interface PostProps {
   feed: FeedContents
@@ -22,6 +24,8 @@ interface ElementPosition {
 export const Post = ({ feed }: PostProps) => {
   const [isPlay, setIsPlay] = useState(false)
 
+  const isPc = useMediaQuery('(min-width: 640px)');
+
   const ref = useRef<HTMLDivElement>()
   const elementPosition = useRef<ElementPosition>({
     offsetTop : 0,
@@ -30,8 +34,13 @@ export const Post = ({ feed }: PostProps) => {
 
   const [feedOpened, { open: feedDetailOpen, close: feedDetailClose }] = useDisclosure(false)
   const [likeListOpened, { open: likeListOpen, close: likeListClose }] = useDisclosure(false)
+  const [commentListOpened, { open: commentListOpen, close: commentListClose }] = useDisclosure(false)
+
 
   const handleDetailOpen = () => {
+    if(!isPc) {
+      return commentListOpen()
+    }
     feedDetailOpen()
   }
 
@@ -66,6 +75,10 @@ export const Post = ({ feed }: PostProps) => {
       </Box>
       <LkeList opened={likeListOpened} onClose={likeListClose} />
       <FeedDetail feed={feed} opened={feedOpened} onClose={feedDetailClose} />
+      <CommentListModal
+        feed={feed}
+        opened={commentListOpened} onClose={commentListClose}
+      />
     </Card>
   )
 }
