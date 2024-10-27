@@ -32,7 +32,7 @@ const PreviewList = ({
         {currentFileType === 'video' &&
           <Video
             src={currentFile} // 비디오 파일 경로
-            autoPlay
+            autoPlay={false}
             muted
             loop
             playsInline

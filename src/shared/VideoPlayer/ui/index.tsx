@@ -10,7 +10,7 @@ export const VideoPlayer = ({src, isControl = false} : VideoPlayerProps) => {
     <div className={classes.videoWrapper}>
       <Player
         src={src}
-        autoPlay
+        autoPlay={false}
         muted
         loop
         playsInline

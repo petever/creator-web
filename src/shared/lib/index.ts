@@ -8,5 +8,10 @@ dayjs.locale('ko')
 dayjs.tz.setDefault('Asia/Seoul');
 
 export const getDateFormat = (day : Date) => {
+  const today = dayjs().tz().format('YYYY-MM-DD')
+  const isToday = today === day
+  if(isToday) {
+    return dayjs(day).tz().format('hh:mm:ss')
+  }
   return dayjs(day).tz().format('YYYY-MM-DD hh:mm:ss')
 }
