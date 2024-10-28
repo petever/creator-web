@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useRef} from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 import { Post } from '@/widgets/Post/ui'
 import { Flex } from '@mantine/core'
 import { FeedResponse } from '@/entities/feeds/types'
@@ -11,12 +11,12 @@ interface FeedListProps {
 }
 
 const FeedList = ({ initialFeeds, username }: FeedListProps) => {
-
   const scrollPositionRef = useRef(0)
 
   const { ref, inView } = useInView()
 
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } = useFeeds(initialFeeds, username)
+  console.log(data, 'data')
 
   const postings = useMemo(() => (data ? data.pages.flatMap(({ content }) => content) : []), [data])
 
@@ -27,22 +27,21 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
     void fetchNextPage()
   }
 
-
   useEffect(() => {
     fetchMore()
   }, [inView, hasNextPage])
 
   const handleScroll = () => {
-    scrollPositionRef.current = window.scrollY;
-  };
+    scrollPositionRef.current = window.scrollY
+  }
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll)
     }
-  }, []);
+  }, [])
 
   if (!postings) {
     return <Flex>없어</Flex>
@@ -51,7 +50,7 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
   return (
     <Flex direction="column" gap={20} pt={20} pb={20} justify="center" align="center" w="600px">
       {postings.map((posting) => (
-        <Post key={posting.id} feed={posting}/>
+        <Post key={posting.id} feed={posting} />
       ))}
       <div ref={ref}></div>
     </Flex>

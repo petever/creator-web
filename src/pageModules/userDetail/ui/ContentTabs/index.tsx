@@ -15,7 +15,7 @@ const ContentTabs = ({ initialFeeds, username }: ContentTabsProps) => {
       <Tabs defaultValue="posts" h={50}>
         <Tabs.List h={50}>
           <Tabs.Tab value="posts" w="50%" h={50}>
-            게시물 (30)
+            게시물 ({initialFeeds.content.length})
           </Tabs.Tab>
           <Tabs.Tab value="all" w="50%" h={50}>
             모두

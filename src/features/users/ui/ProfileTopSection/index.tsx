@@ -36,7 +36,7 @@ export const ProfileTopSection = ({ username, userProfile, render }: ProfileTopS
         </Group>
         <UserStatus status={data.status} />
       </div>
-      <Divider size={10} color={'themeColors'} />
+      <Divider size={2} color={'themeColors'} />
     </div>
   )
 }
