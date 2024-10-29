@@ -1,6 +1,6 @@
 import {UserProfile} from "@/entities/user/types";
 
-export interface Comment {
+export interface CommentTypes {
   contents : string
   createdAt : string
   id : string
@@ -8,4 +8,8 @@ export interface Comment {
   owner : UserProfile
   postId : string
   updatedAt : string
+}
+
+export interface CommentSubmit {
+  contents : string
 }

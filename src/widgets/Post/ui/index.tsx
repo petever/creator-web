@@ -49,8 +49,8 @@ export const Post = ({ feed }: PostProps) => {
   }
 
   useEffect(() => {
-    elementPosition.current.offsetTop = ref.current?.offsetTop
-    elementPosition.current.offsetBottom = ref.current?.offsetTop + ref.current?.offsetHeight
+    // elementPosition.current.offsetTop = ref.current?.offsetTop
+    // elementPosition.current.offsetBottom = ref.current?.offsetTop + ref.current?.offsetHeight
   }, []);
 
   if (!feed) return null
@@ -58,7 +58,7 @@ export const Post = ({ feed }: PostProps) => {
   const { likeCount, commentCount, resources } = feed
 
   return (
-    <Card p={0} shadow="lg" padding="lg" radius="lg" w="100%" ref={ref}>
+    <Card p={0} shadow="lg" padding="lg" radius="lg" w="100%">
       <PostingHeader profile={feed.owner} />
       <FeedContent contents={feed.contents} createdAt={feed.createdAt} />
       <FeedMedia resources={feed.resources} />

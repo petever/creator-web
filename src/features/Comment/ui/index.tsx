@@ -6,6 +6,7 @@ import {useComment} from "@/features/Comment/hooks/useComment";
 import {useInView} from "react-intersection-observer";
 import {useEffect, useMemo} from "react";
 import {IconHeart, IconHeartFilled} from "@tabler/icons-react";
+import {CommentTypes} from "@/features/Comment/type";
 
 interface CommentProps {
   id : string
@@ -16,7 +17,7 @@ export const Comment = ({id} : CommentProps) => {
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } = useComment(id)
 
 
-  const comments : Comment[] = useMemo(() => (data ? data.pages.flatMap(({ content }) => content) : []), [data])
+  const comments : CommentTypes[] = useMemo(() => (data ? data.pages.flatMap(({ content }) => content) : []), [data])
 
   const router = useRouter()
 
@@ -54,7 +55,7 @@ export const Comment = ({id} : CommentProps) => {
         return (
           <div className={classes.commentWrapper}>
             <UnstyledButton className={classes.userInfo} onClick={() => handleMemberPageMove(comment.owner.username)}>
-              <Avatar size='sm' src={comment.owner.picture}/>
+              <Avatar size='sm' src={comment.owner.picture as string}/>
               <span>{comment.owner.displayName}</span>
             </UnstyledButton>
             <div className={classes.contentWrapper}>

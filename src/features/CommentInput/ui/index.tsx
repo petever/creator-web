@@ -20,7 +20,7 @@ export const CommentInput = ({id} : CommentInputProps) => {
     const { contents } = values
     if(!contents) return
 
-    addCommentMutate(values as string)
+    addCommentMutate(values)
   }
 
   return (

@@ -11,6 +11,7 @@ export const useUpdateFavoriteComment = (id: string, commentId : string) => {
     mutationFn: () => updateFavoriteComment(id, commentId),
     mutationKey : [MUTATION_KEY.UPDATE_LIKE_POSTING],
     onMutate: async (feed : FeedContents) => {
+      /*
       await queryClient.cancelQueries({ queryKey: [QUERY_KEY.COMMENTS] })
       const previousComments = queryClient.getQueryData([QUERY_KEY.COMMENTS]) as FeedPageData
 
@@ -44,12 +45,13 @@ export const useUpdateFavoriteComment = (id: string, commentId : string) => {
       });
 
       return { previousFeed }
+       */
     },
     onError: (err, newTodo, context) => {
-      queryClient.setQueryData([QUERY_KEY.FEEDS], context?.previousFeed)
+      // queryClient.setQueryData([QUERY_KEY.FEEDS], context?.previousFeed)
     },
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEY.FEEDS] })
+      // queryClient.invalidateQueries({ queryKey: [QUERY_KEY.FEEDS] })
     },
   })
 
