@@ -6,6 +6,7 @@ export const MUTATION_KEY = {
   ADD_SUBSCRIBE_PLAN: 'addSubscribePlan',
   DELETE_SUBSCRIBE_PLAN: 'deleteSubscribePlan',
   EDIT_SUBSCRIBE_PLAN: 'editSubscribePlan',
+  CREATOR_SUBSCRIBE: 'creatorSubscribe',
   //COMMENT
   ADD_COMMENT: 'addComment',
 }

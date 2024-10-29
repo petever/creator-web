@@ -42,7 +42,7 @@ const SubscribeCardMenu = ({ plan, isCreator }: SubscribeCardMenuProps) => {
   return (
     <>
       <SubscribePlanModal opened={opened} close={close} plan={plan} onClick={handleEdit} />
-      <Popover zIndex={10} position="bottom" shadow="md">
+      <Popover position="bottom" shadow="md">
         <Popover.Target>
           <IconDotsVertical color="#bbb" />
         </Popover.Target>

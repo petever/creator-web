@@ -14,7 +14,6 @@ interface SubscribePlanModal {
 }
 
 const SubscribePlanModal = ({ opened, close, onClick, plan }: SubscribePlanModal) => {
-  console.log(plan, 'plan')
   const form = useForm({
     mode: 'controlled',
     initialValues: {

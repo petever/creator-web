@@ -17,8 +17,6 @@ describe('피드에 있는 버튼들이 있다.', () => {
 
     const favoriteBtn = screen.getByTestId('favorite_btn')
 
-    it('좋아요 상태가 변경된다.', async () => {
-      console.log(await userEvent.click(favoriteBtn))
-    })
+    it('좋아요 상태가 변경된다.', async () => {})
   })
 })

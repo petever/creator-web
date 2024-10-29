@@ -1,13 +1,18 @@
 import { Badge, Button, Card, Group, NumberFormatter, Text } from '@mantine/core'
-import SubscribeCardMenu from '@/entities/subscribe/ui/SubscribeCardMenu'
+import SubscribeCardMenu from '@/features/subscribe/ui/SubscribeCardMenu'
 import parse from 'html-react-parser'
 import { SubscribePlan } from '@/entities/subscribe/types'
 interface SubscribeCardProps {
   plan: SubscribePlan
   isCreator?: boolean
+  onClick?: (id: string) => void
 }
 
-const SubscribeCard = ({ plan, isCreator }: SubscribeCardProps) => {
+const SubscribeCard = ({ plan, isCreator, onClick }: SubscribeCardProps) => {
+  const handleClick = () => {
+    if (!onClick) return
+    onClick(plan.id)
+  }
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
       <Group justify="space-between" mb="xs">
@@ -20,7 +25,7 @@ const SubscribeCard = ({ plan, isCreator }: SubscribeCardProps) => {
         </Group>
       </Group>
       {parse(plan.description)}
-      <Button fullWidth mt="md" radius="md">
+      <Button fullWidth mt="md" radius="md" onClick={handleClick} disabled={isCreator}>
         구독하기
       </Button>
     </Card>
