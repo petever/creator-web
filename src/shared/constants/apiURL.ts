@@ -12,5 +12,6 @@ export const API_URL = {
   POSTS_COMMENTS: (id: string) => `posts/${id}/comments`,
   COMMENT_LIKE: (id: string, commentId: string) => `posts/${id}/comments/${commentId}/like`,
   //SUBSCRIBE
+  SUBSCRIBERS: 'subscribers',
   SUBSCRIBER_PLANS: 'subscriberPlans',
 }

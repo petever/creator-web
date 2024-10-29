@@ -16,7 +16,6 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
   const { ref, inView } = useInView()
 
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } = useFeeds(initialFeeds, username)
-  console.log(data, 'data')
 
   const postings = useMemo(() => (data ? data.pages.flatMap(({ content }) => content) : []), [data])
 
