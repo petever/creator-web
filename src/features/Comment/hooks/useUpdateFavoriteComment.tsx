@@ -9,7 +9,7 @@ export const useUpdateFavoriteComment = (id: string, commentId : string) => {
   const queryClient = useQueryClient()
   const { mutate: updateLikePostingMutate, data } = useMutation({
     mutationFn: () => updateFavoriteComment(id, commentId),
-    mutationKey : [MUTATION_KEY.UPDATE_LIKE_POSTING],
+    mutationKey : [MUTATION_KEY.UPDATE_LIKE_COMMENT],
     onMutate: async (feed : FeedContents) => {
       /*
       await queryClient.cancelQueries({ queryKey: [QUERY_KEY.COMMENTS] })

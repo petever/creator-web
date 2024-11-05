@@ -1,13 +1,14 @@
 import { QueryClient, useInfiniteQuery, useQueryClient } from '@tanstack/react-query'
 import { QUERY_KEY } from '@/shared/constants/queryKey'
 import { getFeeds } from '@/entities/feeds/api/getFeeds'
-import { FeedResponse, Feeds } from '@/entities/feeds/types'
-import { getFeedSearchParams } from '@/entities/feeds/lib'
+import {FeedContents, FeedResponse, Feeds} from '@/entities/feeds/types'
+import {getFeedQueryKey, getFeedSearchParams, getMoreFeeds} from '@/entities/feeds/lib'
 
 const useFeeds = (initialData: FeedResponse, username?: string) => {
   const queryClient = useQueryClient()
   return useInfiniteQuery({
-    queryKey: [QUERY_KEY.FEEDS, username],
+    queryKey: getFeedQueryKey(username),
+    enabled : !!username,
     queryFn: getFeeds,
     initialData: {
       pages: [initialData],
@@ -15,14 +16,9 @@ const useFeeds = (initialData: FeedResponse, username?: string) => {
     },
     initialPageParam: getFeedSearchParams(username),
     getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
-      queryClient.getQueryData([QUERY_KEY.FEEDS])
-      if (lastPage.last) return
-      return {
-        size: 10,
-        page: lastPageParam.page + 10,
-        username: lastPageParam.username,
-        sort: ['string'],
-      }
+      const allFeeds : FeedContents[] = allPages.flatMap(({ content }) => content)
+      queryClient.getQueryData(getFeedQueryKey(username))
+      return getMoreFeeds(allFeeds, username)
     },
   })
 }

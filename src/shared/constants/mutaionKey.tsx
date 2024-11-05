@@ -9,4 +9,5 @@ export const MUTATION_KEY = {
   CREATOR_SUBSCRIBE: 'creatorSubscribe',
   //COMMENT
   ADD_COMMENT: 'addComment',
+  UPDATE_LIKE_COMMENT: 'updateLikeComment',
 }
