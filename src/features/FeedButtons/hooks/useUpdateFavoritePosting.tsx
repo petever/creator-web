@@ -4,10 +4,12 @@ import {MUTATION_KEY} from "@/shared/constants/mutaionKey";
 import {FeedContents, FeedPageData } from "@/entities/feeds/types";
 import {QUERY_KEY} from "@/shared/constants/queryKey";
 import {getFeedQueryKey} from "@/entities/feeds/lib";
+import { notifications } from '@mantine/notifications'
+
 
 export const useUpdateLikePosting = (id: string, username ?: string) => {
   const queryClient = useQueryClient()
-  const { mutate: updateLikePostingMutate, data } = useMutation({
+  const { mutate: updateLikePostingMutate, data, isError } = useMutation({
     mutationFn: () => updateLikePosting(id),
     mutationKey : [MUTATION_KEY.UPDATE_LIKE_POSTING],
     onMutate: async (feed : FeedContents) => {
@@ -52,6 +54,7 @@ export const useUpdateLikePosting = (id: string, username ?: string) => {
 
   return {
     data,
+    isError,
     updateLikePostingMutate,
   }
 }

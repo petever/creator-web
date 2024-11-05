@@ -10,7 +10,7 @@ import { FeedContent } from '@/entities/feeds/ui'
 import { FeedMedia } from '@/entities/feeds/ui/FeedMedia'
 import {useEffect, useRef, useState} from "react";
 import {useMediaQuery} from "@mantine/hooks";
-import {CommentListModal} from "@/shared";
+import {CommentListModal, LoginModal} from "@/shared";
 
 interface PostProps {
   feed: FeedContents
@@ -32,10 +32,9 @@ export const Post = ({ feed }: PostProps) => {
     offsetBottom : 0
   })
 
-  const [feedOpened, { open: feedDetailOpen, close: feedDetailClose }] = useDisclosure(false)
-  const [likeListOpened, { open: likeListOpen, close: likeListClose }] = useDisclosure(false)
-  const [commentListOpened, { open: commentListOpen, close: commentListClose }] = useDisclosure(false)
-
+  const [ feedOpened, { open: feedDetailOpen, close: feedDetailClose } ] = useDisclosure(false)
+  const [ likeListOpened, { open: likeListOpen, close: likeListClose } ] = useDisclosure(false)
+  const [ commentListOpened, { open: commentListOpen, close: commentListClose } ] = useDisclosure(false)
 
   const handleDetailOpen = () => {
     if(!isPc) {

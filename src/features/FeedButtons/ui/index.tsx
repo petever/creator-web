@@ -1,4 +1,5 @@
-import { ActionIcon, ActionIconGroup, Flex, Group } from '@mantine/core'
+'use client'
+import { ActionIcon, ActionIconGroup, Flex } from '@mantine/core'
 import {
   IconHeart,
   IconHeartFilled,
@@ -7,6 +8,9 @@ import {
 import {useUpdateLikePosting} from "@/features/FeedButtons/hooks/useUpdateFavoritePosting";
 import {FeedContents} from "@/entities/feeds/types";
 import classes from './styles.module.css'
+import {useSession} from "next-auth/react";
+import {LoginModal} from "@/shared";
+import { useDisclosure } from '@mantine/hooks'
 
 interface FeedButtonsProps {
   feed: FeedContents
@@ -14,11 +18,16 @@ interface FeedButtonsProps {
 }
 
 export const FeedButtons = ({ feed, onDetailModal }: FeedButtonsProps) => {
-  const { updateLikePostingMutate, data } = useUpdateLikePosting(feed.id)
-
+  const { data: session, status } = useSession()
+  const { updateLikePostingMutate, data, isError } = useUpdateLikePosting(feed.id)
   const { isLiked } = feed
 
+  const [ loginModalOpened, { open : loginModalOpen, close : loginModalClose} ] = useDisclosure(false)
+
   const handleFavoritePosting = async () => {
+    if(isError) {
+      return loginModalOpen()
+    }
     updateLikePostingMutate({...feed})
   }
 
@@ -54,6 +63,11 @@ export const FeedButtons = ({ feed, onDetailModal }: FeedButtonsProps) => {
         {/*  </ActionIcon>*/}
         {/*</Group>*/}
       </Flex>
+      <LoginModal
+        owner={feed.owner}
+        opened={loginModalOpened}
+        onClose={loginModalClose}
+      />
     </div>
   )
 }
