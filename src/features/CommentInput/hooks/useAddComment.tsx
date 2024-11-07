@@ -10,7 +10,7 @@ export const useAddComment = (id : string) => {
     mutationKey: [MUTATION_KEY.ADD_COMMENT],
     mutationFn: (comment : CommentSubmit) => addComment(id, comment),
     onSuccess: () => {
-      return queryClient.invalidateQueries({ queryKey: [QUERY_KEY.COMMENTS] })
+      return queryClient.invalidateQueries({ queryKey: [QUERY_KEY.COMMENTS, id] })
     },
   })
 

@@ -14,12 +14,14 @@ import { useDisclosure } from '@mantine/hooks'
 
 interface FeedButtonsProps {
   feed: FeedContents
+  username?: string
   onDetailModal: () => void
 }
-
-export const FeedButtons = ({ feed, onDetailModal }: FeedButtonsProps) => {
+  
+export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps) => {
   const { data: session, status } = useSession()
-  const { updateLikePostingMutate, data, isError } = useUpdateLikePosting(feed.id)
+  const { updateLikePostingMutate, data, isError} = useUpdateLikePosting(feed.id, username)
+
   const { isLiked } = feed
 
   const [ loginModalOpened, { open : loginModalOpen, close : loginModalClose} ] = useDisclosure(false)

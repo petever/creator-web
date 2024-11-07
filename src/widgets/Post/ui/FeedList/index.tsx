@@ -4,6 +4,7 @@ import { Flex } from '@mantine/core'
 import { FeedResponse } from '@/entities/feeds/types'
 import { useInView } from 'react-intersection-observer'
 import useFeeds from '@/entities/feeds/hooks/useFeeds'
+import { useSearchParams } from 'next/navigation'
 
 interface FeedListProps {
   initialFeeds: FeedResponse
@@ -49,7 +50,7 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
   return (
     <Flex direction="column" gap={20} pt={20} pb={20} justify="center" align="center" w="600px">
       {postings.map((posting) => (
-        <Post key={posting.id} feed={posting} />
+        <Post key={posting.id} feed={posting} username={username}/>
       ))}
       <div ref={ref}></div>
     </Flex>

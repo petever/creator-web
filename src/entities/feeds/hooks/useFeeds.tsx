@@ -5,10 +5,10 @@ import {FeedContents, FeedResponse, Feeds} from '@/entities/feeds/types'
 import {getFeedQueryKey, getFeedSearchParams, getMoreFeeds} from '@/entities/feeds/lib'
 
 const useFeeds = (initialData: FeedResponse, username?: string) => {
+  console.log('getFeedQueryKey(username), ', getFeedQueryKey(username))
   const queryClient = useQueryClient()
   return useInfiniteQuery({
     queryKey: getFeedQueryKey(username),
-    enabled : !!username,
     queryFn: getFeeds,
     initialData: {
       pages: [initialData],
@@ -16,9 +16,11 @@ const useFeeds = (initialData: FeedResponse, username?: string) => {
     },
     initialPageParam: getFeedSearchParams(username),
     getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
-      const allFeeds : FeedContents[] = allPages.flatMap(({ content }) => content)
+      const lastIndex = lastPage.content.length - 1
+      if(lastPage.content.length < 10) return
+      const nextId = lastPage.content[lastIndex]?.id
       queryClient.getQueryData(getFeedQueryKey(username))
-      return getMoreFeeds(allFeeds, username)
+      return getMoreFeeds(nextId, username)
     },
   })
 }

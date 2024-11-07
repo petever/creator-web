@@ -13,3 +13,7 @@ export interface CommentTypes {
 export interface CommentSubmit {
   contents : string
 }
+export interface CommentSearchParams {
+  nextId?: string
+  size: number
+}

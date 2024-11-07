@@ -15,6 +15,7 @@ export const useUpdateLikePosting = (id: string, username ?: string) => {
     onMutate: async (feed : FeedContents) => {
       await queryClient.cancelQueries({ queryKey: getFeedQueryKey(username) })
       const previousFeed = queryClient.getQueryData(getFeedQueryKey(username) ) as FeedPageData
+      console.log('previousFeed', previousFeed)
 
       const contentIndex = previousFeed.pages.findIndex((page) => page.content.find((content) => content.id === feed.id))
 
@@ -34,7 +35,6 @@ export const useUpdateLikePosting = (id: string, username ?: string) => {
         number : previousFeed.pages[contentIndex].number
       }
 
-
       queryClient.setQueryData(getFeedQueryKey(username) , (oldData : FeedPageData) => {
         return {
         ...oldData,
@@ -45,9 +45,11 @@ export const useUpdateLikePosting = (id: string, username ?: string) => {
       return { previousFeed }
     },
     onError: (err, newTodo, context) => {
-      queryClient.setQueryData([QUERY_KEY.FEEDS, username], context?.previousFeed)
+      console.log('error' , err)
+      queryClient.setQueryData(getFeedQueryKey(username) , context?.previousFeed)
     },
     onSettled: () => {
+      console.log('settled')
       return queryClient.invalidateQueries({ queryKey: getFeedQueryKey(username) });
     },
   })
