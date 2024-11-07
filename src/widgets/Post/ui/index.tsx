@@ -14,6 +14,7 @@ import {CommentListModal} from "@/shared";
 
 interface PostProps {
   feed: FeedContents
+  username ?: string
 }
 
 interface ElementPosition {
@@ -21,7 +22,7 @@ interface ElementPosition {
   offsetBottom ?: number
 }
 
-export const Post = ({ feed }: PostProps) => {
+export const Post = ({ feed, username}: PostProps) => {
   const [isPlay, setIsPlay] = useState(false)
 
   const isPc = useMediaQuery('(min-width: 640px)');
@@ -62,7 +63,7 @@ export const Post = ({ feed }: PostProps) => {
       <PostingHeader profile={feed.owner} />
       <FeedContent contents={feed.contents} createdAt={feed.createdAt} />
       <FeedMedia resources={feed.resources} />
-      <FeedButtons feed={feed} onDetailModal={handleDetailOpen} />
+      <FeedButtons feed={feed} onDetailModal={handleDetailOpen} username={username}/>
       <Box>
         <Button variant="transparent" onClick={handleLikeListOpen}>
           좋아요 {likeCount}개 모두 보기

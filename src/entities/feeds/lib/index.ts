@@ -1,4 +1,3 @@
-import {FeedContents} from "@/entities/feeds/types";
 import {QUERY_KEY} from "@/shared/constants/queryKey";
 
 export const getFeedQueryKey = (username?: string) => {

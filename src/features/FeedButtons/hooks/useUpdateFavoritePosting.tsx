@@ -14,6 +14,7 @@ export const useUpdateLikePosting = (id: string, username ?: string) => {
       await queryClient.cancelQueries({ queryKey: getFeedQueryKey(username) })
       const previousFeed = queryClient.getQueryData(getFeedQueryKey(username) ) as FeedPageData
       console.log('previousFeed', previousFeed)
+
       const contentIndex = previousFeed.pages.findIndex((page) => page.content.find((content) => content.id === feed.id))
 
       const newContents = previousFeed.pages[contentIndex].content.map((content) => {

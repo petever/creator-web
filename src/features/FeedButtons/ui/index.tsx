@@ -10,11 +10,12 @@ import classes from './styles.module.css'
 
 interface FeedButtonsProps {
   feed: FeedContents
+  username?: string
   onDetailModal: () => void
 }
 
-export const FeedButtons = ({ feed, onDetailModal }: FeedButtonsProps) => {
-  const { updateLikePostingMutate, data } = useUpdateLikePosting(feed.id)
+export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps) => {
+  const { updateLikePostingMutate, data } = useUpdateLikePosting(feed.id, username)
 
   const { isLiked } = feed
 

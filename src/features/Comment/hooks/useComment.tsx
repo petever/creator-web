@@ -14,12 +14,10 @@ export const useComment = (id : string) => {
     },
     initialPageParam: PAGE_PARAM,
     getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
-      console.log('lastPage', lastPage)
       queryClient.getQueryData([QUERY_KEY.COMMENTS, id])
       const lastIndex = lastPage.content.length - 1
       if(lastPage.content.length < 10) return
       const nextId = lastPage.content[lastIndex]?.id
-      console.log('comment Next Id', nextId)
       return {
         size : PAGE_PARAM.size,
         nextId : nextId,

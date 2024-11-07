@@ -5,6 +5,7 @@ import {FeedContents, FeedResponse, Feeds} from '@/entities/feeds/types'
 import {getFeedQueryKey, getFeedSearchParams, getMoreFeeds} from '@/entities/feeds/lib'
 
 const useFeeds = (initialData: FeedResponse, username?: string) => {
+  console.log('getFeedQueryKey(username), ', getFeedQueryKey(username))
   const queryClient = useQueryClient()
   return useInfiniteQuery({
     queryKey: getFeedQueryKey(username),
@@ -15,7 +16,6 @@ const useFeeds = (initialData: FeedResponse, username?: string) => {
     },
     initialPageParam: getFeedSearchParams(username),
     getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
-      console.log('nextPage')
       const lastIndex = lastPage.content.length - 1
       if(lastPage.content.length < 10) return
       const nextId = lastPage.content[lastIndex]?.id
