@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Video from 'next-video';
 import classes from './styles.module.css'
 import { MoreMediaUpload } from '@/features/PreviewList/ui/MoreMediaUpload'
+import {VideoPlayer} from "@/shared";
 
 interface PreviewListProps {
   currentFile?: string
@@ -24,21 +25,17 @@ const PreviewList = ({
   onRemoveImage,
   onImageUpload,
 }: PreviewListProps) => {
+  const isImage = currentFileType === 'image'
+  const isVideo = currentFileType === 'video'
+
   if (!currentFile) return null
   return (
     <div className={classes.wrapper}>
       <div className={classes.currentFilePreview}>
-        {currentFileType === 'image' && <Image src={currentFile} fill alt="" />}
-        {currentFileType === 'video' &&
-          <Video
-            src={currentFile} // 비디오 파일 경로
-            autoPlay={false}
-            muted
-            loop
-            playsInline
-            controls={false}
-          ></Video>
-        }
+        <div className={classes.contentWrapper}>
+          {currentFileType === 'image' && <Image src={currentFile} fill alt=""/>}
+          {currentFileType === 'video' && <VideoPlayer src={currentFile}/>}
+        </div>
       </div>
       <MoreMediaUpload
         currentIndex={currentIndex}

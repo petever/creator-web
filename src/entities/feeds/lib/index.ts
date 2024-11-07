@@ -22,17 +22,17 @@ export const getFeedSearchParams = (username ?: string) => {
   }
 }
 
-export const getMoreFeeds = (allFeeds : FeedContents[], username ?: string) => {
+export const getMoreFeeds = (page : number, username ?: string) => {
   if(!username) {
     return  {
       size: 10,
-      page: allFeeds.length + 10,
+      page: page++,
       sort: ['string'],
     }
   }
   return {
     size: 10,
-    page: allFeeds.length + 10,
+    page: page++,
     username: username,
     sort: ['string'],
   }

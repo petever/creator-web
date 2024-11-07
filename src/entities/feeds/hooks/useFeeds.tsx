@@ -8,7 +8,6 @@ const useFeeds = (initialData: FeedResponse, username?: string) => {
   const queryClient = useQueryClient()
   return useInfiniteQuery({
     queryKey: getFeedQueryKey(username),
-    enabled : !!username,
     queryFn: getFeeds,
     initialData: {
       pages: [initialData],
@@ -16,9 +15,17 @@ const useFeeds = (initialData: FeedResponse, username?: string) => {
     },
     initialPageParam: getFeedSearchParams(username),
     getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
-      const allFeeds : FeedContents[] = allPages.flatMap(({ content }) => content)
+      if(lastPage.last)  return
       queryClient.getQueryData(getFeedQueryKey(username))
-      return getMoreFeeds(allFeeds, username)
+
+      console.log('lastPageParam', lastPageParam)
+      return {
+        size: 10,
+        page: lastPageParam.page++,
+        username: username,
+        sort: ['string'],
+      }
+      // return getMoreFeeds(lastPageParam.page, username)
     },
   })
 }

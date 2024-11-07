@@ -4,7 +4,7 @@ import classes from './styles.module.css'
 import { useRouter } from 'next/navigation'
 import {useComment} from "@/features/Comment/hooks/useComment";
 import {useInView} from "react-intersection-observer";
-import {useEffect, useMemo} from "react";
+import React, {useEffect, useMemo} from "react";
 import {IconHeart, IconHeartFilled} from "@tabler/icons-react";
 import {CommentTypes} from "@/features/Comment/type";
 
@@ -75,6 +75,7 @@ export const Comment = ({id} : CommentProps) => {
           </div>
         )
       })}
+      <div ref={ref}></div>
     </div>
   )
 }
