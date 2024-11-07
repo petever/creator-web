@@ -52,6 +52,7 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
       {postings.map((posting) => (
         <Post key={posting.id} feed={posting} />
       ))}
+      <div ref={ref}></div>
     </Flex>
   )
 }

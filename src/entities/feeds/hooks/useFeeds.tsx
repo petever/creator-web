@@ -15,17 +15,12 @@ const useFeeds = (initialData: FeedResponse, username?: string) => {
     },
     initialPageParam: getFeedSearchParams(username),
     getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
-      if(lastPage.last)  return
+      console.log('nextPage')
+      const lastIndex = lastPage.content.length - 1
+      if(lastPage.content.length < 10) return
+      const nextId = lastPage.content[lastIndex]?.id
       queryClient.getQueryData(getFeedQueryKey(username))
-
-      console.log('lastPageParam', lastPageParam)
-      return {
-        size: 10,
-        page: lastPageParam.page++,
-        username: username,
-        sort: ['string'],
-      }
-      // return getMoreFeeds(lastPageParam.page, username)
+      return getMoreFeeds(nextId, username)
     },
   })
 }

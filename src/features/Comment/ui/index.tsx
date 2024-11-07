@@ -18,6 +18,7 @@ export const Comment = ({id} : CommentProps) => {
 
 
   const comments : CommentTypes[] = useMemo(() => (data ? data.pages.flatMap(({ content }) => content) : []), [data])
+  console.log('comments', comments)
 
   const router = useRouter()
 

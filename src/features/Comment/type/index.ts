@@ -1,5 +1,4 @@
 import {UserProfile} from "@/entities/user/types";
-import {FeedContents} from "@/entities/feeds/types";
 
 export interface CommentTypes {
   contents : string
@@ -14,15 +13,7 @@ export interface CommentTypes {
 export interface CommentSubmit {
   contents : string
 }
-
 export interface CommentSearchParams {
   nextId?: string
-  page: number
   size: number
-}
-
-export interface CommentResponse {
-  content : CommentTypes[]
-  last : boolean
-  number : number
 }

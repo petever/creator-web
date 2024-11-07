@@ -3,7 +3,6 @@ import { PostItem } from '@/entities/posts/types'
 export interface FeedSearchParams {
   nextId?: string
   username?: string
-  page: number
   size: number
 }
 
