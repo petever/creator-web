@@ -17,3 +17,15 @@ export interface CommentSearchParams {
   nextId?: string
   size: number
 }
+
+
+export interface ContentsResponse {
+  content : CommentTypes[]
+  last : boolean
+  number : number
+}
+
+export interface ContentPageData {
+  pages: ContentsResponse[]
+  pageParam: CommentSearchParams[]
+}

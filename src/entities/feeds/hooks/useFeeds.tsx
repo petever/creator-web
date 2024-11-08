@@ -5,7 +5,6 @@ import {FeedContents, FeedResponse, Feeds} from '@/entities/feeds/types'
 import {getFeedQueryKey, getFeedSearchParams, getMoreFeeds} from '@/entities/feeds/lib'
 
 const useFeeds = (initialData: FeedResponse, username?: string) => {
-  console.log('getFeedQueryKey(username), ', getFeedQueryKey(username))
   const queryClient = useQueryClient()
   return useInfiniteQuery({
     queryKey: getFeedQueryKey(username),

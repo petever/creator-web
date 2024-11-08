@@ -4,30 +4,29 @@ import classes from './styles.module.css'
 import { useRouter } from 'next/navigation'
 import {useComment} from "@/features/Comment/hooks/useComment";
 import {useInView} from "react-intersection-observer";
-import React, {useEffect, useMemo} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import {IconHeart, IconHeartFilled} from "@tabler/icons-react";
 import {CommentTypes} from "@/features/Comment/type";
+import {useUpdateFavoriteComment} from "@/features/Comment/hooks/useUpdateFavoriteComment";
 
 interface CommentProps {
   id : string
 }
 export const Comment = ({id} : CommentProps) => {
+  const [isLiked, setIsLiked] = useState(false)
+
   const { ref, inView } = useInView()
 
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } = useComment(id)
 
-
   const comments : CommentTypes[] = useMemo(() => (data ? data.pages.flatMap(({ content }) => content) : []), [data])
-  console.log('comments', comments)
 
   const router = useRouter()
 
-  // const { updateLikePostingMutate, data } = useUpdateFavoriteComment(id)
+  const { updateLikeCommentMutate, isSuccess } = useUpdateFavoriteComment(id)
 
-  const isLiked = false
-
-  const handleFavoritePosting = async () => {
-    // updateLikeCommentMutate({...feed})
+  const handleFavoritePosting = async (comment : CommentTypes) => {
+    updateLikeCommentMutate(comment)
   }
 
   const handleMemberPageMove = (name : string) => {
@@ -48,13 +47,17 @@ export const Comment = ({id} : CommentProps) => {
   }, [inView, hasNextPage])
 
 
+  useEffect(() => {
+    console.log('isSuccess')
+  }, [isSuccess]);
+
   if(comments.length < 1) return null
 
   return (
     <div className={classes.wrapper}>
       {comments.map((comment) => {
         return (
-          <div className={classes.commentWrapper}>
+          <div className={classes.commentWrapper} key={comment.id}>
             <UnstyledButton className={classes.userInfo} onClick={() => handleMemberPageMove(comment.owner.username)}>
               <Avatar size='sm' src={comment.owner.picture as string}/>
               <span>{comment.owner.displayName}</span>
@@ -67,7 +70,7 @@ export const Comment = ({id} : CommentProps) => {
               size="sm"
               color="gray"
               data-testId="favorite_btn"
-              onClick={handleFavoritePosting}
+              onClick={() => handleFavoritePosting(comment)}
             >
               <div>
                 {!isLiked ? <IconHeart size={12}/> : <IconHeartFilled size={12}/>}
