@@ -15,41 +15,45 @@ export const useUpdateLikePosting = (id: string, username ?: string) => {
     onMutate: async (feed : FeedContents) => {
       await queryClient.cancelQueries({ queryKey: getFeedQueryKey(username) })
       const previousFeed = queryClient.getQueryData(getFeedQueryKey(username) ) as FeedPageData
-      console.log('previousFeed', previousFeed)
 
       const contentIndex = previousFeed.pages.findIndex((page) => page.content.find((content) => content.id === feed.id))
 
-      const newContents = previousFeed.pages[contentIndex].content.map((content) => {
-        if (content.id === feed.id) {
-          return {
-            ...content,
-            isLiked: !content.isLiked,
-          }
-        }
-        return content
-      })
-
-      const newData = {
-        content : newContents,
-        last : previousFeed.pages[contentIndex].last,
-        number : previousFeed.pages[contentIndex].number
-      }
-
       queryClient.setQueryData(getFeedQueryKey(username) , (oldData : FeedPageData) => {
+        const newContents = previousFeed.pages[contentIndex].content.map((content) => {
+          if (content.id === feed.id) {
+            return {
+              ...content,
+              isLiked: !content.isLiked,
+            }
+          }
+          return content
+        })
+
+        const newData = {
+          content : newContents,
+          last : previousFeed.pages[contentIndex].last,
+          number : previousFeed.pages[contentIndex].number
+        }
+
+        const newPages = oldData.pages.map((data, index) => {
+          if(index === contentIndex) {
+            return newData
+          }
+          return data
+        })
+
         return {
         ...oldData,
-          pages : [...oldData.pages, newData]
+          pages : newPages,
         };
       });
 
       return { previousFeed }
     },
     onError: (err, newTodo, context) => {
-      console.log('error' , err)
       queryClient.setQueryData(getFeedQueryKey(username) , context?.previousFeed)
     },
     onSettled: () => {
-      console.log('settled')
       return queryClient.invalidateQueries({ queryKey: getFeedQueryKey(username) });
     },
   })

@@ -4,59 +4,61 @@ import {MUTATION_KEY} from "@/shared/constants/mutaionKey";
 import {FeedContents, FeedPageData, FeedResponse, Feeds} from "@/entities/feeds/types";
 import {QUERY_KEY} from "@/shared/constants/queryKey";
 import {updateFavoriteComment} from "@/features/Comment/api/updateFavoriteComment";
+import {CommentTypes, ContentPageData} from "@/features/Comment/type";
 
-export const useUpdateFavoriteComment = (id: string, commentId : string) => {
+export const useUpdateFavoriteComment = (id: string) => {
   const queryClient = useQueryClient()
-  const { mutate: updateLikePostingMutate, data } = useMutation({
-    mutationFn: () => updateFavoriteComment(id, commentId),
+  const { mutate: updateLikeCommentMutate, isSuccess } = useMutation({
+    mutationFn: (comment) => updateFavoriteComment(id, comment.id),
     mutationKey : [MUTATION_KEY.UPDATE_LIKE_COMMENT],
-    onMutate: async (feed : FeedContents) => {
-      /*
-      await queryClient.cancelQueries({ queryKey: [QUERY_KEY.COMMENTS] })
-      const previousComments = queryClient.getQueryData([QUERY_KEY.COMMENTS]) as FeedPageData
+    onMutate: async (comment : CommentTypes) => {
+      await queryClient.cancelQueries({ queryKey: [QUERY_KEY.COMMENTS, id]})
+      const previousComment = queryClient.getQueryData( [QUERY_KEY.COMMENTS, id] ) as ContentPageData
 
-      const contents = previousFeed.pages.flatMap((page) => page.content
-      )
+      const contentIndex = previousComment.pages.findIndex((page) => page.content.find((content) => content.id === comment.id))
 
-      const contentIndex = previousFeed.pages.findIndex((page) => page.content.find((content) => content.id === feed.id))
-
-
-      const newContents = previousFeed.pages[contentIndex].content.map((content) => {
-        if (content.id === feed.id) {
-          return {
-            ...content,
-            isLiked: !content.isLiked,
+      queryClient.setQueryData( [QUERY_KEY.COMMENTS, id] , (oldData : FeedPageData) => {
+        const newContents = previousComment.pages[contentIndex].content.map((content) => {
+          if (content.id === comment.id) {
+            return {
+              ...content,
+              contents: content.contents,
+            }
           }
+          return content
+        })
+
+        const newData = {
+          content : newContents,
+          last : previousComment.pages[contentIndex].last,
+          number : previousComment.pages[contentIndex].number
         }
-        return content
-      })
 
-      const newData = {
-        content : newContents,
-        last : previousFeed.pages[contentIndex].last,
-        number : previousFeed.pages[contentIndex].number
-      }
+        const newPages = oldData.pages.map((data, index) => {
+          if(index === contentIndex) {
+            return newData
+          }
+          return data
+        })
 
-      queryClient.setQueryData([QUERY_KEY.FEEDS], (oldData : FeedPageData) => {
         return {
-        ...oldData,
-          pages : [...oldData.pages, newData]
+          ...oldData,
+          pages : newPages,
         };
       });
 
-      return { previousFeed }
-       */
+      return { previousComment }
     },
     onError: (err, newTodo, context) => {
-      // queryClient.setQueryData([QUERY_KEY.FEEDS], context?.previousFeed)
+      queryClient.setQueryData([QUERY_KEY.COMMENTS, id], context?.previousComment)
     },
     onSettled: () => {
-      // queryClient.invalidateQueries({ queryKey: [QUERY_KEY.FEEDS] })
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEY.COMMENTS, id] })
     },
   })
 
   return {
-    data,
-    updateLikePostingMutate,
+    updateLikeCommentMutate,
+    isSuccess
   }
 }
