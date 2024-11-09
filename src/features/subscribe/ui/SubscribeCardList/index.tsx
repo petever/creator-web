@@ -6,6 +6,7 @@ import { useSubscribePlans } from '@/entities/subscribe/hooks/useSubscribePlans'
 import { Flex } from '@mantine/core'
 import { useSession } from 'next-auth/react'
 import { useCreatorSubscribe } from '@/features/subscribe/hooks/useCreatorSubscribe'
+import { useUnsubscribe } from '@/features/subscribe/hooks/useUnsubscribe'
 
 interface SubscribeCardListProps {
   userId?: string
@@ -16,12 +17,13 @@ interface SubscribeCardListProps {
 const SubscribeCardList = ({ userId, subscribePlans, isCreator }: SubscribeCardListProps) => {
   const { data: plans } = useSubscribePlans(userId, subscribePlans)
   const { creatorSubscribeMutate } = useCreatorSubscribe(userId)
+  // useUnsubscribe()
   const handleSubscribe = (planId: string) => {
     creatorSubscribeMutate(planId)
   }
 
   return (
-    <Flex gap={20} direction="column">
+    <div className="flex flex-col gap-5">
       {plans?.map((plan: SubscribePlan) => {
         return (
           <SubscribeCard
@@ -32,7 +34,7 @@ const SubscribeCardList = ({ userId, subscribePlans, isCreator }: SubscribeCardL
           />
         )
       })}
-    </Flex>
+    </div>
   )
 }
 

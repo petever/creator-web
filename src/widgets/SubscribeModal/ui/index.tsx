@@ -17,7 +17,6 @@ interface SubscribeModalProps {
 }
 
 export const SubscribeModal = ({ userProfile, opened, onClose }: SubscribeModalProps) => {
-  const session = useSession()
   if (!userProfile) return null
 
   const handleModalClose = () => {
@@ -26,7 +25,7 @@ export const SubscribeModal = ({ userProfile, opened, onClose }: SubscribeModalP
 
   return (
     <Modal size="md" centered opened={opened} onClose={handleModalClose} title="구독하기">
-      <SubscribeCardList userId={session.data?.user?.id} />
+      <SubscribeCardList userId={userProfile.id} />
     </Modal>
   )
 }

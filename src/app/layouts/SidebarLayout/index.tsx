@@ -1,6 +1,6 @@
 'use client'
-import classes from './styles.module.css'
-import { Sidebar } from '@/shared'
+import { Sidebar, SidebarProvider } from '@/shared/ui/sidebar'
+import { AppSidebar } from '@/shared/ui/AppSidebar/ui'
 
 interface SidebarLayoutProps {
   children: React.ReactNode
@@ -8,9 +8,11 @@ interface SidebarLayoutProps {
 
 export async function SidebarLayout({ children }: SidebarLayoutProps) {
   return (
-    <div className={classes.wrap}>
-      <Sidebar />
-      <div className={classes.container}>{children}</div>
-    </div>
+    <SidebarProvider>
+      <div className="flex flex-1">
+        <AppSidebar />
+        <div className="flex flex-1 justify-center">{children}</div>
+      </div>
+    </SidebarProvider>
   )
 }

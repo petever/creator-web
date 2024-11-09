@@ -1,9 +1,0 @@
-.errorWrapper {
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap:20px;
-  font-size:24px;
-  height: 100vh;
-}

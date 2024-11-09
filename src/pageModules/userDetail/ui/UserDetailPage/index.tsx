@@ -24,16 +24,16 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
   const isSelf = session?.user?.id === userProfile.id
 
   return (
-    <Flex justify="center" flex={1}>
-      <Box maw={600} w="100%">
+    <div className="flex justify-center flex-1">
+      <div className="max-w-[600px] w-full">
         <ProfileTopSection
           username={username}
           userProfile={userProfile}
           render={<SubscribeButton isSelf={isSelf} userProfile={userProfile} />}
         />
         <ContentTabs initialFeeds={initialFeeds} username={username} />
-      </Box>
-    </Flex>
+      </div>
+    </div>
   )
 }
 

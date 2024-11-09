@@ -19,6 +19,8 @@ const SubscribeButton = ({ isSelf, userProfile }: SubscribeButtonProps) => {
     modalOpen()
   }
 
+  const isSubscribed = userProfile?.isSubscribed
+
   if (isSelf) {
     return (
       <Box p={20}>
@@ -33,7 +35,7 @@ const SubscribeButton = ({ isSelf, userProfile }: SubscribeButtonProps) => {
   return (
     <Box p={20}>
       <Button fullWidth radius={40} h={44} onClick={handleOpenModal}>
-        구독하기
+        {isSubscribed ? '구독중' : '구독하기'}
       </Button>
       <SubscribeModal opened={isModalOpened} onClose={modalClose} userProfile={userProfile} />
     </Box>

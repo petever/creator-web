@@ -1,5 +1,4 @@
-import { Button, Flex, Popover, Text } from '@mantine/core'
-import { IconDotsVertical, IconPencil, IconTrash } from '@tabler/icons-react'
+import { Text } from '@mantine/core'
 import { useDeleteSubscribePlan } from '@/features/subscribe/hooks/useDeleteSubscribePlan'
 import { modals } from '@mantine/modals'
 import { SubscribePlan } from '@/entities/subscribe/types'
@@ -7,7 +6,14 @@ import { useDisclosure } from '@mantine/hooks'
 import SubscribePlanModal from '@/features/subscribe/ui/SubscribePlanModal'
 import React from 'react'
 import { useEditSubscribePlan } from '@/features/subscribe/hooks/useEditSubscribePlan'
-import { AddSubscribePlan, EditSubscribePlan } from '@/features/subscribe/types'
+import { AddSubscribePlan } from '@/features/subscribe/types'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/shared/ui/dropdown-menu'
+import { EllipsisVertical, Pencil, Trash } from 'lucide-react'
 
 interface SubscribeCardMenuProps {
   isCreator?: boolean
@@ -42,35 +48,21 @@ const SubscribeCardMenu = ({ plan, isCreator }: SubscribeCardMenuProps) => {
   return (
     <>
       <SubscribePlanModal opened={opened} close={close} plan={plan} onClick={handleEdit} />
-      <Popover position="bottom" shadow="md">
-        <Popover.Target>
-          <IconDotsVertical color="#bbb" />
-        </Popover.Target>
-        <Popover.Dropdown>
-          <Flex direction="column">
-            <Button
-              type="button"
-              size="sm"
-              leftSection={<IconPencil />}
-              variant="transparent"
-              color="dark"
-              onClick={open}
-            >
-              수정
-            </Button>
-            <Button
-              type="button"
-              leftSection={<IconTrash />}
-              size="sm"
-              variant="transparent"
-              color="red"
-              onClick={handleDelete}
-            >
-              삭제
-            </Button>
-          </Flex>
-        </Popover.Dropdown>
-      </Popover>
+      <DropdownMenu>
+        <DropdownMenuTrigger className="cursor-pointer">
+          <EllipsisVertical />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem onClick={open} className="cursor-pointer">
+            <Pencil />
+            수정
+          </DropdownMenuItem>
+          <DropdownMenuItem className="cursor-pointer" onClick={handleDelete}>
+            <Trash />
+            삭제
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </>
   )
 }

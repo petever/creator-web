@@ -7,7 +7,7 @@ import {
   useMantineColorScheme,
 } from '@mantine/core'
 import { IconMoon, IconSettings, IconSun } from '@tabler/icons-react'
-import classes from '@/shared/Sidebar/ui/SidebarMenuList/styles.module.css'
+import classes from '@/shared/ui/AppSidebar/ui/SidebarMenuList/styles.module.css'
 
 export const ThemeToggleButton = () => {
   const { setColorScheme } = useMantineColorScheme({
