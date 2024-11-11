@@ -1,8 +1,9 @@
-import {ActionIcon, Box, Button, Flex, Group, Text} from "@mantine/core";
+import {Box, Flex, Group, Text} from "@mantine/core";
 import {getDateFormat} from "@/shared/lib";
 import {IconCircleArrowDownFilled, IconCircleArrowUpFilled} from "@tabler/icons-react";
 import {useState} from "react";
 import classes from './stlyes.module.css'
+import {Button} from "@/shared/ui/button";
 
 interface FeedContentProps {
   contents : string
@@ -16,23 +17,20 @@ export const FeedContent = ({contents, createdAt} : FeedContentProps) => {
   }
 
   return (
-    <Box p={14}>
-      <Flex
-        justify={'space-between'}
-        align={'end'}
-      >
-        <div className={classes.wrapper}>
-          <p className={`${classes.contents} ${!isExpanded && classes.isExpanded}`}>{contents}</p>
-          <Text size="xs" c="dimmed" mt={10}>{getDateFormat(createdAt)} 작성됨</Text>
+    <div className='p-1'>
+      <div className={'flex flex-between items-end'}>
+        <div className={'flex flex-col'}>
+          <p className={`break-keep h-3/6 ${!isExpanded && `h-fit`}`}>{contents}</p>
+          <p>{getDateFormat(createdAt)} 작성됨</p>
         </div>
-        <ActionIcon onClick={handleExpandedChange}>
+        <Button variant='ghost' onClick={handleExpandedChange}>
           {isExpanded ? (
-            <IconCircleArrowUpFilled style={{ width: '70%', height: '70%' }} stroke={1.5} />
+            <IconCircleArrowUpFilled stroke={1.5} />
           ) : (
-            <IconCircleArrowDownFilled style={{ width: '70%', height: '70%' }} stroke={1.5} />
+            <IconCircleArrowDownFilled stroke={1.5} />
           )}
-        </ActionIcon>
-      </Flex>
-    </Box>
+        </Button>
+      </div>
+    </div>
   )
 }

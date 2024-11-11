@@ -7,13 +7,13 @@ interface LoadingProps {
 }
 export const Loading = ({ span }: LoadingProps) => {
   return (
-    <Grid.Col span={span}>
+    <div>
       <div className={classes.wrapper}>
-        <Title order={4} className={classes.title}>
+        <h3>
           회원님을 위한 추천
-        </Title>
+        </h3>
         <Skeleton />
       </div>
-    </Grid.Col>
+    </div>
   )
 }

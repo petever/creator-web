@@ -1,29 +1,31 @@
-import {Avatar, Button, Group, Box, UnstyledButton, MantineSize, Flex} from '@mantine/core'
-import classes from './styles.module.css'
 import { UserProfile } from '@/entities/user/types'
+import {Button} from "@/shared/ui/button";
+import {Avatar, AvatarImage} from "@/shared/ui/avatar";
+import {AvatarFallback} from "@radix-ui/react-avatar";
 
 interface ProfileProps {
   profile: UserProfile
-  size: MantineSize
   isSubscribed ?: boolean
   onClick?: () => void
 }
 
-export const Profile = ({ profile, size = 'sm', isSubscribed, onClick }: ProfileProps) => {
+export const Profile = ({ profile, isSubscribed, onClick }: ProfileProps) => {
   if (!profile) return null
 
   return (
-    <Group align="center">
-      <div className={!isSubscribed ? '' : classes.subscribedWrapper}>
-        <UnstyledButton className={classes.button} onClick={onClick}>
-          <Avatar size={size} src={profile.picture as string} />
-          <Box className={classes.infoWrapper}>
+    <li className='align-center'>
+      <div className='flex justify-between'>
+        <Button variant="ghost" className='flex' onClick={onClick}>
+          <Avatar>
+            <AvatarImage src={profile.picture as string}/>
+          </Avatar>
+          <div className='flex flex-col items-start'>
             <p>{profile.displayName}</p>
             <p>@{profile.username}</p>
-          </Box>
-        </UnstyledButton>
+          </div>
+        </Button>
         {isSubscribed && <Button>구독</Button>}
       </div>
-    </Group>
+    </li>
   )
 }

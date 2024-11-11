@@ -372,6 +372,12 @@ ul,ol{
   list-style: none;
 }
 
+li{
+  margin:0;
+  padding:0;
+  list-style: none;
+}
+
 .editor li {
   margin: revert;
   padding: revert;

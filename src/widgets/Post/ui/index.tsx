@@ -1,5 +1,4 @@
 'use client'
-import { Box, Button, Card } from '@mantine/core'
 import { FeedButtons } from '@/features'
 import { PostingHeader } from './PostingHeader'
 import { FeedDetail } from '@/shared/FeedDetail/ui'
@@ -11,6 +10,8 @@ import { FeedMedia } from '@/entities/feeds/ui/FeedMedia'
 import {useEffect, useRef, useState} from "react";
 import {useMediaQuery} from "@mantine/hooks";
 import {CommentListModal, LoginModal} from "@/shared";
+import {Card} from "@/shared/ui/card";
+import {Button} from "@/shared/ui/button";
 
 interface PostProps {
   feed: FeedContents
@@ -58,21 +59,19 @@ export const Post = ({ feed, username}: PostProps) => {
   const { likeCount, commentCount, resources } = feed
 
   return (
-    <Card p={0} shadow="lg" padding="lg" radius="lg" w="100%">
+    <Card>
       <PostingHeader profile={feed.owner} />
       <FeedContent contents={feed.contents} createdAt={feed.createdAt} />
       <FeedMedia resources={feed.resources} />
       <FeedButtons feed={feed} onDetailModal={handleDetailOpen} username={username}/>
-      <Box>
-        <Button variant="transparent" onClick={handleLikeListOpen}>
+      <div className={'flex flex-col items-start'}>
+        <Button variant="ghost" onClick={handleLikeListOpen}>
           좋아요 {likeCount}개 모두 보기
         </Button>
-      </Box>
-      <Box>
-        <Button variant="transparent" onClick={handleDetailOpen}>
+        <Button variant="ghost" onClick={handleDetailOpen}>
           댓글 {commentCount}개 모두 보기
         </Button>
-      </Box>
+      </div>
       <LkeList opened={likeListOpened} onClose={likeListClose} />
       <FeedDetail feed={feed} opened={feedOpened} onClose={feedDetailClose} />
       <CommentListModal

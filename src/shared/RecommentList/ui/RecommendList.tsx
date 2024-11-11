@@ -9,13 +9,15 @@ interface RecommendListProps {
 
 export const RecommendList = ({ recommends }: RecommendListProps) => {
   return (
-    <Box w="320px" mt={20}>
-      <Title size="sm" c="dark">
+    <div>
+      <h3>
         회원님을 위한 추천
-      </Title>
-      {recommends.map((user) => {
-        return <Profile key={user.id} profile={user} size={'lg'} isSubscribed />
-      })}
-    </Box>
+      </h3>
+      <ul className='flex flex-wrap flex-col gap-8'>
+        {recommends.map((user) => {
+          return <Profile key={user.id} profile={user} size={'lg'} isSubscribed />
+        })}
+      </ul>
+    </div>
   )
 }
