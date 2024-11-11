@@ -5,7 +5,7 @@ export interface SubscribePlan {
   owner: Owner
   name: string
   description: string
-  price: number
+  price: number | string
   duration: number
   unit: string
 }
