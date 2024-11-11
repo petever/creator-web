@@ -9,15 +9,16 @@ import {useUpdateLikePosting} from "@/features/FeedButtons/hooks/useUpdateFavori
 import {FeedContents} from "@/entities/feeds/types";
 import classes from './styles.module.css'
 import {useSession} from "next-auth/react";
-import {LoginModal} from "@/shared";
+import {CommentListModal, LoginModal} from "@/shared";
 import { useDisclosure } from '@mantine/hooks'
+import {Button} from "@/shared/ui/button";
 
 interface FeedButtonsProps {
   feed: FeedContents
   username?: string
   onDetailModal: () => void
 }
-  
+
 export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps) => {
   const { data: session, status } = useSession()
   const { updateLikePostingMutate, data, isError} = useUpdateLikePosting(feed.id, username)
@@ -42,28 +43,14 @@ export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps)
         }}
       >
         <ActionIconGroup>
-          <ActionIcon
-            variant="subtle"
-            size="xl"
-            color="gray"
-            data-testId="favorite_btn"
+          <Button
+            variant="ghost"
             onClick={handleFavoritePosting}
           >
-            <div className={classes.likeWrapper}>
-              {!isLiked ? <IconHeart /> : <IconHeartFilled />}
-            </div>
-          </ActionIcon>
-          <ActionIcon variant="subtle" size="xl" color="gray" onClick={onDetailModal}>
-            <IconMessageCircle />
-          </ActionIcon>
+            {!isLiked ? <IconHeart /> : <IconHeartFilled />}
+          </Button>
+          <CommentListModal feed={feed}/>
         </ActionIconGroup>
-        {/* TODO : 북마크 불필요해보여 삭제 */}
-        {/*<Group>*/}
-        {/*  <ActionIcon variant="subtle" size="xl" color="gray">*/}
-        {/*    /!*<IconBookmark />*!/*/}
-        {/*    <IconBookmarkFilled />*/}
-        {/*  </ActionIcon>*/}
-        {/*</Group>*/}
       </Flex>
       <LoginModal
         owner={feed.owner}

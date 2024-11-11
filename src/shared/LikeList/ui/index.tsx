@@ -1,19 +1,22 @@
-import classes from "@/shared/FeedDetail/ui/styles.module.css";
-import {Profile} from "@/features";
-import {FeedContents, Resource} from "@/entities/feeds/types";
-import {CommentArea} from "@/widgets";
-import {Button, Modal} from "@mantine/core";
-import {DUMMY_PROFILE} from "@/shared/model";
+import {Dialog, DialogContent, DialogTrigger} from "@/shared/ui/dialog";
+import {Button} from "@/shared/ui/button";
+import {useState} from "react";
 
 interface LikeListProps {
-  title?: string | React.ReactNode
-  opened: boolean
-  onClose: () => void
+  likeCount : number
 }
-export const LkeList = ({title, opened, onClose} : LikeListProps) => {
+
+export const LkeList = ({ likeCount } : LikeListProps) => {
   return (
-    <Modal size="md" opened={opened} onClose={onClose} centered withCloseButton={false}>
-      좋아요 리스트 노출
-    </Modal>
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant={'ghost'}>
+          좋아요 {likeCount}개 모두 보기
+        </Button>
+      </DialogTrigger>
+      <DialogContent>
+        좋아요 리스트 노출
+      </DialogContent>
+    </Dialog>
   )
 }

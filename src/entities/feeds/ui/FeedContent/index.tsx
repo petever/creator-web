@@ -1,8 +1,6 @@
-import {Box, Flex, Group, Text} from "@mantine/core";
 import {getDateFormat} from "@/shared/lib";
 import {IconCircleArrowDownFilled, IconCircleArrowUpFilled} from "@tabler/icons-react";
 import {useState} from "react";
-import classes from './stlyes.module.css'
 import {Button} from "@/shared/ui/button";
 
 interface FeedContentProps {

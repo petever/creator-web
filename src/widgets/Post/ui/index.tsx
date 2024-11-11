@@ -34,19 +34,22 @@ export const Post = ({ feed, username}: PostProps) => {
     offsetBottom : 0
   })
 
-  const [ feedOpened, { open: feedDetailOpen, close: feedDetailClose } ] = useDisclosure(false)
-  const [ likeListOpened, { open: likeListOpen, close: likeListClose } ] = useDisclosure(false)
-  const [ commentListOpened, { open: commentListOpen, close: commentListClose } ] = useDisclosure(false)
+  const [ feedOpened, setFeedOpened ] = useState(false)
+  const [ commentListOpened, setCommentListOpened ] = useState(false)
 
   const handleDetailOpen = () => {
     if(!isPc) {
-      return commentListOpen()
+      return setCommentListOpened(true)
     }
-    feedDetailOpen()
+    setFeedOpened(true)
   }
 
-  const handleLikeListOpen = () => {
-    likeListOpen()
+  const modalClose = (type : 'feed' | 'like' | 'comment') => {
+    if(type === 'feed') {
+      setFeedOpened(false)
+    }
+
+    return setCommentListOpened(false)
   }
 
   useEffect(() => {
@@ -65,19 +68,9 @@ export const Post = ({ feed, username}: PostProps) => {
       <FeedMedia resources={feed.resources} />
       <FeedButtons feed={feed} onDetailModal={handleDetailOpen} username={username}/>
       <div className={'flex flex-col items-start'}>
-        <Button variant="ghost" onClick={handleLikeListOpen}>
-          좋아요 {likeCount}개 모두 보기
-        </Button>
-        <Button variant="ghost" onClick={handleDetailOpen}>
-          댓글 {commentCount}개 모두 보기
-        </Button>
+        <LkeList likeCount={likeCount}/>
+        <FeedDetail feed={feed} />
       </div>
-      <LkeList opened={likeListOpened} onClose={likeListClose} />
-      <FeedDetail feed={feed} opened={feedOpened} onClose={feedDetailClose} />
-      <CommentListModal
-        feed={feed}
-        opened={commentListOpened} onClose={commentListClose}
-      />
     </Card>
   )
 }

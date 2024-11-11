@@ -1,30 +1,24 @@
 'use client'
-import {Modal, Group, Flex} from '@mantine/core'
 import { CommentArea } from '@/widgets'
 import {FeedContents} from "@/entities/feeds/types";
-import {Profile} from "@/features";
-import classes from './styles.module.css'
-import {FeedContent} from "@/entities/feeds/ui";
-import {FeedMedia} from "@/entities/feeds/ui/FeedMedia";
-import {useMediaQuery} from "@mantine/hooks";
+import {Dialog, DialogContent, DialogTrigger} from "@/shared/ui/dialog";
+import {Button} from "@/shared/ui/button";
+import {IconMessageCircle} from "@tabler/icons-react";
 
 interface FeedDetailProps {
   feed :  FeedContents
-  opened: boolean
-  onClose: () => void
 }
-export const CommentListModal = ({ feed, opened, onClose }: FeedDetailProps) => {
+export const CommentListModal = ({ feed }: FeedDetailProps) => {
   return (
-    <Modal size="100%"
-      opened={opened}
-      onClose={onClose}
-      centered
-      withCloseButton={false}
-      classNames={{
-        content : classes.wrapper
-      }}
-    >
-      <CommentArea id={feed.id}/>
-    </Modal>
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="ghost">
+          <IconMessageCircle size={'lg'}/>
+        </Button>
+      </DialogTrigger>
+      <DialogContent>
+        <CommentArea id={feed.id}/>
+      </DialogContent>
+    </Dialog>
   )
 }
