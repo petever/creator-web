@@ -1,28 +1,32 @@
 'use client'
-
-import { Group } from '@mantine/core'
-import {
-  Dropzone,
-  DropzoneProps,
-  FileWithPath,
-  IMAGE_MIME_TYPE,
-  MIME_TYPES,
-} from '@mantine/dropzone'
-import { useRef, useState } from 'react'
+import React, {createRef} from 'react';
+import {useDropzone} from 'react-dropzone'
 import PreviewList from '@/features/PreviewList/ui'
-import { DropzoneAccept, DropzoneIdle, DropzoneReject } from '@/entities/ImageUpload/ui'
 import { useContentFormContext } from '@/widgets/AddContentModal/lib/form-context'
-import {clientKy} from "@/shared/core/clientKy";
 import ky from "@toss/ky";
 import {ImageOptimizeData} from "@/entities/ImageUpload/types";
-import * as buffer from "node:buffer";
+import Dropzone from 'react-dropzone';
 
-const ContentUpload = (props: Partial<DropzoneProps>) => {
+const ContentUpload = () => {
+  const {getRootProps, getInputProps, open} = useDropzone({
+    accept: {
+      'image/*': [],
+      'video/mp4': ['.mp4'],
+    },
+    onDrop : acceptedFiles => handleDropImages(acceptedFiles)
+
+  });
   const form = useContentFormContext()
   const {values, setFieldValue, insertListItem, removeListItem, reorderListItem, watch} = form
 
   const {step, currentFile, currentFileType, files, currentIndex} = values
-  const openRef = useRef<() => void>(null)
+
+  const dropzoneRef = createRef();
+  const openDialog = () => {
+    if (dropzoneRef.current) {
+      dropzoneRef.current.open()
+    }
+  };
 
   const handleDropImages = async (uploadFiles: File[]) => {
     const formData = new FormData()
@@ -46,7 +50,6 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
     }
     setFieldValue('currentFileType', 'image')
   }
-
 
   const processFiles = async (formData: FormData): Promise<File[]> => {
     const imageOptimizeData = await ky.post('/api/image-optimize', {
@@ -93,26 +96,18 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
 
   return (
     <div>
-      {!currentFile && (
-        <Dropzone
-          onDrop={handleDropImages}
-          maxSize={2 * 1024 ** 3}
-          accept={[
-            MIME_TYPES.jpeg,
-            MIME_TYPES.png,
-            MIME_TYPES.svg,
-            MIME_TYPES.mp4
-          ]}
-          {...props}
-          openRef={openRef}
-        >
-          <Group justify="center" gap="xl" mih={220} style={{ pointerEvents: 'none' }}>
-            <DropzoneAccept />
-            <DropzoneReject />
-            <DropzoneIdle text={'사진과 동영상을 이곳에 드래그 앤 드롭 해주세요.'} isPhoto />
-          </Group>
+      {!currentFile &&
+        <Dropzone ref={dropzoneRef}>
+          {({getRootProps, getInputProps, acceptedFiles}) => {
+            return (
+              <div {...getRootProps({className: 'dropzone'})}>
+                <input {...getInputProps()} />
+                <p>Drag 'n' drop some files here</p>
+              </div>
+            )
+          }}
         </Dropzone>
-      )}
+      }
       <PreviewList
         currentFile={currentFile}
         currentFileType={currentFileType}
@@ -120,7 +115,7 @@ const ContentUpload = (props: Partial<DropzoneProps>) => {
         previews={files}
         onRemoveImage={handleRemoveImage}
         onShowImageChange={handleChangeCurrentImage}
-        onImageUpload={openRef.current}
+        onImageUpload={openDialog}
       />
     </div>
   )

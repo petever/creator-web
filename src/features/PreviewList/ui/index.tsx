@@ -13,7 +13,7 @@ interface PreviewListProps {
   previews: File[]
   onShowImageChange: (url: string, index: number, type : "video" | "image") => void
   onRemoveImage: (index: number) => void
-  onImageUpload: (() => void) | null
+  onImageUpload: () => void
 }
 
 const PreviewList = ({

@@ -1,17 +1,26 @@
-import { Modal } from '@mantine/core'
 import { ContentFormProvider, useContentForm } from '@/widgets/AddContentModal/lib/form-context'
 import ContentUpload from '@/widgets/AddContentModal/ui/ContentUpload'
 import { ContentForm } from '@/widgets/AddContentModal/ui/ContentForm'
 import { AddContentFooter } from '@/widgets/AddContentModal/ui/AddContentFooter'
 import { useCreatePosts } from '@/widgets/AddContentModal/hooks/useCreatePosts'
-import classes from './styles.module.css'
+import {Dialog, DialogContent, DialogTrigger} from "@/shared/ui/dialog";
+import {Button} from "@/shared/ui/button";
+import {ISidebarItem} from "@/entities/Sidebar/types";
+import {useDisclosure} from "@/shared/hooks/useDisclosure";
 
-interface AddContentModalProps {
-  opened: boolean
-  onClose: () => void
+
+interface AddContentModalProps{
+  item : ISidebarItem
+  sidebarClassName : string
 }
+const AddContentModal = ({ item, sidebarClassName } : AddContentModalProps) => {
+  const {
+    isOpen,
+    onToggle,
+    onOpen,
+    onClose
+  } = useDisclosure()
 
-const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
   const { createPostMutation } = useCreatePosts(() => handleModalClose())
 
   const form = useContentForm({
@@ -63,15 +72,23 @@ const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
   }
 
   return (
-    <Modal size="xl" centered opened={opened} onClose={handleModalClose} title="새 게시물 만들기">
-      <ContentFormProvider form={form}>
-        <form onSubmit={onSubmit(handleSubmit)}>
-          <ContentUpload />
-          <ContentForm />
-          <AddContentFooter />
-        </form>
-      </ContentFormProvider>
-    </Modal>
+    <Dialog open={isOpen} onOpenChange={onToggle}>
+      <DialogTrigger asChild>
+        <Button variant='ghost' className={sidebarClassName}>
+          <item.icon style={{ width: '20px', height: '20px' }} />
+          <span className="text-base font-medium">{item.title}</span>
+        </Button>
+      </DialogTrigger>
+      <DialogContent>
+        <ContentFormProvider form={form}>
+          <form onSubmit={onSubmit(handleSubmit)}>
+            <ContentUpload />
+            <ContentForm />
+            <AddContentFooter />
+          </form>
+        </ContentFormProvider>
+      </DialogContent>
+    </Dialog>
   )
 }
 

@@ -10,7 +10,7 @@ interface MoreImageUploadProps {
   previews: File[]
   onShowImageChange: (url: string, index: number, type : "video" | "image") => void
   onRemoveImage: (index: number) => void
-  onImageUpload: (() => void) | null
+  onImageUpload: () => void
 }
 
 export const MoreMediaUpload = ({
@@ -21,7 +21,7 @@ export const MoreMediaUpload = ({
   onImageUpload,
 }: MoreImageUploadProps) => {
   const handleImageUpload = () => {
-    onImageUpload?.()
+    onImageUpload()
   }
 
   const form = useContentFormContext()

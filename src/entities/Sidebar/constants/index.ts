@@ -1,7 +1,9 @@
 import {  CirclePlus, Compass, Home, Search } from 'lucide-react'
 import {PAGE} from "@/shared/constants/page";
+import {ISidebarItem} from "@/entities/Sidebar/types";
+import AddContentModal from "@/widgets/AddContentModal/ui";
 
-export const SIDEBAR_ITEMS = [
+export const SIDEBAR_ITEMS : ISidebarItem[] = [
   {
     title: '홈',
     url: PAGE.HOME,

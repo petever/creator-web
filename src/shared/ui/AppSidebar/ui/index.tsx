@@ -10,7 +10,6 @@ interface AppSidebarProps {}
 
 export const AppSidebar = ({}: AppSidebarProps) => {
 
-
   return (
     <Sidebar>
       <SidebarHeaderWrapper/>
