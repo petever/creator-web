@@ -362,7 +362,6 @@ p {
 }
 
 a {
-  color: var(--mantine-color-text) !important;
   text-decoration: none;
 }
 
