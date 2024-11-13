@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useAddSubscribePlan } from '@/features/subscribe/hooks/useAddSubscribePlan'
 import {
@@ -19,6 +19,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { formatPrice, formattedPriceToNumber } from '@/shared/util/price'
 import { useDisclosure } from '@/shared/hooks/useDisclosure'
+import { Editor } from '@/shared/ui/Editor'
 
 const AddSubscribePlan = () => {
   const { isOpen, onToggle, onClose } = useDisclosure()
@@ -34,7 +35,7 @@ const AddSubscribePlan = () => {
 
   const form = useForm({
     resolver: zodResolver(schema),
-    mode: 'all',
+    mode: 'onBlur',
     defaultValues: {
       name: '',
       description: '',
@@ -54,6 +55,11 @@ const AddSubscribePlan = () => {
     onClose()
   }
 
+  useEffect(() => {
+    if (!isOpen) return
+    form.reset()
+  }, [isOpen])
+
   return (
     <Dialog open={isOpen} onOpenChange={onToggle}>
       <DialogTrigger asChild>
@@ -62,7 +68,7 @@ const AddSubscribePlan = () => {
         </Button>
       </DialogTrigger>
       <DialogContent>
-        <DialogHeader className="flex items-center justify-between">
+        <DialogHeader>
           <DialogTitle>구독 플랜 추가</DialogTitle>
         </DialogHeader>
         <Form {...form}>
@@ -106,7 +112,7 @@ const AddSubscribePlan = () => {
                 <FormItem>
                   <FormLabel>내용</FormLabel>
                   <FormControl>
-                    <Input placeholder="내용을 입력하세요." {...field} />
+                    <Editor value={field.value} onChange={field.onChange} height="200px" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

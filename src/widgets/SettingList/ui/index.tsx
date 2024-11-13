@@ -1,18 +1,18 @@
-import { Box, NavLink } from '@mantine/core'
 import { SETTING_LISTS } from '@/widgets/SettingList/constants'
-import { IconChevronRight } from '@tabler/icons-react'
+import Link from 'next/link'
+import { ChevronRight } from 'lucide-react'
 
 export const SettingList = () => {
   return (
-    <Box w="100%">
+    <ul className="w-full">
       {SETTING_LISTS.map((item) => (
-        <NavLink
-          key={item.label}
-          href={item.href}
-          label={item.label}
-          rightSection={<IconChevronRight stroke={1} size="1.5rem" />}
-        />
+        <li key={item.label} className="p-3 border-b-[1px] hover:bg-gray-50">
+          <Link href={item.href} className="flex text-sm items-center justify-between">
+            {item.label}
+            <ChevronRight className="text-gray-400" />
+          </Link>
+        </li>
       ))}
-    </Box>
+    </ul>
   )
 }
