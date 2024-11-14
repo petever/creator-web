@@ -1,5 +1,4 @@
 import React from 'react'
-import { Box } from '@mantine/core'
 import AddSubscribePlan from '@/features/subscribe/ui/AddSubscribePlan'
 import SubscribeCardList from '../../features/subscribe/ui/SubscribeCardList'
 import { getServerSubscribePlans } from '@/entities/subscribe/api/getServerSubscribePlans'
@@ -9,10 +8,10 @@ const SubscribePlanSetting = async () => {
   const session = await auth()
   const subscribePlans = await getServerSubscribePlans(session?.user?.id)
   return (
-    <Box pt={20} pb={20} w="100%" maw="400px">
+    <div className="max-w-[600px] w-full pt-5 pb-5">
       <SubscribeCardList userId={session?.user?.id} subscribePlans={subscribePlans} isCreator />
       <AddSubscribePlan />
-    </Box>
+    </div>
   )
 }
 

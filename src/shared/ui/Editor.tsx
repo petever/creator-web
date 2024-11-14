@@ -2,18 +2,23 @@ import StarterKit from '@tiptap/starter-kit'
 import { EditorContent, useEditor } from '@tiptap/react'
 import { Link } from '@mantine/tiptap'
 import { useEffect } from 'react'
+import Placeholder from '@tiptap/extension-placeholder'
 
 interface EditorProps {
   value?: string
   onChange?: (html: string) => void
   height?: string
+  placeholder?: string
 }
-export const Editor = ({ value, onChange, height = '100%' }: EditorProps) => {
+export const Editor = ({ value, onChange, height = '100%', placeholder = '' }: EditorProps) => {
   const editor = useEditor({
     extensions: [
       StarterKit,
       Link.configure({
         defaultProtocol: 'https',
+      }),
+      Placeholder.configure({
+        placeholder,
       }),
     ],
   })

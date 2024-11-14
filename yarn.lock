@@ -2100,6 +2100,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-alert-dialog@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "@radix-ui/react-alert-dialog@npm:1.1.2"
+  dependencies:
+    "@radix-ui/primitive": "npm:1.1.0"
+    "@radix-ui/react-compose-refs": "npm:1.1.0"
+    "@radix-ui/react-context": "npm:1.1.1"
+    "@radix-ui/react-dialog": "npm:1.1.2"
+    "@radix-ui/react-primitive": "npm:2.0.0"
+    "@radix-ui/react-slot": "npm:1.1.0"
+  peerDependencies:
+    "@types/react": "*"
+    "@types/react-dom": "*"
+    react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+  checksum: 10c0/e72a82bb1d980f72a836920048d51fe57958ae51c39af3f175e368baea38839961ab1e311bd331e9d6f4656237389be37e1f7503aa5b6348cc87ca0589f21c4f
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-arrow@npm:1.1.0":
   version: 1.1.0
   resolution: "@radix-ui/react-arrow@npm:1.1.0"
@@ -2202,7 +2226,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-dialog@npm:^1.1.2":
+"@radix-ui/react-dialog@npm:1.1.2, @radix-ui/react-dialog@npm:^1.1.2":
   version: 1.1.2
   resolution: "@radix-ui/react-dialog@npm:1.1.2"
   dependencies:
@@ -3753,6 +3777,16 @@ __metadata:
   peerDependencies:
     "@tiptap/core": ^2.7.0
   checksum: 10c0/4131cd5eee3a30d86cfab1e77a636dfecd770d1081c61e498ee8a2b3821106c8958d9ec06da956fa238a6df62c90fc2e77ca348783ebdaf865821b6e83338dce
+  languageName: node
+  linkType: hard
+
+"@tiptap/extension-placeholder@npm:^2.9.1":
+  version: 2.9.1
+  resolution: "@tiptap/extension-placeholder@npm:2.9.1"
+  peerDependencies:
+    "@tiptap/core": ^2.7.0
+    "@tiptap/pm": ^2.7.0
+  checksum: 10c0/cb8a91bfa98a7613b58a342b213fabef2cb394b5c4fe16098e800f2f0aaf3f4cda5c450d501c46de555be90ec1707fcd4f3480af99f96b7d5595de5fb7ff13d5
   languageName: node
   linkType: hard
 
@@ -9064,6 +9098,7 @@ __metadata:
     "@mantine/modals": "npm:^7.13.4"
     "@mantine/notifications": "npm:^7.13.4"
     "@mantine/tiptap": "npm:^7.13.4"
+    "@radix-ui/react-alert-dialog": "npm:^1.1.2"
     "@radix-ui/react-avatar": "npm:^1.1.1"
     "@radix-ui/react-dialog": "npm:^1.1.2"
     "@radix-ui/react-dropdown-menu": "npm:^2.1.2"
@@ -9082,6 +9117,7 @@ __metadata:
     "@tiptap/core": "npm:^2.8.0"
     "@tiptap/extension-bubble-menu": "npm:^2.8.0"
     "@tiptap/extension-link": "npm:^2.9.1"
+    "@tiptap/extension-placeholder": "npm:^2.9.1"
     "@tiptap/extension-text-style": "npm:^2.8.0"
     "@tiptap/pm": "npm:^2.9.1"
     "@tiptap/react": "npm:^2.9.1"
