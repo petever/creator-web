@@ -5,6 +5,7 @@ import Video from 'next-video';
 import classes from './styles.module.css'
 import { MoreMediaUpload } from '@/features/PreviewList/ui/MoreMediaUpload'
 import {VideoPlayer} from "@/shared";
+import {useFormContext} from "react-hook-form";
 
 interface PreviewListProps {
   currentFile?: string
@@ -25,6 +26,8 @@ const PreviewList = ({
   onRemoveImage,
   onImageUpload,
 }: PreviewListProps) => {
+  const method = useFormContext()
+
   const isImage = currentFileType === 'image'
   const isVideo = currentFileType === 'video'
 

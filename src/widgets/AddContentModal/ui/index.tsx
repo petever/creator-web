@@ -7,6 +7,8 @@ import {Dialog, DialogContent, DialogTrigger} from "@/shared/ui/dialog";
 import {Button} from "@/shared/ui/button";
 import {ISidebarItem} from "@/entities/Sidebar/types";
 import {useDisclosure} from "@/shared/hooks/useDisclosure";
+import {useContentModal} from "@/widgets/AddContentModal/hooks/useContentModal";
+import {FormProvider} from "react-hook-form";
 
 
 interface AddContentModalProps{
@@ -21,55 +23,12 @@ const AddContentModal = ({ item, sidebarClassName } : AddContentModalProps) => {
     onClose
   } = useDisclosure()
 
-  const { createPostMutation } = useCreatePosts(() => handleModalClose())
+  const {
+    methods,
+    handleSubmitContentData,
+  } = useContentModal()
 
-  const form = useContentForm({
-    mode: 'controlled',
-    initialValues: {
-      currentFile: '',
-      currentFileType: 'image',
-      currentIndex: 0,
-      step: 0,
-      title: '',
-      contents: '',
-      files: [],
-      isPreview: false,
-      isSubscribed: 'false',
-    },
-  })
-
-  const { onSubmit, reset } = form
-
-  const handleSubmit = (values: typeof form.values) => {
-    const { title, contents, isSubscribed, files } = values
-
-
-    const formData = new FormData()
-    formData.append(
-      'postRequest',
-      new Blob(
-        [
-          JSON.stringify({
-            title,
-            contents,
-            isSubscribed: values.isSubscribed !== 'false',
-          }),
-        ],
-        { type: 'application/json' },
-      ),
-    )
-
-    files.forEach((file) => {
-      return formData.append('files', file)
-    })
-
-    createPostMutation(formData)
-  }
-
-  const handleModalClose = () => {
-    reset()
-    onClose()
-  }
+  const { handleSubmit, reset } = methods
 
   return (
     <Dialog open={isOpen} onOpenChange={onToggle}>
@@ -80,13 +39,13 @@ const AddContentModal = ({ item, sidebarClassName } : AddContentModalProps) => {
         </Button>
       </DialogTrigger>
       <DialogContent>
-        <ContentFormProvider form={form}>
-          <form onSubmit={onSubmit(handleSubmit)}>
+        <FormProvider {...methods}>
+          <form onSubmit={handleSubmit(handleSubmitContentData)}>
             <ContentUpload />
             <ContentForm />
             <AddContentFooter />
           </form>
-        </ContentFormProvider>
+        </FormProvider>
       </DialogContent>
     </Dialog>
   )
