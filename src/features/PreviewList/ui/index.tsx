@@ -1,32 +1,25 @@
 'use client'
 
 import Image from 'next/image'
-import Video from 'next-video';
 import classes from './styles.module.css'
 import { MoreMediaUpload } from '@/features/PreviewList/ui/MoreMediaUpload'
 import {VideoPlayer} from "@/shared";
 import {useFormContext} from "react-hook-form";
 
 interface PreviewListProps {
-  currentFile?: string
-  currentFileType: 'image' | 'video'
-  currentIndex: number
-  previews: File[]
   onShowImageChange: (url: string, index: number, type : "video" | "image") => void
   onRemoveImage: (index: number) => void
-  onImageUpload: () => void
+  onOpenDropzone : () => void
 }
 
 const PreviewList = ({
-  currentFile,
-  currentFileType,
-  currentIndex,
-  previews,
   onShowImageChange,
   onRemoveImage,
-  onImageUpload,
+  onOpenDropzone
 }: PreviewListProps) => {
   const method = useFormContext()
+  const { getValues } = method
+  const { currentFileType, currentFile } = getValues()
 
   const isImage = currentFileType === 'image'
   const isVideo = currentFileType === 'video'
@@ -41,11 +34,9 @@ const PreviewList = ({
         </div>
       </div>
       <MoreMediaUpload
-        currentIndex={currentIndex}
-        previews={previews}
         onShowImageChange={onShowImageChange}
         onRemoveImage={onRemoveImage}
-        onImageUpload={onImageUpload}
+        onOpenDropzone={onOpenDropzone}
       />
     </div>
   )

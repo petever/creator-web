@@ -1,9 +1,8 @@
+import { useEffect } from "react";
 import {useFieldArray, useForm} from 'react-hook-form'
-import {DropzoneRef} from "@/widgets/AddContentModal/types";
 import {ImageOptimizeData} from "@/entities/ImageUpload/types";
-import {useRef} from "react";
-import ky from "@toss/ky";
 import {useCreatePosts} from "@/widgets/AddContentModal/hooks/useCreatePosts";
+import ky from "@toss/ky";
 
 export const useContentModal = () => {
   const methods = useForm({
@@ -25,24 +24,27 @@ export const useContentModal = () => {
 
   const {step, currentFile, currentFileType, files, currentIndex} = watch()
 
-  const { fields, append, prepend, remove, swap, move, insert }  = useFieldArray({
+  const {
+    fields : filesFields,
+    append : filesAppend,
+    prepend : filesPrepend,
+    remove : filesRemove,
+    swap : filesSwap,
+    move : filesMove,
+    insert : filesInsert
+  }  = useFieldArray({
     control,
     name : 'files'
   })
 
   const { createPostMutation } = useCreatePosts(() => handleModalClose())
 
-  const dropzoneRef = useRef<DropzoneRef>();
 
   const handleModalClose = () => {
     reset()
   }
 
-  const handleOpenDialog = () => {
-    if (dropzoneRef.current) {
-      dropzoneRef.current.open()
-    }
-  };
+
 
 
   const handleDropImages = async (uploadFiles: File[]) => {
@@ -59,13 +61,14 @@ export const useContentModal = () => {
     setValue('currentFile', url)
 
     files.forEach(file => {
-      // insert(file)
+      filesAppend(file)
     })
 
     if (settingFile.type === 'video/mp4') {
       return setValue('currentFileType', 'video')
     }
     setValue('currentFileType', 'image')
+    console.log('files: ::: ', getValues('files'))
   }
 
   const processFiles = async (formData: FormData): Promise<File[]> => {
@@ -89,9 +92,9 @@ export const useContentModal = () => {
   }
 
   const handleRemoveImage = (index: number) => {
-    remove(index)
+    filesRemove(index)
 
-    const uploadFiles = form.getValues().files
+    const uploadFiles = getValues().files
 
     if (uploadFiles.length === 0) {
       setValue('currentIndex', 0)
@@ -134,11 +137,14 @@ export const useContentModal = () => {
     createPostMutation(formData)
   }
 
+  useEffect(() => {
+    reset()
+    console.log('reset modal')
+  }, []);
+
 
   return {
     methods,
-    dropzoneRef,
-    handleOpenDialog,
     handleDropImages,
     handleRemoveImage,
     handleChangeCurrentImage,

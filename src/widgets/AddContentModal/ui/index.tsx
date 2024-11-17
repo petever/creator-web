@@ -1,15 +1,12 @@
-import { ContentFormProvider, useContentForm } from '@/widgets/AddContentModal/lib/form-context'
 import ContentUpload from '@/widgets/AddContentModal/ui/ContentUpload'
 import { ContentForm } from '@/widgets/AddContentModal/ui/ContentForm'
 import { AddContentFooter } from '@/widgets/AddContentModal/ui/AddContentFooter'
-import { useCreatePosts } from '@/widgets/AddContentModal/hooks/useCreatePosts'
-import {Dialog, DialogContent, DialogTrigger} from "@/shared/ui/dialog";
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/shared/ui/dialog";
 import {Button} from "@/shared/ui/button";
 import {ISidebarItem} from "@/entities/Sidebar/types";
 import {useDisclosure} from "@/shared/hooks/useDisclosure";
 import {useContentModal} from "@/widgets/AddContentModal/hooks/useContentModal";
 import {FormProvider} from "react-hook-form";
-
 
 interface AddContentModalProps{
   item : ISidebarItem
@@ -19,12 +16,13 @@ const AddContentModal = ({ item, sidebarClassName } : AddContentModalProps) => {
   const {
     isOpen,
     onToggle,
-    onOpen,
-    onClose
   } = useDisclosure()
 
   const {
     methods,
+    handleDropImages,
+    handleRemoveImage,
+    handleChangeCurrentImage,
     handleSubmitContentData,
   } = useContentModal()
 
@@ -39,9 +37,16 @@ const AddContentModal = ({ item, sidebarClassName } : AddContentModalProps) => {
         </Button>
       </DialogTrigger>
       <DialogContent>
+        <DialogHeader className="flex items-center justify-between">
+          <DialogTitle>콘텐츠 업로드</DialogTitle>
+        </DialogHeader>
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(handleSubmitContentData)}>
-            <ContentUpload />
+            <ContentUpload
+              onShowImageChange={handleChangeCurrentImage}
+              onRemoveImage={handleRemoveImage}
+              onDropImage={handleDropImages}
+            />
             <ContentForm />
             <AddContentFooter />
           </form>
