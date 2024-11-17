@@ -1,51 +1,38 @@
 'use client'
-import { ActionIcon, UnstyledButton } from '@mantine/core'
 import { IconAdjustments, IconCirclePlus } from '@tabler/icons-react'
 import { Preview } from '@/features/PreviewList/ui/Preview'
 import classes from '@/features/PreviewList/ui/styles.module.css'
-import { useContentFormContext } from '@/widgets/AddContentModal/lib/form-context'
+import {useFormContext} from "react-hook-form";
+import {Button} from "@/shared/ui/button";
 
 interface MoreImageUploadProps {
-  currentIndex: number
-  previews: File[]
   onShowImageChange: (url: string, index: number, type : "video" | "image") => void
   onRemoveImage: (index: number) => void
-  onImageUpload: (() => void) | null
+  onOpenDropzone : () => void
 }
 
 export const MoreMediaUpload = ({
-  currentIndex,
-  previews,
   onShowImageChange,
   onRemoveImage,
-  onImageUpload,
+  onOpenDropzone
 }: MoreImageUploadProps) => {
-  const handleImageUpload = () => {
-    onImageUpload?.()
-  }
-
-  const form = useContentFormContext()
-  const { values, setFieldValue } = form
-
-  const { isPreview } = values
+  const method = useFormContext()
+  const { getValues, setValue} = method
+  const { isPreview } = getValues()
 
   const handlePreviewStatusChange = () => {
-    setFieldValue('isPreview', !isPreview)
+    setValue('isPreview', !isPreview)
   }
 
   return (
     <div className={classes.moreImageUploadWrapper}>
-      <ActionIcon onClick={handlePreviewStatusChange}>
+      <Button onClick={handlePreviewStatusChange}>
         <IconAdjustments style={{ width: '70%', height: '70%' }} stroke={1.5} />
-      </ActionIcon>
+      </Button>
       {isPreview && (
         <div className={classes.moreImageUploadUtils}>
-          <UnstyledButton className={classes.imageUploadButton} onClick={handleImageUpload}>
-            <IconCirclePlus />
-          </UnstyledButton>
+          <Button onClick={onOpenDropzone}>업로드</Button>
           <Preview
-            currentIndex={currentIndex}
-            previews={previews}
             onRemoveImage={onRemoveImage}
             onShowImageChange={onShowImageChange}
           />

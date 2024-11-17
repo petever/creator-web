@@ -1,28 +1,35 @@
 import { Button } from "@/shared/ui/button";
-import { PAGE } from "@/shared/constants/page";
 import Link from 'next/link'
 import {ISidebarItem} from "@/entities/Sidebar/types";
+import AddContentModal from "@/widgets/AddContentModal/ui";
+
 
 interface SidebarItemProps {
   item : ISidebarItem
 }
-export const SidebarItem = ({ item } : SidebarItemProps) => {
-  const sidebarClassName = 'flex py-2 px-4 gap-2 text-left font-medium'
-  const isLink = item.url !== '#'
 
-  if(isLink) {
+export const SidebarItem = ({ item } : SidebarItemProps) => {
+  const sidebarClassName = 'flex py-2 px-4 gap-2 w-full justify-normal font-medium '
+
+  if(item.title === '검색') {
     return (
-      <Link href={item.url} className={sidebarClassName}>
+      <Button variant='ghost' className={sidebarClassName}>
         <item.icon style={{ width: '20px', height: '20px' }} />
         <span className="text-base font-medium">{item.title}</span>
-      </Link>
+      </Button>
+    )
+  }
+  if(item.title === '추가') {
+    return (
+      <AddContentModal item={item} sidebarClassName={sidebarClassName}/>
     )
   }
 
+
   return (
-    <Button variant='ghost' className={sidebarClassName}>
+    <Link href={item.url} className={sidebarClassName}>
       <item.icon style={{ width: '20px', height: '20px' }} />
       <span className="text-base font-medium">{item.title}</span>
-    </Button>
+    </Link>
   )
 }

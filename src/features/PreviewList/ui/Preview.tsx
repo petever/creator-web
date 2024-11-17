@@ -2,27 +2,28 @@ import Image from 'next/image'
 import { UnstyledButton } from '@mantine/core'
 import classes from '@/features/PreviewList/ui/styles.module.css'
 import { IconSquareXFilled } from '@tabler/icons-react'
-import Video from 'next-video';
 import {VideoPlayer} from "@/shared";
+import {useFormContext} from "react-hook-form";
+
 
 interface PreviewProps {
-  currentIndex: number
-  previews: File[]
   onRemoveImage: (index: number) => void
   onShowImageChange: (url: string, index: number, type : "video" | "image") => void
 }
 
 export const Preview = ({
-  currentIndex,
-  previews,
   onRemoveImage,
   onShowImageChange,
 }: PreviewProps) => {
+  const method = useFormContext()
+  const { getValues, setValue} = method
+  const { currentIndex, files } = getValues()
+
   return (
     <ul className={classes.previewListWrapper}>
-      {previews.map((file, index) => {
-        const isVideo = file.type === 'video/mp4'
-        const fileType = file.type === 'video/mp4' ? 'video' : 'image'
+      {files.map((file, index) => {
+        const isVideo = file?.type === 'video/mp4'
+        const fileType = file?.type === 'video/mp4' ? 'video' : 'image'
         const url = URL.createObjectURL(file)
         return (
           <li className={classes.previewWrapper} key={`preview_${index}`}>

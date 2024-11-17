@@ -9,3 +9,7 @@ export interface AddContentData {
   isPreview: boolean
   isSubscribed: 'false' | 'true'
 }
+
+export type DropzoneRef = {
+  open : () => void
+}

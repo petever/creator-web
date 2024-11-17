@@ -1,77 +1,58 @@
-import { Modal } from '@mantine/core'
-import { ContentFormProvider, useContentForm } from '@/widgets/AddContentModal/lib/form-context'
 import ContentUpload from '@/widgets/AddContentModal/ui/ContentUpload'
 import { ContentForm } from '@/widgets/AddContentModal/ui/ContentForm'
 import { AddContentFooter } from '@/widgets/AddContentModal/ui/AddContentFooter'
-import { useCreatePosts } from '@/widgets/AddContentModal/hooks/useCreatePosts'
-import classes from './styles.module.css'
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/shared/ui/dialog";
+import {Button} from "@/shared/ui/button";
+import {ISidebarItem} from "@/entities/Sidebar/types";
+import {useDisclosure} from "@/shared/hooks/useDisclosure";
+import {useContentModal} from "@/widgets/AddContentModal/hooks/useContentModal";
+import {FormProvider} from "react-hook-form";
 
-interface AddContentModalProps {
-  opened: boolean
-  onClose: () => void
+interface AddContentModalProps{
+  item : ISidebarItem
+  sidebarClassName : string
 }
+const AddContentModal = ({ item, sidebarClassName } : AddContentModalProps) => {
+  const {
+    isOpen,
+    onToggle,
+  } = useDisclosure()
 
-const AddContentModal = ({ opened, onClose }: AddContentModalProps) => {
-  const { createPostMutation } = useCreatePosts(() => handleModalClose())
+  const {
+    methods,
+    handleDropImages,
+    handleRemoveImage,
+    handleChangeCurrentImage,
+    handleSubmitContentData,
+  } = useContentModal()
 
-  const form = useContentForm({
-    mode: 'controlled',
-    initialValues: {
-      currentFile: '',
-      currentFileType: 'image',
-      currentIndex: 0,
-      step: 0,
-      title: '',
-      contents: '',
-      files: [],
-      isPreview: false,
-      isSubscribed: 'false',
-    },
-  })
-
-  const { onSubmit, reset } = form
-
-  const handleSubmit = (values: typeof form.values) => {
-    const { title, contents, isSubscribed, files } = values
-
-
-    const formData = new FormData()
-    formData.append(
-      'postRequest',
-      new Blob(
-        [
-          JSON.stringify({
-            title,
-            contents,
-            isSubscribed: values.isSubscribed !== 'false',
-          }),
-        ],
-        { type: 'application/json' },
-      ),
-    )
-
-    files.forEach((file) => {
-      return formData.append('files', file)
-    })
-
-    createPostMutation(formData)
-  }
-
-  const handleModalClose = () => {
-    reset()
-    onClose()
-  }
+  const { handleSubmit, reset } = methods
 
   return (
-    <Modal size="xl" centered opened={opened} onClose={handleModalClose} title="새 게시물 만들기">
-      <ContentFormProvider form={form}>
-        <form onSubmit={onSubmit(handleSubmit)}>
-          <ContentUpload />
-          <ContentForm />
-          <AddContentFooter />
-        </form>
-      </ContentFormProvider>
-    </Modal>
+    <Dialog open={isOpen} onOpenChange={onToggle}>
+      <DialogTrigger asChild>
+        <Button variant='ghost' className={sidebarClassName}>
+          <item.icon style={{ width: '20px', height: '20px' }} />
+          <span className="text-base font-medium">{item.title}</span>
+        </Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader className="flex items-center justify-between">
+          <DialogTitle>콘텐츠 업로드</DialogTitle>
+        </DialogHeader>
+        <FormProvider {...methods}>
+          <form onSubmit={handleSubmit(handleSubmitContentData)}>
+            <ContentUpload
+              onShowImageChange={handleChangeCurrentImage}
+              onRemoveImage={handleRemoveImage}
+              onDropImage={handleDropImages}
+            />
+            <ContentForm />
+            <AddContentFooter />
+          </form>
+        </FormProvider>
+      </DialogContent>
+    </Dialog>
   )
 }
 
