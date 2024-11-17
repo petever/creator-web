@@ -1,81 +1,89 @@
 'use client'
-
 import React from 'react'
-import { Box, Button, Checkbox, Flex, Input, Select, Text } from '@mantine/core'
-import { useForm } from '@mantine/form'
-import classes from './styles.module.css'
+import { useFieldArray, useForm } from 'react-hook-form'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/ui/select'
+import { Button } from '@/shared/ui/button'
+import { Checkbox } from '@/shared/ui/checkbox'
+import { Input } from '@/shared/ui/input'
 
 const CreatorApplyForm = () => {
   const MAX_SNS_COUNT = 5
-  const form = useForm({
-    mode: 'uncontrolled',
-    initialValues: {
+  const { register, control, handleSubmit } = useForm({
+    defaultValues: {
       sns: [{ channel: 'instagram', account: '' }],
     },
   })
-  const snsItems = form.values.sns
+
+  const { fields, append } = useFieldArray({
+    control,
+    name: 'sns',
+  })
+
   const handleSnsAdd = () => {
-    if (snsItems.length > MAX_SNS_COUNT) return
-    form.insertListItem('sns', { channel: 'instagram', account: '' })
+    if (fields.length >= MAX_SNS_COUNT) return
+    append({ channel: 'instagram', account: '' })
   }
 
+  const onSubmit = (data: any) => console.log(data)
+
   return (
-    <form onSubmit={form.onSubmit((values) => console.log(values))}>
-      <Flex mt={20} direction="column" gap={40}>
-        <Box>
-          <Flex gap={8} justify="space-between">
-            <Text size="sm" fw={500} mb={10}>
-              SNS 계정
-            </Text>
-            <Button size="compact-xs" onClick={handleSnsAdd}>
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-5">
+      <div className="flex flex-col gap-10">
+        <div>
+          <div className="flex justify-between items-center mb-2.5">
+            <span className="text-sm font-medium">SNS 계정</span>
+            <Button variant="outline" size="sm" onClick={handleSnsAdd}>
               추가
             </Button>
-          </Flex>
-          <Flex direction="column" gap={10}>
-            {snsItems.map((value, index) => {
-              return (
-                <Flex gap={8} key={form.key(`sns.${index}`)}>
-                  <Select
-                    placeholder="ID"
-                    defaultValue="instagram"
-                    data={['instagram', 'youtube', 'tiktok', 'afreecatv', 'twitter', 'facebook']}
-                    allowDeselect={false}
-                    flex={1}
-                    key={form.key(`sns.${index}.channel`)}
-                    {...form.getInputProps(`sns.${index}.channel`)}
-                  />
-                  <Input
-                    placeholder="SNS 계정을 입력해주세요."
-                    flex={2}
-                    {...form.getInputProps(`sns.${index}.account`)}
-                  />
-                </Flex>
-              )
-            })}
-          </Flex>
-        </Box>
-        <Flex justify="space-between">
-          <Text size="sm" fw={500} mb={10}>
-            크리에이터 신청 내역
-          </Text>
-          <Text size="sm">신청내역이 없습니다.</Text>
-        </Flex>
-        <Box>
-          <Flex justify="space-between" align="center">
-            <Text size="sm" fw={500} mb={10}>
-              이용약관
-            </Text>
-            <Checkbox label="동의" fw={500} size="xs" />
-          </Flex>
-          <Text className={classes.terms} size="sm">
+          </div>
+          <div className="flex flex-col gap-2.5">
+            {fields.map((field, index) => (
+              <div key={field.id} className="flex gap-2">
+                <Select defaultValue="instagram" {...register(`sns.${index}.channel`)}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="선택" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {['instagram', 'youtube', 'tiktok', 'afreecatv', 'twitter', 'facebook'].map(
+                      (platform) => (
+                        <SelectItem key={platform} value={platform}>
+                          {platform}
+                        </SelectItem>
+                      ),
+                    )}
+                  </SelectContent>
+                </Select>
+                <Input placeholder="계정" {...register(`sns.${index}.account`)} />
+                <Button variant="outline" size="sm">
+                  삭제
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="flex justify-between items-center">
+          <span className="text-sm font-medium">크리에이터 신청 내역</span>
+          <span className="text-sm">신청내역이 없습니다.</span>
+        </div>
+        <div>
+          <div className="flex justify-between items-center mb-2.5">
+            <span className="text-sm font-medium">이용약관</span>
+            <div className="flex items-center gap-2">
+              <Checkbox id="terms" />
+              <label htmlFor="terms" className="text-xs font-medium">
+                동의
+              </label>
+            </div>
+          </div>
+          <p className="text-sm">
             이용약관 및 개인정보처리방침에 동의하며, 19세 이상임을 확인합니다. (I agree to the Terms
             of Service and Privacy Policy, and confirm that I am at least 18 years old.)
-          </Text>
-          <Button fullWidth type="submit" size="md" mt={20} fw={500} radius={10}>
+          </p>
+          <Button className="w-full mt-5 rounded-lg font-medium" type="submit">
             크리에이터 전환
           </Button>
-        </Box>
-      </Flex>
+        </div>
+      </div>
     </form>
   )
 }
