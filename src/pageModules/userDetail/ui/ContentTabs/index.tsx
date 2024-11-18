@@ -1,8 +1,8 @@
 'use client'
 import React from 'react'
-import { Tabs } from '@mantine/core'
 import { FeedResponse } from '@/entities/feeds/types'
-import FeedList from '../../../../widgets/Post/ui/FeedList'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui/tabs'
+import FeedList from '@/widgets/Post/ui/FeedList'
 
 interface ContentTabsProps {
   initialFeeds: FeedResponse
@@ -11,22 +11,16 @@ interface ContentTabsProps {
 
 const ContentTabs = ({ initialFeeds, username }: ContentTabsProps) => {
   return (
-    <>
-      <Tabs defaultValue="posts" h={50}>
-        <Tabs.List h={50}>
-          <Tabs.Tab value="posts" w="50%" h={50}>
-            게시물 ({initialFeeds.content.length})
-          </Tabs.Tab>
-          <Tabs.Tab value="all" w="50%" h={50}>
-            모두
-          </Tabs.Tab>
-        </Tabs.List>
-        <Tabs.Panel value="posts">
-          <FeedList initialFeeds={initialFeeds} username={username} />
-        </Tabs.Panel>
-        <Tabs.Panel value="all">모두</Tabs.Panel>
-      </Tabs>
-    </>
+    <Tabs defaultValue="posts" className="w-full">
+      <TabsList className="grid w-full grid-cols-2">
+        <TabsTrigger value="posts">게시물</TabsTrigger>
+        <TabsTrigger value="all">모두</TabsTrigger>
+      </TabsList>
+      <TabsContent value="posts">
+        <FeedList initialFeeds={initialFeeds} username={username} />
+      </TabsContent>
+      <TabsContent value="all">111</TabsContent>
+    </Tabs>
   )
 }
 

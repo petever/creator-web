@@ -1,7 +1,5 @@
 import React from 'react'
-import { Group, Flex, Image } from '@mantine/core'
-import { IconPhoto, IconVideo } from '@tabler/icons-react'
-import classes from './styles.module.css'
+import { Image, Video } from 'lucide-react'
 
 interface BackgroundImageProps {
   cover: string | File
@@ -10,18 +8,17 @@ interface BackgroundImageProps {
 const BackgroundImage = ({ cover }: BackgroundImageProps) => {
   return (
     <div>
-      {/* TODO  : Count있을 때에만 렌더 되어야 함. */}
-      <Group align="center" gap={10} className={classes.countWrapper}>
-        <Flex align="center" gap={10}>
-          <IconVideo />
-          12
-        </Flex>
-        <Flex align="center" gap={10}>
-          <IconPhoto />
-          12
-        </Flex>
-      </Group>
-      <Image src={cover} height={300} />
+      <div className="flex justify-center items-center gap-10 mb-10">
+        <div className="flex items-center gap-10">
+          <Video />
+          <span>12</span>
+        </div>
+        <div className="flex items-center gap-10">
+          <Image />
+          <span>12</span>
+        </div>
+      </div>
+      {/*<NextImage src={cover as string} alt="cover" className="h-300" />*/}
     </div>
   )
 }

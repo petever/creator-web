@@ -1,12 +1,12 @@
 'use client'
 
 import React from 'react'
-import { Box, Button } from '@mantine/core'
 import { SubscribeModal } from '@/widgets/SubscribeModal/ui'
 import { useDisclosure } from '@mantine/hooks'
 import { UserProfile } from '@/entities/user/types'
 import { PAGE } from '@/shared/constants/page'
 import Link from 'next/link'
+import { Button } from '@/shared/ui/button'
 
 interface SubscribeButtonProps {
   userProfile?: UserProfile
@@ -23,22 +23,19 @@ const SubscribeButton = ({ isSelf, userProfile }: SubscribeButtonProps) => {
 
   if (isSelf) {
     return (
-      <Box p={20}>
-        <Link href={PAGE.SETTINGS_PROFILE}>
-          <Button fullWidth radius={40} h={44}>
-            프로필 편집
-          </Button>
-        </Link>
-      </Box>
+      <div className="p-5">
+        <Button className="rounded-3xl">프로필 편집</Button>
+        <Link href={PAGE.SETTINGS_PROFILE}></Link>
+      </div>
     )
   }
   return (
-    <Box p={20}>
-      <Button fullWidth radius={40} h={44} onClick={handleOpenModal}>
+    <div className="p-5">
+      <Button className="rounded-3xl" onClick={handleOpenModal}>
         {isSubscribed ? '구독중' : '구독하기'}
       </Button>
       <SubscribeModal opened={isModalOpened} onClose={modalClose} userProfile={userProfile} />
-    </Box>
+    </div>
   )
 }
 
