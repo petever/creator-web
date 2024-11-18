@@ -5,26 +5,35 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/shared/ui/button'
 import { Checkbox } from '@/shared/ui/checkbox'
 import { Input } from '@/shared/ui/input'
+import { applyForCreator } from '@/features/creators/api/applyForCreator'
 
 const CreatorApplyForm = () => {
   const MAX_SNS_COUNT = 5
+  const MIN_SNS_COUNT = 1
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
-      sns: [{ channel: 'instagram', account: '' }],
+      sns: [{ snsType: 'instagram', snsId: '' }],
     },
   })
 
-  const { fields, append } = useFieldArray({
+  const { fields, append, remove } = useFieldArray({
     control,
     name: 'sns',
   })
 
   const handleSnsAdd = () => {
     if (fields.length >= MAX_SNS_COUNT) return
-    append({ channel: 'instagram', account: '' })
+    append({ snsType: 'instagram', snsId: '' })
   }
 
-  const onSubmit = (data: any) => console.log(data)
+  const handleSnsRemove = (index: number) => {
+    if (fields.length === MIN_SNS_COUNT) return
+    remove(index)
+  }
+
+  const onSubmit = (data: any) => {
+    applyForCreator(data.sns)
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mt-5">
@@ -39,7 +48,7 @@ const CreatorApplyForm = () => {
           <div className="flex flex-col gap-2.5">
             {fields.map((field, index) => (
               <div key={field.id} className="flex gap-2">
-                <Select defaultValue="instagram" {...register(`sns.${index}.channel`)}>
+                <Select defaultValue="instagram" {...register(`sns.${index}.snsType`)}>
                   <SelectTrigger>
                     <SelectValue placeholder="선택" />
                   </SelectTrigger>
@@ -53,8 +62,8 @@ const CreatorApplyForm = () => {
                     )}
                   </SelectContent>
                 </Select>
-                <Input placeholder="계정" {...register(`sns.${index}.account`)} />
-                <Button variant="outline" size="sm">
+                <Input placeholder="계정" {...register(`sns.${index}.snsId`)} />
+                <Button variant="outline" size="sm" onClick={() => handleSnsRemove(index)}>
                   삭제
                 </Button>
               </div>
