@@ -1,5 +1,10 @@
-import {SidebarFooter, SidebarMenu, SidebarMenuButton, SidebarMenuItem} from "@/shared/ui/sidebar";
-import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/shared/ui/dropdown-menu";
+import { SidebarFooter, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/shared/ui/sidebar'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/shared/ui/dropdown-menu'
 import { ChevronUp, Settings } from 'lucide-react'
 import Link from 'next/link'
 

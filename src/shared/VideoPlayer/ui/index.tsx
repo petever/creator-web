@@ -1,10 +1,10 @@
-import Player from 'next-video/player';
+import Player from 'next-video/player'
 
 interface VideoPlayerProps {
-  src : string
-  isControl ?: boolean
+  src: string
+  isControl?: boolean
 }
-export const VideoPlayer = ({src, isControl = false} : VideoPlayerProps) => {
+export const VideoPlayer = ({ src, isControl = false }: VideoPlayerProps) => {
   return (
     <div className="flex h-full justify-center relative bg-black">
       <Player

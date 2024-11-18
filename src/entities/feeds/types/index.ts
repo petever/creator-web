@@ -1,12 +1,11 @@
 import { PostItem } from '@/entities/posts/types'
-import {Owner, Pagination, Sort} from "@/shared/types";
+import { Owner, Pagination, Sort } from '@/shared/types'
 
 export interface FeedSearchParams {
   nextId?: string
   username?: string
   size: number
 }
-
 
 export interface Feeds {
   content: FeedContents[]
@@ -43,15 +42,13 @@ export interface Resource {
   updatedAt: Date
 }
 
-
 export interface FeedResponse {
-  content : FeedContents[]
-  last : boolean
-  number : number
+  content: FeedContents[]
+  last: boolean
+  number: number
 }
 
 export interface FeedPageData {
   pages: FeedResponse[]
   pageParam: FeedSearchParams[]
 }
-

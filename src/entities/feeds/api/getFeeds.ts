@@ -1,12 +1,15 @@
 import { API_URL } from '@/shared/constants/apiURL'
-import {FeedResponse, Feeds, FeedSearchParams} from '@/entities/feeds/types'
+import { FeedResponse, Feeds, FeedSearchParams } from '@/entities/feeds/types'
 import { clientKy } from '@/shared/core/clientKy'
 
-export const getFeeds = async ({pageParam} : { pageParam: FeedSearchParams}): Promise<FeedResponse> => {
-
-  const result =  await clientKy
+export const getFeeds = async ({
+  pageParam,
+}: {
+  pageParam: FeedSearchParams
+}): Promise<FeedResponse> => {
+  const result = await clientKy
     .get<Feeds>(API_URL.FEEDS, {
-      searchParams : pageParam,
+      searchParams: pageParam,
     })
     .json()
 
@@ -15,6 +18,6 @@ export const getFeeds = async ({pageParam} : { pageParam: FeedSearchParams}): Pr
   return {
     content,
     last,
-    number
+    number,
   }
 }

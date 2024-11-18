@@ -11,5 +11,5 @@ export interface AddContentData {
 }
 
 export type DropzoneRef = {
-  open : () => void
+  open: () => void
 }

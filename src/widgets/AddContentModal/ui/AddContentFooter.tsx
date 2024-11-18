@@ -1,5 +1,5 @@
-import { useFormContext} from 'react-hook-form'
-import {Button} from "@/shared/ui/button";
+import { useFormContext } from 'react-hook-form'
+import { Button } from '@/shared/ui/button'
 
 export const AddContentFooter = () => {
   const method = useFormContext()
@@ -20,7 +20,7 @@ export const AddContentFooter = () => {
   const isDisabledSaveButton = !title || !contents
 
   return (
-    <div className='mt-20'>
+    <div className="mt-20">
       <div className={'flex gap-20'}>
         {isImageSection && (
           <>

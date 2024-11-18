@@ -1,4 +1,3 @@
-
 export interface Pagination {
   paged: boolean
   pageNumber: number

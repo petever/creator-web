@@ -1,11 +1,11 @@
 export type ImageOptimizeData = {
-  buffer : BufferData
-  name : string
-  status : 'processed'
-  type : 'image' | 'video'
+  buffer: BufferData
+  name: string
+  status: 'processed'
+  type: 'image' | 'video'
 }
 
 type BufferData = {
-  data : Buffer,
-  type : 'buffer'
+  data: Buffer
+  type: 'buffer'
 }

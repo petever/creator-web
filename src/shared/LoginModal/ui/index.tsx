@@ -1,9 +1,9 @@
 'use client'
-import {Modal, Button, Text, Avatar, Flex} from '@mantine/core'
+import { Modal, Button, Text, Avatar, Flex } from '@mantine/core'
 import classes from './styles.module.css'
-import {Owner} from "@/entities/feeds/types";
-import Image from "next/image";
-import {signIn} from "@/auth";
+import { Owner } from '@/entities/feeds/types'
+import Image from 'next/image'
+import { signIn } from '@/auth'
 
 interface LoginModalProps {
   owner?: Owner
@@ -16,40 +16,29 @@ export const LoginModal = ({ owner, opened, onClose }: LoginModalProps) => {
     // return await signIn('google')
   }
 
-  if(!opened) return null
+  if (!opened) return null
 
   return (
-    <Modal size="100%"
-     opened={opened}
-     onClose={onClose}
-     centered
-     withCloseButton={true}
-     classNames={{
-       content : classes.wrapper
-     }}
+    <Modal
+      size="100%"
+      opened={opened}
+      onClose={onClose}
+      centered
+      withCloseButton={true}
+      classNames={{
+        content: classes.wrapper,
+      }}
     >
-      <Flex
-        direction={'column'}
-        justify={'center'}
-        align={'center'}
-      >
-        {owner &&
-          <Flex
-            direction={'column'}
-            justify={'center'}
-            align={'center'}
-            gap={'10'}
-            mb={40}
-          >
+      <Flex direction={'column'} justify={'center'} align={'center'}>
+        {owner && (
+          <Flex direction={'column'} justify={'center'} align={'center'} gap={'10'} mb={40}>
             <Avatar src={owner.picture as string} w={80} h={80} />
             <p>{owner.displayName}님의 글 더 보기</p>
             <p>인플루언서의 사진과 동영상을 보려면 가입하세요.</p>
           </Flex>
-        }
+        )}
         {/* TODO : Login 컴포넌트 분리 필요(form) */}
-        <form
-          onSubmit={handleLogin}
-        >
+        <form onSubmit={handleLogin}>
           <Button
             w={300}
             h={50}

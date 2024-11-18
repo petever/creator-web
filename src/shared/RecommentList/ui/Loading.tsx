@@ -8,9 +8,7 @@ export const Loading = ({ span }: LoadingProps) => {
   return (
     <div>
       <div>
-        <h3>
-          회원님을 위한 추천
-        </h3>
+        <h3>회원님을 위한 추천</h3>
         <Skeleton />
       </div>
     </div>

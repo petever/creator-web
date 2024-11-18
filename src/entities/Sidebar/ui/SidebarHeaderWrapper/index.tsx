@@ -1,4 +1,4 @@
-import {SidebarHeader} from "@/shared/ui/sidebar";
+import { SidebarHeader } from '@/shared/ui/sidebar'
 
 export const SidebarHeaderWrapper = () => {
   return (

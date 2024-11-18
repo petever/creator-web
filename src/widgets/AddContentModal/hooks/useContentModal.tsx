@@ -1,12 +1,12 @@
-import { useEffect } from "react";
-import {useFieldArray, useForm} from 'react-hook-form'
-import {ImageOptimizeData} from "@/entities/ImageUpload/types";
-import {useCreatePosts} from "@/widgets/AddContentModal/hooks/useCreatePosts";
-import ky from "@toss/ky";
+import { useEffect } from 'react'
+import { useFieldArray, useForm } from 'react-hook-form'
+import { ImageOptimizeData } from '@/entities/ImageUpload/types'
+import { useCreatePosts } from '@/widgets/AddContentModal/hooks/useCreatePosts'
+import ky from '@toss/ky'
 
-export const useContentModal = (onClose : () => void) => {
+export const useContentModal = (onClose: () => void) => {
   const methods = useForm({
-    defaultValues : {
+    defaultValues: {
       currentFile: '',
       currentFileType: '',
       step: 0,
@@ -17,25 +17,24 @@ export const useContentModal = (onClose : () => void) => {
       isPreview: false,
       isLoading: false,
       isSubscribed: 'false',
-    }
+    },
   })
 
-  const {control, setValue, getValues,
-    watch, reset} = methods
+  const { control, setValue, getValues, watch, reset } = methods
 
-  const {step, currentFile, currentFileType, files, currentIndex} = watch()
+  const { step, currentFile, currentFileType, files, currentIndex } = watch()
 
   const {
-    fields : filesFields,
-    append : filesAppend,
-    prepend : filesPrepend,
-    remove : filesRemove,
-    swap : filesSwap,
-    move : filesMove,
-    insert : filesInsert
-  }  = useFieldArray({
+    fields: filesFields,
+    append: filesAppend,
+    prepend: filesPrepend,
+    remove: filesRemove,
+    swap: filesSwap,
+    move: filesMove,
+    insert: filesInsert,
+  } = useFieldArray({
     control,
-    name : 'files'
+    name: 'files',
   })
 
   const { createPostMutation } = useCreatePosts(() => handleModalClose())
@@ -59,7 +58,7 @@ export const useContentModal = (onClose : () => void) => {
     const url = URL.createObjectURL(settingFile)
     setValue('currentFile', url)
 
-    files.forEach(file => {
+    files.forEach((file) => {
       filesAppend(file)
     })
 
@@ -71,9 +70,11 @@ export const useContentModal = (onClose : () => void) => {
   }
 
   const processFiles = async (formData: FormData): Promise<File[]> => {
-    const imageOptimizeData = await ky.post('/api/image-optimize', {
-      body : formData
-    }).json()
+    const imageOptimizeData = await ky
+      .post('/api/image-optimize', {
+        body: formData,
+      })
+      .json()
 
     const result = await imageOptimizeData
     return await Promise.all(
@@ -81,12 +82,12 @@ export const useContentModal = (onClose : () => void) => {
         const bufferArray = bufferFile.buffer.data
         const blob = new Blob([new Uint8Array(bufferArray)])
 
-        if(bufferFile.type === 'video'){
+        if (bufferFile.type === 'video') {
           return new File([blob], `${bufferFile.name}.mp4`, { type: 'video/mp4' })
         }
 
         return new File([blob], `${bufferFile.name}.jpeg`, { type: 'image/jpeg' })
-      })
+      }),
     )
   }
 
@@ -105,7 +106,7 @@ export const useContentModal = (onClose : () => void) => {
     setValue('currentFile', url)
   }
 
-  const handleChangeCurrentImage = (url: string, index: number, type : "video" | "image") => {
+  const handleChangeCurrentImage = (url: string, index: number, type: 'video' | 'image') => {
     setValue('currentFile', url)
     setValue('currentIndex', index)
     setValue('currentFileType', type)
@@ -142,6 +143,6 @@ export const useContentModal = (onClose : () => void) => {
     handleDropImages,
     handleRemoveImage,
     handleChangeCurrentImage,
-    handleSubmitContentData
+    handleSubmitContentData,
   }
 }

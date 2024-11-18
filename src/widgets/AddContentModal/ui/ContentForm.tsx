@@ -1,8 +1,8 @@
-import { useFormContext} from 'react-hook-form'
+import { useFormContext } from 'react-hook-form'
 import Image from 'next/image'
-import Video from 'next-video';
-import {Carousel, CarouselItem} from "@/shared/ui/carousel";
-import {FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/shared/ui/form";
+import Video from 'next-video'
+import { Carousel, CarouselItem } from '@/shared/ui/carousel'
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form'
 import {
   Select,
   SelectContent,
@@ -10,9 +10,9 @@ import {
   SelectItem,
   SelectLabel,
   SelectTrigger,
-  SelectValue
-} from "@/shared/ui/select";
-import {Input} from "@/shared/ui/input";
+  SelectValue,
+} from '@/shared/ui/select'
+import { Input } from '@/shared/ui/input'
 
 export const ContentForm = () => {
   const methods = useFormContext()
@@ -32,7 +32,7 @@ export const ContentForm = () => {
             return (
               <CarouselItem key={`image_${index}`}>
                 {!isVideo ? (
-                  <Image src={url} alt="" objectFit={'contain'} fill/>
+                  <Image src={url} alt="" objectFit={'contain'} fill />
                 ) : (
                   <div className="flex h-full justify-center relative bg-black">
                     <Video
@@ -79,7 +79,7 @@ export const ContentForm = () => {
         />
         <FormField
           control={control}
-          name='isSubscribed'
+          name="isSubscribed"
           render={({ field }) => (
             <Select>
               <SelectTrigger className="w-[180px]">

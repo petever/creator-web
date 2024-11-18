@@ -1,11 +1,11 @@
 import { UserProfile } from '@/entities/user/types'
-import {Button} from "@/shared/ui/button";
-import {Avatar, AvatarImage} from "@/shared/ui/avatar";
-import {AvatarFallback} from "@radix-ui/react-avatar";
+import { Button } from '@/shared/ui/button'
+import { Avatar, AvatarImage } from '@/shared/ui/avatar'
+import { AvatarFallback } from '@radix-ui/react-avatar'
 
 interface ProfileProps {
   profile: UserProfile
-  isSubscribed ?: boolean
+  isSubscribed?: boolean
   onClick?: () => void
 }
 
@@ -14,12 +14,12 @@ export const Profile = ({ profile, isSubscribed, onClick }: ProfileProps) => {
 
   return (
     <div>
-      <div className='flex justify-between items-center'>
-        <Button variant="ghost" className='flex w-full justify-start box-content' onClick={onClick}>
+      <div className="flex justify-between items-center">
+        <Button variant="ghost" className="flex w-full justify-start box-content" onClick={onClick}>
           <Avatar>
-            <AvatarImage src={profile.picture as string}/>
+            <AvatarImage src={profile.picture as string} />
           </Avatar>
-          <div className='flex flex-col items-start'>
+          <div className="flex flex-col items-start">
             <p>{profile.displayName}</p>
             <p>@{profile.username}</p>
           </div>

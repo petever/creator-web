@@ -1,5 +1,5 @@
-import {Owner, Pagination, Sort} from "@/shared/types";
-import {FeedContents} from "@/entities/feeds/types";
+import { Owner, Pagination, Sort } from '@/shared/types'
+import { FeedContents } from '@/entities/feeds/types'
 
 export interface PostItem {
   id: string
@@ -8,18 +8,17 @@ export interface PostItem {
   likeCount: number
 }
 
-
 export interface PostLikeWithMemberSearchParams {
   nextId?: string
 }
 
 export interface PostLikeContent {
-  postLikeId : string
-  user : Owner[]
+  postLikeId: string
+  user: Owner[]
 }
 
 export interface PostLikeWithMembersResponse {
-  pageable : Pagination,
+  pageable: Pagination
   content: PostLikeContent[]
   first: boolean
   last: boolean

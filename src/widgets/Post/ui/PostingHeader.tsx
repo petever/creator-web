@@ -2,9 +2,9 @@
 
 import { Profile } from '@/features'
 import { useDisclosure } from '@mantine/hooks'
-import {UserProfile} from "@/entities/user/types";
-import {PAGE} from "@/shared/constants/page";
-import {useRouter} from "next/navigation";
+import { UserProfile } from '@/entities/user/types'
+import { PAGE } from '@/shared/constants/page'
+import { useRouter } from 'next/navigation'
 
 interface PostingHeaderProps {
   profile: UserProfile
@@ -13,13 +13,13 @@ interface PostingHeaderProps {
 export const PostingHeader = ({ profile }: PostingHeaderProps) => {
   const router = useRouter()
 
-  const goToMemberPage = (name : string) => {
+  const goToMemberPage = (name: string) => {
     router.push(PAGE.MEMBER_PAGE(name))
   }
 
   return (
     <div className={'flex justify-between p-4'}>
-      <Profile profile={profile} size="md" onClick={() => goToMemberPage(profile.username)}/>
+      <Profile profile={profile} size="md" onClick={() => goToMemberPage(profile.username)} />
     </div>
   )
 }

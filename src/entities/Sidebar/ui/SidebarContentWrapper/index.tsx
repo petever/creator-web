@@ -4,12 +4,12 @@ import {
   SidebarGroupContent,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem
-} from "@/shared/ui/sidebar";
+  SidebarMenuItem,
+} from '@/shared/ui/sidebar'
 
-import {SIDEBAR_ITEMS} from "@/entities/Sidebar/constants";
-import {SidebarItem} from "@/entities/Sidebar/ui/SidebarContentWrapper/SidebarItem";
-import {useSession} from "next-auth/react";
+import { SIDEBAR_ITEMS } from '@/entities/Sidebar/constants'
+import { SidebarItem } from '@/entities/Sidebar/ui/SidebarContentWrapper/SidebarItem'
+import { useSession } from 'next-auth/react'
 
 export const SidebarContentWrapper = () => {
   return (
@@ -20,7 +20,7 @@ export const SidebarContentWrapper = () => {
             {SIDEBAR_ITEMS.map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
-                 <SidebarItem item={item}/>
+                  <SidebarItem item={item} />
                 </SidebarMenuButton>
               </SidebarMenuItem>
             ))}

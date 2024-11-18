@@ -1,4 +1,4 @@
-import { withNextVideo } from "next-video/process";
+import { withNextVideo } from 'next-video/process'
 /**
  * @type {import('next').NextConfig}
  */
@@ -12,7 +12,6 @@ const nextConfig = {
     domains: ['lh3.googleusercontent.com', '182.227.155.8'],
   },
   output: 'standalone',
-
 }
 
-export default withNextVideo(nextConfig);
+export default withNextVideo(nextConfig)
