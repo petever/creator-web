@@ -3,7 +3,6 @@ import Link from 'next/link'
 import {ISidebarItem} from "@/entities/Sidebar/types";
 import AddContentModal from "@/widgets/AddContentModal/ui";
 
-
 interface SidebarItemProps {
   item : ISidebarItem
 }
@@ -24,7 +23,6 @@ export const SidebarItem = ({ item } : SidebarItemProps) => {
       <AddContentModal item={item} sidebarClassName={sidebarClassName}/>
     )
   }
-
 
   return (
     <Link href={item.url} className={sidebarClassName}>

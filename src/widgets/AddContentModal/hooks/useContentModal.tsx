@@ -4,7 +4,7 @@ import {ImageOptimizeData} from "@/entities/ImageUpload/types";
 import {useCreatePosts} from "@/widgets/AddContentModal/hooks/useCreatePosts";
 import ky from "@toss/ky";
 
-export const useContentModal = () => {
+export const useContentModal = (onClose : () => void) => {
   const methods = useForm({
     defaultValues : {
       currentFile: '',
@@ -15,6 +15,7 @@ export const useContentModal = () => {
       contents: '',
       files: [],
       isPreview: false,
+      isLoading: false,
       isSubscribed: 'false',
     }
   })
@@ -39,13 +40,10 @@ export const useContentModal = () => {
 
   const { createPostMutation } = useCreatePosts(() => handleModalClose())
 
-
   const handleModalClose = () => {
+    onClose()
     reset()
   }
-
-
-
 
   const handleDropImages = async (uploadFiles: File[]) => {
     const formData = new FormData()
@@ -54,6 +52,7 @@ export const useContentModal = () => {
       formData.append('file', file)
     })
 
+    setValue('isLoading', true)
     const files = await processFiles(formData)
 
     const settingFile = files[0]
@@ -68,7 +67,7 @@ export const useContentModal = () => {
       return setValue('currentFileType', 'video')
     }
     setValue('currentFileType', 'image')
-    console.log('files: ::: ', getValues('files'))
+    setValue('isLoading', false)
   }
 
   const processFiles = async (formData: FormData): Promise<File[]> => {
@@ -135,13 +134,8 @@ export const useContentModal = () => {
     })
 
     createPostMutation(formData)
-  }
-
-  useEffect(() => {
     reset()
-    console.log('reset modal')
-  }, []);
-
+  }
 
   return {
     methods,

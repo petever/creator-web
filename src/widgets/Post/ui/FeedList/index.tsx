@@ -1,10 +1,8 @@
 import React, { useEffect, useMemo, useRef } from 'react'
-import { Post } from '@/widgets/Post/ui'
-import { Flex } from '@mantine/core'
 import { FeedResponse } from '@/entities/feeds/types'
 import { useInView } from 'react-intersection-observer'
 import useFeeds from '@/entities/feeds/hooks/useFeeds'
-import { useSearchParams } from 'next/navigation'
+import { Post } from '@/widgets/Post/ui'
 
 interface FeedListProps {
   initialFeeds: FeedResponse
@@ -44,16 +42,16 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
   }, [])
 
   if (!postings) {
-    return <Flex>없어</Flex>
+    return <div>등록된 콘텐츠가 없습니다.</div>
   }
 
   return (
-    <Flex direction="column" gap={20} pt={20} pb={20} justify="center" align="center" w="600px">
+    <div class="flex flex-col gap-5 pt-5 pb-5 justify-center items-center w-[600px]">
       {postings.map((posting) => (
         <Post key={posting.id} feed={posting} username={username}/>
       ))}
       <div ref={ref}></div>
-    </Flex>
+    </div>
   )
 }
 

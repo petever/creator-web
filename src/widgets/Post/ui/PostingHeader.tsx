@@ -11,12 +11,6 @@ interface PostingHeaderProps {
 }
 
 export const PostingHeader = ({ profile }: PostingHeaderProps) => {
-  const [opened, { open, close }] = useDisclosure(false)
-
-  const handleDetailOpen = () => {
-    open()
-  }
-
   const router = useRouter()
 
   const goToMemberPage = (name : string) => {
@@ -24,7 +18,7 @@ export const PostingHeader = ({ profile }: PostingHeaderProps) => {
   }
 
   return (
-    <div className={'flex justify-between'}>
+    <div className={'flex justify-between p-4'}>
       <Profile profile={profile} size="md" onClick={() => goToMemberPage(profile.username)}/>
     </div>
   )

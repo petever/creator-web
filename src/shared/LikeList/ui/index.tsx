@@ -1,6 +1,6 @@
 import {Dialog, DialogContent, DialogTrigger} from "@/shared/ui/dialog";
 import {Button} from "@/shared/ui/button";
-import {useState} from "react";
+import {LikeList} from "@/entities";
 
 interface LikeListProps {
   likeCount : number
@@ -15,7 +15,7 @@ export const LkeList = ({ likeCount } : LikeListProps) => {
         </Button>
       </DialogTrigger>
       <DialogContent>
-        좋아요 리스트 노출
+        <LikeList/>
       </DialogContent>
     </Dialog>
   )

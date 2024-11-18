@@ -16,6 +16,7 @@ const AddContentModal = ({ item, sidebarClassName } : AddContentModalProps) => {
   const {
     isOpen,
     onToggle,
+    onClose
   } = useDisclosure()
 
   const {
@@ -24,7 +25,7 @@ const AddContentModal = ({ item, sidebarClassName } : AddContentModalProps) => {
     handleRemoveImage,
     handleChangeCurrentImage,
     handleSubmitContentData,
-  } = useContentModal()
+  } = useContentModal(onClose)
 
   const { handleSubmit, reset } = methods
 

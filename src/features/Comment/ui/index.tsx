@@ -8,6 +8,8 @@ import React, {useEffect, useMemo, useState} from "react";
 import {IconHeart, IconHeartFilled} from "@tabler/icons-react";
 import {CommentTypes} from "@/features/Comment/type";
 import {useUpdateFavoriteComment} from "@/features/Comment/hooks/useUpdateFavoriteComment";
+import {Heart, MessageCircle} from 'lucide-react';
+import {Button} from "@/shared/ui/button";
 
 interface CommentProps {
   id : string
@@ -47,35 +49,32 @@ export const Comment = ({id} : CommentProps) => {
   }, [inView, hasNextPage])
 
 
-  useEffect(() => {
-    console.log('isSuccess')
-  }, [isSuccess]);
-
-  if(comments.length < 1) return null
+  if(comments.length < 1) {
+    return (
+      <div className='flex flex-col  gap-4 h-full items-center justify-center'>
+        <MessageCircle size={40}/>
+        <p>등록된 댓글이 없습니다.</p>
+      </div>
+    )
+  }
 
   return (
     <div className={classes.wrapper}>
       {comments.map((comment) => {
         return (
-          <div className={classes.commentWrapper} key={comment.id}>
-            <UnstyledButton className={classes.userInfo} onClick={() => handleMemberPageMove(comment.owner.username)}>
+          <div className="flex flex-wrap gap-5 py-5" key={comment.id}>
+            <Button className={classes.userInfo `flex gap-2 items-center flex-none w-full`} onClick={() => handleMemberPageMove(comment.owner.username)}>
               <Avatar size='sm' src={comment.owner.picture as string}/>
               <span>{comment.owner.displayName}</span>
-            </UnstyledButton>
-            <div className={classes.contentWrapper}>
+            </Button>
+            <div className={classes.commentWrapper `flex-1 text-left break-words`}>
               {comment.contents}
             </div>
-            <ActionIcon
-              variant="subtle"
-              size="sm"
-              color="gray"
-              data-testId="favorite_btn"
-              onClick={() => handleFavoritePosting(comment)}
-            >
+            <Button variant="ghost" onClick={() => handleFavoritePosting(comment)}>
               <div>
-                {!isLiked ? <IconHeart size={12}/> : <IconHeartFilled size={12}/>}
+                <Heart fill={!isLiked ? 'transparent' : '#000'}/>
               </div>
-            </ActionIcon>
+            </Button>
           </div>
         )
       })}

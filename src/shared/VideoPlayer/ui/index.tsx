@@ -1,5 +1,4 @@
 import Player from 'next-video/player';
-import classes from './styles.module.css'
 
 interface VideoPlayerProps {
   src : string
@@ -7,7 +6,7 @@ interface VideoPlayerProps {
 }
 export const VideoPlayer = ({src, isControl = false} : VideoPlayerProps) => {
   return (
-    <div className={classes.videoWrapper}>
+    <div className="flex h-full justify-center relative bg-black">
       <Player
         src={src}
         autoPlay={false}

@@ -13,9 +13,9 @@ export const Profile = ({ profile, isSubscribed, onClick }: ProfileProps) => {
   if (!profile) return null
 
   return (
-    <li className='align-center'>
-      <div className='flex justify-between'>
-        <Button variant="ghost" className='flex' onClick={onClick}>
+    <div>
+      <div className='flex justify-between items-center'>
+        <Button variant="ghost" className='flex w-full justify-start box-content' onClick={onClick}>
           <Avatar>
             <AvatarImage src={profile.picture as string}/>
           </Avatar>
@@ -26,6 +26,6 @@ export const Profile = ({ profile, isSubscribed, onClick }: ProfileProps) => {
         </Button>
         {isSubscribed && <Button>구독</Button>}
       </div>
-    </li>
+    </div>
   )
 }

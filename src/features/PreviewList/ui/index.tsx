@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import classes from './styles.module.css'
 import { MoreMediaUpload } from '@/features/PreviewList/ui/MoreMediaUpload'
 import {VideoPlayer} from "@/shared";
 import {useFormContext} from "react-hook-form";
@@ -26,10 +25,10 @@ const PreviewList = ({
 
   if (!currentFile) return null
   return (
-    <div className={classes.wrapper}>
-      <div className={classes.currentFilePreview}>
-        <div className={classes.contentWrapper}>
-          {currentFileType === 'image' && <Image src={currentFile} fill alt=""/>}
+    <div className='relative'>
+      <div className="relative top-0 left-0 h-0 pt-[80%] rounded-md overflow-hidden">
+        <div className="w-full h-full absolute top-0 left-1/2 transform -translate-x-1/2 bg-black">
+          {currentFileType === 'image' && <Image src={currentFile} fill alt="" className='object-contain'/>}
           {currentFileType === 'video' && <VideoPlayer src={currentFile}/>}
         </div>
       </div>

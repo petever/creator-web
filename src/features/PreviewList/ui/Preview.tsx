@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import { UnstyledButton } from '@mantine/core'
-import classes from '@/features/PreviewList/ui/styles.module.css'
 import { IconSquareXFilled } from '@tabler/icons-react'
 import {VideoPlayer} from "@/shared";
 import {useFormContext} from "react-hook-form";
+import {Button} from "@/shared/ui/button";
 
 
 interface PreviewProps {
@@ -20,20 +20,21 @@ export const Preview = ({
   const { currentIndex, files } = getValues()
 
   return (
-    <ul className={classes.previewListWrapper}>
+    <ul className="flex gap-1.25 items-center justify-between">
       {files.map((file, index) => {
         const isVideo = file?.type === 'video/mp4'
         const fileType = file?.type === 'video/mp4' ? 'video' : 'image'
         const url = URL.createObjectURL(file)
         return (
-          <li className={classes.previewWrapper} key={`preview_${index}`}>
-            <UnstyledButton className={classes.previewWrapperButton} onClick={() => onShowImageChange(url, index, fileType)}>
-              {currentIndex === index && <div className={classes.currentImageWrapper} />}
+          <li className="w-[100px] h-[100px] relative rounded-lg overflow-hidden" key={`preview_${index}`}>
+            <Button className="w-full h-full" onClick={() => onShowImageChange(url, index, fileType)}>
+              {currentIndex === index && <div className="w-full h-full absolute top-0 right-0 z-10 bg-black/50"
+              />}
               {!isVideo ? (
                 <Image src={url} alt="" fill />
               ) : <VideoPlayer src={url} isControl/>}
-            </UnstyledButton>
-            <UnstyledButton className={classes.deleteButton} onClick={() => onRemoveImage(index)}>
+            </Button>
+            <UnstyledButton className="flex items-center justify-center absolute top-[5px] right-[5px] z-10 rounded-md overflow-hidden bg-white" onClick={() => onRemoveImage(index)}>
               <IconSquareXFilled />
             </UnstyledButton>
           </li>

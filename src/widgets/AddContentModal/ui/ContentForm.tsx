@@ -1,7 +1,6 @@
 import { useFormContext} from 'react-hook-form'
 import Image from 'next/image'
 import Video from 'next-video';
-import classes from "@/features/PreviewList/ui/styles.module.css";
 import {Carousel, CarouselItem} from "@/shared/ui/carousel";
 import {FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/shared/ui/form";
 import {
@@ -35,7 +34,7 @@ export const ContentForm = () => {
                 {!isVideo ? (
                   <Image src={url} alt="" objectFit={'contain'} fill/>
                 ) : (
-                  <div className={classes.videoWrapper}>
+                  <div className="flex h-full justify-center relative bg-black">
                     <Video
                       src={url} // 비디오 파일 경로
                       autoPlay={false}

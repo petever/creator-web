@@ -1,17 +1,12 @@
 'use client'
-import { ActionIcon, ActionIconGroup, Flex } from '@mantine/core'
-import {
-  IconHeart,
-  IconHeartFilled,
-  IconMessageCircle,
-} from '@tabler/icons-react'
+import { ActionIconGroup, Flex } from '@mantine/core'
 import {useUpdateLikePosting} from "@/features/FeedButtons/hooks/useUpdateFavoritePosting";
 import {FeedContents} from "@/entities/feeds/types";
-import classes from './styles.module.css'
 import {useSession} from "next-auth/react";
 import {CommentListModal, LoginModal} from "@/shared";
 import { useDisclosure } from '@mantine/hooks'
 import {Button} from "@/shared/ui/button";
+import {Heart} from "lucide-react";
 
 interface FeedButtonsProps {
   feed: FeedContents
@@ -35,23 +30,18 @@ export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps)
   }
 
   return (
-    <div className={classes.wrapper}>
-      <Flex
-        justify="space-between"
-        style={{
-          width: '100%',
-        }}
-      >
-        <ActionIconGroup>
+    <div className='px-0 py-2'>
+      <div class="flex justify-between w-full">
+        <div>
           <Button
             variant="ghost"
             onClick={handleFavoritePosting}
           >
-            {!isLiked ? <IconHeart /> : <IconHeartFilled />}
+            <Heart fill={!isLiked ? 'transparent' : '#000'}/>
           </Button>
           <CommentListModal feed={feed}/>
-        </ActionIconGroup>
-      </Flex>
+        </div>
+      </div>
       <LoginModal
         owner={feed.owner}
         opened={loginModalOpened}

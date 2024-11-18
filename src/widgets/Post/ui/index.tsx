@@ -44,14 +44,6 @@ export const Post = ({ feed, username}: PostProps) => {
     setFeedOpened(true)
   }
 
-  const modalClose = (type : 'feed' | 'like' | 'comment') => {
-    if(type === 'feed') {
-      setFeedOpened(false)
-    }
-
-    return setCommentListOpened(false)
-  }
-
   useEffect(() => {
     // elementPosition.current.offsetTop = ref.current?.offsetTop
     // elementPosition.current.offsetBottom = ref.current?.offsetTop + ref.current?.offsetHeight
@@ -68,7 +60,7 @@ export const Post = ({ feed, username}: PostProps) => {
       <FeedMedia resources={feed.resources} />
       <FeedButtons feed={feed} onDetailModal={handleDetailOpen} username={username}/>
       <div className={'flex flex-col items-start'}>
-        <LkeList likeCount={likeCount}/>
+        <LkeList likeCount={likeCount} />
         <FeedDetail feed={feed} />
       </div>
     </Card>

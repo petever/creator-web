@@ -1,7 +1,6 @@
 'use client'
-import { IconAdjustments, IconCirclePlus } from '@tabler/icons-react'
+import { IconAdjustments } from '@tabler/icons-react'
 import { Preview } from '@/features/PreviewList/ui/Preview'
-import classes from '@/features/PreviewList/ui/styles.module.css'
 import {useFormContext} from "react-hook-form";
 import {Button} from "@/shared/ui/button";
 
@@ -25,12 +24,12 @@ export const MoreMediaUpload = ({
   }
 
   return (
-    <div className={classes.moreImageUploadWrapper}>
+    <div className='absolute bottom-2.5 right-2.5 z-10'>
       <Button onClick={handlePreviewStatusChange}>
         <IconAdjustments style={{ width: '70%', height: '70%' }} stroke={1.5} />
       </Button>
       {isPreview && (
-        <div className={classes.moreImageUploadUtils}>
+        <div className='flex items-center gap-2.5 absolute -top-32 right-0 min-w-64 p-2.5 rounded-lg bg-current'>
           <Button onClick={onOpenDropzone}>업로드</Button>
           <Preview
             onRemoveImage={onRemoveImage}
