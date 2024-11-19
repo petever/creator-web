@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { DialogFooter } from '@/shared/ui/dialog'
 import { Button } from '@/shared/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form'
 import { Input } from '@/shared/ui/input'

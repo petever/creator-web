@@ -15,4 +15,7 @@ export const API_URL = {
   //SUBSCRIBE
   SUBSCRIBERS: 'subscribers',
   SUBSCRIBER_PLANS: 'subscriberPlans',
+  //CREATOR
+  CREATOR: 'creators',
+  CREATOR_APPLY: 'creators/apply',
 }
