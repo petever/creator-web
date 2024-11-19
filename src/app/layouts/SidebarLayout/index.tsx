@@ -1,5 +1,5 @@
 'use client'
-import { Sidebar, SidebarProvider } from '@/shared/ui/sidebar'
+import { SidebarProvider } from '@/shared/ui/sidebar'
 import { AppSidebar } from '@/shared/ui/AppSidebar/ui'
 
 interface SidebarLayoutProps {
