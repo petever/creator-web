@@ -3,10 +3,7 @@
 import SubscribeCard from '@/features/subscribe/ui/SubscribeCard'
 import { SubscribePlan } from '@/entities/subscribe/types'
 import { useSubscribePlans } from '@/entities/subscribe/hooks/useSubscribePlans'
-import { Flex } from '@mantine/core'
-import { useSession } from 'next-auth/react'
 import { useCreatorSubscribe } from '@/features/subscribe/hooks/useCreatorSubscribe'
-import { useUnsubscribe } from '@/features/subscribe/hooks/useUnsubscribe'
 
 interface SubscribeCardListProps {
   userId?: string

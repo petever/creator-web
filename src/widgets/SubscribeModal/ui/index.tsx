@@ -1,31 +1,40 @@
 'use client'
 
-import { Avatar, Button, Flex, Group, Box, Modal, Radio, Stack, Text } from '@mantine/core'
-import classes from './styles.module.css'
-import { IconStar } from '@tabler/icons-react'
 import { UserProfile } from '@/entities/user/types'
-import { Profile } from '@/features'
-import FeedList from '@/widgets/Post/ui/FeedList'
 import React from 'react'
 import SubscribeCardList from '../../../features/subscribe/ui/SubscribeCardList'
-import { useSession } from 'next-auth/react'
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/shared/ui/dialog";
+import {useDisclosure} from "@/shared/hooks/useDisclosure";
+import {Button} from "@/shared/ui/button";
 
 interface SubscribeModalProps {
   userProfile?: UserProfile
-  opened: boolean
-  onClose: () => void
 }
 
-export const SubscribeModal = ({ userProfile, opened, onClose }: SubscribeModalProps) => {
+export const SubscribeModal = ({ userProfile }: SubscribeModalProps) => {
+  const { isOpen, onOpen, onToggle, onClose } = useDisclosure()
+
+  const isSubscribed = userProfile?.isSubscribed
+
   if (!userProfile) return null
 
-  const handleModalClose = () => {
-    onClose()
+  const handleOpenModal = () => {
+    onOpen()
   }
 
   return (
-    <Modal size="md" centered opened={opened} onClose={handleModalClose} title="구독하기">
-      <SubscribeCardList userId={userProfile.id} />
-    </Modal>
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button onClick={handleOpenModal}>
+          {isSubscribed ? '구독중' : '구독하기'}
+        </Button>
+      </DialogTrigger>
+      <DialogContent>
+          <DialogHeader>
+          <DialogTitle>구독 플랜</DialogTitle>
+          </DialogHeader>
+          <SubscribeCardList userId={userProfile.id} />
+      </DialogContent>
+    </Dialog>
   )
 }

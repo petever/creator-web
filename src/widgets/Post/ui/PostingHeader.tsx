@@ -4,7 +4,7 @@ import { Profile } from '@/features'
 import { UserProfile } from '@/entities/user/types'
 import { PAGE } from '@/shared/constants/page'
 import { useRouter } from 'next/navigation'
-import { Switch } from '@mantine/core'
+import {Switch} from "@/shared/ui/switch";
 
 interface PostingHeaderProps {
   isPrivate: boolean
@@ -24,11 +24,10 @@ export const PostingHeader = ({ profile, isPrivate, onPrivateChange }: PostingHe
       <Profile profile={profile} size="md" onClick={() => goToMemberPage(profile.username)} />
 
       {/* TODO : 개발용 */}
-      <Switch
-        label="비공개"
-        checked={isPrivate}
-        onChange={(event) => onPrivateChange(event.currentTarget.checked)}
-      />
+      {/*<Switch*/}
+      {/*  checked={isPrivate}*/}
+      {/*  onCheckedChange={(event) => onPrivateChange(event.currentTarget.checked)}*/}
+      {/*/>*/}
     </div>
   )
 }

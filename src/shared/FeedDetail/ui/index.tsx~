@@ -12,9 +12,9 @@ interface FeedDetailProps {
   feed: FeedContents
 }
 export const FeedDetail = ({ feed }: FeedDetailProps) => {
-  const isPc = useMediaQuery('(min-width: 640px)')
+  // const isPc = useMediaQuery('(min-width: 640px)')
 
-  if (feed.commentCount > 1) return null
+  if (feed.commentCount === 0) return null
 
   return (
     <Dialog>
@@ -32,11 +32,11 @@ export const FeedDetail = ({ feed }: FeedDetailProps) => {
               <FeedMedia resources={feed.resources} />
             </div>
           </div>
-          {isPc && (
-            <div className={'flex-1'}>
-              <CommentArea id={feed.id} />
-            </div>
-          )}
+          {/*{isPc && (*/}
+          {/*  <div className={'flex-1'}>*/}
+          {/*    <CommentArea id={feed.id} />*/}
+          {/*  </div>*/}
+          {/*)}*/}
         </div>
       </DialogContent>
     </Dialog>

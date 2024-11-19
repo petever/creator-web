@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { UnstyledButton } from '@mantine/core'
 import { IconSquareXFilled } from '@tabler/icons-react'
 import { VideoPlayer } from '@/shared'
 import { useFormContext } from 'react-hook-form'
@@ -35,12 +34,12 @@ export const Preview = ({ onRemoveImage, onShowImageChange }: PreviewProps) => {
               )}
               {!isVideo ? <Image src={url} alt="" fill /> : <VideoPlayer src={url} isControl />}
             </Button>
-            <UnstyledButton
+            <Button
               className="flex items-center justify-center absolute top-[5px] right-[5px] z-10 rounded-md overflow-hidden bg-white"
               onClick={() => onRemoveImage(index)}
             >
               <IconSquareXFilled />
-            </UnstyledButton>
+            </Button>
           </li>
         )
       })}

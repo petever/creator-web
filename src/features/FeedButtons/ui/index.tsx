@@ -1,10 +1,8 @@
 'use client'
-import { ActionIconGroup, Flex } from '@mantine/core'
 import { useUpdateLikePosting } from '@/features/FeedButtons/hooks/useUpdateFavoritePosting'
 import { FeedContents } from '@/entities/feeds/types'
 import { useSession } from 'next-auth/react'
 import { CommentListModal, LoginModal } from '@/shared'
-import { useDisclosure } from '@mantine/hooks'
 import { Button } from '@/shared/ui/button'
 import { Heart } from 'lucide-react'
 
@@ -20,11 +18,10 @@ export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps)
 
   const { isLiked } = feed
 
-  const [loginModalOpened, { open: loginModalOpen, close: loginModalClose }] = useDisclosure(false)
 
   const handleFavoritePosting = async () => {
     if (isError) {
-      return loginModalOpen()
+      // return loginModalOpen()
     }
     updateLikePostingMutate({ ...feed })
   }
@@ -39,7 +36,7 @@ export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps)
           <CommentListModal feed={feed} />
         </div>
       </div>
-      <LoginModal owner={feed.owner} opened={loginModalOpened} onClose={loginModalClose} />
+      {/*<LoginModal owner={feed.owner} opened={loginModalOpened} onClose={loginModalClose} />*/}
     </div>
   )
 }

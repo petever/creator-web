@@ -1,19 +1,16 @@
-import { Box, Divider } from '@mantine/core'
 import { Comment, CommentInput } from '@/features'
-import classes from './styles.module.css'
 
 interface CommentAreaProps {
   id: string
 }
 export const CommentArea = ({ id }: CommentAreaProps) => {
   return (
-    <Box>
+    <div>
       <h3>댓글</h3>
-      <Divider mt={10} />
-      <div className={classes.wrapper}>
+      <div className="h-[calc(100vh-200px)] overflow-y-auto">
         <Comment id={id} />
       </div>
       <CommentInput id={id} />
-    </Box>
+    </div>
   )
 }
