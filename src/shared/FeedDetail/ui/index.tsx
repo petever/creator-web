@@ -14,6 +14,8 @@ interface FeedDetailProps {
 export const FeedDetail = ({ feed }: FeedDetailProps) => {
   const isPc = useMediaQuery('(min-width: 640px)')
 
+  if (feed.commentCount === 0) return null
+
   return (
     <Dialog>
       <DialogTrigger asChild>

@@ -1,24 +1,10 @@
 import { PostItem } from '@/entities/posts/types'
+import { Owner, Pagination, Sort } from '@/shared/types'
 
 export interface FeedSearchParams {
   nextId?: string
   username?: string
   size: number
-}
-
-interface Pagination {
-  paged: boolean
-  pageNumber: number
-  pageSize: number
-  offSet: number
-  sort: Sort
-  unpaged: boolean
-}
-
-interface Sort {
-  sorted: boolean
-  empty: boolean
-  unsorted: boolean
 }
 
 export interface Feeds {
@@ -56,20 +42,10 @@ export interface Resource {
   updatedAt: Date
 }
 
-export interface Owner {
-  id: string
-  username: string
-  displayName: string
-  status: string
-  picture: string
-  cover: string
-  role: string
-}
-
 export interface FeedResponse {
-  content : FeedContents[]
-  last : boolean
-  number : number
+  content: FeedContents[]
+  last: boolean
+  number: number
 }
 
 export interface FeedPageData {

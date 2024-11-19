@@ -1,23 +1,18 @@
 import React from 'react'
-import { Flex, Text } from '@mantine/core'
-import classes from './styles.module.css'
 
 interface UserInfoProps {
   displayName: string
   username: string
   status: string
 }
+
 const UserInfo = ({ displayName, username, status }: UserInfoProps) => {
   return (
-    <div className={classes.wrap}>
-      <Text fw={600} size="lg" mt={10}>
-        {displayName}
-      </Text>
-      <Flex>
-        <Text size="sm" c="dimmed">
-          @{username}
-        </Text>
-      </Flex>
+    <div className="wrap">
+      <p className="text-lg font-bold mt-10">{displayName}</p>
+      <div className="flex">
+        <p className="text-sm text-gray-500">@{username}</p>
+      </div>
     </div>
   )
 }

@@ -1,12 +1,11 @@
 'use client'
 
-import { Avatar, Divider, Group } from '@mantine/core'
 import BackgroundImage from '@/entities/user/ui/BackgroundImage'
 import UserInfo from '@/entities/user/ui/UserInfo'
 import { UserProfile } from '@/entities/user/types'
-import classes from './styles.module.css'
 import { UserStatus } from '@/entities/user/ui/UserStatus'
 import { useUser } from '@/entities/user/hooks/useUser'
+import { Avatar, AvatarImage } from '@/shared/ui/avatar'
 
 interface ProfileTopSectionProps {
   username?: string
@@ -20,23 +19,24 @@ export const ProfileTopSection = ({ username, userProfile, render }: ProfileTopS
   if (!data) return null
 
   return (
-    <div className={classes.topAreaWrapper}>
+    <div>
       <BackgroundImage cover={data.cover} />
-      <div className={classes.information}>
-        <Group justify="space-between">
-          <Group>
-            <Avatar src={data.picture as string} w={80} h={80} />
+      <div className="p-5">
+        <div className="flex justify-between">
+          <div className="flex">
+            <Avatar>
+              <AvatarImage src={data.picture as string} />
+            </Avatar>
             <UserInfo
               displayName={data.displayName}
               username={data.username}
               status={data.status}
             />
-          </Group>
+          </div>
           {render}
-        </Group>
+        </div>
         <UserStatus status={data.status} />
       </div>
-      <Divider size={2} color={'themeColors'} />
     </div>
   )
 }

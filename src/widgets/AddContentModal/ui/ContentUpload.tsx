@@ -1,126 +1,73 @@
 'use client'
-
-import { Group } from '@mantine/core'
-import {
-  Dropzone,
-  DropzoneProps,
-  FileWithPath,
-  IMAGE_MIME_TYPE,
-  MIME_TYPES,
-} from '@mantine/dropzone'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import PreviewList from '@/features/PreviewList/ui'
-import { DropzoneAccept, DropzoneIdle, DropzoneReject } from '@/entities/ImageUpload/ui'
-import { useContentFormContext } from '@/widgets/AddContentModal/lib/form-context'
-import {clientKy} from "@/shared/core/clientKy";
-import ky from "@toss/ky";
-import {ImageOptimizeData} from "@/entities/ImageUpload/types";
-import * as buffer from "node:buffer";
+import Dropzone from 'react-dropzone'
+import { useFormContext } from 'react-hook-form'
+import { DropzoneRef } from '@/widgets/AddContentModal/types'
+import { ImagePlay, Loader } from 'lucide-react'
 
-const ContentUpload = (props: Partial<DropzoneProps>) => {
-  const form = useContentFormContext()
-  const {values, setFieldValue, insertListItem, removeListItem, reorderListItem, watch} = form
+interface ContentUploadProps {
+  onDropImage: (uploadFiles: File[]) => void
+  onRemoveImage: (index: number) => void
+  onShowImageChange: (url: string, index: number, type: 'video' | 'image') => void
+}
 
-  const {step, currentFile, currentFileType, files, currentIndex} = values
-  const openRef = useRef<() => void>(null)
+const ContentUpload = ({ onDropImage, onRemoveImage, onShowImageChange }: ContentUploadProps) => {
+  const dropzoneRef = useRef<DropzoneRef>()
 
-  const handleDropImages = async (uploadFiles: File[]) => {
-    const formData = new FormData()
+  const methods = useFormContext()
+  const { getValues, watch } = methods
+  const isLoading = watch('isLoading')
 
-    uploadFiles.forEach((file) => {
-      formData.append('file', file)
-    })
-
-    const files = await processFiles(formData)
-
-    const settingFile = files[0]
-    const url = URL.createObjectURL(settingFile)
-    setFieldValue('currentFile', url)
-
-    files.forEach(file => {
-      insertListItem('files', file)
-    })
-
-    if (settingFile.type === 'video/mp4') {
-      return setFieldValue('currentFileType', 'video')
-    }
-    setFieldValue('currentFileType', 'image')
-  }
-
-
-  const processFiles = async (formData: FormData): Promise<File[]> => {
-    const imageOptimizeData = await ky.post('/api/image-optimize', {
-      body : formData
-    }).json()
-
-    const result = await imageOptimizeData
-    return await Promise.all(
-      result.data.files.map(async (bufferFile: ImageOptimizeData) => {
-        const bufferArray = bufferFile.buffer.data
-        const blob = new Blob([new Uint8Array(bufferArray)])
-
-        if(bufferFile.type === 'video'){
-          return new File([blob], `${bufferFile.name}.mp4`, { type: 'video/mp4' })
-        }
-
-        return new File([blob], `${bufferFile.name}.jpeg`, { type: 'image/jpeg' })
-      })
-    )
-  }
-
-  const handleRemoveImage = (index: number) => {
-    removeListItem('files', index)
-
-    const uploadFiles = form.getValues().files
-
-    if (uploadFiles.length === 0) {
-      setFieldValue('currentIndex', 0)
-      setFieldValue('currentFile', '')
-      return
-    }
-    const file = files[0]
-    const url = URL.createObjectURL(file)
-    setFieldValue('currentFile', url)
-  }
-
-  const handleChangeCurrentImage = (url: string, index: number, type : "video" | "image") => {
-    setFieldValue('currentFile', url)
-    setFieldValue('currentIndex', index)
-    setFieldValue('currentFileType', type)
-  }
-
+  const { currentFile, files, step } = getValues()
   if (step > 0) return null
+
+  const handleOpenDialog = () => {
+    if (dropzoneRef.current) {
+      dropzoneRef.current.open()
+    }
+  }
 
   return (
     <div>
       {!currentFile && (
         <Dropzone
-          onDrop={handleDropImages}
-          maxSize={2 * 1024 ** 3}
-          accept={[
-            MIME_TYPES.jpeg,
-            MIME_TYPES.png,
-            MIME_TYPES.svg,
-            MIME_TYPES.mp4
-          ]}
-          {...props}
-          openRef={openRef}
+          ref={dropzoneRef}
+          accept={{
+            'image/jpeg': [],
+            'image/png': [],
+            'image/webp': [],
+            'video/mp4': [],
+          }}
+          onDrop={(acceptedFiles) => onDropImage(acceptedFiles)}
         >
-          <Group justify="center" gap="xl" mih={220} style={{ pointerEvents: 'none' }}>
-            <DropzoneAccept />
-            <DropzoneReject />
-            <DropzoneIdle text={'사진과 동영상을 이곳에 드래그 앤 드롭 해주세요.'} isPhoto />
-          </Group>
+          {({ getRootProps, getInputProps }) => {
+            return (
+              <div
+                {...getRootProps({ className: 'dropzone' })}
+                className="flex justify-center items-center h-60 mt-4 rounded-lg bg-slate-200 cursor-pointer"
+              >
+                <input {...getInputProps()} />
+                {isLoading ? (
+                  <div className="flex flex-col items-center gap-4 justify-center">
+                    <Loader size={40} />
+                    로딩중입니다.
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center gap-4 justify-center">
+                    <ImagePlay size={40} />
+                    이미지나 동영상을 올려주세요.
+                  </div>
+                )}
+              </div>
+            )
+          }}
         </Dropzone>
       )}
       <PreviewList
-        currentFile={currentFile}
-        currentFileType={currentFileType}
-        currentIndex={currentIndex}
-        previews={files}
-        onRemoveImage={handleRemoveImage}
-        onShowImageChange={handleChangeCurrentImage}
-        onImageUpload={openRef.current}
+        onRemoveImage={onRemoveImage}
+        onShowImageChange={onShowImageChange}
+        onOpenDropzone={handleOpenDialog}
       />
     </div>
   )

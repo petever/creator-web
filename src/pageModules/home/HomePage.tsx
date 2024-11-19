@@ -14,9 +14,9 @@ interface HomePageProps {
 
 const HomePage = ({ initialFeeds, recommends }: HomePageProps) => {
   return (
-    <div className='flex justify-center'>
+    <div className="flex justify-center gap-10">
       <FeedList initialFeeds={initialFeeds} />
-      <div>
+      <div className={'mt-5'}>
         <RecommendList recommends={recommends} />
       </div>
     </div>

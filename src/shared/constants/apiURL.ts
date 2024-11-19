@@ -5,6 +5,7 @@ export const API_URL = {
   USERS_PROFILE: 'users/profile',
   USERS_USER: (username?: string) => `users/${username}`,
   POSTS: 'posts',
+  POSTS_LIKE_MEMBER: (id: string) => `posts/${id}/likes`,
   FEEDS: 'feeds',
   FEEDS_COMMENT: (id: string) => `feeds/${id}/comments`,
   FEEDS_RECOMMEND_USERS: 'feeds/recommendUsers',

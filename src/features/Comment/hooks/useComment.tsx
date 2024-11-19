@@ -1,9 +1,9 @@
-import {QUERY_KEY} from "@/shared/constants/queryKey";
-import {QueryClient, useInfiniteQuery, useQueryClient} from "@tanstack/react-query";
-import {getComment} from "@/features/Comment/api/getComment";
-import {PAGE_PARAM} from "@/features/Comment/model";
+import { QUERY_KEY } from '@/shared/constants/queryKey'
+import { QueryClient, useInfiniteQuery, useQueryClient } from '@tanstack/react-query'
+import { getComment } from '@/features/Comment/api/getComment'
+import { PAGE_PARAM } from '@/features/Comment/model'
 
-export const useComment = (id : string) => {
+export const useComment = (id: string) => {
   const queryClient = useQueryClient()
   return useInfiniteQuery({
     queryKey: [QUERY_KEY.COMMENTS, id],
@@ -16,11 +16,11 @@ export const useComment = (id : string) => {
     getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
       queryClient.getQueryData([QUERY_KEY.COMMENTS, id])
       const lastIndex = lastPage.content.length - 1
-      if(lastPage.content.length < 10) return
+      if (lastPage.content.length < 10) return
       const nextId = lastPage.content[lastIndex]?.id
       return {
-        size : PAGE_PARAM.size,
-        nextId : nextId,
+        size: PAGE_PARAM.size,
+        nextId: nextId,
       }
     },
   })

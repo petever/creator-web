@@ -1,54 +1,37 @@
 'use client'
-import { ActionIcon, UnstyledButton } from '@mantine/core'
-import { IconAdjustments, IconCirclePlus } from '@tabler/icons-react'
+import { IconAdjustments } from '@tabler/icons-react'
 import { Preview } from '@/features/PreviewList/ui/Preview'
-import classes from '@/features/PreviewList/ui/styles.module.css'
-import { useContentFormContext } from '@/widgets/AddContentModal/lib/form-context'
+import { useFormContext } from 'react-hook-form'
+import { Button } from '@/shared/ui/button'
 
 interface MoreImageUploadProps {
-  currentIndex: number
-  previews: File[]
-  onShowImageChange: (url: string, index: number, type : "video" | "image") => void
+  onShowImageChange: (url: string, index: number, type: 'video' | 'image') => void
   onRemoveImage: (index: number) => void
-  onImageUpload: (() => void) | null
+  onOpenDropzone: () => void
 }
 
 export const MoreMediaUpload = ({
-  currentIndex,
-  previews,
   onShowImageChange,
   onRemoveImage,
-  onImageUpload,
+  onOpenDropzone,
 }: MoreImageUploadProps) => {
-  const handleImageUpload = () => {
-    onImageUpload?.()
-  }
-
-  const form = useContentFormContext()
-  const { values, setFieldValue } = form
-
-  const { isPreview } = values
+  const method = useFormContext()
+  const { getValues, setValue } = method
+  const { isPreview } = getValues()
 
   const handlePreviewStatusChange = () => {
-    setFieldValue('isPreview', !isPreview)
+    setValue('isPreview', !isPreview)
   }
 
   return (
-    <div className={classes.moreImageUploadWrapper}>
-      <ActionIcon onClick={handlePreviewStatusChange}>
+    <div className="absolute bottom-2.5 right-2.5 z-10">
+      <Button onClick={handlePreviewStatusChange}>
         <IconAdjustments style={{ width: '70%', height: '70%' }} stroke={1.5} />
-      </ActionIcon>
+      </Button>
       {isPreview && (
-        <div className={classes.moreImageUploadUtils}>
-          <UnstyledButton className={classes.imageUploadButton} onClick={handleImageUpload}>
-            <IconCirclePlus />
-          </UnstyledButton>
-          <Preview
-            currentIndex={currentIndex}
-            previews={previews}
-            onRemoveImage={onRemoveImage}
-            onShowImageChange={onShowImageChange}
-          />
+        <div className="flex items-center gap-2.5 absolute -top-32 right-0 min-w-64 p-2.5 rounded-lg bg-current">
+          <Button onClick={onOpenDropzone}>업로드</Button>
+          <Preview onRemoveImage={onRemoveImage} onShowImageChange={onShowImageChange} />
         </div>
       )}
     </div>
