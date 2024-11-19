@@ -18,4 +18,6 @@ export const API_URL = {
   //CREATOR
   CREATOR: 'creators',
   CREATOR_APPLY: 'creators/apply',
+  //NOTIFICATIONS
+  NOTIFICATIONS: 'notifications',
 }
