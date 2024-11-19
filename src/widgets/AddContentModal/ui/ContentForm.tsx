@@ -23,14 +23,14 @@ export const ContentForm = () => {
   if (step === 0) return null
 
   return (
-    <div>
-      <div className={'flex gap-30 h-96'}>
+    <div className={'flex gap-10 h-[600px]'}>
+      <div className={'flex flex-1 gap-30 h-full'}>
         <Carousel className={'w-full max-w-xs'}>
           {files.map((file, index) => {
             const isVideo = file.type === 'video/mp4'
             const url = URL.createObjectURL(file)
             return (
-              <CarouselItem key={`image_${index}`}>
+              <CarouselItem key={`image_${index}`} className="h-full p-0">
                 {!isVideo ? (
                   <Image src={url} alt="" objectFit={'contain'} fill />
                 ) : (
@@ -50,7 +50,7 @@ export const ContentForm = () => {
           })}
         </Carousel>
       </div>
-      <div>
+      <div className="flex flex-1 flex-col gap-5">
         <FormField
           control={control}
           name="title"

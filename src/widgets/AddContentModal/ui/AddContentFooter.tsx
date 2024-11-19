@@ -20,24 +20,22 @@ export const AddContentFooter = () => {
   const isDisabledSaveButton = !title || !contents
 
   return (
-    <div className="mt-20">
-      <div className={'flex gap-20'}>
-        {isImageSection && (
-          <>
-            <Button disabled={isDisabledNextButton} onClick={() => handleNextStep('next')}>
-              다음
-            </Button>
-          </>
-        )}
-        {isContentSection && (
-          <>
-            <Button onClick={() => handleNextStep('prev')}>이전</Button>
-            <Button type="submit" disabled={isDisabledSaveButton}>
-              저장
-            </Button>
-          </>
-        )}
-      </div>
+    <div className="mt-6">
+      {isImageSection && (
+        <div className={'flex justify-end'}>
+          <Button disabled={isDisabledNextButton} onClick={() => handleNextStep('next')}>
+            다음
+          </Button>
+        </div>
+      )}
+      {isContentSection && (
+        <div className={'flex justify-between'}>
+          <Button onClick={() => handleNextStep('prev')}>이전</Button>
+          <Button type="submit" disabled={isDisabledSaveButton}>
+            저장
+          </Button>
+        </div>
+      )}
     </div>
   )
 }

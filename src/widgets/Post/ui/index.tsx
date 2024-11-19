@@ -1,17 +1,14 @@
 'use client'
-import { FeedButtons } from '@/features'
+import { FeedButtons, PostingLSubscribeLocker } from '@/features'
 import { PostingHeader } from './PostingHeader'
 import { FeedDetail } from '@/shared/FeedDetail/ui'
-import { useDisclosure } from '@mantine/hooks'
 import { FeedContents } from '@/entities/feeds/types'
 import { LkeList } from '@/shared/LikeList/ui'
 import { FeedContent } from '@/entities/feeds/ui'
 import { FeedMedia } from '@/entities/feeds/ui/FeedMedia'
 import { useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from '@mantine/hooks'
-import { CommentListModal, LoginModal } from '@/shared'
 import { Card } from '@/shared/ui/card'
-import { Button } from '@/shared/ui/button'
 
 interface PostProps {
   feed: FeedContents
@@ -25,6 +22,7 @@ interface ElementPosition {
 
 export const Post = ({ feed, username }: PostProps) => {
   const [isPlay, setIsPlay] = useState(false)
+  const [isPrivate, setIsPrivate] = useState(false)
 
   const isPc = useMediaQuery('(min-width: 640px)')
 
@@ -54,13 +52,22 @@ export const Post = ({ feed, username }: PostProps) => {
   const { likeCount, commentCount, resources } = feed
 
   return (
-    <Card>
-      <PostingHeader profile={feed.owner} />
-      <FeedContent contents={feed.contents} createdAt={feed.createdAt} />
-      <FeedMedia resources={feed.resources} />
+    <Card className="w-full">
+      <PostingHeader
+        profile={feed.owner}
+        isPrivate={isPrivate}
+        onPrivateChange={() => setIsPrivate(!isPrivate)}
+      />
+      {!isPrivate && (
+        <>
+          <FeedContent contents={feed.contents} createdAt={feed.createdAt} />
+          <FeedMedia resources={feed.resources} />
+        </>
+      )}
+      <PostingLSubscribeLocker isPrivate={isPrivate} />
       <FeedButtons feed={feed} onDetailModal={handleDetailOpen} username={username} />
       <div className={'flex flex-col items-start'}>
-        <LkeList likeCount={likeCount} />
+        <LkeList id={feed.id} likeCount={likeCount} />
         <FeedDetail feed={feed} />
       </div>
     </Card>

@@ -33,7 +33,7 @@ const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
           <span className="text-base font-medium">{item.title}</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-[80vw]">
+      <DialogContent className="mw-[80vw]">
         <DialogHeader className="flex items-center justify-between">
           <DialogTitle>콘텐츠 업로드</DialogTitle>
         </DialogHeader>
