@@ -3,9 +3,10 @@ import { useFieldArray, useForm } from 'react-hook-form'
 import { ImageOptimizeData } from '@/entities/ImageUpload/types'
 import { useCreatePosts } from '@/widgets/AddContentModal/hooks/useCreatePosts'
 import ky from '@toss/ky'
+import {AddContentData} from "@/widgets/AddContentModal/types";
 
 export const useContentModal = (onClose: () => void) => {
-  const methods = useForm({
+  const methods = useForm<AddContentData>({
     defaultValues: {
       currentFile: '',
       currentFileType: '',
@@ -33,7 +34,7 @@ export const useContentModal = (onClose: () => void) => {
     move: filesMove,
     insert: filesInsert,
   } = useFieldArray({
-    control,
+    control : methods.control,
     name: 'files',
   })
 
@@ -112,8 +113,8 @@ export const useContentModal = (onClose: () => void) => {
     setValue('currentFileType', type)
   }
 
-  const handleSubmitContentData = (values: any) => {
-    const { title, contents, isSubscribed, files } = values
+  const handleSubmitContentData = (values: Pick<AddContentData, 'title' | 'contents' | 'files' | 'isSubscribed'>) => {
+    const { title, contents, files } = values
 
     const formData = new FormData()
     formData.append(

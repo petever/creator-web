@@ -10,19 +10,19 @@ const useFeeds = (username: string) => {
     queryFn: getFeeds,
     initialData: {
       pages: [],
-      pageParams: [getFavoritePostWithMembers(username)],
+      pageParams: [],
     },
     initialPageParam: getFeedSearchParams(username),
-    getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) => {
+    getNextPageParam: (lastPage) => {
       const lastIndex = lastPage.content.length - 1
       if(lastPage.content.length < 10) return
       const nextId = lastPage.content[lastIndex]?.id
       queryClient.getQueryData(getFeedQueryKey(username))
       return {
-        size: 10
+        size: 10,
         sort: ['string'],
-        nextId
-      },
+        nextId,
+      }
     },
   })
 }

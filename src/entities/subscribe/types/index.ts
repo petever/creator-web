@@ -1,4 +1,4 @@
-import { Owner } from '@/entities/feeds/types'
+import { Owner } from '@/shared/types'
 
 export interface SubscribePlan {
   id: string

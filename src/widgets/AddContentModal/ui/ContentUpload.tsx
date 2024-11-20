@@ -13,7 +13,7 @@ interface ContentUploadProps {
 }
 
 const ContentUpload = ({ onDropImage, onRemoveImage, onShowImageChange }: ContentUploadProps) => {
-  const dropzoneRef = useRef<DropzoneRef>()
+  const dropzoneRef = useRef<DropzoneRef>(null)
 
   const methods = useFormContext()
   const { getValues, watch } = methods

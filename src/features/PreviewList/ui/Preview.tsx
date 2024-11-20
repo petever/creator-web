@@ -3,6 +3,7 @@ import { IconSquareXFilled } from '@tabler/icons-react'
 import { VideoPlayer } from '@/shared'
 import { useFormContext } from 'react-hook-form'
 import { Button } from '@/shared/ui/button'
+import {AddContentData} from "@/widgets/AddContentModal/types";
 
 interface PreviewProps {
   onRemoveImage: (index: number) => void
@@ -10,7 +11,7 @@ interface PreviewProps {
 }
 
 export const Preview = ({ onRemoveImage, onShowImageChange }: PreviewProps) => {
-  const method = useFormContext()
+  const method = useFormContext<AddContentData>()
   const { getValues, setValue } = method
   const { currentIndex, files } = getValues()
 

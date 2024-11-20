@@ -8,16 +8,9 @@ export const getFavoritePostWithMembers = async ({
 }: {
   pageParam: PostLikeWithMemberSearchParams
 }): Promise<PostLikeWithMembersResponse> => {
-  const result = await clientKy
+  return await clientKy
     .get<Feeds>(API_URL.POSTS_LIKE_MEMBER, {
       searchParams: pageParam,
     })
     .json()
-
-  const { content, last } = result
-
-  return {
-    content,
-    last,
-  }
 }

@@ -63,15 +63,15 @@ export const Comment = ({ id }: CommentProps) => {
         return (
           <div className="flex flex-wrap gap-5 py-5" key={comment.id}>
             <Button
-              className={classes.userInfo`flex gap-2 items-center flex-none w-full`}
+              className={`${classes.userInfo} flex gap-2 items-center flex-none w-full`}
               onClick={() => handleMemberPageMove(comment.owner.username)}
             >
               <Avatar>
-                <AvatarImage src={comment.owner.picture} />
+                <AvatarImage src={comment.owner.picture as string} />
               </Avatar>
               <span>{comment.owner.displayName}</span>
             </Button>
-            <div className={classes.commentWrapper`flex-1 text-left break-words`}>
+            <div className={`${classes.commentWrapper} flex-1 text-left break-words`}>
               {comment.contents}
             </div>
             <Button variant="ghost" onClick={() => handleFavoritePosting(comment)}>

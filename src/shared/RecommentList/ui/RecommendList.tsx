@@ -12,7 +12,7 @@ export const RecommendList = ({ recommends }: RecommendListProps) => {
       <h3 className="mb-6">회원님을 위한 추천</h3>
       <div className="flex flex-wrap flex-col gap-8">
         {recommends.map((user) => {
-          return <Profile key={user.id} profile={user} size={'lg'} isSubscribed />
+          return <Profile key={user.id} profile={user} isSubscribed />
         })}
       </div>
     </div>

@@ -28,7 +28,7 @@ export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps)
 
   return (
     <div className="px-0 py-2">
-      <div class="flex justify-between w-full">
+      <div className="flex justify-between w-full">
         <div>
           <Button variant="ghost" onClick={handleFavoritePosting}>
             <Heart fill={!isLiked ? 'transparent' : '#000'} />
