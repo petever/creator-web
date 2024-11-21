@@ -1,9 +1,8 @@
 'use client'
 import { Modal, Button, Text, Avatar, Flex } from '@mantine/core'
 import classes from './styles.module.css'
-import { Owner } from '@/entities/feeds/types'
+import { Owner } from '@/shared/types'
 import Image from 'next/image'
-import { signIn } from '@/auth'
 
 interface LoginModalProps {
   owner?: Owner

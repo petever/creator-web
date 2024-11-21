@@ -9,7 +9,7 @@ interface FeedContentProps {
 }
 
 export const FeedContent = ({ contents, createdAt }: FeedContentProps) => {
-  const contentsRef = useRef()
+  const contentsRef = useRef<HTMLParagraphElement>(null)
   const [isExpandButton, setIsExpandButton] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const handleExpandedChange = () => {
@@ -17,7 +17,8 @@ export const FeedContent = ({ contents, createdAt }: FeedContentProps) => {
   }
 
   useEffect(() => {
-    if (contentsRef.current.clientHeight < 25) return
+    if(!contentsRef.current) return
+    if (contentsRef.current?.clientHeight < 25) return
     setIsExpandButton(true)
   }, [])
 

@@ -24,10 +24,10 @@ const PreviewList = ({ onShowImageChange, onRemoveImage, onOpenDropzone }: Previ
     <div className="relative">
       <div className="relative top-0 left-0 h-0 pt-[80%] rounded-md overflow-hidden">
         <div className="w-full h-full absolute top-0 left-1/2 transform -translate-x-1/2 bg-black">
-          {currentFileType === 'image' && (
+          {isImage && (
             <Image src={currentFile} fill alt="" className="object-contain" />
           )}
-          {currentFileType === 'video' && <VideoPlayer src={currentFile} />}
+          {isVideo && <VideoPlayer src={currentFile} />}
         </div>
       </div>
       <MoreMediaUpload

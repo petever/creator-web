@@ -4,7 +4,6 @@ import { FeedContents } from '@/entities/feeds/types'
 import { Profile } from '@/features'
 import { FeedContent } from '@/entities/feeds/ui'
 import { FeedMedia } from '@/entities/feeds/ui/FeedMedia'
-import { useMediaQuery } from '@mantine/hooks'
 import { Dialog, DialogContent, DialogTrigger } from '@/shared/ui/dialog'
 import { Button } from '@/shared/ui/button'
 
@@ -12,7 +11,7 @@ interface FeedDetailProps {
   feed: FeedContents
 }
 export const FeedDetail = ({ feed }: FeedDetailProps) => {
-  const isPc = useMediaQuery('(min-width: 640px)')
+  // const isPc = useMediaQuery('(min-width: 640px)')
 
   if (feed.commentCount === 0) return null
 
@@ -32,11 +31,11 @@ export const FeedDetail = ({ feed }: FeedDetailProps) => {
               <FeedMedia resources={feed.resources} />
             </div>
           </div>
-          {isPc && (
-            <div className={'flex-1'}>
-              <CommentArea id={feed.id} />
-            </div>
-          )}
+          {/*{isPc && (*/}
+          {/*  <div className={'flex-1'}>*/}
+          {/*    <CommentArea id={feed.id} />*/}
+          {/*  </div>*/}
+          {/*)}*/}
         </div>
       </DialogContent>
     </Dialog>

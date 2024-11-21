@@ -1,14 +1,9 @@
-import '@mantine/core/styles.css'
-import '@mantine/notifications/styles.css'
-import '@mantine/carousel/styles.css'
 import './normalize.css'
 import './globals.css'
 import AuthProvider from '@/app/providers/AuthProvider'
 import CustomMantineProvider from '@/app/providers/CustomMantineProvider'
 import QueryProvider from '@/app/providers/QueryProvider'
 import LocaleProvider from '@/app/providers/LocaleProvider'
-import { ColorSchemeScript } from '@mantine/core'
-import { Notifications } from '@mantine/notifications'
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -24,7 +19,6 @@ export async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="ko">
       <head>
-        <ColorSchemeScript />
         <meta name="viewport" content="width=device-width, initial-width=1.0" />
         <title>슈슈슉</title>
       </head>
@@ -33,7 +27,6 @@ export async function RootLayout({ children }: RootLayoutProps) {
           <QueryProvider>
             <CustomMantineProvider>
               <LocaleProvider>{children}</LocaleProvider>
-              <Notifications />
             </CustomMantineProvider>
           </QueryProvider>
         </AuthProvider>

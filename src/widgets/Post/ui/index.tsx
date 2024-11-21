@@ -7,7 +7,6 @@ import { LkeList } from '@/shared/LikeList/ui'
 import { FeedContent } from '@/entities/feeds/ui'
 import { FeedMedia } from '@/entities/feeds/ui/FeedMedia'
 import { useEffect, useRef, useState } from 'react'
-import { useMediaQuery } from '@mantine/hooks'
 import { Card } from '@/shared/ui/card'
 
 interface PostProps {
@@ -24,7 +23,7 @@ export const Post = ({ feed, username }: PostProps) => {
   const [isPlay, setIsPlay] = useState(false)
   const [isPrivate, setIsPrivate] = useState(false)
 
-  const isPc = useMediaQuery('(min-width: 640px)')
+  // const isPc = useMediaQuery('(min-width: 640px)')
 
   const ref = useRef<HTMLDivElement>()
   const elementPosition = useRef<ElementPosition>({
@@ -36,9 +35,9 @@ export const Post = ({ feed, username }: PostProps) => {
   const [commentListOpened, setCommentListOpened] = useState(false)
 
   const handleDetailOpen = () => {
-    if (!isPc) {
-      return setCommentListOpened(true)
-    }
+    // if (!isPc) {
+    //   return setCommentListOpened(true)
+    // }
     setFeedOpened(true)
   }
 

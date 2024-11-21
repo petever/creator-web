@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { SubscribeModal } from '@/widgets/SubscribeModal/ui'
-import { useDisclosure } from '@mantine/hooks'
 import { UserProfile } from '@/entities/user/types'
 import { PAGE } from '@/shared/constants/page'
 import Link from 'next/link'
@@ -14,12 +13,6 @@ interface SubscribeButtonProps {
 }
 
 const SubscribeButton = ({ isSelf, userProfile }: SubscribeButtonProps) => {
-  const [isModalOpened, { open: modalOpen, close: modalClose }] = useDisclosure(false)
-  const handleOpenModal = () => {
-    modalOpen()
-  }
-
-  const isSubscribed = userProfile?.isSubscribed
 
   if (isSelf) {
     return (
@@ -31,10 +24,7 @@ const SubscribeButton = ({ isSelf, userProfile }: SubscribeButtonProps) => {
   }
   return (
     <div className="p-5">
-      <Button className="rounded-3xl" onClick={handleOpenModal}>
-        {isSubscribed ? '구독중' : '구독하기'}
-      </Button>
-      <SubscribeModal opened={isModalOpened} onClose={modalClose} userProfile={userProfile} />
+      <SubscribeModal userProfile={userProfile} />
     </div>
   )
 }

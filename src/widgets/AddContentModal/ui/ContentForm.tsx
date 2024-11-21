@@ -13,9 +13,10 @@ import {
   SelectValue,
 } from '@/shared/ui/select'
 import { Input } from '@/shared/ui/input'
+import {AddContentData} from "@/widgets/AddContentModal/types";
 
 export const ContentForm = () => {
-  const methods = useFormContext()
+  const methods = useFormContext<AddContentData>()
   const { control, getValues, setValue } = methods
 
   const { files, step } = getValues()

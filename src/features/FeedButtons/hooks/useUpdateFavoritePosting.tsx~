@@ -2,7 +2,9 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { updateLikePosting } from '@/features/FeedButtons/api/updateFavoritePosting'
 import { MUTATION_KEY } from '@/shared/constants/mutaionKey'
 import { FeedContents, FeedPageData } from '@/entities/feeds/types'
+import { QUERY_KEY } from '@/shared/constants/queryKey'
 import { getFeedQueryKey } from '@/entities/feeds/lib'
+import { notifications } from '@mantine/notifications'
 
 export const useUpdateLikePosting = (id: string, username?: string) => {
   const queryClient = useQueryClient()
