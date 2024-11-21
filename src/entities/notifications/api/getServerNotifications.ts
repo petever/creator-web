@@ -1,6 +1,6 @@
 import { API_URL } from '@/shared/constants/apiURL'
-import { serverKy } from '@/shared/core/serverKy'
+import { httpKy } from '@/shared/core/httpKy'
 
 export const getServerNotifications = async () => {
-  return serverKy.get(API_URL.NOTIFICATIONS).json()
+  return httpKy.get(API_URL.NOTIFICATIONS).json()
 }

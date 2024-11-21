@@ -12,7 +12,7 @@ const CreatorApplyForm = () => {
   const MIN_SNS_COUNT = 1
   const { register, control, handleSubmit } = useForm({
     defaultValues: {
-      sns: [{ snsType: 'instagram', snsId: '' }],
+      sns: [{ snsType: 'INSTAGRAM', snsId: '' }],
     },
   })
 
@@ -23,7 +23,7 @@ const CreatorApplyForm = () => {
 
   const handleSnsAdd = () => {
     if (fields.length >= MAX_SNS_COUNT) return
-    append({ snsType: 'instagram', snsId: '' })
+    append({ snsType: 'INSTAGRAM', snsId: '' })
   }
 
   const handleSnsRemove = (index: number) => {
@@ -48,12 +48,12 @@ const CreatorApplyForm = () => {
           <div className="flex flex-col gap-2.5">
             {fields.map((field, index) => (
               <div key={field.id} className="flex gap-2">
-                <Select defaultValue="instagram" {...register(`sns.${index}.snsType`)}>
+                <Select defaultValue="INSTAGRAM" {...register(`sns.${index}.snsType`)}>
                   <SelectTrigger>
                     <SelectValue placeholder="선택" />
                   </SelectTrigger>
                   <SelectContent>
-                    {['instagram', 'youtube', 'tiktok', 'afreecatv', 'twitter', 'facebook'].map(
+                    {['INSTAGRAM', 'YOUTUBE', 'FACEBOOK', 'AFREECA_TV', 'TWITTER', 'FACEBOOK'].map(
                       (platform) => (
                         <SelectItem key={platform} value={platform}>
                           {platform}

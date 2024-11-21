@@ -1,6 +1,5 @@
 import { API_URL } from '@/shared/constants/apiURL'
-import { FeedResponse, Feeds, FeedSearchParams } from '@/entities/feeds/types'
-import { clientKy } from '@/shared/core/clientKy'
+import { Feeds } from '@/entities/feeds/types'
 import { PostLikeWithMemberSearchParams, PostLikeWithMembersResponse } from '@/entities/posts/types'
 
 export const getFavoritePostWithMembers = async ({

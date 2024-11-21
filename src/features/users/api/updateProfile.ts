@@ -1,6 +1,4 @@
 import { API_URL } from '@/shared/constants/apiURL'
-import { clientKy } from '@/shared/core/clientKy'
-import { UserProfile } from '@/entities/user/types'
 import { UpdateProfile } from '@/features/users/type/profile'
 
 export const updateProfile = async (profile: FormData): Promise<UpdateProfile> => {
