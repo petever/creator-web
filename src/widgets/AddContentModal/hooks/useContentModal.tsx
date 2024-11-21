@@ -60,7 +60,11 @@ export const useContentModal = (onClose: () => void) => {
     setValue('currentFile', url)
 
     files.forEach((file) => {
-      filesAppend(file)
+      filesAppend({
+        name : file.name,
+        type : file.type,
+        file : file
+      })
     })
 
     if (settingFile.type === 'video/mp4') {
@@ -102,8 +106,9 @@ export const useContentModal = (onClose: () => void) => {
       setValue('currentFile', '')
       return
     }
-    const file = files[0]
-    const url = URL.createObjectURL(file)
+
+    const file = files[0].file
+    const url = URL.createObjectURL(file as File)
     setValue('currentFile', url)
   }
 
@@ -131,8 +136,8 @@ export const useContentModal = (onClose: () => void) => {
       ),
     )
 
-    files.forEach((file) => {
-      return formData.append('files', file)
+    files.forEach((data) => {
+      return formData.append('files', data.file)
     })
 
     createPostMutation(formData)

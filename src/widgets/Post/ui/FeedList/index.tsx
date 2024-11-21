@@ -3,6 +3,7 @@ import { FeedResponse } from '@/entities/feeds/types'
 import { useInView } from 'react-intersection-observer'
 import useFeeds from '@/entities/feeds/hooks/useFeeds'
 import { Post } from '@/widgets/Post/ui'
+import { StickyNote } from 'lucide-react';
 
 interface FeedListProps {
   initialFeeds: FeedResponse
@@ -41,8 +42,15 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
     }
   }, [])
 
-  if (!postings) {
-    return <div>등록된 콘텐츠가 없습니다.</div>
+
+  if (postings.length === 0) {
+    return (
+        <div
+          className="flex flex-col gap-5 pt-5 pb-5 justify-center items-center w-[600px]">
+          <StickyNote />
+          등록된 콘텐츠가 없습니다.
+        </div>
+    )
   }
 
   return (

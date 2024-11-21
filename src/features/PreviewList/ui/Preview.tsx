@@ -17,9 +17,10 @@ export const Preview = ({ onRemoveImage, onShowImageChange }: PreviewProps) => {
 
   return (
     <ul className="flex gap-1.25 items-center justify-between">
-      {files.map((file, index) => {
-        const isVideo = file?.type === 'video/mp4'
-        const fileType = file?.type === 'video/mp4' ? 'video' : 'image'
+      {files.map((data, index) => {
+        const { type, file } = data
+        const isVideo = type === 'video/mp4'
+        const fileType = type === 'video/mp4' ? 'video' : 'image'
         const url = URL.createObjectURL(file)
         return (
           <li

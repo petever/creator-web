@@ -4,7 +4,6 @@ import { Profile } from '@/features'
 import { UserProfile } from '@/entities/user/types'
 import { PAGE } from '@/shared/constants/page'
 import { useRouter } from 'next/navigation'
-import {Switch} from "@/shared/ui/switch";
 
 interface PostingHeaderProps {
   isPrivate: boolean
@@ -21,7 +20,7 @@ export const PostingHeader = ({ profile, isPrivate, onPrivateChange }: PostingHe
 
   return (
     <div className={'flex justify-between p-4'}>
-      <Profile profile={profile} size="md" onClick={() => goToMemberPage(profile.username)} />
+      <Profile profile={profile} onClick={() => goToMemberPage(profile.username)} />
 
       {/* TODO : 개발용 */}
       {/*<Switch*/}

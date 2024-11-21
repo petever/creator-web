@@ -5,7 +5,7 @@ export interface AddContentData {
   currentIndex: number
   title: string
   contents: string
-  files: File[]
+  files: { name : string, type : string, file : File }[]
   isPreview: boolean
   isLoading : boolean
   isSubscribed: 'false' | 'true'
