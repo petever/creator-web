@@ -1,6 +1,6 @@
 import { API_URL } from '@/shared/constants/apiURL'
-import { serverKy } from '@/shared/core/serverKy'
+import { httpKy } from '@/shared/core/httpKy'
 
 export const getServerFeedRecommendUsers = async () => {
-  return await serverKy.get(API_URL.FEEDS_RECOMMEND_USERS).json()
+  return await httpKy.get(API_URL.FEEDS_RECOMMEND_USERS).json()
 }

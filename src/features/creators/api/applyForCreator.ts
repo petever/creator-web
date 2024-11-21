@@ -1,8 +1,8 @@
 import { API_URL } from '@/shared/constants/apiURL'
-import { clientKy } from '@/shared/core/clientKy'
+import { httpKy } from '@/shared/core/httpKy'
 
 export const applyForCreator = (sns: SNS[]) => {
-  return clientKy.post(API_URL.CREATOR_APPLY, {
+  return httpKy.post(API_URL.CREATOR_APPLY, {
     json: sns,
   })
 }
