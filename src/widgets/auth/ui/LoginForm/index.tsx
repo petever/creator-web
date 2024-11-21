@@ -22,7 +22,7 @@ const LoginForm = () => {
           <Input type="email" placeholder="이메일" required />
           <Input type="password" placeholder="비밀번호" required />
           <div className="flex justify-end">
-            <Link href="/password-reset" className="text-sm text-blue-500 hover:underline">
+            <Link href="/reset-password" className="text-sm text-blue-500 hover:underline">
               비밀번호를 잊으셨나요?
             </Link>
           </div>
@@ -42,7 +42,7 @@ const LoginForm = () => {
           </div>
           <p className="flex gap-2 mt-4 text-sm">
             아직 회원이 아니신가요?
-            <Link href="/register" className="text-blue-500 hover:underline">
+            <Link href="/sign-up" className="text-blue-500 hover:underline">
               회원가입
             </Link>
           </p>
