@@ -1,1 +1,1 @@
-export { default } from '@/pageModules/reset-password/ResetPasswordPage'
+export { default } from '@/pageModules/sign-up/SignUpPage'
