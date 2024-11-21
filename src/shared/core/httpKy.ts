@@ -5,7 +5,6 @@ import { getSession } from 'next-auth/react'
 export const createKy = (isServer: boolean) => {
   return ky.create({
     prefixUrl: BASE_URL,
-    headers: { 'Content-Type': 'application/json' },
     hooks: {
       beforeRequest: [
         async (request: Request) => {
