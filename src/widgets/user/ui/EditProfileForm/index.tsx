@@ -1,14 +1,14 @@
 'use client'
 
-import { Box, Button, Flex, Text, TextInput } from '@mantine/core'
+import { Button } from '@mantine/core'
 import { UserProfile } from '@/entities/user/types'
 import { useMyProfile } from '@/entities/user/hooks/useMyProfile'
 import { useUpdateMyProfile } from '@/features/users/hooks/useUpdateMyProfile'
-import { validateDisplayName, validateUsername } from '@/features/users/util/profileValidate'
-import ProfilePicture from '@/features/users/ui/ProfilePicture'
-import { UserProfileFormProvider, useUserProfileForm } from '@/features/users/lib/profile-context'
-import ProfileCover from '@/features/users/ui/ProfileCover'
 import Editor from '@/widgets/Editor'
+import { Input } from '@/shared/ui/input'
+import { useForm } from 'react-hook-form'
+import { Label } from '@/shared/ui/label'
+import { Form } from '@/shared/ui/form'
 
 interface EditProfileFormProps {
   userProfile: UserProfile
@@ -18,23 +18,24 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
   const { data } = useMyProfile(userProfile)
   const { updateProfileMutate } = useUpdateMyProfile()
 
-  const form = useUserProfileForm({
-    mode: 'controlled',
-    initialValues: {
+  const form = useForm<UserProfile>({
+    defaultValues: {
       picture: data?.picture || '',
       cover: data?.cover || '',
       displayName: data?.displayName || '',
       username: data?.username || '',
       status: data?.status || '',
     },
-    validate: {
-      displayName: (value) => validateDisplayName(value),
-      username: (value) => validateUsername(value),
-    },
   })
-  const isFormValid = form.isValid() && form.isDirty()
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors, isDirty },
+    watch,
+  } = form
 
-  const handleSubmit = (values: UserProfile) => {
+  const onSubmit = (values: UserProfile) => {
     const { displayName, username, status, picture, cover } = values
 
     const formData = new FormData()
@@ -54,56 +55,48 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
     formData.append('picture', picture)
     formData.append('cover', cover)
     updateProfileMutate(formData)
-
-    form.resetDirty()
   }
 
-  const handleStateChange = (content: any) => {
-    form.setValues({ ...form.getValues(), status: content })
+  const handleEditorChange = (content: string) => {
+    setValue('status', content, { shouldDirty: true })
   }
 
   return (
-    <UserProfileFormProvider form={form}>
-      <form onSubmit={form.onSubmit((values: any) => handleSubmit(values))}>
-        <ProfileCover imageSrc={form.getValues().cover} />
-        <Box>
-          <ProfilePicture imageSrc={form.getValues().picture} alt={data?.username} />
-          <Flex direction="column" gap={20}>
-            <Box>
-              <TextInput
-                withAsterisk
-                label="사용자 ID"
-                key={form.key('username')}
-                {...form.getInputProps('username')}
-                size="lg"
-              />
-              <Text
-                c="dark"
-                size="14px"
-                mt={10}
-              >{`${process.env.NEXT_PUBLIC_ORIGIN}/${form.getValues().username}`}</Text>
-            </Box>
-            <TextInput
-              withAsterisk
-              label="닉네임"
-              key={form.key('displayName')}
-              {...form.getInputProps('displayName')}
-              size="lg"
+    <Form {...form}>
+      <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+        {/*<ProfileCover imageSrc={watch('cover')} />*/}
+        <div className="space-y-4">
+          {/*<ProfilePicture imageSrc={watch('picture')} alt={data?.username} />*/}
+          <div>
+            <Label htmlFor="username">사용자 ID</Label>
+            <Input id="username" placeholder="사용자 ID" {...register('username')} />
+            {errors.username && (
+              <p className="text-red-500 text-sm mt-1">{errors.username.message}</p>
+            )}
+            <p className="text-gray-500 text-sm mt-1">
+              {`${process.env.NEXT_PUBLIC_ORIGIN}/${watch('username')}`}
+            </p>
+          </div>
+          <div>
+            <Label htmlFor="displayName">닉네임</Label>
+            <Input id="displayName" placeholder="닉네임" {...register('displayName')} />
+            {errors.displayName && (
+              <p className="text-red-500 text-sm mt-1">{errors.displayName.message}</p>
+            )}
+          </div>
+          <div>
+            <Label>소개</Label>
+            <Editor
+              placeholder="소개를 입력하세요."
+              content={watch('status')}
+              onChange={handleEditorChange}
             />
-            <Box>
-              <Text size="lg">소개</Text>
-              <Editor
-                placeholder="소개"
-                content={form.getValues().status}
-                onChange={handleStateChange}
-              />
-            </Box>
-          </Flex>
-          <Button fullWidth mt={20} radius={10} size="md" type="submit" disabled={!isFormValid}>
-            저장
-          </Button>
-        </Box>
+          </div>
+        </div>
+        <Button className="w-full" type="submit" disabled={!isDirty}>
+          저장
+        </Button>
       </form>
-    </UserProfileFormProvider>
+    </Form>
   )
 }
