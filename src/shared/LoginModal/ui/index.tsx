@@ -1,8 +1,9 @@
 'use client'
-import { Modal, Button, Text, Avatar, Flex } from '@mantine/core'
 import classes from './styles.module.css'
 import { Owner } from '@/shared/types'
 import Image from 'next/image'
+import {Dialog} from "@/shared/ui/dialog";
+import {Avatar, AvatarImage} from "@/shared/ui/avatar";
 
 interface LoginModalProps {
   owner?: Owner
@@ -18,43 +19,28 @@ export const LoginModal = ({ owner, opened, onClose }: LoginModalProps) => {
   if (!opened) return null
 
   return (
-    <Modal
-      size="100%"
-      opened={opened}
-      onClose={onClose}
-      centered
-      withCloseButton={true}
-      classNames={{
-        content: classes.wrapper,
-      }}
-    >
-      <Flex direction={'column'} justify={'center'} align={'center'}>
+    <Dialog>
+      <div className="flex flex-col items-center justify-center">
         {owner && (
-          <Flex direction={'column'} justify={'center'} align={'center'} gap={'10'} mb={40}>
-            <Avatar src={owner.picture as string} w={80} h={80} />
+          <div className="flex flex-col items-center justify-center gap-4 mb-10">
+            <Avatar>
+							<AvatarImage src={owner.picture as string} alt={''} />
+						</Avatar>
             <p>{owner.displayName}님의 글 더 보기</p>
             <p>인플루언서의 사진과 동영상을 보려면 가입하세요.</p>
-          </Flex>
+          </div>
         )}
         {/* TODO : Login 컴포넌트 분리 필요(form) */}
         <form onSubmit={handleLogin}>
-          <Button
-            w={300}
-            h={50}
+          <button
             type="submit"
-            variant="white"
-            color="dark"
-            leftSection={
-              <Image src="/assets/logo-google.svg" alt="Google" width={20} height={20} />
-            }
-            // onClick={() => signIn('google')}
+            className="flex items-center justify-center w-75 h-12 bg-white text-dark py-2 px-4 rounded shadow"
           >
-            <Text size="xl" fw={700}>
-              구글로 시작하기
-            </Text>
-          </Button>
+            <Image src="/assets/logo-google.svg" alt="Google" width={20} height={20} className="mr-2" />
+            <span className="text-xl font-bold">구글로 시작하기</span>
+          </button>
         </form>
-      </Flex>
-    </Modal>
+      </div>
+    </Dialog>
   )
 }
