@@ -9,7 +9,6 @@ import {
 
 import { SIDEBAR_ITEMS } from '@/entities/Sidebar/constants'
 import { SidebarItem } from '@/entities/Sidebar/ui/SidebarContentWrapper/SidebarItem'
-import { useSession } from 'next-auth/react'
 
 export const SidebarContentWrapper = () => {
   return (

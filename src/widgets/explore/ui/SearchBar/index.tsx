@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { Input } from '@/shared/ui/input'
 import { Search } from 'lucide-react'
@@ -16,7 +18,6 @@ const SearchBar = () => {
         <div className="relative">
           <Input
             type="search"
-            placeholder="Search"
             className="w-full p-4 pl-10 text-md rounded-xl"
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}

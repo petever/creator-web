@@ -1,10 +1,19 @@
-import React from 'react'
+'use client'
+import React, { useMemo } from 'react'
+import { useInView } from 'react-intersection-observer'
+import { useSearchTrends } from '@/entities/explore/hooks/useSearchTrends'
+import { BASE_URL } from '@/shared/constants/apiURL'
 
-const Gallery = () => {
-  const images = Array.from({ length: 20 }, (_, index) => ({
-    id: index + 1,
-    url: `https://via.placeholder.com/300?text=Image+${index + 1}`,
-  }))
+interface GalleryProps {
+  initialData: any
+}
+
+const Gallery = ({ initialData }: GalleryProps) => {
+  const { data } = useSearchTrends(initialData)
+
+  const images = useMemo(() => (data ? data.pages.flatMap(({ content }) => content) : []), [data])
+
+  const { ref, inView } = useInView()
 
   const chunkArray = (arr: typeof images, size: number) =>
     arr.reduce(
@@ -16,10 +25,12 @@ const Gallery = () => {
     )
 
   const groupedImages = chunkArray(images, 5)
+  console.log(groupedImages, 'groupedImages')
 
   return (
     <div className="max-w-screen-lg">
-      {groupedImages.map((group, groupIndex) => {
+      {groupedImages.map((group: any, groupIndex: number) => {
+        console.log(group, 'group')
         return (
           <div key={groupIndex} className="overflow-hidden">
             <div
@@ -27,7 +38,7 @@ const Gallery = () => {
             >
               <div className={`relative pb-[calc(200%+4px)]`}>
                 <img
-                  src={group[0]?.url}
+                  src={`${BASE_URL}${group[0]?.postResources[0]?.filePath}`}
                   alt={`더미 이미지 ${group[0]?.id}`}
                   className="w-full h-full object-cover absolute top-0 left-0"
                   width={'100%'}
@@ -35,18 +46,22 @@ const Gallery = () => {
                 />
               </div>
             </div>
-            {group.slice(1).map((image) => (
-              <div className="float-left w-[calc(33.3333%-4px)] mb-1 mr-1">
-                <img
-                  src={image.url}
-                  alt={`더미 이미지 ${image.id}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
+            {group.slice(1).map((image: any) => {
+              console.log(image.postResources, 'image')
+              return (
+                <div className="float-left w-[calc(33.3333%-4px)] mb-1 mr-1">
+                  <img
+                    src={`${BASE_URL}${image.postResources[0]?.filePath}`}
+                    alt={`더미 이미지 ${image.id}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )
+            })}
           </div>
         )
       })}
+      <div ref={ref}></div>
     </div>
   )
 }
