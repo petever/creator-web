@@ -1,6 +1,5 @@
 'use client'
 
-import { Button } from '@mantine/core'
 import { UserProfile } from '@/entities/user/types'
 import { useMyProfile } from '@/entities/user/hooks/useMyProfile'
 import { useUpdateMyProfile } from '@/features/users/hooks/useUpdateMyProfile'
@@ -9,6 +8,7 @@ import { Input } from '@/shared/ui/input'
 import { useForm } from 'react-hook-form'
 import { Label } from '@/shared/ui/label'
 import { Form } from '@/shared/ui/form'
+import {Button} from "@/shared/ui/button";
 
 interface EditProfileFormProps {
   userProfile: UserProfile

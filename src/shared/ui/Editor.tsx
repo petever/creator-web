@@ -1,6 +1,5 @@
 import StarterKit from '@tiptap/starter-kit'
 import { EditorContent, useEditor } from '@tiptap/react'
-import { Link } from '@mantine/tiptap'
 import { useEffect } from 'react'
 import Placeholder from '@tiptap/extension-placeholder'
 

@@ -1,12 +1,19 @@
 'use client'
 
-import { MantineProvider } from '@mantine/core'
+import QueryProvider from "@/app/providers/QueryProvider";
+import AuthProvider from "@/app/providers/AuthProvider";
 
 type TestComponentProp = {
   children: React.ReactNode
 }
 const TestComponent = ({ children }: TestComponentProp) => {
-  return <MantineProvider>{children}</MantineProvider>
+  return   (
+		<AuthProvider>
+			<QueryProvider>
+				{children}
+			</QueryProvider>
+		</AuthProvider>
+	)
 }
 
 export default TestComponent
