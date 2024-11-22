@@ -8,6 +8,7 @@ export interface CommentTypes {
   owner: UserProfile
   postId: string
   updatedAt: string
+	isLiked: boolean
 }
 
 export interface CommentSubmit {

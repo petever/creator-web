@@ -14,8 +14,6 @@ interface CommentProps {
   id: string
 }
 export const Comment = ({ id }: CommentProps) => {
-  const [isLiked, setIsLiked] = useState(false)
-
   const { ref, inView } = useInView()
 
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } = useComment(id)
@@ -61,9 +59,10 @@ export const Comment = ({ id }: CommentProps) => {
     <div className={classes.wrapper}>
       {comments.map((comment) => {
         return (
-          <div className="flex flex-wrap gap-5 py-5" key={comment.id}>
+          <div className="flex flex-wrap gap-5 py-5 items-center" key={comment.id}>
             <Button
-              className={`${classes.userInfo} flex gap-2 items-center flex-none w-full`}
+							variant='ghost'
+              className={`${classes.userInfo} flex gap-2 items-center flex-none`}
               onClick={() => handleMemberPageMove(comment.owner.username)}
             >
               <Avatar>
@@ -76,7 +75,7 @@ export const Comment = ({ id }: CommentProps) => {
             </div>
             <Button variant="ghost" onClick={() => handleFavoritePosting(comment)}>
               <div>
-                <Heart fill={!isLiked ? 'transparent' : '#000'} />
+                <Heart fill={!comment.isLiked ? 'transparent' : '#000'} />
               </div>
             </Button>
           </div>

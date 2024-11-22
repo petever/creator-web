@@ -1,5 +1,4 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { updateLikePosting } from '@/features/FeedButtons/api/updateFavoritePosting'
 import { MUTATION_KEY } from '@/shared/constants/mutaionKey'
 import { FeedContents, FeedPageData, FeedResponse, Feeds } from '@/entities/feeds/types'
 import { QUERY_KEY } from '@/shared/constants/queryKey'
