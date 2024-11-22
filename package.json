@@ -4,6 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "standalone": "next build && next export",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "lint": "next lint",
