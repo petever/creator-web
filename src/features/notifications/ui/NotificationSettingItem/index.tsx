@@ -1,5 +1,5 @@
+import { Switch } from '@/shared/ui/switch'
 import React from 'react'
-import { Flex, Switch, Text } from '@mantine/core'
 
 interface NotificationSettingItemProps {
   label: string
@@ -8,10 +8,10 @@ interface NotificationSettingItemProps {
 
 const NotificationSettingItem = ({ label, checked }: NotificationSettingItemProps) => {
   return (
-    <Flex justify="space-between" align="center">
-      <Text size="lg">{label}</Text>
-      <Switch size="md" checked={checked} />
-    </Flex>
+    <div className="flex justify-between items-center">
+      <p>{label}</p>
+      <Switch checked={checked} />
+    </div>
   )
 }
 
