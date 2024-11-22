@@ -1,5 +1,4 @@
 import React from 'react'
-import { Box, Flex, Text } from '@mantine/core'
 import NotificationSettingItem from '@/features/notifications/ui/NotificationSettingItem'
 import { NotificationSettingItems } from '@/entities/notifications/types'
 
@@ -10,16 +9,16 @@ interface NotificationGroupProps {
 
 const NotificationGroup = ({ legend, items }: NotificationGroupProps) => {
   return (
-    <Box p={20} style={{ borderBottom: '1px solid #ddd' }}>
-      <Text size="md" fw={600} mb={10}>
-        {legend}
-      </Text>
-      <Flex gap={14} direction="column">
+    <div className={'p-20 border-2 border-neutral-500'}>
+			<p className={'font-semibold mb-10'}>
+				{legend}
+			</p>
+      <div className={'flex-col gap-14'}>
         {items.map((item) => {
           return <NotificationSettingItem label={item.label} checked={item.checked} />
         })}
-      </Flex>
-    </Box>
+      </div>
+    </div>
   )
 }
 

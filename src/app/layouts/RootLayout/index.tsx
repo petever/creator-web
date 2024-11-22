@@ -1,7 +1,6 @@
 import './normalize.css'
 import './globals.css'
 import AuthProvider from '@/app/providers/AuthProvider'
-import CustomMantineProvider from '@/app/providers/CustomMantineProvider'
 import QueryProvider from '@/app/providers/QueryProvider'
 import LocaleProvider from '@/app/providers/LocaleProvider'
 
@@ -25,9 +24,7 @@ export async function RootLayout({ children }: RootLayoutProps) {
       <body>
         <AuthProvider>
           <QueryProvider>
-            <CustomMantineProvider>
-              <LocaleProvider>{children}</LocaleProvider>
-            </CustomMantineProvider>
+						<LocaleProvider>{children}</LocaleProvider>
           </QueryProvider>
         </AuthProvider>
       </body>
