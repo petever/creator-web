@@ -4,8 +4,6 @@ import SubscribeButton from '@/features/users/ui/SubscribeButton'
 import { getServerFeeds } from '@/entities/feeds/api/getServerFeeds'
 import { getServerUser } from '@/entities/user/api/getServerUser'
 import { auth } from '@/auth'
-import { Box, Flex } from '@mantine/core'
-import { getServerSubscribe } from '@/entities/subscribe/api/getServerSubscribe'
 
 interface UserDetailPageProps {
   params: {

@@ -3747,15 +3747,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tiptap/extension-link@npm:^2.9.1":
-  version: 2.9.1
-  resolution: "@tiptap/extension-link@npm:2.9.1"
+"@tiptap/extension-link@npm:^2.10.2":
+  version: 2.10.2
+  resolution: "@tiptap/extension-link@npm:2.10.2"
   dependencies:
     linkifyjs: "npm:^4.1.0"
   peerDependencies:
     "@tiptap/core": ^2.7.0
     "@tiptap/pm": ^2.7.0
-  checksum: 10c0/6eda0d9914cb7e18998606b0a00943922ff59ef2d95568bb359f96cc212c703b8b59ad36b1911587bfdf1819a637807a20741f4774ebc1620ec4d6b9fb1adbcd
+  checksum: 10c0/c199a2d485fb43da412745fc881e48cea28d4c481898ea85df82b84c934acae7c3b0d1c910dd57d2dd1234bf17cf219f80bd8e08ec38c2d7cb9c7244b2d4ccdb
   languageName: node
   linkType: hard
 
@@ -9081,7 +9081,7 @@ __metadata:
     "@testing-library/user-event": "npm:^14.5.2"
     "@tiptap/core": "npm:^2.8.0"
     "@tiptap/extension-bubble-menu": "npm:^2.8.0"
-    "@tiptap/extension-link": "npm:^2.9.1"
+    "@tiptap/extension-link": "npm:^2.10.2"
     "@tiptap/extension-placeholder": "npm:^2.9.1"
     "@tiptap/extension-text-style": "npm:^2.8.0"
     "@tiptap/pm": "npm:^2.9.1"

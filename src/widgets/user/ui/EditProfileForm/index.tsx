@@ -3,12 +3,13 @@
 import { UserProfile } from '@/entities/user/types'
 import { useMyProfile } from '@/entities/user/hooks/useMyProfile'
 import { useUpdateMyProfile } from '@/features/users/hooks/useUpdateMyProfile'
-import Editor from '@/widgets/Editor'
 import { Input } from '@/shared/ui/input'
 import { useForm } from 'react-hook-form'
 import { Label } from '@/shared/ui/label'
 import { Form } from '@/shared/ui/form'
-import {Button} from "@/shared/ui/button";
+import { Button } from '@/shared/ui/button'
+import ProfileCover from '@/features/users/ui/ProfileCover'
+import ProfilePicture from '@/features/users/ui/ProfilePicture'
 
 interface EditProfileFormProps {
   userProfile: UserProfile
@@ -64,9 +65,9 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
   return (
     <Form {...form}>
       <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-        {/*<ProfileCover imageSrc={watch('cover')} />*/}
+        <ProfileCover imageSrc={watch('cover')} />
         <div className="space-y-4">
-          {/*<ProfilePicture imageSrc={watch('picture')} alt={data?.username} />*/}
+          <ProfilePicture imageSrc={watch('picture')} alt={data?.username} />
           <div>
             <Label htmlFor="username">사용자 ID</Label>
             <Input id="username" placeholder="사용자 ID" {...register('username')} />
@@ -86,11 +87,6 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
           </div>
           <div>
             <Label>소개</Label>
-            <Editor
-              placeholder="소개를 입력하세요."
-              content={watch('status')}
-              onChange={handleEditorChange}
-            />
           </div>
         </div>
         <Button className="w-full" type="submit" disabled={!isDirty}>

@@ -2,6 +2,7 @@ import StarterKit from '@tiptap/starter-kit'
 import { EditorContent, useEditor } from '@tiptap/react'
 import { useEffect } from 'react'
 import Placeholder from '@tiptap/extension-placeholder'
+import Link from '@tiptap/extension-link'
 
 interface EditorProps {
   value?: string
@@ -9,6 +10,7 @@ interface EditorProps {
   height?: string
   placeholder?: string
 }
+
 export const Editor = ({ value, onChange, height = '100%', placeholder = '' }: EditorProps) => {
   const editor = useEditor({
     extensions: [
