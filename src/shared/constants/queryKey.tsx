@@ -7,4 +7,6 @@ export const QUERY_KEY = {
   COMMENTS: 'comments',
   //subscribe
   SUBSCRIBE_PLANS: 'subscribePlans',
+  // explore
+  SEARCH_TRENDS: 'searchTrends',
 }

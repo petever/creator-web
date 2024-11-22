@@ -1,7 +1,6 @@
-import { QueryClient, useInfiniteQuery, useQueryClient } from '@tanstack/react-query'
-import { QUERY_KEY } from '@/shared/constants/queryKey'
+import { useInfiniteQuery, useQueryClient } from '@tanstack/react-query'
 import { getFeeds } from '@/entities/feeds/api/getFeeds'
-import { FeedContents, FeedResponse, Feeds } from '@/entities/feeds/types'
+import { FeedResponse } from '@/entities/feeds/types'
 import { getFeedQueryKey, getFeedSearchParams, getMoreFeeds } from '@/entities/feeds/lib'
 
 const useFeeds = (initialData: FeedResponse, username?: string) => {

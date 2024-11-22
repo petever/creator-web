@@ -20,4 +20,7 @@ export const API_URL = {
   CREATOR_APPLY: 'creators/apply',
   //NOTIFICATIONS
   NOTIFICATIONS: 'notifications',
+  //SEARCH
+  SEARCH: 'search',
+  SEARCH_TRENDS: `search/trends`,
 }
