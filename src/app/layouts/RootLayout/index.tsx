@@ -27,7 +27,6 @@ export async function RootLayout({ children }: RootLayoutProps) {
         <AuthProvider>
           <QueryProvider>
 						<LocaleProvider>
-							<HeaderNavigation/>
 							{children}
 						</LocaleProvider>
           </QueryProvider>

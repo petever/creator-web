@@ -1,12 +1,12 @@
 import React from 'react'
-import { SidebarLayout } from '@/app/layouts/SidebarLayout'
+import { CommonLayout } from '../../src/app/layouts/CommonLayout'
 
 interface FeedsLayoutProps {
   children: React.ReactNode
 }
 
 const FeedsLayout = ({ children }: FeedsLayoutProps) => {
-  return <SidebarLayout>{children}</SidebarLayout>
+  return <CommonLayout>{children}</CommonLayout>
 }
 
 export default FeedsLayout

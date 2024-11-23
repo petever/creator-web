@@ -1,5 +1,5 @@
 import { SettingList } from '@/widgets/SettingList/ui'
-import { SidebarLayout } from '@/app/layouts/SidebarLayout'
+import { SidebarLayout } from '../../app/layouts/CommonLayout'
 
 const SettingListPage = () => {
   return (

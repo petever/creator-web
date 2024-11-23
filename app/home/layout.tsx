@@ -1,12 +1,12 @@
 import React from 'react'
-import { SidebarLayout } from '@/app/layouts/SidebarLayout'
+import { CommonLayout } from '../../src/app/layouts/CommonLayout'
 
 interface HomeLayoutProps {
   children: React.ReactNode
 }
 
 const HomeLayout = ({ children }: HomeLayoutProps) => {
-  return <SidebarLayout>{children}</SidebarLayout>
+  return <CommonLayout>{children}</CommonLayout>
 }
 
 export default HomeLayout
