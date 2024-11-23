@@ -30,7 +30,7 @@ const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
       <DialogTrigger asChild>
         <Button variant="ghost" className={sidebarClassName}>
           <item.icon style={{ width: '20px', height: '20px' }} />
-          <span className="text-base font-medium">{item.title}</span>
+          <span className="text-base font-medium hidden md:inline-block">{item.title}</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-[50vw]">

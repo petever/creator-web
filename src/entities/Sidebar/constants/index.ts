@@ -14,14 +14,14 @@ export const SIDEBAR_ITEMS: ISidebarItem[] = [
     url: '/explore',
     icon: Compass,
   },
+	{
+		title: '추가',
+		url: '#',
+		icon: CirclePlus,
+	},
   {
     title: '알림',
     url: '/notifications',
     icon: Bell,
-  },
-  {
-    title: '추가',
-    url: '#',
-    icon: CirclePlus,
   },
 ]

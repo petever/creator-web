@@ -182,6 +182,15 @@ const Sidebar = React.forwardRef<
       )
     }
 
+		if(isMobile){
+			return (
+				<div className='fixed bottom-0 left-0 w-full p-4 z-50 bg-white'>
+					{children}
+				</div>
+			)
+		}
+
+		{/*
     if (isMobile) {
       return (
         <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
@@ -201,6 +210,7 @@ const Sidebar = React.forwardRef<
         </Sheet>
       )
     }
+    */}
 
     return (
       <div
@@ -340,6 +350,10 @@ SidebarInput.displayName = 'SidebarInput'
 
 const SidebarHeader = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
   ({ className, ...props }, ref) => {
+		const isMobile = useIsMobile()
+
+		if(isMobile) return null
+
     return (
       <div
         ref={ref}
@@ -354,6 +368,10 @@ SidebarHeader.displayName = 'SidebarHeader'
 
 const SidebarFooter = React.forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
   ({ className, ...props }, ref) => {
+		const isMobile = useIsMobile()
+
+		if(isMobile) return null
+
     return (
       <div
         ref={ref}
@@ -469,14 +487,18 @@ const SidebarGroupContent = React.forwardRef<HTMLDivElement, React.ComponentProp
 SidebarGroupContent.displayName = 'SidebarGroupContent'
 
 const SidebarMenu = React.forwardRef<HTMLUListElement, React.ComponentProps<'ul'>>(
-  ({ className, ...props }, ref) => (
-    <ul
-      ref={ref}
-      data-sidebar="menu"
-      className={cn('flex w-full min-w-0 flex-col gap-1', className)}
-      {...props}
-    />
-  ),
+  ({ className, ...props }, ref) => {
+		const isMobile = useIsMobile()
+
+		return (
+			<ul
+				ref={ref}
+				data-sidebar="menu"
+				className={cn(`flex w-full min-w-0 flex-col gap-1`, className)}
+				{...props}
+			/>
+		)
+	},
 )
 SidebarMenu.displayName = 'SidebarMenu'
 

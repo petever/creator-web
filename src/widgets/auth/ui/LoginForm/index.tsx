@@ -16,9 +16,11 @@ const LoginForm = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-center">로그인</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
+					<CardTitle className="block md:hidden text-center">
+						로그인
+					</CardTitle>
+				</CardHeader>
+				<CardContent className="space-y-4">
           <Input type="email" placeholder="이메일" required />
           <Input type="password" placeholder="비밀번호" required />
           <div className="flex justify-end">

@@ -7,7 +7,7 @@ const MainPage = () => {
   return (
     <div className="flex flex-1 h-screen">
       <div
-        className="flex-1 relative"
+        className="flex-1 relative hidden md:flex"
         style={{
           backgroundImage: 'url(/assets/visual.png)',
           backgroundSize: 'cover',

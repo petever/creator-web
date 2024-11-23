@@ -3,6 +3,8 @@ import './globals.css'
 import AuthProvider from '@/app/providers/AuthProvider'
 import QueryProvider from '@/app/providers/QueryProvider'
 import LocaleProvider from '@/app/providers/LocaleProvider'
+import {Header} from "@/shared/ui/header";
+import {HeaderNavigation} from "@/shared/ui/HeaderNavigation";
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -24,7 +26,10 @@ export async function RootLayout({ children }: RootLayoutProps) {
       <body>
         <AuthProvider>
           <QueryProvider>
-						<LocaleProvider>{children}</LocaleProvider>
+						<LocaleProvider>
+							<HeaderNavigation/>
+							{children}
+						</LocaleProvider>
           </QueryProvider>
         </AuthProvider>
       </body>
