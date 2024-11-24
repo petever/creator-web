@@ -24,7 +24,7 @@ export const ContentForm = () => {
   if (step === 0) return null
 
   return (
-    <div className={'flex gap-10 h-[600px]'}>
+    <div className={'flex gap-10 h-[600px] md:h-full'}>
       <div className={'flex flex-1 gap-30 h-full'}>
         <Carousel className={'w-full max-w-xs'}>
           {files.map((data, index) => {

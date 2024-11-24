@@ -54,7 +54,7 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
   }
 
   return (
-    <div className="flex flex-col gap-5 pt-5 pb-5 justify-center items-center w-[600px]">
+    <div className="flex flex-col gap-5 p-5 justify-center items-center md:w-[600px] md:p-0">
       {postings.map((posting) => (
         <Post key={posting.id} feed={posting} username={username} />
       ))}

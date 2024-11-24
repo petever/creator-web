@@ -1,8 +1,9 @@
 import React from 'react'
-import { Image, Video } from 'lucide-react'
+import Image from 'next/image'
+import { Image as ImageIcon, Video as VideoIcon} from 'lucide-react'
 
 interface BackgroundImageProps {
-  cover: string | File
+  cover: string
 }
 
 const BackgroundImage = ({ cover }: BackgroundImageProps) => {
@@ -10,15 +11,18 @@ const BackgroundImage = ({ cover }: BackgroundImageProps) => {
     <div>
       <div className="flex justify-center items-center gap-10 mb-10">
         <div className="flex items-center gap-10">
-          <Video />
+          <VideoIcon />
           <span>12</span>
         </div>
         <div className="flex items-center gap-10">
-          <Image />
+          <ImageIcon />
           <span>12</span>
         </div>
       </div>
-      {/*<NextImage src={cover as string} alt="cover" className="h-300" />*/}
+			{!cover && <div className='absolute top-0 left-0 w-full h-full bg-gray-200 z-[-1]'></div>}
+			{cover &&
+				<Image src={cover} alt="" fill />
+			}
     </div>
   )
 }

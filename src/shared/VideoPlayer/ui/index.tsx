@@ -6,7 +6,7 @@ interface VideoPlayerProps {
 }
 export const VideoPlayer = ({ src, isControl = false }: VideoPlayerProps) => {
   return (
-    <div className="flex h-[600px] justify-center relative bg-black">
+    <div className="flex h-[600px] justify-center relative bg-black md:h-full">
       <Player
         src={src}
         autoPlay={false}

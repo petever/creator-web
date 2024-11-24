@@ -22,8 +22,8 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
   const isSelf = session?.user?.id === userProfile.id
 
   return (
-    <div className="flex justify-center flex-1">
-      <div className="max-w-[600px] w-full">
+    <div className="flex pt-[86px] pb-[80px] justify-center flex-1 md:p-0">
+      <div className="w-full md:max-w-[600px]">
         <ProfileTopSection
           username={username}
           userProfile={userProfile}

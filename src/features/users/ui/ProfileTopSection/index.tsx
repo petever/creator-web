@@ -19,9 +19,9 @@ export const ProfileTopSection = ({ username, userProfile, render }: ProfileTopS
   if (!data) return null
 
   return (
-    <div>
-      <BackgroundImage cover={data.cover} />
-      <div className="p-5">
+    <div className='relative'>
+      <BackgroundImage cover={data.cover as string} />
+      <div className="p-5 box-border">
         <div className="flex justify-between">
           <div className="flex">
             <Avatar>

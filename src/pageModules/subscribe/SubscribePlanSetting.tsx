@@ -8,7 +8,7 @@ const SubscribePlanSetting = async () => {
   const session = await auth()
   const subscribePlans = await getServerSubscribePlans(session?.user?.id)
   return (
-    <div className="max-w-[600px] w-full pt-5 pb-5">
+    <div className="max-w-[600px] w-full pt-5 pb-5 md:max-w-full">
       <SubscribeCardList userId={session?.user?.id} subscribePlans={subscribePlans} isCreator />
       <AddSubscribePlan />
     </div>
