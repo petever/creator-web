@@ -10,11 +10,12 @@ export interface PostItem {
 
 export interface PostLikeWithMemberSearchParams {
   nextId?: string
+	size: number
 }
 
 export interface PostLikeContent {
   postLikeId: string
-  user: Owner[]
+  user: Owner
 }
 
 export interface PostLikeWithMembersResponse {
