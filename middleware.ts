@@ -9,7 +9,6 @@ export default auth(async function middleware(req: NextRequest) {
   const session = await userSession()
   if (!session?.accessToken) NextResponse.redirect(new URL(PAGE.LOGIN, req.url))
 })
-
 export const config = {
-  matcher: ['/settings/:path*'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)', '/settings/:path*'],
 }
