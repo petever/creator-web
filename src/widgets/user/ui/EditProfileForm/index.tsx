@@ -10,6 +10,7 @@ import { Form } from '@/shared/ui/form'
 import { Button } from '@/shared/ui/button'
 import ProfileCover from '@/features/users/ui/ProfileCover'
 import ProfilePicture from '@/features/users/ui/ProfilePicture'
+import { Editor } from '@/shared/ui/Editor'
 
 interface EditProfileFormProps {
   userProfile: UserProfile
@@ -64,7 +65,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
 
   return (
     <Form {...form}>
-      <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+      <form className="space-y-6 w-full max-w-[600px]" onSubmit={handleSubmit(onSubmit)}>
         <ProfileCover imageSrc={watch('cover')} />
         <div className="space-y-4">
           <ProfilePicture imageSrc={watch('picture')} alt={data?.username} />
@@ -87,6 +88,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
           </div>
           <div>
             <Label>소개</Label>
+            <Editor value={watch('status')} onChange={handleEditorChange} height="200px" />
           </div>
         </div>
         <Button className="w-full" type="submit" disabled={!isDirty}>
