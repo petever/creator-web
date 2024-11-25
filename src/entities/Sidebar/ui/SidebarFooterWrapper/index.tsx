@@ -5,13 +5,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/shared/ui/dropdown-menu'
-import { ChevronUp, Settings } from 'lucide-react'
+import { ChevronUp, LogOut, Settings } from 'lucide-react'
 import Link from 'next/link'
+import { signOut } from 'next-auth/react'
 
 export const SidebarFooterWrapper = () => {
   return (
     <SidebarFooter>
-      <SidebarMenu>
+      <SidebarMenu className="cursor-pointer">
         <SidebarMenuItem>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -21,7 +22,10 @@ export const SidebarFooterWrapper = () => {
               </SidebarMenuButton>
             </DropdownMenuTrigger>
             <DropdownMenuContent side="top" className="w-[--radix-popper-anchor-width]">
-              <DropdownMenuItem asChild>
+              <DropdownMenuItem className="cursor-pointer" onClick={() => signOut()}>
+                <LogOut /> 로그아웃
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer" asChild>
                 <Link href="/settings">
                   <Settings /> 설정
                 </Link>
