@@ -11,6 +11,8 @@ import { Button } from '@/shared/ui/button'
 import ProfileCover from '@/features/users/ui/ProfileCover'
 import ProfilePicture from '@/features/users/ui/ProfilePicture'
 import { Editor } from '@/shared/ui/Editor'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
 
 interface EditProfileFormProps {
   userProfile: UserProfile
@@ -20,7 +22,16 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
   const { data } = useMyProfile(userProfile)
   const { updateProfileMutate } = useUpdateMyProfile()
 
+  const schema = z.object({
+    picture: z.string().optional(),
+    cover: z.string().optional(),
+    displayName: z.string().min(2, { message: '2글자 이상 입력해주세요.' }),
+    username: z.string().min(2, { message: '2글자 이상 입력해주세요.' }),
+    status: z.string().optional(),
+  })
+
   const form = useForm<UserProfile>({
+    resolver: zodResolver(schema),
     defaultValues: {
       picture: data?.picture || '',
       cover: data?.cover || '',
@@ -38,6 +49,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
   } = form
 
   const onSubmit = (values: UserProfile) => {
+    console.log(values, 'values')
     const { displayName, username, status, picture, cover } = values
 
     const formData = new FormData()
@@ -60,6 +72,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
   }
 
   const handleEditorChange = (content: string) => {
+    console.log(content)
     setValue('status', content, { shouldDirty: true })
   }
 

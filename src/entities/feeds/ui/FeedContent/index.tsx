@@ -1,14 +1,12 @@
-import { getDateFormat } from '@/shared/lib'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { Button } from '@/shared/ui/button'
+import { useEffect, useRef, useState } from 'react'
 import { ContentExpandButton } from '@/entities/feeds/ui/FeedContent/ContentExpandButton'
 
 interface FeedContentProps {
+  username?: string
   contents: string
-  createdAt: Date
 }
 
-export const FeedContent = ({ contents, createdAt }: FeedContentProps) => {
+export const FeedContent = ({ username, contents }: FeedContentProps) => {
   const contentsRef = useRef<HTMLParagraphElement>(null)
   const [isExpandButton, setIsExpandButton] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
@@ -17,13 +15,13 @@ export const FeedContent = ({ contents, createdAt }: FeedContentProps) => {
   }
 
   useEffect(() => {
-    if(!contentsRef.current) return
+    if (!contentsRef.current) return
     if (contentsRef.current?.clientHeight < 25) return
     setIsExpandButton(true)
   }, [])
 
   return (
-    <div className="px-6 py-4">
+    <div>
       <div className={'flex flex-between items-end'}>
         <div className={'w-full'}>
           <div>
@@ -31,6 +29,7 @@ export const FeedContent = ({ contents, createdAt }: FeedContentProps) => {
               className={`max-h-14 text-ellipsis  ${!isExpanded ? `line-clamp-2` : `max-h-fit`}`}
               ref={contentsRef}
             >
+              {contents && <span className="font-medium inline-block mr-2">{username}</span>}
               {contents}
             </p>
             <ContentExpandButton
@@ -39,7 +38,6 @@ export const FeedContent = ({ contents, createdAt }: FeedContentProps) => {
               onExpandedChange={handleExpandedChange}
             />
           </div>
-          <p className="text-xs text-right">{getDateFormat(createdAt)} 작성됨</p>
         </div>
       </div>
     </div>

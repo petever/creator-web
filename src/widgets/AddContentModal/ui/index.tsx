@@ -12,6 +12,7 @@ interface AddContentModalProps {
   item: ISidebarItem
   sidebarClassName: string
 }
+
 const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
   const { isOpen, onToggle, onClose } = useDisclosure()
 
@@ -29,12 +30,12 @@ const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
     <Dialog open={isOpen} onOpenChange={onToggle}>
       <DialogTrigger asChild>
         <Button variant="ghost" className={sidebarClassName}>
-          <item.icon style={{ width: '20px', height: '20px' }} />
+          <item.icon style={{ width: '24px', height: '24px' }} />
           <span className="text-base font-medium hidden md:inline-block">{item.title}</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-[50vw]">
-        <DialogHeader className="flex items-center justify-between">
+      <DialogContent className="max-w-[50vw] p-0 border-none">
+        <DialogHeader className="flex items-center py-4 justify-between">
           <DialogTitle>콘텐츠 업로드</DialogTitle>
         </DialogHeader>
         <FormProvider {...methods}>

@@ -5,9 +5,10 @@ export const QUERY_KEY = {
   // feeds
   FEEDS: 'feeds',
   COMMENTS: 'comments',
-	FEED_LIKE_MEMBERS : 'feedLikeMembers',
+  FEED_LIKE_MEMBERS: 'feedLikeMembers',
   //subscribe
   SUBSCRIBE_PLANS: 'subscribePlans',
   // explore
+  SEARCH: 'search',
   SEARCH_TRENDS: 'searchTrends',
 }

@@ -5,8 +5,11 @@ import { Input } from '@/shared/ui/input'
 import { Search } from 'lucide-react'
 import { Form } from '@/shared/ui/form'
 import { useForm } from 'react-hook-form'
+import { useSearch } from '@/entities/explore/hooks/useSearch'
 
 const SearchBar = () => {
+  const { data } = useSearch()
+
   const [isFocused, setIsFocused] = React.useState(false)
   const form = useForm({
     mode: 'all',

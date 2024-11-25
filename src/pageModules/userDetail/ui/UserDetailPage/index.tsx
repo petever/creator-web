@@ -18,7 +18,6 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
   const initialFeeds = await getServerFeeds(username)
   // const test = await getServerSubscribe(session?.user?.id)
   // console.log(test, '1121321332133131232')
-
   const isSelf = session?.user?.id === userProfile.id
 
   return (

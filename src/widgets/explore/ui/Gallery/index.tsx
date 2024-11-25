@@ -1,5 +1,6 @@
 'use client'
-import React, { useMemo } from 'react'
+
+import React, { useEffect, useMemo } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { useSearchTrends } from '@/entities/explore/hooks/useSearchTrends'
 import { BASE_URL } from '@/shared/constants/apiURL'
@@ -9,7 +10,7 @@ interface GalleryProps {
 }
 
 const Gallery = ({ initialData }: GalleryProps) => {
-  const { data } = useSearchTrends(initialData)
+  const { data, fetchNextPage } = useSearchTrends(initialData)
 
   const images = useMemo(() => (data ? data.pages.flatMap(({ content }) => content) : []), [data])
 
@@ -25,14 +26,23 @@ const Gallery = ({ initialData }: GalleryProps) => {
     )
 
   const groupedImages = chunkArray(images, 5)
-  console.log(groupedImages, 'groupedImages')
+
+  const fetchMore = () => {
+    if (!inView) {
+      return
+    }
+    void fetchNextPage()
+  }
+
+  useEffect(() => {
+    fetchMore()
+  }, [inView])
 
   return (
     <div className="max-w-screen-lg">
       {groupedImages.map((group: any, groupIndex: number) => {
-        console.log(group, 'group')
         return (
-          <div key={groupIndex} className="overflow-hidden">
+          <div key={group[0]?.id} className="overflow-hidden">
             <div
               className={`relative w-[calc(33.3333%-4px)] mb-1 mr-1  ${groupIndex % 2 === 0 ? 'float-left' : 'float-right'}`}
             >
@@ -47,9 +57,8 @@ const Gallery = ({ initialData }: GalleryProps) => {
               </div>
             </div>
             {group.slice(1).map((image: any) => {
-              console.log(image.postResources, 'image')
               return (
-                <div className="float-left w-[calc(33.3333%-4px)] mb-1 mr-1">
+                <div key={image.id} className="float-left w-[calc(33.3333%-4px)] mb-1 mr-1">
                   <img
                     src={`${BASE_URL}${image.postResources[0]?.filePath}`}
                     alt={`더미 이미지 ${image.id}`}

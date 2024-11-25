@@ -1,6 +1,6 @@
-import Gallery from '@/widgets/explore/ui/Gallery'
 import SearchBar from '@/widgets/explore/ui/SearchBar'
 import { getSearchTrends } from '@/entities/explore/api/getSearchTrends'
+import Gallery from '@/widgets/explore/ui/Gallery'
 
 const ExplorePage = async () => {
   const searchTrends = await getSearchTrends({ pageParam: { size: 20, page: 0 } })

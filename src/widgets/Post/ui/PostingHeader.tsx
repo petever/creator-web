@@ -2,31 +2,22 @@
 
 import { Profile } from '@/features'
 import { UserProfile } from '@/entities/user/types'
+import Link from 'next/link'
 import { PAGE } from '@/shared/constants/page'
-import { useRouter } from 'next/navigation'
+import { getDateFormat } from '@/shared/lib'
 
 interface PostingHeaderProps {
-  isPrivate: boolean
-  onPrivateChange: () => void
   profile: UserProfile
+  createdAt: Date
 }
 
-export const PostingHeader = ({ profile, isPrivate, onPrivateChange }: PostingHeaderProps) => {
-  const router = useRouter()
-
-  const goToMemberPage = (name: string) => {
-    router.push(PAGE.MEMBER_PAGE(name))
-  }
-
+export const PostingHeader = ({ profile, createdAt }: PostingHeaderProps) => {
   return (
-    <div className={'flex justify-between p-4'}>
-      <Profile profile={profile} onClick={() => goToMemberPage(profile.username)} />
-
-      {/* TODO : 개발용 */}
-      {/*<Switch*/}
-      {/*  checked={isPrivate}*/}
-      {/*  onCheckedChange={(event) => onPrivateChange(event.currentTarget.checked)}*/}
-      {/*/>*/}
+    <div className={'flex justify-between py-2 items-center mb-2'}>
+      <Link href={PAGE.MEMBER_PAGE(profile.username)}>
+        <Profile profile={profile} />
+      </Link>
+      <span className="text-sm text-gray-500">{getDateFormat(createdAt)}</span>
     </div>
   )
 }

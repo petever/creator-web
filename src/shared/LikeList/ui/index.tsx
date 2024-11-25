@@ -1,5 +1,4 @@
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/shared/ui/dialog'
-import { Button } from '@/shared/ui/button'
 import { PostLikeList } from '@/entities'
 
 interface LikeListProps {
@@ -13,7 +12,9 @@ export const LkeList = ({ id, likeCount }: LikeListProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant={'ghost'}>좋아요 {likeCount}개 모두 보기</Button>
+        <button className="text-sm text-gray-500">
+          <span className="font-medium text-gray-900">여러명</span>이 좋아합니다.
+        </button>
       </DialogTrigger>
       <DialogContent>
         <DialogTitle>좋아요</DialogTitle>
