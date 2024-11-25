@@ -3,16 +3,17 @@ import classes from './styles.module.css'
 import { useRouter } from 'next/navigation'
 import { useComment } from '@/features/Comment/hooks/useComment'
 import { useInView } from 'react-intersection-observer'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { CommentTypes } from '@/features/Comment/type'
 import { useUpdateFavoriteComment } from '@/features/Comment/hooks/useUpdateFavoriteComment'
 import { Heart, MessageCircle } from 'lucide-react'
 import { Button } from '@/shared/ui/button'
-import {Avatar, AvatarImage} from "@/shared/ui/avatar";
+import { Avatar, AvatarImage } from '@/shared/ui/avatar'
 
 interface CommentProps {
   id: string
 }
+
 export const Comment = ({ id }: CommentProps) => {
   const { ref, inView } = useInView()
 
@@ -59,9 +60,9 @@ export const Comment = ({ id }: CommentProps) => {
     <div className={classes.wrapper}>
       {comments.map((comment) => {
         return (
-          <div className="flex flex-wrap gap-5 py-5 items-center" key={comment.id}>
+          <div className="flex flex-wrap gap-2 py-3 items-center" key={comment.id}>
             <Button
-							variant='ghost'
+              variant="ghost"
               className={`${classes.userInfo} flex gap-2 items-center flex-none`}
               onClick={() => handleMemberPageMove(comment.owner.username)}
             >

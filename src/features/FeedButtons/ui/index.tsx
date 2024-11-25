@@ -2,8 +2,7 @@
 import { useUpdateLikePosting } from '@/features/FeedButtons/hooks/useUpdateFavoritePosting'
 import { FeedContents } from '@/entities/feeds/types'
 import { useSession } from 'next-auth/react'
-import { CommentListModal, LoginModal } from '@/shared'
-import { Button } from '@/shared/ui/button'
+import { CommentListModal } from '@/shared'
 import { Heart } from 'lucide-react'
 
 interface FeedButtonsProps {
@@ -18,7 +17,6 @@ export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps)
 
   const { isLiked } = feed
 
-
   const handleFavoritePosting = async () => {
     if (isError) {
       // return loginModalOpen()
@@ -27,14 +25,15 @@ export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps)
   }
 
   return (
-    <div className="px-0 py-2">
-      <div className="flex justify-between w-full">
-        <div>
-          <Button variant="ghost" onClick={handleFavoritePosting}>
-            <Heart fill={!isLiked ? 'transparent' : '#000'} />
-          </Button>
-          <CommentListModal feed={feed} />
-        </div>
+    <div className="py-4">
+      <div className="flex gap-4">
+        <Heart
+          size={24}
+          className="cursor-pointer hover:text-gray-500"
+          fill={!isLiked ? 'transparent' : '#000'}
+          onClick={handleFavoritePosting}
+        />
+        <CommentListModal feed={feed} />
       </div>
       {/*<LoginModal owner={feed.owner} opened={loginModalOpened} onClose={loginModalClose} />*/}
     </div>

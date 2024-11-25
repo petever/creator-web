@@ -4,17 +4,18 @@ import Image from 'next/image'
 import { VideoPlayer } from '@/shared'
 import {
   Carousel,
+  type CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi,
 } from '@/shared/ui/carousel'
 import { useEffect, useState } from 'react'
 
 interface FeedMediaProps {
   resources: Resource[]
 }
+
 export const FeedMedia = ({ resources }: FeedMediaProps) => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
@@ -36,7 +37,7 @@ export const FeedMedia = ({ resources }: FeedMediaProps) => {
     const isVideo = resources[0].mimeType === 'VIDEO'
     const url = resources[0].filePath
     return (
-      <div>
+      <div className="rounded overflow-hidden">
         {!isVideo ? (
           <Image src={url} alt="" width={600} height={600} />
         ) : (
@@ -47,7 +48,7 @@ export const FeedMedia = ({ resources }: FeedMediaProps) => {
   }
 
   return (
-    <Carousel>
+    <Carousel className="rounded overflow-hidden">
       <CarouselContent>
         {resources?.map((resource: Resource, resourceIndex) => {
           const isVideo = resource.mimeType === 'VIDEO'
