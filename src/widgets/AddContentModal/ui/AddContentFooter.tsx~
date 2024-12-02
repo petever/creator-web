@@ -9,7 +9,7 @@ export const AddContentFooter = () => {
   const isDisabledSaveButton = !title || !contents
 
   return (
-    <Button type="submit" disabled={isDisabledSaveButton} className='w-full mt-4'>
+    <Button type="submit" disabled={isDisabledSaveButton} className='w-full'>
       저장
     </Button>
   )

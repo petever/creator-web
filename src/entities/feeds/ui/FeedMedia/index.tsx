@@ -11,12 +11,14 @@ import {
   CarouselPrevious,
 } from '@/shared/ui/carousel'
 import { useEffect, useState } from 'react'
+import {useIsMobile} from "@/shared/hooks/use-mobile";
 
 interface FeedMediaProps {
   resources: Resource[]
 }
 
 export const FeedMedia = ({ resources }: FeedMediaProps) => {
+  const isMobile = useIsMobile()
   const [carouselApi, setCarouselApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
@@ -54,7 +56,7 @@ export const FeedMedia = ({ resources }: FeedMediaProps) => {
           const isVideo = resource.mimeType === 'VIDEO'
           const url = resource.filePath
           return (
-            <CarouselItem key={`${resourceIndex}`}>
+            <CarouselItem key={`${resourceIndex}`} className="h-full p-0">
               {!isVideo ? (
                 <Image src={url} alt="" width={600} height={600} />
               ) : (

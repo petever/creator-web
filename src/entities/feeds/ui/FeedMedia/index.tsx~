@@ -4,39 +4,42 @@ import Image from 'next/image'
 import { VideoPlayer } from '@/shared'
 import {
   Carousel,
+  type CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi,
 } from '@/shared/ui/carousel'
 import { useEffect, useState } from 'react'
+import {useIsMobile} from "@/shared/hooks/use-mobile";
 
 interface FeedMediaProps {
   resources: Resource[]
 }
+
 export const FeedMedia = ({ resources }: FeedMediaProps) => {
-  const [api, setApi] = useState<CarouselApi>()
+  const isMobile = useIsMobile()
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    if (!api) {
+    if (!carouselApi) {
       return
     }
 
-    setCurrent(api.selectedScrollSnap() + 1)
+    setCurrent(carouselApi.selectedScrollSnap() + 1)
 
-    api.on('select', () => {
-      setCurrent(api.selectedScrollSnap() + 1)
+    carouselApi.on('select', () => {
+      setCurrent(carouselApi.selectedScrollSnap() + 1)
     })
-  }, [api])
+  }, [carouselApi])
 
   if (resources.length === 1) {
     const isVideo = resources[0].mimeType === 'VIDEO'
     const url = resources[0].filePath
     return (
-      <div>
+      <div className="rounded overflow-hidden">
         {!isVideo ? (
           <Image src={url} alt="" width={600} height={600} />
         ) : (
@@ -47,13 +50,13 @@ export const FeedMedia = ({ resources }: FeedMediaProps) => {
   }
 
   return (
-    <Carousel>
+    <Carousel className="rounded overflow-hidden">
       <CarouselContent>
         {resources?.map((resource: Resource, resourceIndex) => {
           const isVideo = resource.mimeType === 'VIDEO'
           const url = resource.filePath
           return (
-            <CarouselItem key={`${resourceIndex}`}>
+            <CarouselItem key={`${resourceIndex}`} className="h-full p-0 ">
               {!isVideo ? (
                 <Image src={url} alt="" width={600} height={600} />
               ) : (

@@ -21,7 +21,7 @@ export const SidebarContentWrapper = () => {
     <SidebarContent>
       <SidebarGroup>
         <SidebarGroupContent>
-          <SidebarMenu className={`gap-4 'flex-col`}>
+          <SidebarMenu className={`gap-4 ${isMobile ? 'flex-row justify-between' : 'flex-col'}`}>
             {SIDEBAR_ITEMS.map((item) => {
 							return (
 								<SidebarMenuItem key={item.title}>

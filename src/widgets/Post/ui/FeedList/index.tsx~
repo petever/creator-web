@@ -46,7 +46,7 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
   if (postings.length === 0) {
     return (
         <div
-          className="flex flex-col pt-5 pb-5 justify-center items-center w-screen md:w-[600px]">
+          className="flex flex-col gap-5 pt-5 pb-5 justify-center items-center w-screen md:w-[600px]">
           <StickyNote />
           등록된 콘텐츠가 없습니다.
         </div>
@@ -54,7 +54,7 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center p-5 w-screen md:w-[600px] md:p-0">
+    <div className="flex flex-col gap-5 justify-center items-center p-5 w-screen md:w-[600px] md:p-0">
       {postings.map((posting) => (
         <Post key={posting.id} feed={posting} username={username} />
       ))}

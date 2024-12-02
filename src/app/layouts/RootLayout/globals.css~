@@ -114,7 +114,3 @@
   height: 0;
   pointer-events: none;
 }
-
-body[data-scroll-locked] {
-  margin-right: 0!important;
-}
