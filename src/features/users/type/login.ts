@@ -3,6 +3,7 @@ export interface LoginRequest {
   socialType?: string
   picture?: string | null
   username?: string | null
+  email?: string | null
   token?: string
 }
 

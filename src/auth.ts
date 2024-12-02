@@ -17,6 +17,7 @@ export const {
       const payload = {
         socialId: profile?.sub as string,
         username: user.name,
+        email: user.email,
         picture: user.image,
         token: account?.access_token,
         socialType: 'GOOGLE',
