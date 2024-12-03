@@ -22,7 +22,7 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
 
   return (
     <div className="flex pt-[86px] pb-[80px] justify-center flex-1 md:p-0">
-      <div className="w-full md:max-w-[600px]">
+      <div className="w-full md:max-w-screen-sm">
         <ProfileTopSection
           username={username}
           userProfile={userProfile}

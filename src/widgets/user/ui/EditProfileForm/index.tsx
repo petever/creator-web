@@ -78,7 +78,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
 
   return (
     <Form {...form}>
-      <form className="space-y-6 w-full max-w-[600px]" onSubmit={handleSubmit(onSubmit)}>
+      <form className="space-y-6 w-full max-w-screen-sm" onSubmit={handleSubmit(onSubmit)}>
         <ProfileCover imageSrc={watch('cover')} />
         <div className="space-y-4">
           <ProfilePicture imageSrc={watch('picture')} alt={data?.username} />

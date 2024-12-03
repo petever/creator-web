@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { SubscribeModal } from '@/widgets/SubscribeModal/ui'
+import { SubscribeModal } from '../../../../widgets/subscribe/ui/SubscribeModal'
 import { UserProfile } from '@/entities/user/types'
 import { PAGE } from '@/shared/constants/page'
 import Link from 'next/link'
@@ -13,7 +13,6 @@ interface SubscribeButtonProps {
 }
 
 const SubscribeButton = ({ isSelf, userProfile }: SubscribeButtonProps) => {
-
   if (isSelf) {
     return (
       <div className="p-5">

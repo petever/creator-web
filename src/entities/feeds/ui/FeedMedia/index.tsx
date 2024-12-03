@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
 } from '@/shared/ui/carousel'
 import { useEffect, useState } from 'react'
-import {useIsMobile} from "@/shared/hooks/use-mobile";
+import { useIsMobile } from '@/shared/hooks/use-mobile'
 
 interface FeedMediaProps {
   resources: Resource[]
@@ -38,6 +38,7 @@ export const FeedMedia = ({ resources }: FeedMediaProps) => {
   if (resources.length === 1) {
     const isVideo = resources[0].mimeType === 'VIDEO'
     const url = resources[0].filePath
+    console.log(url)
     return (
       <div className="rounded overflow-hidden">
         {!isVideo ? (
