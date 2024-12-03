@@ -29,19 +29,6 @@ export const ContentForm = () => {
     <div className="flex flex-1 flex-col gap-5 mt-4">
       <FormField
         control={control}
-        name="title"
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>제목</FormLabel>
-            <FormControl>
-              <Input placeholder="제목을 입력해주세요." {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <FormField
-        control={control}
         name="contents"
         render={({ field }) => (
           <FormItem>

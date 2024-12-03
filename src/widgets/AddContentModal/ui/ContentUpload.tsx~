@@ -45,7 +45,7 @@ const ContentUpload = ({ onDropImage, onRemoveImage, onShowImageChange }: Conten
             return (
               <div
                 {...getRootProps({ className: 'dropzone' })}
-                className="flex justify-center items-center h-80 mt-4 rounded-lg bg-slate-200 cursor-pointer"
+                className="flex justify-center items-center h-60 mt-4 rounded-lg bg-slate-200 cursor-pointer"
               >
                 <input {...getInputProps()} />
                 {isLoading ? (

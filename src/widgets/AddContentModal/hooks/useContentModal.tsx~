@@ -12,6 +12,7 @@ export const useContentModal = (onClose: () => void) => {
       currentFileType: '',
       step: 0,
       currentIndex: 0,
+      title: '',
       contents: '',
       files: [],
       isPreview: false,
