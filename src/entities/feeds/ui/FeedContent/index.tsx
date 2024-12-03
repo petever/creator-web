@@ -27,13 +27,13 @@ export const FeedContent = ({ username, contents }: FeedContentProps) => {
       <div className={'flex flex-between items-end'}>
         <div className={'w-full'}>
           <div>
-            <p
+            <div
               className={`max-h-14 text-ellipsis  ${!isExpanded ? `line-clamp-2` : `max-h-fit`}`}
               ref={contentsRef}
             >
               {contents && <span className="font-medium inline-block mr-2">{username}</span>}
               {parse(contents)}
-            </p>
+            </div>
             <ContentExpandButton
               isExpandButton={isExpandButton}
               isExpanded={isExpanded}
