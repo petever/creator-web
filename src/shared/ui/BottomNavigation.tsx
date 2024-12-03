@@ -8,7 +8,7 @@ export const BottomNavigation = () => {
   if(!isMobile) return null
 
   return (
-    <ul className='fixed bottom-[82px] left-0 flex w-screen justify-between items-center h-14 pl-20 pr-20 bg-white'>
+    <ul className='fixed bottom-0 left-0 flex w-screen justify-between items-center h-14 pl-20 pr-20 bg-white'>
       {BOTTOM_NAVIGATIONS.map((item) => {
         return (
           <li key={item.title}>

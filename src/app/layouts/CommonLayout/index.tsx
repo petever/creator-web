@@ -14,7 +14,7 @@ export async function CommonLayout({ children }: SidebarLayoutProps) {
       <SidebarProvider>
         <div className="flex flex-1">
           <AppSidebar />
-          <div className="flex flex-1 justify-center">{children}</div>
+          <div className="flex flex-1 justify-center py-20">{children}</div>
         </div>
       </SidebarProvider>
       <BottomNavigation/>
