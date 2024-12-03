@@ -13,14 +13,24 @@ dayjs.extend(relativeTime)
 export const getDateFormat = (day: Date) => {
   const now = dayjs()
   const inputDate = dayjs(day)
-  const diffInDays = now.diff(inputDate, 'day') // 날짜 차이 계산
+  const diffInDays = now.diff(inputDate, 'day')
+  const diffInHours = now.diff(inputDate, 'hour')
 
-  if (diffInDays < 7) {
+  if (diffInDays >= 30) {
+    return `${Math.floor(diffInDays / 30)}개월`
+  }
+
+  if (diffInDays >= 7) {
+    return `${Math.floor(diffInDays / 7)}주`
+  }
+
+  if (diffInDays >= 1) {
     return `${diffInDays}일`
   }
-  if (diffInDays < 30) {
-    const diffInWeeks = Math.floor(diffInDays / 7)
-    return `${diffInWeeks}주`
+
+  if (diffInHours >= 1) {
+    return `${diffInHours}시간`
   }
-  return `${Math.floor(diffInDays / 30)}개월`
+
+  return '1시간'
 }
