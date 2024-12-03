@@ -3,7 +3,7 @@ import { FeedResponse } from '@/entities/feeds/types'
 import { useInView } from 'react-intersection-observer'
 import useFeeds from '@/entities/feeds/hooks/useFeeds'
 import { Post } from '@/widgets/Post/ui'
-import { StickyNote } from 'lucide-react';
+import { StickyNote } from 'lucide-react'
 
 interface FeedListProps {
   initialFeeds: FeedResponse
@@ -42,19 +42,17 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
     }
   }, [])
 
-
   if (postings.length === 0) {
     return (
-        <div
-          className="flex flex-col pt-5 pb-5 justify-center items-center md:w-[600px]">
-          <StickyNote />
-          등록된 콘텐츠가 없습니다.
-        </div>
+      <div className="flex flex-col pt-5 pb-5 justify-center items-center w-screen md:w-[600px]">
+        <StickyNote />
+        등록된 콘텐츠가 없습니다.
+      </div>
     )
   }
 
   return (
-    <div className="flex flex-col justify-center items-center p-5 md:w-[600px] md:p-0">
+    <div className="flex flex-col items-center p-5 w-screen md:w-[600px] md:p-0">
       {postings.map((posting) => (
         <Post key={posting.id} feed={posting} username={username} />
       ))}

@@ -2,10 +2,11 @@ export const BASE_URL = process.env.API_URL || process.env.NEXT_PUBLIC_API_URL
 
 export const API_URL = {
   USERS_LOGIN: 'users/login',
+  USERS_SIGNUP: 'users/signup',
   USERS_PROFILE: 'users/profile',
   USERS_USER: (username?: string) => `users/${username}`,
   POSTS: 'posts',
-	FEED_LIKE_MEMBERS: (id: string) => `posts/${id}/likes`,
+  FEED_LIKE_MEMBERS: (id: string) => `posts/${id}/likes`,
   FEEDS: 'feeds',
   FEEDS_COMMENT: (id: string) => `feeds/${id}/comments`,
   FEEDS_RECOMMEND_USERS: 'feeds/recommendUsers',

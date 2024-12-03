@@ -1,40 +1,14 @@
-'use client'
-
-import NotificationGroup from '@/features/notifications/ui/NotificationGroup'
-import { NotificationContents } from '@/entities/notifications/types'
+import { Header } from '@/shared/ui/header'
+import { SettingList } from '@/widgets/SettingList/ui'
+import { PAGE } from '@/shared/constants/page'
 
 const NotificationSettingPage = () => {
-  const notificationNameItems = [
-    {
-      label: '메세지',
-      value: 'message',
-    },
-    {
-      label: '크리에이터',
-      value: 'creator',
-    },
-  ]
-  const notificationContents: NotificationContents = {
-    message: [
-      {
-        label: '채팅 메세지',
-        checked: true,
-      },
-    ],
-    creator: [
-      {
-        label: '구독 중인 크리에이터',
-        checked: true,
-      },
-    ],
-  }
-
+  const ITEMS = [{ label: '이메일 설정', href: PAGE.SETTINGS_NOTIFICATION_EMAIL }]
   return (
-    <>
-      {notificationNameItems.map((item) => {
-        return <NotificationGroup legend={item.label} items={notificationContents[item.value]} />
-      })}
-    </>
+    <div className="w-full">
+      <Header text="알람 설정" isBack isBorder />
+      <SettingList items={ITEMS} />
+    </div>
   )
 }
 

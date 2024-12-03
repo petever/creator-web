@@ -13,3 +13,9 @@ export interface LoginResponse {
   picture: string
   accessToken: string
 }
+
+export interface SignupRequest {
+  username: string
+  password: string
+  email: string
+}

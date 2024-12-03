@@ -2,7 +2,6 @@
 
 import SubscribeCard from '@/features/subscribe/ui/SubscribeCard'
 import { SubscribePlan } from '@/entities/subscribe/types'
-import { useSubscribePlans } from '@/entities/subscribe/hooks/useSubscribePlans'
 import { useCreatorSubscribe } from '@/features/subscribe/hooks/useCreatorSubscribe'
 
 interface SubscribeCardListProps {
@@ -12,7 +11,6 @@ interface SubscribeCardListProps {
 }
 
 const SubscribeCardList = ({ userId, subscribePlans, isCreator }: SubscribeCardListProps) => {
-  const { data: plans } = useSubscribePlans(userId, subscribePlans)
   const { creatorSubscribeMutate } = useCreatorSubscribe(userId)
 
   const handleSubscribe = (planId: string) => {
@@ -21,7 +19,7 @@ const SubscribeCardList = ({ userId, subscribePlans, isCreator }: SubscribeCardL
 
   return (
     <div className="flex flex-col gap-5">
-      {plans?.map((plan: SubscribePlan) => {
+      {subscribePlans?.map((plan: SubscribePlan) => {
         return (
           <SubscribeCard
             key={plan.id}

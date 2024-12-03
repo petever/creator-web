@@ -1,16 +1,18 @@
 'use client'
 import Link from 'next/link'
 import { Avatar } from '@/shared/ui/avatar'
+import { Notification } from '@/entities/notifications/types'
 
-export const NotificationItem = () => {
+type NotificationItemProps = Omit<Notification, 'id' | 'type'>
+export const NotificationItem = ({ title, message, isRead, createdAt }: NotificationItemProps) => {
   return (
     <li className="p-5">
       <Link href="/notifications">
         <div className="flex gap-6 w-full">
           <Avatar />
           <div>
-            <p>Notification title</p>
-            <p>Notification des</p>
+            <p>{title}</p>
+            <p>{message}</p>
           </div>
           <p>Notification time</p>
           <div className="ml-auto">

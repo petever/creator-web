@@ -11,4 +11,6 @@ export const QUERY_KEY = {
   // explore
   SEARCH: 'search',
   SEARCH_TRENDS: 'searchTrends',
+  // notifications
+  NOTIFICATIONS: 'notifications',
 }

@@ -1,11 +1,14 @@
-import { SETTING_LISTS } from '@/widgets/SettingList/constants'
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 
-export const SettingList = () => {
+interface SettingListProps {
+  items: { label: string; href: string }[]
+}
+
+export const SettingList = ({ items }: SettingListProps) => {
   return (
     <ul className="w-full">
-      {SETTING_LISTS.map((item) => (
+      {items.map((item) => (
         <li key={item.label} className="p-3 border-b-[1px] hover:bg-gray-50">
           <Link href={item.href} className="flex text-sm items-center justify-between">
             {item.label}

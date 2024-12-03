@@ -1,8 +1,8 @@
-export type NotificationSettingItems = {
-  label: string
-  checked: boolean
-}
-
-export type NotificationContents = {
-  [key: string]: NotificationSettingItems[]
+export interface Notification {
+  id: string
+  title: string
+  message: string
+  isRead: boolean
+  type: string
+  createdAt: Date
 }

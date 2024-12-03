@@ -8,7 +8,7 @@ interface NotificationSettingItemProps {
 
 const NotificationSettingItem = ({ label, checked }: NotificationSettingItemProps) => {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center p-2">
       <p>{label}</p>
       <Switch checked={checked} />
     </div>
