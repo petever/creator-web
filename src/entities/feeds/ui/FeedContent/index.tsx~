@@ -1,4 +1,3 @@
-'use client'
 import { useEffect, useRef, useState } from 'react'
 import { ContentExpandButton } from '@/entities/feeds/ui/FeedContent/ContentExpandButton'
 import parse from 'html-react-parser'

@@ -22,7 +22,7 @@ export const ProfileTopSection = ({ username, userProfile, render }: ProfileTopS
     <div className='relative'>
       <div className="p-5 box-border">
         <BackgroundImage cover={data.cover as string} />
-        <div className="flex justify-between pt-14">
+        <div className="flex justify-between pt-15">
           <div className="flex">
             <Avatar>
               <AvatarImage src={data.picture as string} />

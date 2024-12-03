@@ -20,11 +20,11 @@ const BackgroundImage = ({ cover }: BackgroundImageProps) => {
         text-white
         bg-black
         ">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center ">
           <VideoIcon />
           <span>12</span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center ">
           <ImageIcon />
           <span>12</span>
         </div>

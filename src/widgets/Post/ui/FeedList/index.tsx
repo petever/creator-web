@@ -18,7 +18,6 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } = useFeeds(initialFeeds, username)
 
   const postings = useMemo(() => (data ? data.pages.flatMap(({ content }) => content) : []), [data])
-  console.log(postings, 'postings')
 
   const fetchMore = () => {
     if (!inView) {
@@ -45,7 +44,7 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
 
   if (postings.length === 0) {
     return (
-      <div className="flex flex-col pt-5 pb-5 items-center w-screen md:w-[600px]">
+      <div className="flex flex-col pt-5 pb-5 justify-center items-center w-screen md:w-[600px]">
         <StickyNote />
         등록된 콘텐츠가 없습니다.
       </div>
