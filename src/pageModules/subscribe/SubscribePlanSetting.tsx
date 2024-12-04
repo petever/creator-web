@@ -1,14 +1,14 @@
 import React from 'react'
-import { getServerSubscribePlans } from '@/entities/subscribe/api/getServerSubscribePlans'
 import { auth } from '@/auth'
 import { Header } from '@/shared/ui/header'
 import AddSubscribePlanList from '@/widgets/subscribe/ui/AddSubscribePlanList'
+import { getSubscribePlans } from '@/entities/subscribe/api/getSubscribePlans'
 
 const SubscribePlanSetting = async () => {
   const session = await auth()
-  const subscribePlans = await getServerSubscribePlans(session?.user?.id)
+  const subscribePlans = await getSubscribePlans(session?.user?.id)
   return (
-    <div className=" w-full pt-5 pb-5 max-w-screen-sm">
+    <div className=" w-full pt-5 pb-5 max-w-screen-sm p-2">
       <Header text="구독 플랜 설정" isBorder isBack align="center" />
       <AddSubscribePlanList userId={session?.user?.id} subscribePlans={subscribePlans} />
     </div>

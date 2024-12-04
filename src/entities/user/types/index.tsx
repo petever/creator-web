@@ -7,4 +7,5 @@ export interface UserProfile {
   role: string
   cover: string | File
   isSubscribed?: boolean
+  description?: string
 }
