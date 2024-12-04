@@ -100,6 +100,8 @@ export const useContentModal = (onClose: () => void) => {
 
     const uploadFiles = getValues().files
 
+    setValue('isLoading', false)
+
     if (uploadFiles.length === 0) {
       setValue('currentIndex', 0)
       setValue('currentFile', '')

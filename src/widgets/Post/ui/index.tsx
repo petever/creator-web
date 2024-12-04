@@ -1,7 +1,6 @@
 'use client'
 import { FeedButtons, PostingLSubscribeLocker } from '@/features'
 import { PostingHeader } from './PostingHeader'
-import { FeedDetail } from '@/shared/FeedDetail/ui'
 import { FeedContents } from '@/entities/feeds/types'
 import { LkeList } from '@/shared/LikeList/ui'
 import { FeedContent } from '@/entities/feeds/ui'
@@ -63,9 +62,6 @@ export const Post = ({ feed, username }: PostProps) => {
           </>
         )}
         <PostingLSubscribeLocker isPrivate={isPrivate} />
-        <div className={'flex flex-col items-start'}>
-          <FeedDetail feed={feed} />
-        </div>
       </Card>
     </div>
   )

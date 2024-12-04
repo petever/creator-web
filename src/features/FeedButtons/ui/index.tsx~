@@ -17,6 +17,7 @@ export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps)
 
   const { isLiked } = feed
 
+  const isNotLogin = status === 'unauthenticated'
 
   const handleFavoritePosting = async () => {
     updateLikePostingMutate({ ...feed })

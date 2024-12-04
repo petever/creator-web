@@ -1,26 +1,32 @@
 'use client'
 import { Owner } from '@/shared/types'
 import Image from 'next/image'
-import { Dialog } from '@/shared/ui/dialog'
-import { Avatar, AvatarImage } from '@/shared/ui/avatar'
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/shared/ui/dialog";
+import {Avatar, AvatarImage} from "@/shared/ui/avatar";
+import SubscribePlanForm from "@/features/subscribe/ui/SubscribePlanForm";
+import React from "react";
+import {signIn} from "@/auth";
+import {useSession} from "next-auth/react";
 
 interface LoginModalProps {
+  children ?: React.ReactNode
   owner?: Owner
-  opened: boolean
-  onClose: () => void
 }
 
-export const LoginModal = ({ owner, opened, onClose }: LoginModalProps) => {
-  const handleLogin = async () => {
-    // TODO : 로그인 로직 추가 필요
-    // return await signIn('google')
-  }
+export const LoginModal = ({ children, owner }: LoginModalProps) => {
+  const { data: session, status } = useSession()
 
-  if (!opened) return null
+  const isNotLogin = status === 'unauthenticated'
+
+  const handleLogin = async () => {
+    return await signIn('google')
+  }
 
   return (
     <Dialog>
-      <div className="flex flex-col items-center justify-center">
+      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogContent>
+        <div className="flex flex-col items-center justify-center">
         {owner && (
           <div className="flex flex-col items-center justify-center gap-4 mb-10">
             <Avatar>
@@ -46,7 +52,7 @@ export const LoginModal = ({ owner, opened, onClose }: LoginModalProps) => {
             <span className="text-xl font-bold">구글로 시작하기</span>
           </button>
         </form>
-      </div>
+      </div></DialogContent>
     </Dialog>
   )
 }

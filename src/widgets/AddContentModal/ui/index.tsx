@@ -36,7 +36,7 @@ const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
           <span className="text-base font-medium hidden md:inline-block">{item.title}</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="block p-4  w-screen h-4/6 -translate-x-1/2 -mx-5">
+      <DialogContent className="block p-4  w-screen -translate-x-1/2 -mx-5">
         <DialogHeader className="py-4">
           <DialogTitle>콘텐츠 업로드</DialogTitle>
         </DialogHeader>
