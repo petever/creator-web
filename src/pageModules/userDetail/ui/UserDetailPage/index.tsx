@@ -24,7 +24,6 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
     <div className="flex justify-center flex-1 md:p-0">
       <div className="w-full md:max-w-screen-sm p-2">
         <ProfileTopSection
-          username={username}
           userProfile={userProfile}
           render={<SubscribeButton isSelf={isSelf} userProfile={userProfile} />}
         />

@@ -18,6 +18,7 @@ export const SubscribeModal = ({ userProfile }: SubscribeModalProps) => {
 
   const isSubscribed = userProfile?.isSubscribed
 
+  console.log(userProfile, 'userProfile')
   if (!userProfile) return null
 
   const handleOpenModal = () => {

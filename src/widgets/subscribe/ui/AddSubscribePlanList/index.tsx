@@ -16,7 +16,7 @@ const AddSubscribePlanList = ({ userId, subscribePlans }: AddSubscribePlanListPr
   const MAX_COUNT = 5
   const isNotAdded = plans?.length === MAX_COUNT
   return (
-    <div className="py-3">
+    <div className="p-3">
       <SubscribeCardList userId={userId} subscribePlans={plans} isCreator />
       <AddSubscribePlan isNotAdded={isNotAdded} />
     </div>

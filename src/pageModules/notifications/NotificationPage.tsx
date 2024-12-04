@@ -5,7 +5,7 @@ import { getServerNotifications } from '@/entities/notifications/api/getServerNo
 const NotificationPage = async () => {
   const notifications = await getServerNotifications()
   return (
-    <div className="w-full max-w-[900px]">
+    <div className="w-full">
       <Header text="알람" isBack isBorder />
       <NotificationList notifications={notifications} />
     </div>

@@ -12,7 +12,7 @@ export const AppSidebar = ({}: AppSidebarProps) => {
   if (isMobile) return null
 
   return (
-    <Sidebar style={{ left: 'inherit' }}>
+    <Sidebar style={{ left: 'inherit', border: 0 }}>
       <SidebarHeaderWrapper />
       <SidebarContentWrapper />
       <SidebarFooterWrapper />

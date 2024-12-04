@@ -44,8 +44,8 @@ export const FeedMedia = ({ resources }: FeedMediaProps) => {
           <Image
             src={isImgError ? '/assets/error.webp' : url}
             alt=""
-            width={600}
-            height={600}
+            width={640}
+            height={640}
             onError={() => setIsImgError(true)}
           />
         ) : (
@@ -64,8 +64,12 @@ export const FeedMedia = ({ resources }: FeedMediaProps) => {
           return (
             <CarouselItem key={`${resourceIndex}`} className="h-full p-0">
               {!isVideo ? (
-                <Image src={url} alt="" width={600} height={600}
-                   onError={() => setIsImgError(true)}
+                <Image
+                  src={url}
+                  alt=""
+                  width={640}
+                  height={640}
+                  onError={() => setIsImgError(true)}
                 />
               ) : (
                 <VideoPlayer src={url} isControl />

@@ -8,18 +8,17 @@ import { useUser } from '@/entities/user/hooks/useUser'
 import { Avatar, AvatarImage } from '@/shared/ui/avatar'
 
 interface ProfileTopSectionProps {
-  username?: string
   userProfile?: UserProfile
   render: React.ReactNode
 }
 
-export const ProfileTopSection = ({ username, userProfile, render }: ProfileTopSectionProps) => {
-  const { data } = useUser(username, userProfile)
+export const ProfileTopSection = ({ userProfile, render }: ProfileTopSectionProps) => {
+  const { data } = useUser(userProfile)
 
   if (!data) return null
 
   return (
-    <div className='relative'>
+    <div className="relative">
       <div className="p-5 box-border">
         <BackgroundImage cover={data.cover as string} />
         <div className="flex justify-between pt-14">

@@ -9,12 +9,12 @@ interface SidebarLayoutProps {
 
 export async function CommonLayout({ children }: SidebarLayoutProps) {
   return (
-    <div className="max-w-screen-xl mx-auto">
+    <div className="max-w-screen-lg mx-auto">
       <HeaderNavigation />
       <SidebarProvider>
-        <div className="flex flex-1 ">
+        <div className="flex w-full">
           <AppSidebar />
-          <div className="flex flex-1 justify-center">{children}</div>
+          <div className="flex-1">{children}</div>
         </div>
       </SidebarProvider>
       <BottomNavigation />
