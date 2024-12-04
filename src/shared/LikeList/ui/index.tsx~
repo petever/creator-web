@@ -10,6 +10,7 @@ interface LikeListProps {
 }
 
 export const LkeList = ({ id, likeCount }: LikeListProps) => {
+
   if (!likeCount) return null
 
   return (

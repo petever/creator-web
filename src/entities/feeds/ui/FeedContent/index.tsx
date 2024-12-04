@@ -18,7 +18,8 @@ export const FeedContent = ({ username, contents }: FeedContentProps) => {
 
   useEffect(() => {
     if (!contentsRef.current) return
-    if (contentsRef.current?.clientHeight < 25) return
+    if (contentsRef.current?.clientHeight < 50) return
+    console.log('contentsRef.current?.clientHeight', contentsRef.current?.clientHeight)
     setIsExpandButton(true)
   }, [])
 
