@@ -2,8 +2,8 @@ import ContentTabs from '@/pageModules/userDetail/ui/ContentTabs'
 import { ProfileTopSection } from '@/features/users/ui/ProfileTopSection'
 import SubscribeButton from '@/features/users/ui/SubscribeButton'
 import { getServerFeeds } from '@/entities/feeds/api/getServerFeeds'
-import { getServerUser } from '@/entities/user/api/getServerUser'
 import { auth } from '@/auth'
+import { getUser } from '@/entities/user/api/getUser'
 
 interface UserDetailPageProps {
   params: {
@@ -14,7 +14,7 @@ interface UserDetailPageProps {
 const UserDetailPage = async ({ params }: UserDetailPageProps) => {
   const username = params.username
   const session = await auth()
-  const userProfile = await getServerUser(username)
+  const userProfile = await getUser(username)
   const initialFeeds = await getServerFeeds(username)
   // const test = await getServerSubscribe(session?.user?.id)
   // console.log(test, '1121321332133131232')
@@ -22,7 +22,7 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
 
   return (
     <div className="flex justify-center flex-1 md:p-0">
-      <div className="w-full md:max-w-screen-sm">
+      <div className="w-full md:max-w-screen-sm p-2">
         <ProfileTopSection
           username={username}
           userProfile={userProfile}

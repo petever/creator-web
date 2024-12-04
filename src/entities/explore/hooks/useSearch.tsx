@@ -5,7 +5,7 @@ import { getSearch } from '@/entities/explore/api/getSearch'
 export const useSearch = () => {
   const { data } = useQuery({
     queryKey: [QUERY_KEY.SEARCH],
-    queryFn: () => getSearch({ pageParam: { keyword: '' } }),
+    queryFn: () => getSearch({ pageParam: { keyword: 'sss' } }),
   })
 
   return { data }

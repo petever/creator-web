@@ -20,7 +20,7 @@ const NotificationEmailSettingPage = () => {
   ]
 
   return (
-    <div className="w-full max-w-screen-sm">
+    <div className="w-full max-w-screen-sm p-2">
       <Header text="이메일 알림 설정" isBack isBorder align="center" />
       <div className="py-4">
         {items.map((item) => {

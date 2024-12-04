@@ -27,7 +27,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
     cover: z.string().optional(),
     displayName: z.string().min(2, { message: '2글자 이상 입력해주세요.' }),
     username: z.string().min(2, { message: '2글자 이상 입력해주세요.' }),
-    status: z.string().optional(),
+    description: z.string().optional(),
   })
 
   const form = useForm<UserProfile>({
@@ -37,7 +37,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
       cover: data?.cover || '',
       displayName: data?.displayName || '',
       username: data?.username || '',
-      status: data?.status || '',
+      description: data?.description || '',
     },
   })
   const {
@@ -50,7 +50,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
 
   const onSubmit = (values: UserProfile) => {
     console.log(values, 'values')
-    const { displayName, username, status, picture, cover } = values
+    const { displayName, username, description, picture, cover } = values
 
     const formData = new FormData()
     formData.append(
@@ -60,7 +60,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
           JSON.stringify({
             displayName,
             username,
-            status,
+            description,
           }),
         ],
         { type: 'application/json' },
@@ -73,12 +73,12 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
 
   const handleEditorChange = (content: string) => {
     console.log(content)
-    setValue('status', content, { shouldDirty: true })
+    setValue('description', content, { shouldDirty: true })
   }
 
   return (
     <Form {...form}>
-      <form className="space-y-6 w-full max-w-screen-sm" onSubmit={handleSubmit(onSubmit)}>
+      <form className="space-y-6 w-full max-w-screen-sm p-2" onSubmit={handleSubmit(onSubmit)}>
         <ProfileCover imageSrc={watch('cover')} />
         <div className="space-y-4">
           <ProfilePicture imageSrc={watch('picture')} alt={data?.username} />
@@ -101,7 +101,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
           </div>
           <div>
             <Label>소개</Label>
-            <Editor value={watch('status')} onChange={handleEditorChange} height="200px" />
+            <Editor value={watch('description')} onChange={handleEditorChange} height="200px" />
           </div>
         </div>
         <Button className="w-full" type="submit" disabled={!isDirty}>
