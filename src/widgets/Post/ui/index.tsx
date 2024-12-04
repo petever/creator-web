@@ -53,12 +53,12 @@ export const Post = ({ feed, username }: PostProps) => {
     <div className="border-b border-gray-300 mb-4 pb-4">
       <Card className="border-none shadow-none rounded-none">
         <PostingHeader profile={feed.owner} createdAt={feed.createdAt} />
+        <FeedContent contents={feed.contents} />
         {!isPrivate && (
           <>
             <FeedMedia resources={feed.resources} />
             <FeedButtons feed={feed} onDetailModal={handleDetailOpen} username={username} />
             <LkeList id={feed.id} likeCount={likeCount} />
-            <FeedContent username={feed.owner.username} contents={feed.contents} />
           </>
         )}
         <PostingLSubscribeLocker isPrivate={isPrivate} />

@@ -4,11 +4,10 @@ import { ContentExpandButton } from '@/entities/feeds/ui/FeedContent/ContentExpa
 import parse from 'html-react-parser'
 
 interface FeedContentProps {
-  username?: string
   contents: string
 }
 
-export const FeedContent = ({ username, contents }: FeedContentProps) => {
+export const FeedContent = ({ contents }: FeedContentProps) => {
   const contentsRef = useRef<HTMLParagraphElement>(null)
   const [isExpandButton, setIsExpandButton] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
@@ -32,7 +31,6 @@ export const FeedContent = ({ username, contents }: FeedContentProps) => {
               className={`max-h-14 text-ellipsis  ${!isExpanded ? `line-clamp-2` : `max-h-fit`}`}
               ref={contentsRef}
             >
-              {contents && <span className="font-medium inline-block mr-2">{username}</span>}
               {parse(contents)}
             </div>
             <ContentExpandButton
