@@ -1,5 +1,5 @@
 import React from 'react'
-import { CommonLayout } from '../../src/app/layouts/CommonLayout'
+import { CommonLayout } from '@/app/layouts/CommonLayout'
 
 interface HomeLayoutProps {
   children: React.ReactNode
