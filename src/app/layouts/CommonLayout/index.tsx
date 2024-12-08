@@ -12,7 +12,7 @@ export async function CommonLayout({ children }: SidebarLayoutProps) {
     <div className="max-w-screen-lg mx-auto">
       <HeaderNavigation />
       <SidebarProvider>
-        <div className="flex w-full">
+        <div className="w-full py-20 md:py-0 md:flex">
           <AppSidebar />
           <div className="flex-1">{children}</div>
         </div>

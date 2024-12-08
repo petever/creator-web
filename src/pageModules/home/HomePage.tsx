@@ -13,11 +13,16 @@ interface HomePageProps {
 
 const HomePage = ({ initialFeeds, recommends }: HomePageProps) => {
   return (
-    <div className="relative flex justify-center gap-4 md:pt-0 flex-col-reverse md:pb-0 md:flex-row">
-      <FeedList initialFeeds={initialFeeds} />
+    <div className="
+      relative
+      px-5
+      overflow-x-hidden
+      md:flex justify-center gap-4 ppt-0 md:pb-0 md:flex-row-reverse
+    ">
       <div className={'mt-5'}>
-        <RecommendList recommends={recommends} />
+        <RecommendList recommends={recommends}/>
       </div>
+      <FeedList initialFeeds={initialFeeds}/>
     </div>
   )
 }
