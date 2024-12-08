@@ -13,7 +13,7 @@ import ProfilePicture from '@/features/users/ui/ProfilePicture'
 import { Editor } from '@/shared/ui/Editor'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import {WithDrawModal} from "@/features";
+import {WithDrawModal} from "@/widgets/user/ui/WithDrawModal";
 
 interface EditProfileFormProps {
   userProfile: UserProfile
