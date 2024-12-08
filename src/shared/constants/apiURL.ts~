@@ -5,6 +5,7 @@ export const API_URL = {
   USERS_SIGNUP: 'users/signup',
   USERS_PROFILE: 'users/profile',
   USERS_USER: (username?: string) => `users/${username}`,
+  USERS_PASSWORD_RESET : 'users/password/reset',
   POSTS: 'posts',
   FEED_LIKE_MEMBERS: (id: string) => `posts/${id}/likes`,
   FEEDS: 'feeds',

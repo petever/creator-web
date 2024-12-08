@@ -1,5 +1,6 @@
 export const MUTATION_KEY = {
   DELETE_USER : 'deleteUser',
+  USERS_PASSWORD_RESET: 'usersPasswordReset',
   CREATE_POSTING: 'createPosting',
   UPDATE_PROFILE: 'updateProfile',
   UPDATE_LIKE_POSTING: 'updateLikePosting',

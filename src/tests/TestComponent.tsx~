@@ -6,9 +6,9 @@ type TestComponentProp = {
 }
 const TestComponent = ({ children }: TestComponentProp) => {
   return   (
-		<QueryProvider>
-			{children}
-		</QueryProvider>
+			<QueryProvider>
+				{children}
+			</QueryProvider>
 	)
 }
 

@@ -14,7 +14,7 @@ const LoginForm = () => {
   }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <Image src={"/assets/logo/SHU_logo_01.png"} alt='' width={100} height={106} className='mb-10 md:hidden'/>
+      <Image src={"/assets/logo/SHU_logo_01.png"} alt='' width={100} height={106} className='mb-5 md:hidden'/>
       <Card className="w-full max-w-md">
         <CardHeader>
 					<CardTitle className="block md:hidden text-center">
