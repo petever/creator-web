@@ -9,13 +9,14 @@ export const BOTTOM_NAVIGATIONS : ISidebarItem[] = [
     icon: Home,
   },
   {
-    title: '추가',
-    url: '#',
-    icon: CirclePlus,
-  },
-  {
     title: '탐색',
     url: '/explore',
     icon: Compass,
   },
 ]
+
+export const ADD_CONTENT_BUTTONS = {
+  title: '추가',
+  url: '#',
+  icon: CirclePlus,
+}

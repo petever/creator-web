@@ -8,7 +8,7 @@ interface SidebarItemProps {
 }
 
 export const SidebarItem = ({ item }: SidebarItemProps) => {
-  const sidebarClassName = 'flex py-2 px-4 gap-2 w-full justify-normal font-medium'
+  const sidebarClassName = 'flex py-2 px-4 gap-2 w-full justify-normal font-medium '
 
   if (item.title === '검색') {
     return (

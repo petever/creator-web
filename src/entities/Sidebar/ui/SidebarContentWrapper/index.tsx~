@@ -13,6 +13,8 @@ import {useIsMobile} from "@/shared/hooks/use-mobile";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/shared/ui/dropdown-menu";
 import {ChevronUp, Settings} from "lucide-react";
 import Link from "next/link";
+import AddContentModal from "@/widgets/AddContentModal/ui";
+import {ADD_CONTENT_BUTTONS} from "@/shared/constants";
 
 export const SidebarContentWrapper = () => {
 	const isMobile = useIsMobile()
@@ -21,7 +23,7 @@ export const SidebarContentWrapper = () => {
     <SidebarContent>
       <SidebarGroup>
         <SidebarGroupContent>
-          <SidebarMenu className={`gap-4 ${isMobile ? 'flex-row justify-between' : 'flex-col'}`}>
+          <SidebarMenu className={`gap-4 'flex-col`}>
             {SIDEBAR_ITEMS.map((item) => {
 							return (
 								<SidebarMenuItem key={item.title}>
@@ -32,6 +34,9 @@ export const SidebarContentWrapper = () => {
             	)
 						})}
           </SidebarMenu>
+          <SidebarMenuItem>
+            <AddContentModal item={ADD_CONTENT_BUTTONS}/>
+          </SidebarMenuItem>
         </SidebarGroupContent>
       </SidebarGroup>
     </SidebarContent>

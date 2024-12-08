@@ -50,7 +50,7 @@ export const Post = ({ feed, username }: PostProps) => {
   const { likeCount, commentCount, resources } = feed
 
   return (
-    <div className="border-gray-300 mb-4 pb-4">
+    <div className="border-t border-gray-300 mb-4 pb-4">
       <Card className="border-none shadow-none rounded-none">
         <PostingHeader profile={feed.owner} createdAt={feed.createdAt} />
         <FeedContent contents={feed.contents} />

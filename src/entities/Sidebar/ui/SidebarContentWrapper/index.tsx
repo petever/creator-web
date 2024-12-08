@@ -13,6 +13,8 @@ import {useIsMobile} from "@/shared/hooks/use-mobile";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/shared/ui/dropdown-menu";
 import {ChevronUp, Settings} from "lucide-react";
 import Link from "next/link";
+import AddContentModal from "@/widgets/AddContentModal/ui";
+import {ADD_CONTENT_BUTTONS} from "@/shared/constants";
 
 export const SidebarContentWrapper = () => {
 	const isMobile = useIsMobile()
@@ -32,6 +34,9 @@ export const SidebarContentWrapper = () => {
             	)
 						})}
           </SidebarMenu>
+          <SidebarMenuItem>
+            <AddContentModal item={ADD_CONTENT_BUTTONS} sidebarClassName={'mt-4'}/>
+          </SidebarMenuItem>
         </SidebarGroupContent>
       </SidebarGroup>
     </SidebarContent>

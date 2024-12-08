@@ -8,17 +8,11 @@ export const SIDEBAR_ITEMS: ISidebarItem[] = [
     url: PAGE.HOME,
     icon: Home,
   },
-
   {
     title: '탐색',
     url: '/explore',
     icon: Compass,
   },
-	{
-		title: '추가',
-		url: '#',
-		icon: CirclePlus,
-	},
   {
     title: '알림',
     url: '/notifications',

@@ -11,11 +11,10 @@ import {useIsMobile} from "@/shared/hooks/use-mobile";
 
 interface AddContentModalProps {
   item: ISidebarItem
-  sidebarClassName: string
+  sidebarClassName?: string
 }
 
 const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
-  const isMobile = useIsMobile()
   const { isOpen, onToggle, onClose } = useDisclosure()
 
   const {
@@ -31,12 +30,12 @@ const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onToggle} >
       <DialogTrigger asChild>
-        <Button variant="ghost" className={isMobile ? 'absolute top-[-25px] left-2/1 -ml-7 w-14 h-14 rounded-full bg-gray-300' : sidebarClassName}>
+        <Button variant="ghost" className={sidebarClassName}>
           <item.icon style={{ width: '24px', height: '24px' }} />
           <span className="text-base font-medium hidden md:inline-block">{item.title}</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="block p-4  w-screen -translate-x-1/2 -mx-5">
+      <DialogContent className="block p-4 w-[calc(100vw-1.25rem)]">
         <DialogHeader className="py-4">
           <DialogTitle>콘텐츠 업로드</DialogTitle>
         </DialogHeader>
