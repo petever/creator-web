@@ -7,17 +7,23 @@ import { Button } from '@/shared/ui/button'
 import {usePasswordReset} from "@/widgets/auth/hooks/usePasswordReset";
 import {useForm} from "react-hook-form";
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/shared/ui/form";
+import {z} from "zod";
+import {zodResolver} from "@hookform/resolvers/zod";
 
 export default function ResetPasswordForm() {
+  const emailSchema = z
+    .object({
+      email: z.string().email('유효한 이메일을 입력하세요.'),
+    })
   const form = useForm({
     defaultValues : {
       email : '',
-    }
+    },
+    resolver : zodResolver(emailSchema)
   })
-  const { register, getValues, handleSubmit } = form
+  const { getValues, formState : { isValid } } = form
 
   const { passwordResetMutation, successMessage } = usePasswordReset()
-  const [email, setEmail] = useState('')
 
   const handleSubmitEmail = () => {
     const formData = new FormData()
@@ -54,7 +60,7 @@ export default function ResetPasswordForm() {
                     )}
                   />
                 </div>
-                <Button type="submit" className="w-full ">
+                <Button type="submit" className="w-full" disabled={!isValid}>
                   비밀번호 재설정 링크 보내기
                 </Button>
               </form>
