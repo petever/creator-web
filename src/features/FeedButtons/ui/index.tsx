@@ -1,10 +1,8 @@
 'use client'
 import { useUpdateLikePosting } from '@/features/FeedButtons/hooks/useUpdateFavoritePosting'
 import { FeedContents } from '@/entities/feeds/types'
-import { useSession } from 'next-auth/react'
-import {CommentListModal, LoginModal} from '@/shared'
+import { CommentListModal, LoginModal } from '@/shared'
 import { Heart } from 'lucide-react'
-import {useDisclosure} from "@/shared/hooks/useDisclosure";
 
 interface FeedButtonsProps {
   feed: FeedContents
@@ -17,13 +15,12 @@ export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps)
 
   const { isLiked } = feed
 
-
   const handleFavoritePosting = async () => {
     updateLikePostingMutate({ ...feed })
   }
 
   return (
-    <div className="py-4">
+    <div className="p-3">
       <div className="flex gap-4">
         <LoginModal owner={feed.owner}>
           <Heart

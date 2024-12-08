@@ -39,7 +39,7 @@ export const FeedMedia = ({ resources }: FeedMediaProps) => {
     const url = resources[0].filePath
 
     return (
-      <div className="rounded overflow-hidden">
+      <div className="overflow-hidden">
         {!isVideo ? (
           <Image
             src={isImgError ? '/assets/error.webp' : url}
@@ -56,7 +56,7 @@ export const FeedMedia = ({ resources }: FeedMediaProps) => {
   }
 
   return (
-    <Carousel className="rounded overflow-hidden">
+    <Carousel className="overflow-hidden">
       <CarouselContent>
         {resources?.map((resource: Resource, resourceIndex) => {
           const isVideo = resource.mimeType === 'VIDEO'

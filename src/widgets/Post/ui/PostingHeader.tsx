@@ -13,7 +13,7 @@ interface PostingHeaderProps {
 
 export const PostingHeader = ({ profile, createdAt }: PostingHeaderProps) => {
   return (
-    <div className={'flex justify-between py-2 items-center mb-2'}>
+    <div className={'flex justify-between p-3 items-center mb-2'}>
       <Link href={PAGE.MEMBER_PAGE(profile.username)}>
         <Profile profile={profile} />
       </Link>
