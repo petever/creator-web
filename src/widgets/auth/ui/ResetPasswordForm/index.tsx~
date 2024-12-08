@@ -22,6 +22,7 @@ export default function ResetPasswordForm() {
   const handleSubmitEmail = () => {
     const formData = new FormData()
     formData.append('email', getValues('email'))
+    // 서버 요청 코드 추가 (API 호출)
     passwordResetMutation(formData)
   }
 
