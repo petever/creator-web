@@ -15,10 +15,11 @@ import { signOut } from 'next-auth/react'
 
 const LogoutModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
     <>
-      <li className="p-3 border-b-[1px] hover:bg-gray-50" onClick={onOpen}>
-        <div className="flex text-sm items-center justify-between">
+      <li className="p-3 border-b-[1px] hover:bg-gray-50">
+        <div className="flex text-sm items-center justify-between" onClick={onOpen}>
           로그아웃
           <ChevronRight className="text-gray-400" />
         </div>
