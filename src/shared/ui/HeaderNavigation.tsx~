@@ -11,7 +11,7 @@ export const HeaderNavigation = () => {
 
   return (
     <header className="w-screen flex p-6 z-50 fixed items-center justify-between top-0 left-0 z-99 bg-white border-b">
-      <h1 className="font-bold text-3xl">
+      <h1 className="mb-4 font-bold text-3xl">
         <Link href="/home" className="flex font-black">
           <Image src={'/assets/logo/SHU_logo_06.png'} alt='' width={48} height={48} />
         </Link>
@@ -28,7 +28,7 @@ export const HeaderNavigation = () => {
             text-center
             rounded-full
             bg-theme-blue-600
-            text-white text-xs font-bold'
+            text-white text-[10px] font-bold'
         >N</span>
       </Link>
     </header>
