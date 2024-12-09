@@ -8,6 +8,7 @@ import { useDisclosure } from '@/shared/hooks/useDisclosure'
 import { useContentModal } from '@/widgets/AddContentModal/hooks/useContentModal'
 import { FormProvider } from 'react-hook-form'
 import {useIsMobile} from "@/shared/hooks/use-mobile";
+import {AppWindowMac} from "lucide-react";
 
 interface AddContentModalProps {
   item: ISidebarItem
@@ -15,6 +16,10 @@ interface AddContentModalProps {
 }
 
 const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
+  const isMobile = useIsMobile()
+  const iconSize = isMobile ? 30 : 24
+  const iconColor = isMobile ? '#fff' : '#000'
+
   const { isOpen, onToggle, onClose } = useDisclosure()
 
   const {
@@ -31,7 +36,7 @@ const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
     <Dialog open={isOpen} onOpenChange={onToggle} >
       <DialogTrigger asChild>
         <Button variant="ghost" className={sidebarClassName}>
-          <item.icon style={{ width: '24px', height: '24px' }} />
+          <item.icon style={{ width: `${iconSize}px`, height: `${iconSize}px` }} color={iconColor} />
           <span className="text-base font-medium hidden md:inline-block">{item.title}</span>
         </Button>
       </DialogTrigger>

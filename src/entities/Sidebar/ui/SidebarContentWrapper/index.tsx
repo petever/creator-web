@@ -10,9 +10,6 @@ import {
 import { SIDEBAR_ITEMS } from '@/entities/Sidebar/constants'
 import { SidebarItem } from '@/entities/Sidebar/ui/SidebarContentWrapper/SidebarItem'
 import {useIsMobile} from "@/shared/hooks/use-mobile";
-import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/shared/ui/dropdown-menu";
-import {ChevronUp, Settings} from "lucide-react";
-import Link from "next/link";
 import AddContentModal from "@/widgets/AddContentModal/ui";
 import {ADD_CONTENT_BUTTONS} from "@/shared/constants";
 

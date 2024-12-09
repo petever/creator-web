@@ -5,7 +5,6 @@ import { UserProfile } from '@/entities/user/types'
 import { PAGE } from '@/shared/constants/page'
 import Link from 'next/link'
 import { Button } from '@/shared/ui/button'
-import {SubscribeModal} from "@/widgets/subscribe/ui/SubscribeModal";
 
 interface SubscribeButtonProps {
   userProfile?: UserProfile

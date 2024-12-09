@@ -11,7 +11,15 @@ module.exports = {
   ],
   theme: {
     colors: {
-      ...colors,
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.slate,
+      green: colors.emerald,
+      purple: colors.violet,
+      yellow: colors.amber,
+      pink: colors.fuchsia,
       'theme-blue' : {
         DEFAULT: '#2B64F5',
         50: '#FFFFFF',

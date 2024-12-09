@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { Bell } from 'lucide-react'
 import {useIsMobile} from "@/shared/hooks/use-mobile";
+import Image from "next/image";
 
 export const HeaderNavigation = () => {
   const isMobile = useIsMobile()
@@ -11,10 +12,24 @@ export const HeaderNavigation = () => {
   return (
     <header className="w-screen flex p-6 z-50 fixed items-center justify-between top-0 left-0 z-99 bg-white border-b">
       <h1 className="font-bold text-3xl">
-        <Link href="/home" className="flex font-black">S</Link>
+        <Link href="/home" className="flex font-black">
+          <Image src={'/assets/logo/SHU_logo_06.png'} alt='' width={48} height={48} />
+        </Link>
       </h1>
-      <Link href="/notifications" className="flex font-medium">
-        <Bell style={{ width: '20px', height: '20px' }} />
+      <Link href="/notifications" className="flex font-medium relative">
+        <Bell size={30}/>
+        <span
+          className='
+            absolute
+            -top-1
+            right-0
+            w-4
+            h-4
+            text-center
+            rounded-full
+            bg-theme-blue-600
+            text-white text-[10px] font-bold'
+        >N</span>
       </Link>
     </header>
   )

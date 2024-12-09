@@ -5,5 +5,5 @@ interface LayoutProps {
 }
 
 export async function BorderLayout({ children }: LayoutProps) {
-  return <section className="h-screen border-x">{children}</section>
+  return <section className="border-x">{children}</section>
 }

@@ -14,12 +14,21 @@ export const BottomNavigation = () => {
         {BOTTOM_NAVIGATIONS.map((item) => {
           return (
             <li key={item.title}>
-              <SidebarItem item={item} />
+            <SidebarItem item={item} />
             </li>
           )
         })}
       </ul>
-      <AddContentModal item={ADD_CONTENT_BUTTONS} sidebarClassName='fixed bottom-9 left-1/2 -ml-7 w-14 h-14 rounded-full bg-gray-300 shadow-2xl z-50'/>
+      <AddContentModal item={ADD_CONTENT_BUTTONS} sidebarClassName='
+          fixed bottom-9 left-1/2
+          -ml-7
+          w-14 h-14
+          rounded-full
+          z-50
+          bg-theme-blue-600
+          hover:bg-theme-blue-600
+          shadow-md
+        '/>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import {ISidebarItem} from "@/entities/Sidebar/types";
 import {PAGE} from "@/shared/constants/page";
-import {CirclePlus, Compass, Home} from "lucide-react";
+import {Plus , Compass, Home} from "lucide-react";
 
 export const BOTTOM_NAVIGATIONS : ISidebarItem[] = [
   {
@@ -18,5 +18,5 @@ export const BOTTOM_NAVIGATIONS : ISidebarItem[] = [
 export const ADD_CONTENT_BUTTONS = {
   title: '추가',
   url: '#',
-  icon: CirclePlus,
+  icon: Plus,
 }

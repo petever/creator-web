@@ -6,13 +6,13 @@ export const metadata = {
 }
 const MainPage = () => {
   return (
-    <div className="flex flex-1 h-screen">
+    <div className="flex flex-1 h-screen overflow-y-hidden">
       <div
         className="flex-1 relative hidden md:flex"
       >
         <div className="absolute top-0 left-0 w-full h-full">
           <div className="flex flex-col items-center justify-center h-full">
-            <Image src={"/assets/logo/SHU_logo_01.png"} alt='' width={128} height={134}/>
+            <Image src={"/assets/logo/SHU_logo_02.png"} alt='' width={472} height={94}/>
           </div>
         </div>
       </div>
