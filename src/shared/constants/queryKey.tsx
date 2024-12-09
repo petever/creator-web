@@ -13,4 +13,6 @@ export const QUERY_KEY = {
   SEARCH_TRENDS: 'searchTrends',
   // notifications
   NOTIFICATIONS: 'notifications',
+  // creator
+  APPLY_CREATOR: 'applyCreator',
 }

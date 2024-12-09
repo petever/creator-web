@@ -11,11 +11,12 @@ interface ProfilePictureProps {
 const ProfilePicture = ({ imageSrc = '', alt = '' }: ProfilePictureProps) => {
   const [src, setSrc] = React.useState(imageSrc)
   const form = useFormContext()
+  console.log(form, 'form')
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     if (!file) return
     setSrc(URL.createObjectURL(file))
-    form.setValue('picture', file, { shouldDirty: true })
+    form.setValue('picture', file)
   }
 
   return (
@@ -26,6 +27,7 @@ const ProfilePicture = ({ imageSrc = '', alt = '' }: ProfilePictureProps) => {
         className="rounded-full w-[60px] h-[60px]"
         width={60}
         height={60}
+        style={{ objectFit: 'cover' }}
       />
       <input type="file" className="hidden" onChange={handleImageChange} />
       <div

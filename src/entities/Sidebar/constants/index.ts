@@ -1,4 +1,4 @@
-import { Bell, CirclePlus, Compass, Home } from 'lucide-react'
+import { Bell, Compass, Home, Settings } from 'lucide-react'
 import { PAGE } from '@/shared/constants/page'
 import { ISidebarItem } from '@/entities/Sidebar/types'
 
@@ -18,5 +18,9 @@ export const SIDEBAR_ITEMS: ISidebarItem[] = [
     url: '/notifications',
     icon: Bell,
   },
+  {
+    title: '설정',
+    url: '/settings',
+    icon: Settings,
+  },
 ]
-

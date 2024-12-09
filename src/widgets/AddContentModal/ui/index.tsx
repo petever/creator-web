@@ -7,8 +7,7 @@ import { ISidebarItem } from '@/entities/Sidebar/types'
 import { useDisclosure } from '@/shared/hooks/useDisclosure'
 import { useContentModal } from '@/widgets/AddContentModal/hooks/useContentModal'
 import { FormProvider } from 'react-hook-form'
-import {useIsMobile} from "@/shared/hooks/use-mobile";
-import {AppWindowMac} from "lucide-react";
+import { useIsMobile } from '@/shared/hooks/use-mobile'
 
 interface AddContentModalProps {
   item: ISidebarItem
@@ -18,7 +17,6 @@ interface AddContentModalProps {
 const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
   const isMobile = useIsMobile()
   const iconSize = isMobile ? 30 : 24
-  const iconColor = isMobile ? '#fff' : '#000'
 
   const { isOpen, onToggle, onClose } = useDisclosure()
 
@@ -33,10 +31,10 @@ const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
   const { handleSubmit, reset } = methods
 
   return (
-    <Dialog open={isOpen} onOpenChange={onToggle} >
+    <Dialog open={isOpen} onOpenChange={onToggle}>
       <DialogTrigger asChild>
-        <Button variant="ghost" className={sidebarClassName}>
-          <item.icon style={{ width: `${iconSize}px`, height: `${iconSize}px` }} color={iconColor} />
+        <Button className={sidebarClassName}>
+          <item.icon style={{ width: `${iconSize}px`, height: `${iconSize}px` }} color="#fff" />
           <span className="text-base font-medium hidden md:inline-block">{item.title}</span>
         </Button>
       </DialogTrigger>
@@ -44,7 +42,7 @@ const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
         <DialogHeader className="py-4">
           <DialogTitle>콘텐츠 업로드</DialogTitle>
         </DialogHeader>
-        <FormProvider {...methods} >
+        <FormProvider {...methods}>
           <form onSubmit={handleSubmit(handleSubmitContentData)}>
             <div className="overflow-y-auto mb:h-[calc(80vw-210px)] ">
               <ContentUpload
@@ -52,7 +50,7 @@ const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
                 onRemoveImage={handleRemoveImage}
                 onDropImage={handleDropImages}
               />
-            <ContentForm />
+              <ContentForm />
             </div>
             <AddContentFooter />
           </form>

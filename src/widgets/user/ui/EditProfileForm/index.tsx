@@ -13,7 +13,7 @@ import ProfilePicture from '@/features/users/ui/ProfilePicture'
 import { Editor } from '@/shared/ui/Editor'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import {WithDrawModal} from "@/features";
+import { WithDrawModal } from '@/features'
 
 interface EditProfileFormProps {
   userProfile: UserProfile
@@ -51,25 +51,24 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
 
   const onSubmit = (values: UserProfile) => {
     console.log(values, 'values')
-    const { displayName, username, description, picture, cover } = values
-
-    const formData = new FormData()
-    formData.append(
-      'editUserRequest',
-      new Blob(
-        [
-          JSON.stringify({
-            displayName,
-            username,
-            description,
-          }),
-        ],
-        { type: 'application/json' },
-      ),
-    )
-    formData.append('picture', picture)
-    formData.append('cover', cover)
-    updateProfileMutate(formData)
+    // const { displayName, username, description, picture, cover } = values
+    // const formData = new FormData()
+    // formData.append(
+    //   'editUserRequest',
+    //   new Blob(
+    //     [
+    //       JSON.stringify({
+    //         displayName,
+    //         username,
+    //         description,
+    //       }),
+    //     ],
+    //     { type: 'application/json' },
+    //   ),
+    // )
+    // formData.append('picture', picture)
+    // formData.append('cover', cover)
+    // updateProfileMutate(formData)
   }
 
   const handleEditorChange = (content: string) => {
@@ -105,7 +104,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
             <Editor value={watch('description')} onChange={handleEditorChange} height="200px" />
           </div>
         </div>
-        <WithDrawModal/>
+        <WithDrawModal />
         <Button className="w-full" type="submit" disabled={!isDirty}>
           저장
         </Button>
