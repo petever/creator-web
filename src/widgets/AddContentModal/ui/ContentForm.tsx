@@ -57,6 +57,14 @@ export const ContentForm = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">전체</SelectItem>
+                  {plans?.map((plan) => (
+                    <SelectItem
+                      key={plan.id}
+                      value={plan.id}
+                    >
+                      {plan.name}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </FormControl>
