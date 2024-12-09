@@ -15,8 +15,8 @@ export const RecommendList = ({ recommends }: RecommendListProps) => {
       <div className="flex flex-wrap flex-col gap-8">
         {recommends.map((user) => {
           return (
-            <Link href={PAGE.MEMBER_PAGE(user.username)}>
-              <Profile key={user.id} profile={user} />
+            <Link key={user.id} href={PAGE.MEMBER_PAGE(user.username)}>
+              <Profile profile={user} />
             </Link>
           )
         })}

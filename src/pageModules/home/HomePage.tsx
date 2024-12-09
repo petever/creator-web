@@ -17,9 +17,7 @@ const HomePage = ({ initialFeeds, recommends }: HomePageProps) => {
     <div
       className="
       relative
-      px-5
-      overflow-x-hidden
-      md:flex justify-center gap-4 ppt-0 md:pb-0 md:flex-row-reverse
+      md:flex pt-0 md:pb-0 md:flex-row-reverse md:justify-end
     "
     >
       <div>
