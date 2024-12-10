@@ -9,6 +9,7 @@ import {useForm} from "react-hook-form";
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/shared/ui/form";
 import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
+import {Loader2} from "lucide-react";
 
 export default function ResetPasswordForm() {
   const emailSchema = z
@@ -23,12 +24,13 @@ export default function ResetPasswordForm() {
   })
   const { getValues, formState : { isValid } } = form
 
-  const { passwordResetMutation, successMessage } = usePasswordReset()
+  const { passwordResetMutation, successMessage, isPending } = usePasswordReset()
 
   const handleSubmitEmail = () => {
-    const formData = new FormData()
-    formData.append('email', getValues('email'))
-    passwordResetMutation(formData)
+    const payload = {
+      email : getValues('email')
+    }
+    passwordResetMutation(payload)
   }
 
   return (
@@ -41,7 +43,7 @@ export default function ResetPasswordForm() {
         </CardHeader>
         <CardContent>
           {successMessage ? (
-            <p className="text-center text-sm text-green-600">{successMessage}</p>
+            <div className="px-2 py-4 bg-gray-100 rounded-sm text-center text-sm ">{successMessage}</div>
           ) : (
             <Form {...form}>
               <form onSubmit={form.handleSubmit(handleSubmitEmail)} className="space-y-4">
@@ -49,29 +51,31 @@ export default function ResetPasswordForm() {
                   <FormField
                     control={form.control}
                     name='email'
-                    render={({ field }) => (
+                    render={({field}) => (
                       <FormItem>
                         <FormLabel>이메일</FormLabel>
                         <FormControl>
                           <Input placeholder="가입 시 사용한 이메일을 입력하세요" {...field} />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage/>
                       </FormItem>
                     )}
                   />
                 </div>
-                <Button type="submit" className="w-full" disabled={!isValid}>
-                  비밀번호 재설정 링크 보내기
+                <Button type="submit" className="w-full" disabled={!isValid || isPending}>
+                  {isPending ? <Loader2 className="animate-spin" /> : '임시 비밀번호 전송'}
                 </Button>
               </form>
             </Form>
           )}
-          <p className="mt-4 text-center text-sm text-gray-600">
-            비밀번호를 기억하셨나요?
-            <a href="/login" className="font-medium text-blue-600 hover:underline">
+          <div className='flex items-center justify-between mt-4'>
+            <p className="text-center text-sm text-gray-600">
+              비밀번호를 기억하셨나요?
+            </p>
+            <a href="/" className="text-base text-sm text-blue-600 hover:underline">
               로그인
             </a>
-          </p>
+          </div>
         </CardContent>
       </Card>
     </div>
