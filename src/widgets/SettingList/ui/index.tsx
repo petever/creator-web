@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
-import LogoutModal from '@/features/users/ui/LogoutModal'
 
 interface SettingListProps {
   items: { label: string; href: string }[]
@@ -17,7 +16,6 @@ export const SettingList = ({ items }: SettingListProps) => {
           </Link>
         </li>
       ))}
-      <LogoutModal />
     </ul>
   )
 }
