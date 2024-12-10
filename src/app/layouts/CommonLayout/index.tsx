@@ -9,20 +9,12 @@ interface SidebarLayoutProps {
 
 export function CommonLayout({ children }: SidebarLayoutProps) {
   return (
-    <div className="max-w-screen-lg mx-auto">
+    <div>
       <HeaderNavigation />
       <SidebarProvider>
-        <div className="w-full pt-[96px] pb-20 md:py-0 md:flex ">
+        <div className="w-full h-[calc(100vh-144px)] md:h-screen overflow-hidden overflow-y-auto  mx-auto pt-[96px] pb-20 md:py-0 md:flex justify-center">
           <AppSidebar />
-          <div
-            className="flex-1
-            h-[calc(100vh-144px)]
-            overflow-y-auto
-            md:h-screen
-            overflow-hidden"
-          >
-            {children}
-          </div>
+          <div className="w-full max-w-screen-md">{children}</div>
         </div>
       </SidebarProvider>
       <BottomNavigation />

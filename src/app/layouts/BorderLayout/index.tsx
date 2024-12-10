@@ -3,5 +3,5 @@ interface LayoutProps {
 }
 
 export function BorderLayout({ children }: LayoutProps) {
-  return <section className="h-screen border-x">{children}</section>
+  return <section className="h-full border-x">{children}</section>
 }

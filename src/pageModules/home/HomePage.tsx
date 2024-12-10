@@ -3,9 +3,9 @@
 import React from 'react'
 import FeedList from '../../widgets/Post/ui/FeedList'
 import { FeedResponse } from '@/entities/feeds/types'
-import { RecommendList } from '@/shared/RecommentList/ui/RecommendList'
 import { UserProfile } from '@/entities/user/types'
 import { BorderLayout } from '@/app/layouts/BorderLayout'
+import { RecommendList } from '@/shared/RecommentList/ui/RecommendList'
 
 interface HomePageProps {
   initialFeeds: FeedResponse
