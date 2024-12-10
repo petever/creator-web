@@ -41,7 +41,8 @@ export const {
       session.accessToken = token.accessToken as string
       return session
     },
-    async redirect({ baseUrl }) {
+    async redirect({ baseUrl, url }) {
+      if (url.includes('/settings')) return `${baseUrl}`
       return `${baseUrl}/home`
     },
   },

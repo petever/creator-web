@@ -15,9 +15,8 @@ import { signOut } from 'next-auth/react'
 
 const LogoutModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-
-  const handleSignOut = () => {
-    signOut()
+  const handleSignOut = async () => {
+    await signOut()
   }
   return (
     <div className="p-3 border-b-[1px] hover:bg-gray-50">
