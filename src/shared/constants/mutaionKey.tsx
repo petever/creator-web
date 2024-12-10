@@ -15,4 +15,5 @@ export const MUTATION_KEY = {
   UPDATE_LIKE_COMMENT: 'updateLikeComment',
   //CREATOR
   APPLY_CREATOR: 'applyCreator',
+  CANCEL_CREATOR: 'cancelCreator',
 }

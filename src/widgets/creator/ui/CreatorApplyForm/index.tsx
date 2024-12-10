@@ -10,6 +10,7 @@ import { useCreatorApply } from '@/entities/creators/hooks/useCreatorApply'
 import { Input } from '@/shared/ui/input'
 import { useToast } from '@/shared/hooks/use-toast'
 import { useApplyForCreator } from '@/features/creators/hooks/useApplyForCreator'
+import { useCancelForCreator } from '@/features/creators/hooks/useCancelForCreator'
 
 interface CreatorApplyFormProps {
   initialData: ApplyForCreator
@@ -23,6 +24,7 @@ export interface ApplyForCreatorForm {
 const CreatorApplyForm = ({ initialData }: CreatorApplyFormProps) => {
   const { toast } = useToast()
   const { data } = useCreatorApply(initialData)
+  const { cancelForCreatorMutate } = useCancelForCreator()
   const { applyForCreatorMutate } = useApplyForCreator()
   const { control, handleSubmit } = useForm({
     defaultValues: {
@@ -75,7 +77,7 @@ const CreatorApplyForm = ({ initialData }: CreatorApplyFormProps) => {
 
   const onSubmit = (data: ApplyForCreatorForm) => {
     if (isApplying) {
-      return console.log('already applying')
+      return cancelForCreatorMutate()
     }
     handleApplyCreator(data)
   }
