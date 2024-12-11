@@ -10,7 +10,7 @@ interface SettingListProps {
 export const SettingList = ({ items }: SettingListProps) => {
   const session = useSession()
   console.log(session)
-  // TODO : 로그인 타입 확인이 필요함.
+  // TODO : 로그인 타입 확인이 필요함
   return (
     <ul className="w-full">
       {items.map((item) => (

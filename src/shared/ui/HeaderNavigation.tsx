@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Bell } from 'lucide-react'
+import {Bell, Settings} from 'lucide-react'
 import {useIsMobile} from "@/shared/hooks/use-mobile";
 import Image from "next/image";
 
@@ -16,21 +16,26 @@ export const HeaderNavigation = () => {
           <Image src={'/assets/logo/SHU_logo_06.png'} alt='' width={48} height={48} />
         </Link>
       </h1>
-      <Link href="/notifications" className="flex font-medium relative">
-        <Bell size={30}/>
-        <span
-          className='
-            absolute
-            -top-1
-            right-0
-            w-4
-            h-4
-            text-center
-            rounded-full
-            bg-theme-blue-600
-            text-white text-[10px] font-bold'
-        >N</span>
-      </Link>
+      <div className='flex gap-4'>
+        <Link href="/notifications" className="flex font-medium relative">
+          <Bell size={30}/>
+          <span
+            className='
+              absolute
+              -top-1
+              right-0
+              w-4
+              h-4
+              text-center
+              rounded-full
+              bg-theme-blue-600
+              text-white text-[10px] font-bold'
+          >N</span>
+        </Link>
+        <Link href="/settings" className="flex font-medium relative">
+          <Settings size={30}/>
+        </Link>
+      </div>
     </header>
   )
 }

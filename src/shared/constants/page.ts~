@@ -8,7 +8,7 @@ export const PAGE = {
   // settings
   SETTINGS: '/settings',
   SETTINGS_PROFILE: '/settings/profile',
-  SETTINGS_PASSWORD: '/settings/password',
+  SETTINGS_PASSWORD : '/settings/password',
   SETTINGS_NOTIFICATION: '/settings/notification',
   SETTINGS_NOTIFICATION_EMAIL: '/settings/notification/email',
   SETTINGS_CREATOR: '/settings/creator',
