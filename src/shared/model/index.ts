@@ -6,6 +6,6 @@ export const DUMMY_PROFILE = {
   picture:
     'https://lh3.googleusercontent.com/a/ACg8ocIyxLtSS9jxKsB0-xZt2hBjTLkH7OdzNy5F_9AVtG2OH8K1dg=s96-c',
   cover:
-    'http://182.227.155.8:9090/files/user/7f000001-9260-1d06-8192-61e14c5a0000/9fcc8fd7-c470-49f5-a5c3-dd04eb3003da.jpeg',
+    'https://api.shshsk.com/files/user/7f000001-9260-1d06-8192-61e14c5a0000/9fcc8fd7-c470-49f5-a5c3-dd04eb3003da.jpeg',
   role: 'ROLE_USER',
 }
