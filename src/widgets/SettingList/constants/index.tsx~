@@ -2,7 +2,7 @@ import { PAGE } from '@/shared/constants/page'
 
 export const SETTING_LISTS = [
   { label: '프로필 설정', href: PAGE.SETTINGS_PROFILE },
-  { label: '비밀번호 변경', href: PAGE.SETTINGS_PASSWORD },
+  { label: '비밀번호 변경', href: PAGE.SETTINGS_PROFILE },
   {
     label: '알림',
     href: PAGE.SETTINGS_NOTIFICATION,
