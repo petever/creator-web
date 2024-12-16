@@ -16,9 +16,8 @@ export const SubscribeModal = ({ userProfile }: SubscribeModalProps) => {
   const { isOpen, onOpen, onToggle, onClose } = useDisclosure()
   const { data: plans } = useSubscribePlans(userProfile?.id)
 
-  const isSubscribed = userProfile?.isSubscribed
-
-  console.log(userProfile, 'userProfile')
+  const isSubscribed = userProfile?.subscribed.isSubscribed
+  const subscribedPlanId = userProfile?.subscribed.planId
   if (!userProfile) return null
 
   const handleOpenModal = () => {
@@ -34,7 +33,11 @@ export const SubscribeModal = ({ userProfile }: SubscribeModalProps) => {
         <DialogHeader>
           <DialogTitle>구독 플랜</DialogTitle>
         </DialogHeader>
-        <SubscribeCardList userId={userProfile.id} subscribePlans={plans} />
+        <SubscribeCardList
+          userId={userProfile.id}
+          subscribedPlanId={subscribedPlanId}
+          subscribePlans={plans}
+        />
       </DialogContent>
     </Dialog>
   )

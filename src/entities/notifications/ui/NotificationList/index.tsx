@@ -11,6 +11,7 @@ interface NotificationListProps {
 
 export const NotificationList = ({ notifications }: NotificationListProps) => {
   const { data: notificationsItems } = useNotifications(notifications)
+  console.log(notificationsItems, 'notificationsItems')
 
   const isEmpty = notificationsItems?.length === 0
 

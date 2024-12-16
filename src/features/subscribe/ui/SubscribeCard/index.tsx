@@ -10,10 +10,11 @@ import { formatPrice } from '@/shared/util/price'
 interface SubscribeCardProps {
   plan: SubscribePlan
   isCreator?: boolean
+  isSubscribed?: boolean
   onClick?: (id: string) => void
 }
 
-const SubscribeCard = ({ plan, isCreator, onClick }: SubscribeCardProps) => {
+const SubscribeCard = ({ plan, isCreator, isSubscribed, onClick }: SubscribeCardProps) => {
   const price = `${formatPrice(plan.price)} / 월`
 
   const handleClick = () => {
@@ -36,7 +37,7 @@ const SubscribeCard = ({ plan, isCreator, onClick }: SubscribeCardProps) => {
         <CardContent className="tiptap">{parse(plan.description)}</CardContent>
         <CardFooter>
           <Button className="w-full" disabled={isCreator} onClick={handleClick}>
-            <Check /> 구독하기
+            <Check /> {isSubscribed ? '구독해지' : '구독하기'}
           </Button>
         </CardFooter>
       </Card>
