@@ -66,19 +66,6 @@ export default function SignUpForm() {
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
-              <Label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                이름
-              </Label>
-              <Input
-                type="text"
-                id="name"
-                {...register('username')}
-                placeholder="이름을 입력하세요"
-                className="mt-1 w-full"
-              />
-              {errors.username && <p className="text-red-500 text-sm">{errors.username.message}</p>}
-            </div>
-            <div>
               <Label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 이메일
               </Label>
@@ -90,6 +77,19 @@ export default function SignUpForm() {
                 className="mt-1 w-full"
               />
               {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+            </div>
+            <div>
+              <Label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                이름
+              </Label>
+              <Input
+                type="text"
+                id="name"
+                {...register('username')}
+                placeholder="이름을 입력하세요"
+                className="mt-1 w-full"
+              />
+              {errors.username && <p className="text-red-500 text-sm">{errors.username.message}</p>}
             </div>
             <div>
               <Label htmlFor="password" className="block text-sm font-medium text-gray-700">
