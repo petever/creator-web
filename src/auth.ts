@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth'
 import authConfig from '@/auth.config'
 import { login } from '@/features/users/api/login'
+import { reissue } from '@/entities/user/api/reissue'
 
 export const {
   handlers: { GET, POST },
@@ -26,14 +27,32 @@ export const {
       const data = await login(payload)
       user.id = data.id
       user.accessToken = data.accessToken
+      user.refreshToken = data.refreshToken
       return !!data
     },
 
     async jwt({ token, account, profile, user }) {
+      const currentTime = Math.floor(Date.now() / 1000)
+
       if (user) {
         token.id = user.id
         token.accessToken = user.accessToken
+        token.refreshToken = user.refreshToken
       }
+
+      if (currentTime > token.exp) {
+        try {
+          const result = await reissue(token.refreshToken)
+          return {
+            ...token,
+            accessToken: result.accessToken,
+            refreshToken: result.refreshToken,
+          }
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
       return token
     },
     async session({ session, token }) {

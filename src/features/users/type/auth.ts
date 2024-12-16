@@ -12,6 +12,7 @@ export interface LoginResponse {
   username: string
   picture: string
   accessToken: string
+  refreshToken: string
 }
 
 export interface SignupRequest {
@@ -21,6 +22,6 @@ export interface SignupRequest {
 }
 
 export interface ChangePasswordRequest {
-  oldPassword: string,
+  oldPassword: string
   newPassword: string
 }

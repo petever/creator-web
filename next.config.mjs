@@ -1,4 +1,5 @@
 import { withNextVideo } from 'next-video/process'
+
 /**
  * @type {import('next').NextConfig}
  */
@@ -9,7 +10,7 @@ const nextConfig = {
   },
   /* config options here */
   images: {
-    domains: ['lh3.googleusercontent.com', '182.227.155.8', 'api.shshsk.com'],
+    domains: ['lh3.googleusercontent.com', 'api.shshsk.com'],
   },
   output: 'standalone',
 }

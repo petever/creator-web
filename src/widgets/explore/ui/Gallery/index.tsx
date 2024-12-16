@@ -41,7 +41,7 @@ const Gallery = ({ initialData }: GalleryProps) => {
   return (
     <div className="max-w-screen-lg">
       {groupedImages.map((group: any, groupIndex: number) => {
-        const isVideo = group[0]?.postResources[0]?.mimeType === 'VIDEO'
+        const isVideo = group[0]?.resource?.mimeType === 'VIDEO'
         return (
           <div key={group[0]?.id} className="overflow-hidden cursor-pointer">
             <div
@@ -50,14 +50,14 @@ const Gallery = ({ initialData }: GalleryProps) => {
               <div className={`relative pb-[calc(200%+2px)]`}>
                 {isVideo ? (
                   <video
-                    src={`${BASE_URL}${group[0].postResources[0]?.filePath}`}
+                    src={`${BASE_URL}${group[0].resource?.filePath}`}
                     controls
                     height="100%"
                     className="w-full h-full object-cover absolute top-0 left-0"
                   />
                 ) : (
                   <img
-                    src={`${BASE_URL}${group[0]?.postResources[0]?.filePath}`}
+                    src={`${BASE_URL}${group[0]?.resource?.filePath}`}
                     alt={`더미 이미지 ${group[0]?.id}`}
                     className="w-full h-full object-cover absolute top-0 left-0"
                     width={'100%'}
@@ -67,7 +67,7 @@ const Gallery = ({ initialData }: GalleryProps) => {
               </div>
             </div>
             {group.slice(1).map((content: any) => {
-              const isVideo = content?.postResources[0]?.mimeType === 'VIDEO'
+              const isVideo = content?.resource?.mimeType === 'VIDEO'
               return (
                 <div
                   key={content.id}
@@ -75,13 +75,13 @@ const Gallery = ({ initialData }: GalleryProps) => {
                 >
                   {isVideo ? (
                     <video
-                      src={`${BASE_URL}${content.postResources[0]?.filePath}`}
+                      src={`${BASE_URL}${content.resource?.filePath}`}
                       controls
                       className="w-full h-full object-cover"
                     />
                   ) : (
                     <img
-                      src={`${BASE_URL}${content.postResources[0]?.filePath}`}
+                      src={`${BASE_URL}${content.resource?.filePath}`}
                       alt={`더미 이미지 ${content.id}`}
                       className="w-full h-full object-cover"
                     />
