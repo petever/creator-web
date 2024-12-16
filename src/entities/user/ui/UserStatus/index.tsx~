@@ -17,7 +17,7 @@ export const UserStatus = ({ status }: UserStatusProps) => {
       <div className={`status ${!isExpanded && 'expanded'}`}>{parse(status)}</div>
       <div className="flex justify-end">
         <button className="p-2" onClick={handleExpandedChange}>
-          {/* TODO : 유저 상세 내용 접기 펼치기 */}
+          {/* TODO : 유저 상세 내용 접기 펼치기*/}
           {/*{isExpanded ? (*/}
           {/*  <ArrowUp className="w-5 h-5 stroke-1.5" />*/}
           {/*) : (*/}

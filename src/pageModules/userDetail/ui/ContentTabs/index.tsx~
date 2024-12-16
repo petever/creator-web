@@ -13,7 +13,7 @@ interface ContentTabsProps {
 const ContentTabs = ({ initialFeeds, username }: ContentTabsProps) => {
   return (
     <Tabs defaultValue="row" className="">
-      <TabsList className='flex justify-end'>
+      <TabsList className='flex items-end'>
         <TabsTrigger value="row">
           <Rows />
         </TabsTrigger>

@@ -36,7 +36,7 @@ export const FeedMedia = ({ resources, viewType = 'row'}: FeedMediaProps) => {
   }, [carouselApi])
 
   // TODO : 그리드일 때, UI를 별도로 고민이 더 필요해보임
-
+  
   if (resources.length === 1 || viewType === 'grid') {
     const isVideo = resources[0].mimeType === 'VIDEO'
     const url = resources[0].filePath

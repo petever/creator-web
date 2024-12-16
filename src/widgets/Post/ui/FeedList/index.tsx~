@@ -8,11 +8,10 @@ import { StickyNote } from 'lucide-react'
 interface FeedListProps {
   initialFeeds: FeedResponse
   username?: string
+  viewType?: 'row' | 'grid'
 }
 
-const FeedList = ({ initialFeeds, username }: FeedListProps) => {
-  const scrollPositionRef = useRef(0)
-
+const FeedList = ({ initialFeeds, username, viewType = 'row' }: FeedListProps) => {
   const { ref, inView } = useInView()
 
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } = useFeeds(initialFeeds, username)
@@ -30,17 +29,7 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
     fetchMore()
   }, [inView, hasNextPage])
 
-  const handleScroll = () => {
-    scrollPositionRef.current = window.scrollY
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true })
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+  const postListStyle = viewType === 'row' ? 'flex flex-col items-center w-full md:w-[600px] md:p-0 md:mt-0' : 'grid grid-cols-3  w-full'
 
   if (postings.length === 0) {
     return (
@@ -52,9 +41,9 @@ const FeedList = ({ initialFeeds, username }: FeedListProps) => {
   }
 
   return (
-    <div className="flex flex-col items-center w-full mt-6 md:w-[600px] md:p-0 bd:mt-0">
+    <div className={postListStyle}>
       {postings.map((posting) => (
-        <Post key={posting.id} feed={posting} username={username} />
+        <Post key={posting.id} feed={posting} username={username} viewType={viewType}/>
       ))}
       <div ref={ref}></div>
     </div>

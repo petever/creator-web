@@ -8,7 +8,7 @@ const ExplorePage = async () => {
   return (
     <div className="
       h-[calc(100vh-144px)]
-      pt-6  pb-4 px-5
+      pt-7  pb-4 px-5
       flex flex-col gap-4
       md:h-full
     ">

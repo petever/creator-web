@@ -11,6 +11,8 @@ import { Card } from '@/shared/ui/card'
 interface PostProps {
   feed: FeedContents
   username?: string
+  viewType ?: 'row' | 'grid'
+
 }
 
 interface ElementPosition {
@@ -18,17 +20,10 @@ interface ElementPosition {
   offsetBottom?: number
 }
 
-export const Post = ({ feed, username }: PostProps) => {
-  const [isPlay, setIsPlay] = useState(false)
+export const Post = ({ feed, username, viewType = 'row' }: PostProps) => {
   const [isPrivate, setIsPrivate] = useState(false)
 
   // const isPc = useMediaQuery('(min-width: 640px)')
-
-  const ref = useRef<HTMLDivElement>()
-  const elementPosition = useRef<ElementPosition>({
-    offsetTop: 0,
-    offsetBottom: 0,
-  })
 
   const [feedOpened, setFeedOpened] = useState(false)
   const [commentListOpened, setCommentListOpened] = useState(false)
@@ -40,24 +35,28 @@ export const Post = ({ feed, username }: PostProps) => {
     setFeedOpened(true)
   }
 
-  useEffect(() => {
-    // elementPosition.current.offsetTop = ref.current?.offsetTop
-    // elementPosition.current.offsetBottom = ref.current?.offsetTop + ref.current?.offsetHeight
-  }, [])
-
   if (!feed) return null
 
   const { likeCount, commentCount, resources } = feed
 
+  const postStyle = viewType === 'row' ? 'border-gray-300 mb-4 pb-4' : ''
+
   return (
-    <div className="border-gray-300 mb-4 pb-4">
+    <div className={postStyle}>
       <Card className="border-none shadow-none rounded-none">
-        <PostingHeader profile={feed.owner} createdAt={feed.createdAt} />
-        <FeedContent contents={feed.contents} />
+        {viewType === 'row' && (
+          <>
+            <PostingHeader profile={feed.owner} createdAt={feed.createdAt} />
+            <FeedContent contents={feed.contents} />
+          </>
+        )}
         {!isPrivate && (
           <>
-            <FeedMedia resources={feed.resources} />
-            <FeedButtons feed={feed} onDetailModal={handleDetailOpen} username={username} />
+            <FeedMedia resources={feed.resources} viewType={viewType}
+            />
+            <FeedButtons feed={feed} onDetailModal={handleDetailOpen} username={username}
+             viewType={viewType}
+            />
             <LkeList id={feed.id} likeCount={likeCount} />
           </>
         )}

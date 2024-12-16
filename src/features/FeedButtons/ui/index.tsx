@@ -8,9 +8,10 @@ interface FeedButtonsProps {
   feed: FeedContents
   username?: string
   onDetailModal: () => void
+  viewType?: 'row' | 'grid'
 }
 
-export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps) => {
+export const FeedButtons = ({ feed, username, viewType, onDetailModal }: FeedButtonsProps) => {
   const { updateLikePostingMutate, data, isError } = useUpdateLikePosting(feed.id, username)
 
   const { isLiked } = feed
@@ -18,6 +19,8 @@ export const FeedButtons = ({ feed, username, onDetailModal }: FeedButtonsProps)
   const handleFavoritePosting = async () => {
     updateLikePostingMutate({ ...feed })
   }
+
+  if(viewType === 'grid') return null
 
   return (
     <div className="p-3">
