@@ -9,12 +9,10 @@ const ProfileCover = ({ imageSrc = '' }: ProfileCoverProps) => {
   const [src, setSrc] = React.useState(imageSrc)
   const form = useFormContext()
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // console.log(event)
     const file = event.target.files?.[0]
-    console.log(file)
     if (!file) return
-    // setSrc(URL.createObjectURL(file))
-    // form.setValue('cover', file, { shouldDirty: true })
+    setSrc(URL.createObjectURL(file))
+    form.setValue('cover', file, { shouldDirty: true })
   }
   return (
     <label

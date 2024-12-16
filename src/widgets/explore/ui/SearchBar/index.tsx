@@ -17,11 +17,11 @@ const SearchBar = () => {
 
   return (
     <Form {...form}>
-      <form className="relative">
+      <form className="relative m-2">
         <div className="relative">
           <Input
             type="search"
-            className="w-full p-4 pl-10 text-md rounded-xl"
+            className="w-full border-gray-300 p-4 pl-10 text-md rounded-xl"
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
           />

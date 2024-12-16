@@ -11,12 +11,11 @@ interface ProfilePictureProps {
 const ProfilePicture = ({ imageSrc = '', alt = '' }: ProfilePictureProps) => {
   const [src, setSrc] = React.useState(imageSrc)
   const form = useFormContext()
-  console.log(form, 'form')
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     if (!file) return
     setSrc(URL.createObjectURL(file))
-    form.setValue('picture', file)
+    form.setValue('picture', file, { shouldDirty: true })
   }
 
   return (

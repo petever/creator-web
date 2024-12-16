@@ -16,7 +16,6 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
   const session = await auth()
   const userProfile = await getUser(username)
   const initialFeeds = await getServerFeeds(username)
-  // const test = await getServerSubscribe(session?.user?.id)
   const isSelf = session?.user?.id === userProfile.id
 
   return (

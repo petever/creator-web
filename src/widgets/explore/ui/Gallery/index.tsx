@@ -41,29 +41,51 @@ const Gallery = ({ initialData }: GalleryProps) => {
   return (
     <div className="max-w-screen-lg">
       {groupedImages.map((group: any, groupIndex: number) => {
+        const isVideo = group[0]?.postResources[0]?.mimeType === 'VIDEO'
         return (
-          <div key={group[0]?.id} className="overflow-hidden">
+          <div key={group[0]?.id} className="overflow-hidden cursor-pointer">
             <div
-              className={`relative w-[calc(33.3333%-4px)] mb-1 mr-1  ${groupIndex % 2 === 0 ? 'float-left' : 'float-right'}`}
+              className={`relative w-[calc(33.3333%-2px)] mb-0.5 mr-0.5  ${groupIndex % 2 === 0 ? 'float-left' : 'float-right'}`}
             >
-              <div className={`relative pb-[calc(200%+4px)]`}>
-                <img
-                  src={`${BASE_URL}${group[0]?.postResources[0]?.filePath}`}
-                  alt={`더미 이미지 ${group[0]?.id}`}
-                  className="w-full h-full object-cover absolute top-0 left-0"
-                  width={'100%'}
-                  height={'100%'}
-                />
+              <div className={`relative pb-[calc(200%+2px)]`}>
+                {isVideo ? (
+                  <video
+                    src={`${BASE_URL}${group[0].postResources[0]?.filePath}`}
+                    controls
+                    height="100%"
+                    className="w-full h-full object-cover absolute top-0 left-0"
+                  />
+                ) : (
+                  <img
+                    src={`${BASE_URL}${group[0]?.postResources[0]?.filePath}`}
+                    alt={`더미 이미지 ${group[0]?.id}`}
+                    className="w-full h-full object-cover absolute top-0 left-0"
+                    width={'100%'}
+                    height={'100%'}
+                  />
+                )}
               </div>
             </div>
-            {group.slice(1).map((image: any) => {
+            {group.slice(1).map((content: any) => {
+              const isVideo = content?.postResources[0]?.mimeType === 'VIDEO'
               return (
-                <div key={image.id} className="float-left w-[calc(33.3333%-4px)] mb-1 mr-1">
-                  <img
-                    src={`${BASE_URL}${image.postResources[0]?.filePath}`}
-                    alt={`더미 이미지 ${image.id}`}
-                    className="w-full h-full object-cover"
-                  />
+                <div
+                  key={content.id}
+                  className="relative float-left w-[calc(33.3333%-2px)] mb-0.5 mr-0.5"
+                >
+                  {isVideo ? (
+                    <video
+                      src={`${BASE_URL}${content.postResources[0]?.filePath}`}
+                      controls
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <img
+                      src={`${BASE_URL}${content.postResources[0]?.filePath}`}
+                      alt={`더미 이미지 ${content.id}`}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                 </div>
               )
             })}
