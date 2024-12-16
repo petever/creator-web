@@ -10,7 +10,6 @@ import {
 import { SIDEBAR_ITEMS } from '@/entities/Sidebar/constants'
 import { SidebarItem } from '@/entities/Sidebar/ui/SidebarContentWrapper/SidebarItem'
 import AddContentModal from '@/widgets/AddContentModal/ui'
-import { ADD_CONTENT_BUTTONS } from '@/shared/constants'
 
 export const SidebarContentWrapper = () => {
   return (
@@ -29,10 +28,7 @@ export const SidebarContentWrapper = () => {
             })}
           </SidebarMenu>
           <SidebarMenuItem>
-            <AddContentModal
-              item={ADD_CONTENT_BUTTONS}
-              sidebarClassName={'mt-4 w-full rounded-2xl'}
-            />
+            <AddContentModal />
           </SidebarMenuItem>
         </SidebarGroupContent>
       </SidebarGroup>

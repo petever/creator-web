@@ -1,34 +1,29 @@
 'use client'
-import { SidebarItem } from "@/entities/Sidebar/ui/SidebarContentWrapper/SidebarItem";
-import { useIsMobile } from "@/shared/hooks/use-mobile";
-import {ADD_CONTENT_BUTTONS, BOTTOM_NAVIGATIONS} from "@/shared/constants";
-import AddContentModal from "@/widgets/AddContentModal/ui";
+import { useIsMobile } from '@/shared/hooks/use-mobile'
+import AddContentModal from '@/widgets/AddContentModal/ui'
+import Link from 'next/link'
+import { PAGE } from '@/shared/constants/page'
+import { Bell, Compass, Home, Settings } from 'lucide-react'
 
 export const BottomNavigation = () => {
   const isMobile = useIsMobile()
-  if(!isMobile) return null
+  if (!isMobile) return null
 
   return (
-    <div className='fixed -bottom-0 left-0 h-16'>
-      <ul className='flex w-screen justify-between items-center h-16 pl-20 pr-20 bg-white'>
-        {BOTTOM_NAVIGATIONS.map((item) => {
-          return (
-            <li key={item.title}>
-            <SidebarItem item={item} />
-            </li>
-          )
-        })}
-      </ul>
-      <AddContentModal item={ADD_CONTENT_BUTTONS} sidebarClassName='
-          fixed bottom-9 left-1/2
-          -ml-7
-          w-14 h-14
-          rounded-full
-          z-50
-          bg-theme-blue-600
-          hover:bg-theme-blue-800
-          shadow-md
-        '/>
+    <div className="sticky bottom-0 flex items-center justify-between  px-4 py-3 border-t">
+      <Link href={PAGE.HOME}>
+        <Home size={28} />
+      </Link>
+      <Link href={PAGE.EXPLORE}>
+        <Compass size={28} />
+      </Link>
+      <AddContentModal />
+      <Link href={PAGE.NOTIFICATIONS}>
+        <Bell size={28} />
+      </Link>
+      <Link href={PAGE.SETTINGS}>
+        <Settings size={28} />
+      </Link>
     </div>
   )
 }

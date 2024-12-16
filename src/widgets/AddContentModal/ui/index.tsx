@@ -2,21 +2,17 @@ import ContentUpload from '@/widgets/AddContentModal/ui/ContentUpload'
 import { ContentForm } from '@/widgets/AddContentModal/ui/ContentForm'
 import { AddContentFooter } from '@/widgets/AddContentModal/ui/AddContentFooter'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/shared/ui/dialog'
-import { Button } from '@/shared/ui/button'
-import { ISidebarItem } from '@/entities/Sidebar/types'
 import { useDisclosure } from '@/shared/hooks/useDisclosure'
 import { useContentModal } from '@/widgets/AddContentModal/hooks/useContentModal'
 import { FormProvider } from 'react-hook-form'
 import { useIsMobile } from '@/shared/hooks/use-mobile'
+import { Button } from '@/shared/ui/button'
+import { Plus, SquarePlus } from 'lucide-react'
 
-interface AddContentModalProps {
-  item: ISidebarItem
-  sidebarClassName?: string
-}
+interface AddContentModalProps {}
 
-const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
+const AddContentModal = ({}: AddContentModalProps) => {
   const isMobile = useIsMobile()
-  const iconSize = isMobile ? 30 : 24
 
   const { isOpen, onToggle, onClose } = useDisclosure()
 
@@ -33,10 +29,13 @@ const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onToggle}>
       <DialogTrigger asChild>
-        <Button className={sidebarClassName}>
-          <item.icon style={{ width: `${iconSize}px`, height: `${iconSize}px` }} color="#fff" />
-          <span className="text-base font-medium hidden md:inline-block">{item.title}</span>
-        </Button>
+        {isMobile ? (
+          <SquarePlus size={30} />
+        ) : (
+          <Button className="w-full mt-3 rounded-2xl">
+            <Plus size={24} /> 추가하기
+          </Button>
+        )}
       </DialogTrigger>
       <DialogContent className="block p-4 w-[calc(100vw-1.25rem)]">
         <DialogHeader className="py-4">

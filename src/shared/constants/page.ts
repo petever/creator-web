@@ -1,8 +1,11 @@
 export const PAGE = {
   HOME: '/home',
-
-  LOGIN: '/login',
   MEMBER_PAGE: (name: string) => `/${name}`,
+  EXPLORE: '/explore',
+  NOTIFICATIONS: '/notifications',
+
+  //auth
+  LOGIN: '/login',
   SIGNUP: '/signup',
 
   // settings
