@@ -2,16 +2,22 @@ import ContentUpload from '@/widgets/AddContentModal/ui/ContentUpload'
 import { ContentForm } from '@/widgets/AddContentModal/ui/ContentForm'
 import { AddContentFooter } from '@/widgets/AddContentModal/ui/AddContentFooter'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/shared/ui/dialog'
+import { Button } from '@/shared/ui/button'
+import { ISidebarItem } from '@/entities/Sidebar/types'
 import { useDisclosure } from '@/shared/hooks/useDisclosure'
 import { useContentModal } from '@/widgets/AddContentModal/hooks/useContentModal'
 import { FormProvider } from 'react-hook-form'
 import { useIsMobile } from '@/shared/hooks/use-mobile'
-import { useEffect } from 'react'
-import { Button } from '@/shared/ui/button'
-import { Plus, SquarePlus } from 'lucide-react'
+import {useEffect} from "react";
 
-const AddContentModal = () => {
+interface AddContentModalProps {
+  item: ISidebarItem
+  sidebarClassName?: string
+}
+
+const AddContentModal = ({ item, sidebarClassName }: AddContentModalProps) => {
   const isMobile = useIsMobile()
+  const iconSize = isMobile ? 30 : 24
 
   const { isOpen, onToggle, onClose } = useDisclosure()
 
@@ -27,18 +33,15 @@ const AddContentModal = () => {
 
   useEffect(() => {
     methods.reset()
-  }, [isOpen])
+  }, [isOpen]);
 
   return (
     <Dialog open={isOpen} onOpenChange={onToggle}>
       <DialogTrigger asChild>
-        {isMobile ? (
-          <SquarePlus size={30} />
-        ) : (
-          <Button className="w-full mt-3 rounded-2xl">
-            <Plus size={24} /> 추가하기
-          </Button>
-        )}
+        <Button className={sidebarClassName}>
+          <item.icon style={{ width: `${iconSize}px`, height: `${iconSize}px` }} color="#fff" />
+          <span className="text-base font-medium hidden md:inline-block">{item.title}</span>
+        </Button>
       </DialogTrigger>
       <DialogContent className="block p-4 w-[calc(100vw-1.15rem)] rounded-lg">
         <DialogHeader className="py-4">
@@ -46,7 +49,7 @@ const AddContentModal = () => {
         </DialogHeader>
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(handleSubmitContentData)}>
-            <div className="overflow-y-auto max-h-[calc(100vh-200px)] mb:h-[calc(80vh-210px)]">
+            <div className="overflow-y-auto mb:h-[calc(80vh-210px)]">
               <ContentUpload
                 onShowImageChange={handleChangeCurrentImage}
                 onRemoveImage={handleRemoveImage}
