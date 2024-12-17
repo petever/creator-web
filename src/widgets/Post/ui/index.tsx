@@ -5,14 +5,13 @@ import { FeedContents } from '@/entities/feeds/types'
 import { LkeList } from '@/shared/LikeList/ui'
 import { FeedContent } from '@/entities/feeds/ui'
 import { FeedMedia } from '@/entities/feeds/ui/FeedMedia'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { Card } from '@/shared/ui/card'
 
 interface PostProps {
   feed: FeedContents
   username?: string
-  viewType ?: 'row' | 'grid'
-
+  viewType?: 'row' | 'grid'
 }
 
 interface ElementPosition {
@@ -52,10 +51,12 @@ export const Post = ({ feed, username, viewType = 'row' }: PostProps) => {
         )}
         {!isPrivate && (
           <>
-            <FeedMedia resources={feed.resources} viewType={viewType}
-            />
-            <FeedButtons feed={feed} onDetailModal={handleDetailOpen} username={username}
-             viewType={viewType}
+            <FeedMedia resources={feed.resources} viewType={viewType} />
+            <FeedButtons
+              feed={feed}
+              onDetailModal={handleDetailOpen}
+              username={username}
+              viewType={viewType}
             />
             <LkeList id={feed.id} likeCount={likeCount} />
           </>

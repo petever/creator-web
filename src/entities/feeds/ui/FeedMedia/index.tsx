@@ -1,7 +1,7 @@
 'use client'
 import { Resource } from '@/entities/feeds/types'
 import Image from 'next/image'
-import {CommentListModal, VideoPlayer} from '@/shared'
+import { VideoPlayer } from '@/shared'
 import {
   Carousel,
   type CarouselApi,
@@ -14,10 +14,10 @@ import { useEffect, useState } from 'react'
 
 interface FeedMediaProps {
   resources: Resource[]
-  viewType ?: 'row' | 'grid'
+  viewType?: 'row' | 'grid'
 }
 
-export const FeedMedia = ({ resources, viewType = 'row'}: FeedMediaProps) => {
+export const FeedMedia = ({ resources, viewType = 'row' }: FeedMediaProps) => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
@@ -42,7 +42,7 @@ export const FeedMedia = ({ resources, viewType = 'row'}: FeedMediaProps) => {
     const url = resources[0].filePath
 
     return (
-      <div className="overflow-hidden">
+      <div>
         {!isVideo ? (
           <Image
             src={isImgError ? '/assets/error.webp' : url}
@@ -52,15 +52,15 @@ export const FeedMedia = ({ resources, viewType = 'row'}: FeedMediaProps) => {
             onError={() => setIsImgError(true)}
           />
         ) : (
-          <VideoPlayer src={url} isControl viewType={viewType}/>
+          <VideoPlayer src={url} isControl viewType={viewType} />
         )}
       </div>
     )
   }
 
   return (
-    <Carousel className="overflow-hidden">
-      <CarouselContent>
+    <Carousel>
+      <CarouselContent className="m-0">
         {resources?.map((resource: Resource, resourceIndex) => {
           const isVideo = resource.mimeType === 'VIDEO'
           const url = resource.filePath
