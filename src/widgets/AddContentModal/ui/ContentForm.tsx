@@ -51,7 +51,7 @@ export const ContentForm = () => {
           <FormItem>
             <FormLabel>공개 여부 선택</FormLabel>
             <FormControl>
-              <Select>
+              <Select defaultValue={'all'}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="콘텐츠가 공개될 구독제를 선택해주세요." />
                 </SelectTrigger>

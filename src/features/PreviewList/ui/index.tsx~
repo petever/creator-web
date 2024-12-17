@@ -62,6 +62,7 @@ const PreviewList = ({ onRemoveImage }: PreviewListProps) => {
       </Carousel>
       <MoreMediaUpload
         onRemoveImage={onRemoveImage}
+        onOpenDropzone={onOpenDropzone}
       />
     </div>
   )

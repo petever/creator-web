@@ -100,11 +100,12 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
             <Label>소개</Label>
             <Editor value={watch('description')} onChange={handleEditorChange} height="200px" />
           </div>
-          <WithDrawModal />
           <Button className="w-full" type="submit" disabled={!isDirty}>
             저장
           </Button>
         </div>
+        <WithDrawModal />
+
       </form>
     </Form>
   )

@@ -23,7 +23,7 @@ const ProfileCover = ({ imageSrc = '' }: ProfileCoverProps) => {
     >
       {!src && (
         <div className='flex flex-col justify-center items-center gap-2'>
-          <Image size={60}/>
+          <Image size={60} color={'#888'}/>
           <p>이미지를 등록해주세요.</p>
         </div>
       )}

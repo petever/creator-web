@@ -14,9 +14,8 @@ export const useContentModal = (onClose: () => void) => {
       currentIndex: 0,
       contents: '',
       files: [],
-      isPreview: false,
       isLoading: false,
-      isSubscribed: 'false',
+      isSubscribed: 'all',
     },
   })
 
@@ -62,7 +61,8 @@ export const useContentModal = (onClose: () => void) => {
       filesAppend({
         name : file.name,
         type : file.type,
-        file : file
+        file : file,
+        url : URL.createObjectURL(file)
       })
     })
 

@@ -6,7 +6,7 @@ export const metadata = {
 }
 const MainPage = () => {
   return (
-    <div className="flex flex-1 h-screen p-6">
+    <div className="flex flex-1 h-screen ">
       <div
         className="flex-1 relative hidden md:flex"
       >

@@ -13,7 +13,7 @@ export const Profile = ({ profile }: ProfileProps) => {
     <div className="flex justify-between items-center">
       <div className="flex items-center justify-between gap-2">
         {!profile.picture ?
-          <div className='flex justify-center  items-center bg-gray-300 rounded-full w-10 h-10'>
+          <div className='flex justify-center  items-center bg-gray-200 rounded-full w-10 h-10'>
             <User/>
           </div>:
           <Avatar>

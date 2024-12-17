@@ -20,7 +20,7 @@ const HomePage = ({ initialFeeds, recommends }: HomePageProps) => {
       md:flex pt-0 md:pb-0 md:flex-row-reverse md:justify-end
     "
     >
-      <div className="p-4">
+      <div className="mt-4">
         <RecommendList recommends={recommends} />
       </div>
       <BorderLayout>
