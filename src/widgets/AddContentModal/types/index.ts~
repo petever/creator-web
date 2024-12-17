@@ -1,4 +1,4 @@
-export interface  ContentFile {
+export const  ContentFile {
   name : string,
   type : string,
   file : File,
