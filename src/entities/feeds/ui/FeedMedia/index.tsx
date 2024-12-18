@@ -1,7 +1,7 @@
 'use client'
 import { Resource } from '@/entities/feeds/types'
 import Image from 'next/image'
-import { VideoPlayer } from '@/shared'
+import {CommentListModal, VideoPlayer} from '@/shared'
 import {
   Carousel,
   type CarouselApi,
@@ -11,17 +11,26 @@ import {
   CarouselPrevious,
 } from '@/shared/ui/carousel'
 import { useEffect, useState } from 'react'
+import {useRouter} from "next/navigation";
+import {API_URL} from "@/shared/constants/apiURL";
+import {PAGE} from "@/shared/constants/page";
 
 interface FeedMediaProps {
+  feedId : string
   resources: Resource[]
-  viewType?: 'row' | 'grid'
+  viewType ?: 'row' | 'grid'
 }
 
-export const FeedMedia = ({ resources, viewType = 'row' }: FeedMediaProps) => {
+export const FeedMedia = ({ feedId, resources, viewType = 'row'}: FeedMediaProps) => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
   const [isImgError, setIsImgError] = useState<boolean>(false)
+  const router = useRouter()
+
+  const handlePageMoveDetail = () => {
+    router.push(PAGE.FEEDS(feedId))
+  }
 
   useEffect(() => {
     if (!carouselApi) {
@@ -35,14 +44,12 @@ export const FeedMedia = ({ resources, viewType = 'row' }: FeedMediaProps) => {
     })
   }, [carouselApi])
 
-  // TODO : 그리드일 때, UI를 별도로 고민이 더 필요해보임
-
   if (resources.length === 1 || viewType === 'grid') {
-    const isVideo = resources[0].mimeType === 'VIDEO'
-    const url = resources[0].filePath
+    const isVideo = resources[0]?.mimeType === 'VIDEO'
+    const url = resources[0]?.filePath
 
     return (
-      <div>
+      <div className="overflow-hidden" onClick={handlePageMoveDetail}>
         {!isVideo ? (
           <Image
             src={isImgError ? '/assets/error.webp' : url}
@@ -52,20 +59,20 @@ export const FeedMedia = ({ resources, viewType = 'row' }: FeedMediaProps) => {
             onError={() => setIsImgError(true)}
           />
         ) : (
-          <VideoPlayer src={url} isControl viewType={viewType} />
+          <VideoPlayer src={url} isControl viewType={viewType}/>
         )}
       </div>
     )
   }
 
   return (
-    <Carousel>
-      <CarouselContent className="m-0">
+    <Carousel className="overflow-hidden">
+      <CarouselContent>
         {resources?.map((resource: Resource, resourceIndex) => {
           const isVideo = resource.mimeType === 'VIDEO'
           const url = resource.filePath
           return (
-            <CarouselItem key={`${resourceIndex}`} className="h-full p-0">
+            <CarouselItem key={`${resourceIndex}`} className="h-full p-0" onClick={handlePageMoveDetail}>
               {!isVideo ? (
                 <Image
                   src={url}

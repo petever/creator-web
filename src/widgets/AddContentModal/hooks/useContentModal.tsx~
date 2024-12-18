@@ -61,7 +61,7 @@ export const useContentModal = (onClose: () => void) => {
       filesAppend({
         name : file.name,
         type : file.type,
-        file : file
+        file : file,
         url : URL.createObjectURL(file)
       })
     })
@@ -111,12 +111,6 @@ export const useContentModal = (onClose: () => void) => {
     const file = files[0].file
     const url = URL.createObjectURL(file as File)
     setValue('currentFile', url)
-  }
-
-  const handleChangeCurrentImage = (url: string, index: number, type: 'video' | 'image') => {
-    setValue('currentFile', url)
-    setValue('currentIndex', index)
-    setValue('currentFileType', type)
   }
 
   const handleSubmitContentData = (values: Pick<AddContentData, 'title' | 'contents' | 'files' | 'isSubscribed'>) => {

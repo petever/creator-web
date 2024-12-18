@@ -113,12 +113,6 @@ export const useContentModal = (onClose: () => void) => {
     setValue('currentFile', url)
   }
 
-  const handleChangeCurrentImage = (url: string, index: number, type: 'video' | 'image') => {
-    setValue('currentFile', url)
-    setValue('currentIndex', index)
-    setValue('currentFileType', type)
-  }
-
   const handleSubmitContentData = (values: Pick<AddContentData, 'title' | 'contents' | 'files' | 'isSubscribed'>) => {
     const { title, contents, files } = values
 
@@ -149,7 +143,6 @@ export const useContentModal = (onClose: () => void) => {
     methods,
     handleDropImages,
     handleRemoveImage,
-    handleChangeCurrentImage,
     handleSubmitContentData,
   }
 }

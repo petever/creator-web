@@ -17,7 +17,7 @@ export const CommentListModal = ({ feed }: FeedDetailProps) => {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>댓글</DialogTitle>
+          <DialogTitle>코멘트</DialogTitle>
         </DialogHeader>
         <CommentArea id={feed.id} />
       </DialogContent>

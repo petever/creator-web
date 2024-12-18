@@ -48,7 +48,6 @@ const AddContentModal = () => {
           <form onSubmit={handleSubmit(handleSubmitContentData)}>
             <div className="overflow-y-auto max-h-[calc(100vh-200px)] mb:h-[calc(80vh-210px)]">
               <ContentUpload
-                onShowImageChange={handleChangeCurrentImage}
                 onRemoveImage={handleRemoveImage}
                 onDropImage={handleDropImages}
               />

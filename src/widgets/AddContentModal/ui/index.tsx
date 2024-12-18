@@ -19,7 +19,6 @@ const AddContentModal = () => {
     methods,
     handleDropImages,
     handleRemoveImage,
-    handleChangeCurrentImage,
     handleSubmitContentData,
   } = useContentModal(onClose)
 

@@ -13,7 +13,7 @@ const MessageLayout = ({ children }: MessageLayoutProps) => {
         {children}
       </BorderLayout>
     </CommonLayout>
-  )
+    )
 }
 
 export default MessageLayout

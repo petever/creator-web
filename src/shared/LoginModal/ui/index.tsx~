@@ -20,6 +20,7 @@ export const LoginModal = ({ owner }: LoginModalProps) => {
 
   return (
     <Dialog>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent>
         <div className="flex flex-col items-center justify-center">
         {owner && (

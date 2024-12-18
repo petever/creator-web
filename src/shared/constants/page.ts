@@ -4,6 +4,9 @@ export const PAGE = {
   EXPLORE: '/explore',
   NOTIFICATIONS: '/notifications',
 
+  // FEEDS
+  FEEDS: (id: string) => `/feeds/${id}`,
+
   //auth
   LOGIN: '/login',
   SIGNUP: '/signup',

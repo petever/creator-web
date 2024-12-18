@@ -5,40 +5,30 @@ import { FeedContents } from '@/entities/feeds/types'
 import { LkeList } from '@/shared/LikeList/ui'
 import { FeedContent } from '@/entities/feeds/ui'
 import { FeedMedia } from '@/entities/feeds/ui/FeedMedia'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Card } from '@/shared/ui/card'
 
 interface PostProps {
   feed: FeedContents
   username?: string
-  viewType?: 'row' | 'grid'
-}
+  viewType ?: 'row' | 'grid'
 
-interface ElementPosition {
-  offsetTop?: number
-  offsetBottom?: number
 }
 
 export const Post = ({ feed, username, viewType = 'row' }: PostProps) => {
   const [isPrivate, setIsPrivate] = useState(false)
 
-  // const isPc = useMediaQuery('(min-width: 640px)')
-
   const [feedOpened, setFeedOpened] = useState(false)
-  const [commentListOpened, setCommentListOpened] = useState(false)
 
   const handleDetailOpen = () => {
-    // if (!isPc) {
-    //   return setCommentListOpened(true)
-    // }
     setFeedOpened(true)
   }
 
   if (!feed) return null
 
-  const { likeCount, commentCount, resources } = feed
+  const { likeCount } = feed
 
-  const postStyle = viewType === 'row' ? 'border-gray-300 mb-4 pb-4' : ''
+  const postStyle = viewType === 'row' ? 'w-full mb-4 pb-4 border-gray-300' : ''
 
   return (
     <div className={postStyle}>
@@ -51,13 +41,9 @@ export const Post = ({ feed, username, viewType = 'row' }: PostProps) => {
         )}
         {!isPrivate && (
           <>
-            <FeedMedia resources={feed.resources} viewType={viewType} />
-            <FeedButtons
-              feed={feed}
-              onDetailModal={handleDetailOpen}
-              username={username}
-              viewType={viewType}
-            />
+            <FeedMedia feedId={feed.id} resources={feed.resources} viewType={viewType}/>
+            <FeedButtons feed={feed} onDetailModal={handleDetailOpen} username={username}
+             viewType={viewType}/>
             <LkeList id={feed.id} likeCount={likeCount} />
           </>
         )}
