@@ -12,7 +12,6 @@ export const API_URL = {
   POSTS: 'posts',
   FEED_LIKE_MEMBERS: (id: string) => `posts/${id}/likes`,
   FEEDS: 'feeds',
-  FEED_DETAIL : (id : string) => `feeds/${id}`,
   FEEDS_COMMENT: (id: string) => `feeds/${id}/comments`,
   FEEDS_RECOMMEND_USERS: 'feeds/recommendUsers',
   FEED_LIKE: (id: string) => `posts/${id}/like`,

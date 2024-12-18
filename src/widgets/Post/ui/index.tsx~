@@ -15,31 +15,21 @@ interface PostProps {
 
 }
 
-interface ElementPosition {
-  offsetTop?: number
-  offsetBottom?: number
-}
-
 export const Post = ({ feed, username, viewType = 'row' }: PostProps) => {
   const [isPrivate, setIsPrivate] = useState(false)
-
-  // const isPc = useMediaQuery('(min-width: 640px)')
 
   const [feedOpened, setFeedOpened] = useState(false)
   const [commentListOpened, setCommentListOpened] = useState(false)
 
   const handleDetailOpen = () => {
-    // if (!isPc) {
-    //   return setCommentListOpened(true)
-    // }
     setFeedOpened(true)
   }
 
   if (!feed) return null
 
-  const { likeCount, commentCount, resources } = feed
+  const { likeCount } = feed
 
-  const postStyle = viewType === 'row' ? 'border-gray-300 mb-4 pb-4' : ''
+  const postStyle = viewType === 'row' ? 'w-full mb-4 pb-4 border-gray-300' : ''
 
   return (
     <div className={postStyle}>
@@ -52,10 +42,9 @@ export const Post = ({ feed, username, viewType = 'row' }: PostProps) => {
         )}
         {!isPrivate && (
           <>
-            <FeedMedia resources={feed.resources} />
+            <FeedMedia feedId={feed.id} resources={feed.resources} viewType={viewType}/>
             <FeedButtons feed={feed} onDetailModal={handleDetailOpen} username={username}
-             viewType={viewType}
-            />
+             viewType={viewType}/>
             <LkeList id={feed.id} likeCount={likeCount} />
           </>
         )}
