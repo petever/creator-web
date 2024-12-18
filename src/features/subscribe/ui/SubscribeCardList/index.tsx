@@ -19,7 +19,7 @@ const SubscribeCardList = ({
   isCreator,
 }: SubscribeCardListProps) => {
   const { creatorSubscribeMutate } = useCreatorSubscribe(userId)
-  const { unSubscribeMutate } = useUnsubscribe()
+  const { unSubscribeMutate } = useUnsubscribe(userId)
 
   const handleSubscribe = (planId: string) => {
     creatorSubscribeMutate(planId)
@@ -28,6 +28,7 @@ const SubscribeCardList = ({
     unSubscribeMutate(id)
   }
 
+  const hasMembership = subscribePlans?.some((plan) => plan.id === subscribedPlanId)
   return (
     <div className="flex flex-col gap-5">
       {subscribePlans?.map((plan: SubscribePlan) => {
@@ -37,6 +38,7 @@ const SubscribeCardList = ({
             key={plan.id}
             plan={plan}
             isCreator={isCreator}
+            hasMembership={hasMembership}
             isSubscribed={isSubscribed}
             onClick={isSubscribed ? handleUnsubscribe : handleSubscribe}
           />

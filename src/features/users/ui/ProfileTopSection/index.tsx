@@ -8,6 +8,7 @@ import { SubscribeModal } from '@/widgets'
 import Link from 'next/link'
 import { PAGE } from '@/shared/constants/page'
 import { Button } from '@/shared/ui/button'
+import { Send } from 'lucide-react'
 
 interface ProfileTopSectionProps {
   userProfile?: UserProfile
@@ -16,15 +17,19 @@ interface ProfileTopSectionProps {
 
 export const ProfileTopSection = ({ userProfile, isSelf }: ProfileTopSectionProps) => {
   const { data } = useUser(userProfile)
+  console.log(data, 'data')
 
   if (!data) return null
 
   return (
     <div className="relative">
       <div className="relative h-60">
-        {data.cover && (
-          <Image src={data.cover as string} alt="배경 이미지" fill objectFit="cover" />
-        )}
+        <Image
+          src={data.cover ? (data.cover as string) : '/assets/banner.png'}
+          alt="배경 이미지"
+          fill
+          objectFit="cover"
+        />
       </div>
       <div>
         <div className="flex items-center justify-between px-4">
@@ -36,13 +41,23 @@ export const ProfileTopSection = ({ userProfile, isSelf }: ProfileTopSectionProp
             height={60}
             style={{ objectFit: 'cover' }}
           />
-          <div className="flex items-center justify-end pt-2">
+          <div className="flex gap-2 items-center justify-end pt-2">
             {isSelf && (
               <Link href={PAGE.SETTINGS_PROFILE}>
-                <Button className="rounded-full" variant="outline">
+                <Button className="rounded-full" variant="outline" size="sm">
                   프로필 편집
                 </Button>
               </Link>
+            )}
+            {!isSelf && (
+              <>
+                <Button className="rounded-full" variant="outline" size="sm">
+                  <Send size={20} /> 메세지
+                </Button>
+                <Button className="rounded-full" variant="outline" size="sm">
+                  팔로우
+                </Button>
+              </>
             )}
           </div>
         </div>
@@ -51,7 +66,7 @@ export const ProfileTopSection = ({ userProfile, isSelf }: ProfileTopSectionProp
           <p className="text-sm text-gray-400">@{data.username}</p>
         </div>
         <div className="p-4 mb-4 border-b border-gray-200">
-          {!isSelf && <SubscribeModal userProfile={userProfile} />}
+          {!isSelf && <SubscribeModal userProfile={data} />}
         </div>
       </div>
     </div>

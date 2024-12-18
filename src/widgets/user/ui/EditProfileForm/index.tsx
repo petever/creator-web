@@ -13,7 +13,7 @@ import ProfilePicture from '@/features/users/ui/ProfilePicture'
 import { Editor } from '@/shared/ui/Editor'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import {WithDrawModal} from "@/features";
+import { WithDrawModal } from '@/features'
 
 interface EditProfileFormProps {
   userProfile: UserProfile
@@ -35,7 +35,7 @@ export const EditProfileForm = ({ userProfile }: EditProfileFormProps) => {
     resolver: zodResolver(schema),
     defaultValues: {
       picture: data?.picture || '',
-      cover: data?.cover || '',
+      cover: data?.cover || '/assets/banner.png',
       displayName: data?.displayName || '',
       username: data?.username || '',
       description: data?.description || '',
