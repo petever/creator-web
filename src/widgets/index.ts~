@@ -1,3 +1,5 @@
 export { CommentArea } from './CommentArea/ui'
 export { Post } from './Post/ui'
-export { SubscribedModal } from './subscribe/ui/SubscribeModal'
+export { SubscribeModal } from './subscribe/ui/SubscribeModal'
+export { Message } from './message/ui/Message'
+export { Chat } from './message/ui/Chat'

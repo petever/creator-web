@@ -1,3 +1,5 @@
+'use client'
+
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { MUTATION_KEY } from '@/shared/constants/mutaionKey'
 import { useToast } from '@/shared/hooks/use-toast'
