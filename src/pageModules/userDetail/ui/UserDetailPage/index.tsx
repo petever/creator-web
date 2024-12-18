@@ -1,9 +1,10 @@
 import ContentTabs from '@/pageModules/userDetail/ui/ContentTabs'
 import { ProfileTopSection } from '@/features/users/ui/ProfileTopSection'
-import SubscribeButton from '@/features/users/ui/SubscribeButton'
 import { getServerFeeds } from '@/entities/feeds/api/getServerFeeds'
 import { auth } from '@/auth'
 import { getUser } from '@/entities/user/api/getUser'
+import React from 'react'
+import { BorderLayout } from '@/app/layouts/BorderLayout'
 
 interface UserDetailPageProps {
   params: {
@@ -19,14 +20,11 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
   const isSelf = session?.user?.id === userProfile.id
 
   return (
-    <div className="flex justify-center flex-1 md:p-0">
-      <div className="w-full md:max-w-screen-sm">
-        <ProfileTopSection
-          userProfile={userProfile}
-          render={<SubscribeButton isSelf={isSelf} userProfile={userProfile} />}
-        />
+    <div className="w-full md:max-w-screen-sm">
+      <BorderLayout>
+        <ProfileTopSection userProfile={userProfile} isSelf={isSelf} />
         <ContentTabs initialFeeds={initialFeeds} username={username} />
-      </div>
+      </BorderLayout>
     </div>
   )
 }

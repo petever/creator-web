@@ -4,10 +4,16 @@ import Image from 'next/image'
 import { MoreMediaUpload } from '@/features/PreviewList/ui/MoreMediaUpload'
 import { VideoPlayer } from '@/shared'
 import { useFormContext } from 'react-hook-form'
-import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/shared/ui/carousel";
-import {ContentFile} from "@/widgets/AddContentModal/types";
-import { type CarouselApi } from "@/components/ui/carousel"
-import {useEffect, useState} from "react";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/shared/ui/carousel'
+import { ContentFile } from '@/widgets/AddContentModal/types'
+import { useEffect, useState } from 'react'
 
 interface PreviewListProps {
   onRemoveImage: (index: number) => void
@@ -19,7 +25,6 @@ const PreviewList = ({ onRemoveImage }: PreviewListProps) => {
   const { currentFileType, currentFile, files } = getValues()
   const [api, setApi] = useState<CarouselApi>()
 
-
   const isVideo = currentFileType === 'video'
 
   useEffect(() => {
@@ -29,7 +34,7 @@ const PreviewList = ({ onRemoveImage }: PreviewListProps) => {
 
     setValue('currentIndex', api.selectedScrollSnap())
 
-    api.on("select", () => {
+    api.on('select', () => {
       setValue('currentIndex', api.selectedScrollSnap())
     })
   }, [api])
@@ -40,16 +45,11 @@ const PreviewList = ({ onRemoveImage }: PreviewListProps) => {
     <div className="relative">
       <Carousel setApi={setApi}>
         <CarouselContent>
-          {files?.map((file : ContentFile, index : number) => {
+          {files?.map((file: ContentFile, index: number) => {
             return (
               <CarouselItem key={`content_${index}`}>
                 {!isVideo ? (
-                  <Image
-                    src={file.url!}
-                    alt=""
-                    width={600}
-                    height={600}
-                  />
+                  <Image src={file.url!} alt="" width={600} height={600} />
                 ) : (
                   <VideoPlayer src={file.url!} isControl />
                 )}
@@ -60,9 +60,7 @@ const PreviewList = ({ onRemoveImage }: PreviewListProps) => {
         <CarouselPrevious className="left-6" />
         <CarouselNext className="right-6" />
       </Carousel>
-      <MoreMediaUpload
-        onRemoveImage={onRemoveImage}
-      />
+      <MoreMediaUpload onRemoveImage={onRemoveImage} />
     </div>
   )
 }

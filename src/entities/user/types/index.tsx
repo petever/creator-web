@@ -6,6 +6,9 @@ export interface UserProfile {
   picture: string | File
   role: string
   cover: string | File
-  isSubscribed?: boolean
+  subscribed?: {
+    isSubscribed: boolean
+    planId: string
+  }
   description?: string
 }

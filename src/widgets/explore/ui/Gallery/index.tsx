@@ -3,7 +3,6 @@
 import React, { useEffect, useMemo } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { useSearchTrends } from '@/entities/explore/hooks/useSearchTrends'
-import { BASE_URL } from '@/shared/constants/apiURL'
 
 interface GalleryProps {
   initialData: any
@@ -50,14 +49,14 @@ const Gallery = ({ initialData }: GalleryProps) => {
               <div className={`relative pb-[calc(200%+2px)]`}>
                 {isVideo ? (
                   <video
-                    src={`${BASE_URL}${group[0].resource?.filePath}`}
+                    src={group[0].resource?.filePath}
                     controls
                     height="100%"
                     className="w-full h-full object-cover absolute top-0 left-0"
                   />
                 ) : (
                   <img
-                    src={`${BASE_URL}${group[0]?.resource?.filePath}`}
+                    src={group[0]?.resource?.filePath}
                     alt={`더미 이미지 ${group[0]?.id}`}
                     className="w-full h-full object-cover absolute top-0 left-0"
                     width={'100%'}
@@ -67,6 +66,7 @@ const Gallery = ({ initialData }: GalleryProps) => {
               </div>
             </div>
             {group.slice(1).map((content: any) => {
+              console.log(content, 'content')
               const isVideo = content?.resource?.mimeType === 'VIDEO'
               return (
                 <div
@@ -75,13 +75,13 @@ const Gallery = ({ initialData }: GalleryProps) => {
                 >
                   {isVideo ? (
                     <video
-                      src={`${BASE_URL}${content.resource?.filePath}`}
+                      src={content.resource?.filePath}
                       controls
                       className="w-full h-full object-cover"
                     />
                   ) : (
                     <img
-                      src={`${BASE_URL}${content.resource?.filePath}`}
+                      src={content.resource?.filePath}
                       alt={`더미 이미지 ${content.id}`}
                       className="w-full h-full object-cover"
                     />

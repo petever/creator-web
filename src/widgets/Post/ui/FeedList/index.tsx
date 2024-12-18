@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { FeedResponse } from '@/entities/feeds/types'
 import { useInView } from 'react-intersection-observer'
 import useFeeds from '@/entities/feeds/hooks/useFeeds'
@@ -29,11 +29,14 @@ const FeedList = ({ initialFeeds, username, viewType = 'row' }: FeedListProps) =
     fetchMore()
   }, [inView, hasNextPage])
 
-  const postListStyle = viewType === 'row' ? 'flex flex-col items-center w-full md:w-[600px] md:p-0 md:mt-0' : 'grid grid-cols-3 w-full'
+  const postListStyle =
+    viewType === 'row'
+      ? 'flex flex-col items-center w-full md:w-[640px] md:p-0 md:mt-0'
+      : 'grid grid-cols-3 w-full'
 
   if (postings.length === 0) {
     return (
-      <div className="flex flex-col pt-5 pb-5 justify-center items-center w-screen md:w-[600px]">
+      <div className="flex flex-col pt-5 pb-5 justify-center items-center w-screen md:w-[640px]">
         <StickyNote />
         등록된 콘텐츠가 없습니다.
       </div>
@@ -43,7 +46,7 @@ const FeedList = ({ initialFeeds, username, viewType = 'row' }: FeedListProps) =
   return (
     <div className={postListStyle}>
       {postings.map((posting) => (
-        <Post key={posting.id} feed={posting} username={username} viewType={viewType}/>
+        <Post key={posting.id} feed={posting} username={username} viewType={viewType} />
       ))}
       <div ref={ref}></div>
     </div>
