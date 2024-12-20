@@ -5,20 +5,19 @@ import { FeedContents } from '@/entities/feeds/types'
 import { LkeList } from '@/shared/LikeList/ui'
 import { FeedContent } from '@/entities/feeds/ui'
 import { FeedMedia } from '@/entities/feeds/ui/FeedMedia'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { Card } from '@/shared/ui/card'
 
 interface PostProps {
   feed: FeedContents
   username?: string
-  viewType ?: 'row' | 'grid'
-
+  viewType?: 'row' | 'grid'
 }
 
 export const Post = ({ feed, username, viewType = 'row' }: PostProps) => {
-  const [isPrivate, setIsPrivate] = useState(false)
-
   const [feedOpened, setFeedOpened] = useState(false)
+
+  const isNotSubscribed = feed.postStatus === 'SUBSCRIBED'
 
   const handleDetailOpen = () => {
     setFeedOpened(true)
@@ -39,15 +38,19 @@ export const Post = ({ feed, username, viewType = 'row' }: PostProps) => {
             <FeedContent contents={feed.contents} />
           </>
         )}
-        {!isPrivate && (
+        {!isNotSubscribed && (
           <>
-            <FeedMedia feedId={feed.id} resources={feed.resources} viewType={viewType}/>
-            <FeedButtons feed={feed} onDetailModal={handleDetailOpen} username={username}
-             viewType={viewType}/>
+            <FeedMedia feedId={feed.id} resources={feed.resources} viewType={viewType} />
+            <FeedButtons
+              feed={feed}
+              onDetailModal={handleDetailOpen}
+              username={username}
+              viewType={viewType}
+            />
             <LkeList id={feed.id} likeCount={likeCount} />
           </>
         )}
-        <PostingLSubscribeLocker isPrivate={isPrivate} />
+        <PostingLSubscribeLocker isNotSubscribed={isNotSubscribed} />
       </Card>
     </div>
   )

@@ -26,7 +26,7 @@ export interface FeedContents extends PostItem {
   contents: string
   isLiked: boolean
   isLikeCount: number
-  isSubscribed: boolean
+  postStatus: 'PUBLIC' | 'SUBSCRIBED' | 'PRIVATE' | 'BLOCK' | 'DELETED'
   commentCount: number
   createdAt: Date
   updatedAt: Date

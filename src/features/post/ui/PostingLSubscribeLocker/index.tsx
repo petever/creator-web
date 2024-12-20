@@ -2,11 +2,11 @@ import { Button } from '@/shared/ui/button'
 import { Lock } from 'lucide-react'
 
 interface PostingLSubscribeLockerProps {
-  isPrivate: boolean
+  isNotSubscribed: boolean
 }
 
-export const PostingLSubscribeLocker = ({ isPrivate }: PostingLSubscribeLockerProps) => {
-  if (!isPrivate) return null
+export const PostingLSubscribeLocker = ({ isNotSubscribed }: PostingLSubscribeLockerProps) => {
+  if (!isNotSubscribed) return null
   return (
     <div className="flex flex-col justify-center items-center p-2 h-[400px] gap-10 bg-gray-100">
       <div className="flex justify-center gap-5">
