@@ -1,12 +1,21 @@
 import { useFormContext } from 'react-hook-form'
 import { Button } from '@/shared/ui/button'
+import {SubscribePlan} from "@/entities/subscribe/types";
 
-export const AddContentFooter = () => {
+interface AddContentFooterProps {
+  plans ?: SubscribePlan[]
+}
+
+
+export const AddContentFooter = ({plans} : AddContentFooterProps) => {
   const method = useFormContext()
   const { getValues } = method
-  const { title, contents } = getValues()
+  const { contents } = getValues()
 
   const isDisabledSaveButton = !contents
+
+  if(!plans || plans.length === 0) return null
+  }
 
   return (
     <Button type="submit" disabled={isDisabledSaveButton} className='w-full mt-4'>

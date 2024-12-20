@@ -11,9 +11,10 @@ export const useAddSubscribePlan = () => {
     mutationFn: (plan: AddSubscribePlan) => addSubscriberPlans(plan),
     onSuccess: () => {
       const queryKeys = [QUERY_KEY.SUBSCRIBE_PLANS, QUERY_KEY.SUBSCRIBE_PLANS]
-      return queryKeys.forEach((item) => {
+      queryKeys.forEach((item) => {
         queryClient.invalidateQueries({ queryKey: [item] })
       })
+      return queryClient.invalidateQueries({ queryKey: [QUERY_KEY.SUBSCRIBE_PLANS] })
     },
   })
 

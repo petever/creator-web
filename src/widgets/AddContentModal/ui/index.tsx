@@ -9,9 +9,13 @@ import { useIsMobile } from '@/shared/hooks/use-mobile'
 import { useEffect } from 'react'
 import { Button } from '@/shared/ui/button'
 import { Plus, SquarePlus } from 'lucide-react'
+import {useSubscribePlans} from "@/entities/subscribe/hooks/useSubscribePlans";
+import {useSession} from "next-auth/react";
 
 const AddContentModal = () => {
+  const session = useSession()
   const isMobile = useIsMobile()
+  const { data: plans } = useSubscribePlans(session.data?.user?.id)
 
   const { isOpen, onToggle, onClose } = useDisclosure()
 
@@ -47,12 +51,13 @@ const AddContentModal = () => {
           <form onSubmit={handleSubmit(handleSubmitContentData)}>
             <div className="overflow-y-auto max-h-[calc(100vh-200px)] mb:h-[calc(80vh-210px)]">
               <ContentUpload
+                plans={plans}
                 onRemoveImage={handleRemoveImage}
                 onDropImage={handleDropImages}
               />
-              <ContentForm />
+              <ContentForm plans={plans}/>
             </div>
-            <AddContentFooter />
+            <AddContentFooter plans={plans}/>
           </form>
         </FormProvider>
       </DialogContent>

@@ -8,13 +8,17 @@ import { useSubscribePlans } from '@/entities/subscribe/hooks/useSubscribePlans'
 import { useSession } from 'next-auth/react'
 import { Switch } from '@/shared/ui/switch'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/ui/select'
+import {SubscribePlan} from "@/entities/subscribe/types";
 
-export const ContentForm = () => {
-  const session = useSession()
-  const { data: plans } = useSubscribePlans(session.data?.user?.id)
+interface ContentFormProps {
+  plans ?: SubscribePlan[]
+}
 
+export const ContentForm = ({plans} : ContentFormProps) => {
   const methods = useFormContext<AddContentData>()
   const { control, watch } = methods
+
+  if(!plans || plans.length === 0) return null
 
   return (
     <div className="flex flex-1 flex-col gap-5 mt-4">

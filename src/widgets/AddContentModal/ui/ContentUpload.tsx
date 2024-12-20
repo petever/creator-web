@@ -7,13 +7,16 @@ import { DropzoneRef } from '@/widgets/AddContentModal/types'
 import {ImagePlay, ImageUp, Loader} from 'lucide-react'
 import {Button} from "@/shared/ui/button";
 import {DropzoneStatus} from "@/widgets/AddContentModal/ui/DropzoneStatus";
+import {SubscribePlan} from "@/entities/subscribe/types";
+import AddSubscribePlan from "@/features/subscribe/ui/AddSubscribePlan";
 
 interface ContentUploadProps {
+  plans ?: SubscribePlan[]
   onDropImage: (uploadFiles: File[]) => void
   onRemoveImage: (index: number) => void
 }
 
-const ContentUpload = ({ onDropImage, onRemoveImage }: ContentUploadProps) => {
+const ContentUpload = ({ plans, onDropImage, onRemoveImage }: ContentUploadProps) => {
   const methods = useFormContext()
   const { getValues, watch } = methods
   const isLoading = watch('isLoading')
@@ -38,6 +41,15 @@ const ContentUpload = ({ onDropImage, onRemoveImage }: ContentUploadProps) => {
     bg-slate-200 
     cursor-pointer
     `
+
+  if(!plans || plans.length === 0) {
+    return (
+      <div className='flex flex-col items-center gap-4'>
+        플랜을 추가해야 콘텐츠 등록이 가능합니다.
+        <AddSubscribePlan/>
+      </div>
+    )
+  }
 
   if (step > 0) return null
 
