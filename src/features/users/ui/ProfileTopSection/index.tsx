@@ -2,13 +2,14 @@
 
 import { UserProfile } from '@/entities/user/types'
 import { useUser } from '@/entities/user/hooks/useUser'
-import Image from 'next/image'
 import React from 'react'
 import { SubscribeModal } from '@/widgets'
+import Image from 'next/image'
+import { Button } from '@/shared/ui/button'
+import { Send, User } from 'lucide-react'
 import Link from 'next/link'
 import { PAGE } from '@/shared/constants/page'
-import { Button } from '@/shared/ui/button'
-import { Send } from 'lucide-react'
+import parse from 'html-react-parser'
 
 interface ProfileTopSectionProps {
   userProfile?: UserProfile
@@ -17,7 +18,6 @@ interface ProfileTopSectionProps {
 
 export const ProfileTopSection = ({ userProfile, isSelf }: ProfileTopSectionProps) => {
   const { data } = useUser(userProfile)
-  console.log(data, 'data')
 
   if (!data) return null
 
@@ -33,14 +33,21 @@ export const ProfileTopSection = ({ userProfile, isSelf }: ProfileTopSectionProp
       </div>
       <div>
         <div className="flex items-center justify-between px-4">
-          <Image
-            src={data.picture as string}
-            alt={data.username}
-            className="relative z-20 rounded-full w-20 h-20 -mt-10"
-            width={60}
-            height={60}
-            style={{ objectFit: 'cover' }}
-          />
+          {!data.picture ? (
+            <div className="relative flex justify-center items-center z-20 rounded-full w-20 h-20 -mt-10 bg-gray-300">
+              <User size={40} />
+            </div>
+          ) : (
+            <Image
+              src={data.picture as string}
+              alt={data.username}
+              className="relative z-20 rounded-full w-20 h-20 -mt-10"
+              width={60}
+              height={60}
+              style={{ objectFit: 'cover' }}
+            />
+          )}
+
           <div className="flex gap-2 items-center justify-end pt-2">
             {isSelf && (
               <Link href={PAGE.SETTINGS_PROFILE}>
@@ -65,6 +72,7 @@ export const ProfileTopSection = ({ userProfile, isSelf }: ProfileTopSectionProp
           <p className="text-xl font-medium">{data.displayName}</p>
           <p className="text-sm text-gray-400">@{data.username}</p>
         </div>
+        {data?.description && parse(data.description)}
         <div className="p-4 mb-4 border-b border-gray-200">
           {!isSelf && <SubscribeModal userProfile={data} />}
         </div>

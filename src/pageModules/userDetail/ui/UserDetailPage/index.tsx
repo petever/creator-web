@@ -20,7 +20,7 @@ const UserDetailPage = async ({ params }: UserDetailPageProps) => {
   const isSelf = session?.user?.id === userProfile.id
 
   return (
-    <div className="w-full md:max-w-screen-sm">
+    <div className="w-full h-full md:max-w-screen-sm">
       <BorderLayout>
         <ProfileTopSection userProfile={userProfile} isSelf={isSelf} />
         <ContentTabs initialFeeds={initialFeeds} username={username} />

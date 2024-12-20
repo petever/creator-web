@@ -1,9 +1,8 @@
-import { useEffect } from 'react'
 import { useFieldArray, useForm } from 'react-hook-form'
 import { ImageOptimizeData } from '@/entities/ImageUpload/types'
 import { useCreatePosts } from '@/widgets/AddContentModal/hooks/useCreatePosts'
 import ky from '@toss/ky'
-import {AddContentData} from "@/widgets/AddContentModal/types";
+import { AddContentData } from '@/widgets/AddContentModal/types'
 
 export const useContentModal = (onClose: () => void) => {
   const methods = useForm<AddContentData>({
@@ -15,7 +14,8 @@ export const useContentModal = (onClose: () => void) => {
       contents: '',
       files: [],
       isLoading: false,
-      isSubscribed: 'all',
+      isPublic: false,
+      planId: '',
     },
   })
 
@@ -32,7 +32,7 @@ export const useContentModal = (onClose: () => void) => {
     move: filesMove,
     insert: filesInsert,
   } = useFieldArray({
-    control : methods.control,
+    control: methods.control,
     name: 'files',
   })
 
@@ -59,10 +59,10 @@ export const useContentModal = (onClose: () => void) => {
 
     files.forEach((file) => {
       filesAppend({
-        name : file.name,
-        type : file.type,
-        file : file,
-        url : URL.createObjectURL(file)
+        name: file.name,
+        type: file.type,
+        file: file,
+        url: URL.createObjectURL(file),
       })
     })
 
@@ -113,9 +113,10 @@ export const useContentModal = (onClose: () => void) => {
     setValue('currentFile', url)
   }
 
-  const handleSubmitContentData = (values: Pick<AddContentData, 'title' | 'contents' | 'files' | 'isSubscribed'>) => {
-    const { title, contents, files } = values
-
+  const handleSubmitContentData = (
+    values: Pick<AddContentData, 'title' | 'contents' | 'files' | 'isPublic' | 'planId'>,
+  ) => {
+    const { title, contents, files, planId, isPublic } = values
     const formData = new FormData()
     formData.append(
       'postRequest',
@@ -124,7 +125,8 @@ export const useContentModal = (onClose: () => void) => {
           JSON.stringify({
             title,
             contents,
-            isSubscribed: values.isSubscribed !== 'false',
+            isPublic: isPublic ? 'PUBLIC' : 'SUBSCRIBED',
+            planId: isPublic ? null : planId,
           }),
         ],
         { type: 'application/json' },

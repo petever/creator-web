@@ -14,7 +14,7 @@ export function CommonLayout({ children }: SidebarLayoutProps) {
       <SidebarProvider>
         <div className="w-full h-[calc(100vh-100px)] md:h-screen overflow-hidden overflow-y-auto  mx-auto md:py-0 md:flex justify-center">
           <AppSidebar />
-          <div className="w-full max-w-screen-md">{children}</div>
+          <div className="w-full h-full max-w-screen-md">{children}</div>
         </div>
       </SidebarProvider>
       <BottomNavigation />

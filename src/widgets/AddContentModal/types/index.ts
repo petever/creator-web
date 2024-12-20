@@ -1,8 +1,8 @@
-export interface  ContentFile {
-  name : string,
-  type : string,
-  file : File,
-  url ?: string
+export interface ContentFile {
+  name: string
+  type: string
+  file: File
+  url?: string
 }
 
 export interface AddContentData {
@@ -12,10 +12,11 @@ export interface AddContentData {
   currentIndex: number
   title: string
   contents: string
-  files: { name : string, type : string, file : File, url ?: string}[]
+  files: { name: string; type: string; file: File; url?: string }[]
   isPreview: boolean
-  isLoading : boolean
-  isSubscribed: string
+  isLoading: boolean
+  isPublic: boolean
+  planId: string
 }
 
 export type DropzoneRef = {

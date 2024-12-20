@@ -10,5 +10,5 @@ export interface UserProfile {
     isSubscribed: boolean
     planId: string
   }
-  description?: string
+  description?: string | null
 }
