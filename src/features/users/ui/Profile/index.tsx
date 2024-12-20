@@ -1,5 +1,5 @@
 import { UserProfile } from '@/entities/user/types'
-import { Avatar } from '@/shared/ui/avatar'
+import { Avatar, AvatarImage } from '@/shared/ui/avatar'
 import { User } from 'lucide-react'
 
 interface ProfileProps {
@@ -17,7 +17,9 @@ export const Profile = ({ profile }: ProfileProps) => {
             <User />
           </div>
         ) : (
-          <Avatar>{/*<AvatarImage src={profile.picture as string} />*/}</Avatar>
+          <Avatar>
+            <AvatarImage src={profile.picture as string} />
+          </Avatar>
         )}
         <div className="flex-1">
           <p className="truncate w-full font-medium">{profile.displayName}</p>
