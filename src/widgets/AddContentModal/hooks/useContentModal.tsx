@@ -125,7 +125,7 @@ export const useContentModal = (onClose: () => void) => {
           JSON.stringify({
             title,
             contents,
-            isPublic: isPublic ? 'PUBLIC' : 'SUBSCRIBED',
+            status: isPublic ? 'PUBLIC' : 'SUBSCRIBED',
             planId: isPublic ? null : planId,
           }),
         ],
