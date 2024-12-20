@@ -5,7 +5,7 @@ import Placeholder from '@tiptap/extension-placeholder'
 import Link from '@tiptap/extension-link'
 
 interface EditorProps {
-  value?: string
+  value?: string | null
   onChange?: (html: string) => void
   height?: string
   placeholder?: string
