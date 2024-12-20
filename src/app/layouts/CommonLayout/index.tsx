@@ -9,7 +9,7 @@ interface SidebarLayoutProps {
 
 export function CommonLayout({ children }: SidebarLayoutProps) {
   return (
-    <div>
+    <div className="pb-11">
       <HeaderNavigation />
       <SidebarProvider>
         <div className="w-full h-[calc(100vh-100px)] md:h-screen overflow-hidden overflow-y-auto  mx-auto md:py-0 md:flex justify-center">
