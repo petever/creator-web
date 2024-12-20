@@ -7,7 +7,7 @@ export interface UserProfile {
   role: string
   cover: string | File
   subscribed?: {
-    postStatus: 'PUBLIC' | 'SUBSCRIBED' | 'PRIVATE' | 'BLOCK' | 'DELETED'
+    isSubscribed: boolean
     planId: string
   }
   description?: string | null
