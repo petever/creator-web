@@ -1,5 +1,0 @@
-import MessagePage from "@/pageModules/message/MessagePage";
-
-export default async function Message( ) {
-  return <MessagePage/>
-}
