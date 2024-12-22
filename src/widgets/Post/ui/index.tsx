@@ -17,8 +17,6 @@ interface PostProps {
 export const Post = ({ feed, username, viewType = 'row' }: PostProps) => {
   const [feedOpened, setFeedOpened] = useState(false)
 
-  const isNotSubscribed = feed.postStatus === 'SUBSCRIBED'
-
   const handleDetailOpen = () => {
     setFeedOpened(true)
   }
@@ -29,6 +27,7 @@ export const Post = ({ feed, username, viewType = 'row' }: PostProps) => {
 
   const postStyle = viewType === 'row' ? 'w-full mb-4 pb-4 border-gray-300' : ''
 
+  const isPrivate = !feed.isAuthorizedToView && feed.postStatus !== 'PUBLIC'
   return (
     <div className={postStyle}>
       <Card className="border-none shadow-none rounded-none">
@@ -38,7 +37,7 @@ export const Post = ({ feed, username, viewType = 'row' }: PostProps) => {
             <FeedContent contents={feed.contents} />
           </>
         )}
-        {!isNotSubscribed && (
+        {!isPrivate && (
           <>
             <FeedMedia feedId={feed.id} resources={feed.resources} viewType={viewType} />
             <FeedButtons
@@ -50,7 +49,7 @@ export const Post = ({ feed, username, viewType = 'row' }: PostProps) => {
             <LkeList id={feed.id} likeCount={likeCount} />
           </>
         )}
-        <PostingLSubscribeLocker isNotSubscribed={isNotSubscribed} />
+        <PostingLSubscribeLocker isAuthorizedToView={isPrivate} />
       </Card>
     </div>
   )

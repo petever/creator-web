@@ -9,7 +9,10 @@ export const useCreatorSubscribe = (userId?: string) => {
     mutationKey: [MUTATION_KEY.CREATOR_SUBSCRIBE, userId],
     mutationFn: (planId: string) => creatorSubscribe(planId),
     onSuccess: () => {
-      return queryClient.invalidateQueries({ queryKey: [QUERY_KEY.USERS_USER, userId] })
+      const keys = [QUERY_KEY.USERS_USER, userId, QUERY_KEY.FEEDS]
+      keys.forEach((key) => {
+        return queryClient.invalidateQueries({ queryKey: [key] })
+      })
     },
   })
 

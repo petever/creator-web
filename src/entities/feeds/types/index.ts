@@ -30,6 +30,7 @@ export interface FeedContents extends PostItem {
   commentCount: number
   createdAt: Date
   updatedAt: Date
+  isAuthorizedToView: boolean
   resources: Resource[]
 }
 

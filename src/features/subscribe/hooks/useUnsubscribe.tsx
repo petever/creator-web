@@ -9,8 +9,9 @@ export const useUnsubscribe = (userId?: string) => {
     mutationKey: [MUTATION_KEY.UNSUBSCRIBE],
     mutationFn: (id: string) => unsubscribe(id),
     onSuccess: () => {
-      return queryClient.invalidateQueries({
-        queryKey: [QUERY_KEY.USERS_USER, userId],
+      const keys = [QUERY_KEY.USERS_USER, userId, QUERY_KEY.FEEDS]
+      keys.forEach((key) => {
+        return queryClient.invalidateQueries({ queryKey: [key] })
       })
     },
   })
