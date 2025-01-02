@@ -18,7 +18,7 @@ export const Profile = ({ profile }: ProfileProps) => {
           </div>
         ) : (
           <Avatar>
-            <AvatarImage src={profile.picture as string} />
+            <AvatarImage src={profile.picture as string} width={60} height={60} />
           </Avatar>
         )}
         <div className="flex-1">

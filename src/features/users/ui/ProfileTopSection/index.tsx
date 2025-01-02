@@ -10,16 +10,20 @@ import { Send, User } from 'lucide-react'
 import Link from 'next/link'
 import { PAGE } from '@/shared/constants/page'
 import parse from 'html-react-parser'
+import { useFollow } from '@/features/users/hooks/useFollow'
 
 interface ProfileTopSectionProps {
-  userProfile?: UserProfile
+  userProfile: UserProfile
   isSelf: boolean
 }
 
 export const ProfileTopSection = ({ userProfile, isSelf }: ProfileTopSectionProps) => {
   const { data } = useUser(userProfile)
+  const { followMutate } = useFollow(userProfile?.id)
 
   if (!data) return null
+
+  const handleFollow = () => followMutate()
 
   return (
     <div className="relative">
@@ -61,7 +65,13 @@ export const ProfileTopSection = ({ userProfile, isSelf }: ProfileTopSectionProp
                 <Button className="rounded-full" variant="outline" size="sm">
                   <Send size={20} /> 메세지
                 </Button>
-                <Button className="rounded-full" variant="outline" size="sm">
+                <Button
+                  type="button"
+                  className="rounded-full"
+                  variant="outline"
+                  size="sm"
+                  onClick={handleFollow}
+                >
                   팔로우
                 </Button>
               </>

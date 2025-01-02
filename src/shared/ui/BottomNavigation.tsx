@@ -10,7 +10,7 @@ export const BottomNavigation = () => {
   if (!isMobile) return null
 
   return (
-    <div className="fixed bg-white bottom-0 flex items-center justify-between  px-4 py-3 border-t">
+    <div className="fixed w-full bg-white bottom-0 flex items-center justify-between  px-4 py-3 border-t">
       <Link href={PAGE.HOME}>
         <Home size={28} />
       </Link>
