@@ -31,7 +31,7 @@ export const FeedContent = ({ contents }: FeedContentProps) => {
               className={`max-h-14 px-3 text-ellipsis  ${!isExpanded ? `line-clamp-2` : `max-h-fit`}`}
               ref={contentsRef}
             >
-              <div className="py-1">{parse(contents)}</div>
+              <div className="break-all py-1">{parse(contents)}</div>
             </div>
             <ContentExpandButton
               isExpandButton={isExpandButton}

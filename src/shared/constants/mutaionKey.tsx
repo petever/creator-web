@@ -6,6 +6,7 @@ export const MUTATION_KEY = {
   UPDATE_PROFILE: 'updateProfile',
   UPDATE_LIKE_POSTING: 'updateLikePosting',
   FOLLOW: 'follow',
+  UNFOLLOW: 'unfollow',
   //SUBSCRIBE
   ADD_SUBSCRIBE_PLAN: 'addSubscribePlan',
   DELETE_SUBSCRIBE_PLAN: 'deleteSubscribePlan',

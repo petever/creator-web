@@ -5,6 +5,7 @@ interface ContentExpandButtonProps {
   isExpandButton: boolean
   onExpandedChange: () => void
 }
+
 export const ContentExpandButton = ({
   isExpanded,
   isExpandButton,
@@ -13,14 +14,13 @@ export const ContentExpandButton = ({
   if (!isExpandButton) return null
 
   return (
-    <div className="text-right">
+    <div className="px-3">
       <Button
-        size="sm"
         variant="ghost"
-        className="p-0 hover:bg-transparent"
+        className="p-0 hover:bg-transparent text-gray-400"
         onClick={onExpandedChange}
       >
-        {!isExpanded ? '펼치기' : '접기'}
+        {!isExpanded ? '...더보기' : '접기'}
       </Button>
     </div>
   )

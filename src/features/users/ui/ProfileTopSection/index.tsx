@@ -19,6 +19,7 @@ interface ProfileTopSectionProps {
 
 export const ProfileTopSection = ({ userProfile, isSelf }: ProfileTopSectionProps) => {
   const { data } = useUser(userProfile)
+  console.log(data, 'data')
   const { followMutate } = useFollow(userProfile?.id)
 
   if (!data) return null

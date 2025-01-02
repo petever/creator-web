@@ -43,17 +43,18 @@ export const {
         if (token?.exp < currentTime) {
           try {
             const result = await reissue(token.refreshToken as string)
+            console.log(result, 'result')
             return {
               ...token,
               accessToken: result.accessToken,
               refreshToken: result.refreshToken,
             }
           } catch (error) {
-            console.log(error)
+            console.error(error)
           }
         }
       }
-      
+
       return token
     },
     async session({ session, token }) {
