@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth'
 import authConfig from '@/auth.config'
 import { login } from '@/features/users/api/login'
+import { reissue } from '@/entities/user/api/reissue'
 
 export const {
   handlers: { GET, POST },
@@ -38,20 +39,21 @@ export const {
         token.accessToken = user.accessToken
         token.refreshToken = user.refreshToken
       }
-
-      // if (currentTime > token?.exp) {
-      //   try {
-      //     const result = await reissue(token.refreshToken)
-      //     return {
-      //       ...token,
-      //       accessToken: result.accessToken,
-      //       refreshToken: result.refreshToken,
-      //     }
-      //   } catch (error) {
-      //     console.log(error)
-      //   }
-      // }
-
+      if (token?.exp) {
+        if (token?.exp < currentTime) {
+          try {
+            const result = await reissue(token.refreshToken as string)
+            return {
+              ...token,
+              accessToken: result.accessToken,
+              refreshToken: result.refreshToken,
+            }
+          } catch (error) {
+            console.log(error)
+          }
+        }
+      }
+      
       return token
     },
     async session({ session, token }) {
