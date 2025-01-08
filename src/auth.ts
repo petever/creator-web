@@ -15,6 +15,8 @@ export const {
   },
   callbacks: {
     async signIn({ user, account, profile }) {
+      console.log(user, account, profile, 'user, account, profile ')
+      //google
       const payload = {
         socialId: profile?.sub as string,
         username: user.name,
@@ -24,7 +26,7 @@ export const {
         socialType: 'GOOGLE',
       }
 
-      const data = await login(payload)
+      const data = await login(payload) //api
       user.id = data.id
       user.accessToken = data.accessToken
       user.refreshToken = data.refreshToken
@@ -53,7 +55,7 @@ export const {
           }
         }
       }
-      
+
       return token
     },
     async session({ session, token }) {
